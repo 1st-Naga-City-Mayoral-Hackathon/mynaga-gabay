@@ -1,0 +1,65 @@
+{
+    "commonQuestions": [
+        {
+            "bikol": "Saen an pinakahararaning ospital?",
+            "filipino": "Saan ang pinakamalapit na ospital?",
+            "english": "Where is the nearest hospital?",
+            "suggestedResponse": "An Bicol Medical Center yaon sa Concepcion Grande. An Naga City Hospital yaon sa Peñafrancia Avenue."
+        },
+        {
+            "bikol": "Arog kamo mabukas?",
+            "filipino": "Anong oras kayo magbubukas?",
+            "english": "What time do you open?",
+            "context": "For health centers"
+        },
+        {
+            "bikol": "Magkano an konsulta?",
+            "filipino": "Magkano ang konsulta?",
+            "english": "How much is the consultation?",
+            "context": "Asking about fees"
+        },
+        {
+            "bikol": "Kaipuhan ko nin reseta?",
+            "filipino": "Kailangan ko ba ng reseta?",
+            "english": "Do I need a prescription?",
+            "context": "Pharmacy"
+        },
+        {
+            "bikol": "Ano an side effects kaini na bulong?",
+            "filipino": "Ano ang side effects ng gamot na ito?",
+            "english": "What are the side effects of this medicine?",
+            "context": "Medication questions"
+        },
+        {
+            "bikol": "Pwede ko ini inumon kun bados ako?",
+            "filipino": "Pwede ko ba itong inumin kung buntis ako?",
+            "english": "Can I take this if I'm pregnant?",
+            "context": "Medication safety"
+        },
+        {
+            "bikol": "Covered ba ini sa PhilHealth?",
+            "filipino": "Covered ba ito sa PhilHealth?",
+            "english": "Is this covered by PhilHealth?",
+            "context": "Insurance"
+        },
+        {
+            "bikol": "Kaipuhan ko makahiling nin doktor?",
+            "filipino": "Kailangan ko bang magpakonsulta sa doktor?",
+            "english": "Do I need to see a doctor?",
+            "context": "Health advice"
+        },
+        {
+            "bikol": "Ano an dapat kong gibuhon para sa kalintura?",
+            "filipino": "Ano ang dapat kong gawin para sa lagnat?",
+            "english": "What should I do for a fever?",
+            "suggestedResponse": "Pag may kalintura, magpahuway, mag-inom nin dakul na tubig, asin pwede ka mag-inom nin Paracetamol. Kun mayo pagbabago pagkatapos nin 3 aldaw, magpakonsulta sa doktor."
+        },
+        {
+            "bikol": "May libre daw na bakuna?",
+            "filipino": "May libreng bakuna ba?",
+            "english": "Are there free vaccines?",
+            "suggestedResponse": "Iyo, an City Health Office may libreng bakuna para sa mga aki asin adulto. Mag-adto sa pinakahararaning barangay health center."
+        }
+    ],
+    "notes": "Common health-related questions with Bikol translations. Expand this list based on actual user queries."
+}

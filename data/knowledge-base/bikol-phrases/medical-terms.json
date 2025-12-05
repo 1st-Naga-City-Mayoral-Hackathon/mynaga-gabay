@@ -1,0 +1,105 @@
+{
+    "medicalTerms": [
+        {
+            "bikol": "Kulog nin payo",
+            "filipino": "Sakit ng ulo",
+            "english": "Headache",
+            "category": "Symptoms"
+        },
+        {
+            "bikol": "Kalintura",
+            "filipino": "Lagnat",
+            "english": "Fever",
+            "category": "Symptoms"
+        },
+        {
+            "bikol": "Sipon",
+            "filipino": "Sipon",
+            "english": "Cold / Runny nose",
+            "category": "Symptoms"
+        },
+        {
+            "bikol": "Ubo",
+            "filipino": "Ubo",
+            "english": "Cough",
+            "category": "Symptoms"
+        },
+        {
+            "bikol": "Kulog nin tulak",
+            "filipino": "Sakit ng tiyan",
+            "english": "Stomach ache",
+            "category": "Symptoms"
+        },
+        {
+            "bikol": "Pagduwal",
+            "filipino": "Pagsusuka",
+            "english": "Vomiting",
+            "category": "Symptoms"
+        },
+        {
+            "bikol": "Kurso",
+            "filipino": "Pagtatae",
+            "english": "Diarrhea",
+            "category": "Symptoms"
+        },
+        {
+            "bikol": "Hubog / Bangkag",
+            "filipino": "Sugat",
+            "english": "Wound",
+            "category": "Conditions"
+        },
+        {
+            "bikol": "Doktor",
+            "filipino": "Doktor",
+            "english": "Doctor",
+            "category": "Personnel"
+        },
+        {
+            "bikol": "Ospital",
+            "filipino": "Ospital",
+            "english": "Hospital",
+            "category": "Facilities"
+        },
+        {
+            "bikol": "Botica",
+            "filipino": "Botika",
+            "english": "Pharmacy",
+            "category": "Facilities"
+        },
+        {
+            "bikol": "Bulong",
+            "filipino": "Gamot",
+            "english": "Medicine",
+            "category": "Treatment"
+        },
+        {
+            "bikol": "Reseta",
+            "filipino": "Reseta",
+            "english": "Prescription",
+            "category": "Treatment"
+        }
+    ],
+    "commonQuestions": [
+        {
+            "bikol": "Ano an namamatian mo?",
+            "filipino": "Ano ang nararamdaman mo?",
+            "english": "What are you feeling? / What are your symptoms?"
+        },
+        {
+            "bikol": "Sain an kulog?",
+            "filipino": "Saan ang masakit?",
+            "english": "Where does it hurt?"
+        },
+        {
+            "bikol": "Pira na ka aldaw na may kalintura ka?",
+            "filipino": "Ilang araw ka nang may lagnat?",
+            "english": "How many days have you had a fever?"
+        },
+        {
+            "bikol": "May alerya ka sa bulong?",
+            "filipino": "May allergy ka ba sa gamot?",
+            "english": "Do you have any drug allergies?"
+        }
+    ],
+    "notes": "Medical terms in Bikol. Some terms are borrowed from Spanish/Filipino. Add more terms as you collect them."
+}

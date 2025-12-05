@@ -1,0 +1,117 @@
+{
+    "facilities": [
+        {
+            "id": "fac-001",
+            "name": "Bicol Medical Center (BMC)",
+            "type": "hospital",
+            "address": "Concepcion Grande, Naga City",
+            "barangay": "Concepcion Grande",
+            "city": "Naga City",
+            "province": "Camarines Sur",
+            "phone": "(054) 472-3456",
+            "hours": "24/7",
+            "services": [
+                "Emergency Room",
+                "Surgery",
+                "OB-Gynecology",
+                "Pediatrics",
+                "Internal Medicine",
+                "Orthopedics",
+                "Ophthalmology",
+                "ENT",
+                "Laboratory",
+                "X-Ray / CT Scan"
+            ],
+            "philhealthAccredited": true,
+            "notes": "Regional government hospital. Long queues expected."
+        },
+        {
+            "id": "fac-002",
+            "name": "Naga City Hospital",
+            "type": "hospital",
+            "address": "Peñafrancia Avenue, Naga City",
+            "barangay": "Centro",
+            "city": "Naga City",
+            "phone": "(054) 811-1234",
+            "hours": "24/7",
+            "services": [
+                "Emergency",
+                "General Medicine",
+                "Pediatrics",
+                "OB-Gyne",
+                "Laboratory"
+            ],
+            "philhealthAccredited": true
+        },
+        {
+            "id": "fac-003",
+            "name": "Mother Seton Hospital",
+            "type": "hospital",
+            "address": "Panganiban Drive, Naga City",
+            "barangay": "Centro",
+            "city": "Naga City",
+            "phone": "(054) 473-1111",
+            "hours": "24/7",
+            "services": [
+                "Emergency",
+                "Surgery",
+                "Internal Medicine",
+                "OB-Gyne",
+                "Pediatrics"
+            ],
+            "philhealthAccredited": true,
+            "notes": "Private hospital with shorter wait times"
+        },
+        {
+            "id": "fac-004",
+            "name": "City Health Office - Main",
+            "type": "health_center",
+            "address": "City Hall Complex, J. Miranda Ave",
+            "barangay": "Centro",
+            "city": "Naga City",
+            "phone": "(054) 473-8000",
+            "hours": "8:00 AM - 5:00 PM (Mon-Fri)",
+            "services": [
+                "Immunization",
+                "Prenatal Checkup",
+                "Family Planning",
+                "TB DOTS",
+                "Health Certificates"
+            ],
+            "philhealthAccredited": true,
+            "notes": "Free services for Naga City residents"
+        },
+        {
+            "id": "fac-005",
+            "name": "Barangay Health Center - Triangulo",
+            "type": "health_center",
+            "address": "Triangulo, Naga City",
+            "barangay": "Triangulo",
+            "city": "Naga City",
+            "hours": "8:00 AM - 5:00 PM (Mon-Fri)",
+            "services": [
+                "Basic Consultation",
+                "BP Monitoring",
+                "First Aid",
+                "Immunization"
+            ],
+            "notes": "Walk-in consultations with barangay health workers"
+        },
+        {
+            "id": "fac-006",
+            "name": "PhilHealth Naga City",
+            "type": "government_office",
+            "address": "2nd Floor, Naga City Hall Annex",
+            "barangay": "Centro",
+            "city": "Naga City",
+            "phone": "(054) 472-8888",
+            "hours": "8:00 AM - 5:00 PM (Mon-Fri)",
+            "services": [
+                "PhilHealth Registration",
+                "Contribution Payment",
+                "Claims Processing",
+                "Member Data Update"
+            ]
+        }
+    ]
+}

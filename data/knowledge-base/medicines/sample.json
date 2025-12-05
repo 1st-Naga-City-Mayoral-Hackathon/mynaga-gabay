@@ -1,0 +1,134 @@
+{
+    "medicines": [
+        {
+            "id": "med-001",
+            "genericName": "Paracetamol",
+            "brandNames": [
+                "Biogesic",
+                "Calpol",
+                "Tempra"
+            ],
+            "category": "Analgesic/Antipyretic",
+            "description": "Pain reliever and fever reducer",
+            "dosageForms": [
+                "Tablet",
+                "Syrup",
+                "Drops"
+            ],
+            "commonUses": [
+                "Fever",
+                "Headache",
+                "Body pain",
+                "Toothache"
+            ],
+            "warnings": [
+                "Do not exceed 4g daily",
+                "Avoid with alcohol",
+                "Check liver function if prolonged use"
+            ],
+            "bikolName": "Panlunas sa kalintura asin kulog"
+        },
+        {
+            "id": "med-002",
+            "genericName": "Ibuprofen",
+            "brandNames": [
+                "Advil",
+                "Medicol",
+                "Midol"
+            ],
+            "category": "NSAID",
+            "description": "Anti-inflammatory pain reliever",
+            "dosageForms": [
+                "Tablet",
+                "Capsule",
+                "Syrup"
+            ],
+            "commonUses": [
+                "Muscle pain",
+                "Menstrual cramps",
+                "Arthritis",
+                "Inflammation"
+            ],
+            "warnings": [
+                "Take with food",
+                "Not for kidney disease",
+                "May cause stomach upset"
+            ]
+        },
+        {
+            "id": "med-003",
+            "genericName": "Amoxicillin",
+            "brandNames": [
+                "Amoxil",
+                "Himox",
+                "Moxillin"
+            ],
+            "category": "Antibiotic",
+            "description": "Broad-spectrum antibiotic for bacterial infections",
+            "dosageForms": [
+                "Capsule",
+                "Suspension"
+            ],
+            "commonUses": [
+                "Respiratory infections",
+                "Ear infections",
+                "UTI",
+                "Skin infections"
+            ],
+            "warnings": [
+                "Complete full course",
+                "May cause allergic reaction",
+                "Not for viral infections"
+            ]
+        },
+        {
+            "id": "med-004",
+            "genericName": "Salbutamol",
+            "brandNames": [
+                "Ventolin",
+                "Asmol",
+                "Salbuventol"
+            ],
+            "category": "Bronchodilator",
+            "description": "Opens airways for easier breathing",
+            "dosageForms": [
+                "Inhaler",
+                "Nebule",
+                "Tablet"
+            ],
+            "commonUses": [
+                "Asthma",
+                "Bronchitis",
+                "COPD",
+                "Breathing difficulty"
+            ],
+            "warnings": [
+                "May cause tremors",
+                "Follow prescribed dosage",
+                "Keep inhaler clean"
+            ]
+        },
+        {
+            "id": "med-005",
+            "genericName": "Metformin",
+            "brandNames": [
+                "Glucophage",
+                "Diabex",
+                "Diaformin"
+            ],
+            "category": "Antidiabetic",
+            "description": "Controls blood sugar levels in Type 2 diabetes",
+            "dosageForms": [
+                "Tablet"
+            ],
+            "commonUses": [
+                "Type 2 Diabetes"
+            ],
+            "warnings": [
+                "Take with meals",
+                "Check kidney function regularly",
+                "Avoid alcohol"
+            ]
+        }
+    ]
+}

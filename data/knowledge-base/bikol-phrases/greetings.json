@@ -1,0 +1,41 @@
+{
+    "greetings": [
+        {
+            "bikol": "Kumusta ka?",
+            "filipino": "Kumusta ka?",
+            "english": "How are you?",
+            "context": "General greeting"
+        },
+        {
+            "bikol": "Maray na aldaw!",
+            "filipino": "Magandang araw!",
+            "english": "Good day!",
+            "context": "Daytime greeting"
+        },
+        {
+            "bikol": "Maray na aga!",
+            "filipino": "Magandang umaga!",
+            "english": "Good morning!",
+            "context": "Morning greeting"
+        },
+        {
+            "bikol": "Maray na banggi!",
+            "filipino": "Magandang gabi!",
+            "english": "Good evening!",
+            "context": "Evening greeting"
+        },
+        {
+            "bikol": "Salamat po",
+            "filipino": "Salamat po",
+            "english": "Thank you",
+            "context": "Expressing gratitude"
+        },
+        {
+            "bikol": "Tabi po",
+            "filipino": "Po / Opo",
+            "english": "Please / Respectful particle",
+            "context": "Polite expression"
+        }
+    ],
+    "notes": "These are Central Bikol (Naga) phrases. Other Bikol dialects may differ."
+}

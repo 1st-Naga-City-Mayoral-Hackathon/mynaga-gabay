@@ -1,0 +1,31 @@
+{
+  "name": "mynaga-gabay",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MyNaga Gabay - Bikolano Health Assistant for Naga City",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "dev:web": "npm run dev -w @mynaga/web",
+    "dev:api": "npm run dev -w @mynaga/api",
+    "build:web": "npm run build -w @mynaga/web",
+    "build:api": "npm run build -w @mynaga/api"
+  },
+  "devDependencies": {
+    "turbo": "^2.3.3",
+    "typescript": "^5.3.3",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "packageManager": "npm@10.2.0"
+}

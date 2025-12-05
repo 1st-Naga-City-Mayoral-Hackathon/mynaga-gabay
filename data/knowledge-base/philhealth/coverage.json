@@ -1,0 +1,62 @@
+{
+    "philhealth": {
+        "overview": "PhilHealth (Philippine Health Insurance Corporation) provides health insurance coverage for all Filipino citizens.",
+        "memberTypes": [
+            {
+                "type": "Direct Contributor",
+                "description": "Employed individuals with monthly contributions",
+                "contribution": "Based on salary (employee + employer share)"
+            },
+            {
+                "type": "Indirect Contributor",
+                "description": "Sponsored members (seniors, PWDs, indigents)",
+                "contribution": "Paid by government or LGU"
+            },
+            {
+                "type": "Informal Economy",
+                "description": "Self-employed, OFWs, voluntary members",
+                "contribution": "Fixed monthly rate"
+            }
+        ],
+        "benefits": [
+            {
+                "category": "Inpatient",
+                "coverage": "Hospital confinement, room & board, medicines, labs",
+                "limit": "Varies by case rate"
+            },
+            {
+                "category": "Outpatient",
+                "coverage": "Consultation, labs, minor procedures",
+                "limit": "Per visit limit applies"
+            },
+            {
+                "category": "Z-Benefits",
+                "coverage": "Catastrophic illnesses (cancer, kidney failure, etc.)",
+                "limit": "Higher coverage for specific conditions"
+            },
+            {
+                "category": "Maternity",
+                "coverage": "Prenatal to delivery",
+                "limit": "Normal delivery: ₱6,500 / CS: ₱19,000+"
+            }
+        ],
+        "howToAvail": [
+            "1. Ensure PhilHealth membership is active (check contributions)",
+            "2. Choose accredited hospital or clinic",
+            "3. Present PhilHealth ID or Member Data Record (MDR)",
+            "4. Hospital will process deduction automatically",
+            "5. Pay remaining balance (if any) at discharge"
+        ],
+        "requirements": [
+            "Valid PhilHealth ID or MDR",
+            "At least 3 monthly contributions in last 12 months",
+            "Confinement in accredited facility"
+        ],
+        "contactNaga": {
+            "office": "PhilHealth Naga City Office",
+            "address": "2nd Floor, Naga City Hall Annex",
+            "phone": "(054) 472-8888",
+            "hours": "8:00 AM - 5:00 PM (Mon-Fri)"
+        }
+    }
+}
