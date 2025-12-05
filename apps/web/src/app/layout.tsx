@@ -1,4 +1,5 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
+import { Navigation } from '@/components/Navigation';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -6,7 +7,12 @@ export const metadata: Metadata = {
     description: 'Voice-enabled health assistant for Naga City residents. Get health information in Bikol, Filipino, and English.',
     keywords: ['health', 'Naga City', 'Bikol', 'healthcare', 'assistant', 'PhilHealth'],
     authors: [{ name: 'MyNaga Gabay Team' }],
-    viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
+};
+
+export const viewport: Viewport = {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
 };
 
 export default function RootLayout({
@@ -18,6 +24,7 @@ export default function RootLayout({
         <html lang="fil">
             <body className="antialiased">
                 {children}
+                <Navigation />
             </body>
         </html>
     );

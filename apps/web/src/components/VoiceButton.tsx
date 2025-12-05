@@ -10,7 +10,8 @@ interface VoiceButtonProps {
 
 export function VoiceButton({ onTranscript, language }: VoiceButtonProps) {
     const [isListening, setIsListening] = useState(false);
-    const recognitionRef = useRef<SpeechRecognition | null>(null);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const recognitionRef = useRef<any>(null);
 
     const langMap: Record<SupportedLanguage, string> = {
         en: 'en-US',
@@ -31,7 +32,8 @@ export function VoiceButton({ onTranscript, language }: VoiceButtonProps) {
         recognition.interimResults = false;
         recognition.lang = langMap[language];
 
-        recognition.onresult = (event) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        recognition.onresult = (event: any) => {
             const transcript = event.results[0][0].transcript;
             onTranscript(transcript);
             setIsListening(false);
@@ -84,7 +86,9 @@ export function VoiceButton({ onTranscript, language }: VoiceButtonProps) {
 // TypeScript declarations for Web Speech API
 declare global {
     interface Window {
-        SpeechRecognition: typeof SpeechRecognition;
-        webkitSpeechRecognition: typeof SpeechRecognition;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        SpeechRecognition: any;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        webkitSpeechRecognition: any;
     }
 }
