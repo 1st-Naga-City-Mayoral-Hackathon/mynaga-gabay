@@ -12,23 +12,28 @@ MyNaga Gabay is a voice-enabled health assistant for Naga City residents, provid
 ┌─────────────────────────────────────────────────────────────┐
 │                         CLIENTS                              │
 ├─────────────────┬─────────────────┬────────────────────────┤
-│   Web App       │   Mobile App    │   Future: Voice Bot    │
-│   (Next.js)     │   (Flutter)     │   (Messenger/SMS)      │
+│   Web App       │   Mobile App    │   Future: SMS Bot      │
+│   (Next.js)     │   (Flutter)     │   (Globe Labs)         │
 └────────┬────────┴────────┬────────┴───────────┬────────────┘
          │                 │                    │
          └─────────────────┴────────────────────┘
                            │
-                    ┌──────▼──────┐
-                    │   API       │
-                    │  (Express)  │
-                    └──────┬──────┘
-                           │
-         ┌─────────────────┼─────────────────┐
-         │                 │                 │
-    ┌────▼────┐      ┌─────▼─────┐    ┌─────▼─────┐
-    │ Claude  │      │ PostgreSQL│    │   RAG     │
-    │   AI    │      │ + pgvector│    │  Service  │
-    └─────────┘      └───────────┘    └───────────┘
+         ┌─────────────────┴─────────────────┐
+         │                                   │
+    ┌────▼────┐                        ┌─────▼─────┐
+    │   n8n   │ (Chat Workflow)        │  Express  │ (Static APIs)
+    │ Webhook │                        │   API     │
+    └────┬────┘                        └─────┬─────┘
+         │                                   │
+    ┌────▼────┐                        ┌─────▼─────┐
+    │ Claude  │                        │ Facilities│
+    │   AI    │                        │ Health    │
+    └────┬────┘                        └───────────┘
+         │
+    ┌────▼────┐
+    │PostgreSQL│
+    │+ pgvector│
+    └──────────┘
 ```
 
 ---
@@ -46,19 +51,29 @@ MyNaga Gabay is a voice-enabled health assistant for Naga City residents, provid
 - **Voice**: speech_to_text package
 - **Camera**: image_picker for prescription scanning
 
-### Backend (apps/api)
-- **Framework**: Express + TypeScript
-- **Functions**:
-  - Chat processing with Claude
-  - RAG search for context
-  - Health facilities lookup
-  - (Future) Prescription OCR
+### n8n Chat Workflow (Primary Chat Backend)
+- **Webhook Endpoint**: Receives chat requests from clients
+- **RAG Node**: Queries PostgreSQL pgvector for context
+- **Claude Node**: Sends prompt with RAG context to Claude API
+- **Response**: Returns AI response to client
+- **Benefits**:
+  - Visual workflow design
+  - Easy prompt iteration
+  - No-code AI integration
+  - Built-in error handling
+
+### Express API (apps/api)
+- **Purpose**: Static data endpoints (non-AI)
+- **Endpoints**:
+  - GET /api/facilities - Health centers list
+  - GET /api/health - API health check
+  - POST /api/prescription - OCR (future)
 
 ### AI Layer (packages/ai-core)
-- **Claude Client**: Wrapper for Anthropic API
-- **RAG Service**: Vector similarity search via Supabase
-- **Voice Service**: Placeholder for STT/TTS processing
+- **Claude Client**: Wrapper for direct API calls (backup)
+- **RAG Service**: Vector similarity search
 - **System Prompts**: Gabay persona configuration
+- **Voice Service**: Placeholder for STT/TTS
 
 ### Database (PostgreSQL)
 - **PostgreSQL**: User data, chat history
@@ -67,28 +82,83 @@ MyNaga Gabay is a voice-enabled health assistant for Naga City residents, provid
 
 ---
 
+## n8n Workflow Design
+
+### Chat Workflow
+```
+┌─────────────────┐
+│ Webhook Trigger │  POST /webhook/chat
+│ { message,      │  { message: "Kumusta", language: "bcl" }
+│   language }    │
+└────────┬────────┘
+         │
+    ┌────▼────────────┐
+    │ Parse Request   │  Extract message, language, session_id
+    └────────┬────────┘
+         │
+    ┌────▼────────────┐
+    │ PostgreSQL      │  Query: SELECT * FROM documents
+    │ pgvector Search │  WHERE embedding <=> $query_embedding
+    └────────┬────────┘  LIMIT 5
+         │
+    ┌────▼────────────┐
+    │ Build Prompt    │  Combine: system_prompt + RAG_context + user_message
+    └────────┬────────┘
+         │
+    ┌────▼────────────┐
+    │ Claude API      │  Model: claude-sonnet-4-20250514
+    │ (Anthropic)     │  Send conversation with context
+    └────────┬────────┘
+         │
+    ┌────▼────────────┐
+    │ Format Response │  { reply, language, sources }
+    └────────┬────────┘
+         │
+    ┌────▼────────────┐
+    │ Webhook Response│  Return JSON to client
+    └─────────────────┘
+```
+
+### n8n Environment Variables
+```
+CLAUDE_API_KEY=sk-ant-...
+DATABASE_URL=postgresql://...
+```
+
+---
+
 ## Data Flow
 
-### Chat Request Flow
+### Chat Request Flow (via n8n)
 
 ```
 1. User sends message (text or voice)
          │
 2. Frontend converts voice → text (Web Speech API)
          │
-3. POST /api/chat { message, language }
+3. POST to n8n webhook { message, language }
          │
-4. API: RAG search for relevant context
+4. n8n: pgvector search for relevant context
          │
-5. API: Build prompt with context + system prompt
+5. n8n: Build prompt with Gabay persona + context
          │
-6. API: Send to Claude API
+6. n8n: Call Claude API
          │
-7. Claude generates response
+7. n8n: Return JSON response
          │
-8. API: Return response to client
+8. Frontend displays response (+ optional TTS)
+```
+
+### Static Data Flow (via Express)
+
+```
+1. Client needs facilities list
          │
-9. Frontend displays response (+ optional TTS)
+2. GET /api/facilities
+         │
+3. Express: Query database or return static JSON
+         │
+4. Return facilities array
 ```
 
 ### RAG Pipeline
@@ -101,14 +171,14 @@ Knowledge Base (JSON files)
      └───┬───┘
          │
      ┌───▼───┐
-     │Embed  │ (text → vector)
+     │Embed  │ (text → vector via embedding API)
      └───┬───┘
          │
      ┌───▼───┐
-     │Store  │ (Supabase pgvector)
+     │Store  │ (PostgreSQL pgvector)
      └───────┘
 
-On Query:
+On Query (in n8n):
      ┌───────┐
      │Query  │ → embed → similarity search → top K results
      └───┬───┘
@@ -121,30 +191,42 @@ On Query:
 
 ---
 
+## API Endpoints Summary
+
+| Endpoint | Type | Handler | Purpose |
+|----------|------|---------|---------|
+| POST /webhook/chat | n8n | Chat workflow | AI chat with RAG |
+| GET /api/facilities | Express | Static | Health facilities |
+| GET /api/facilities/:id | Express | Static | Facility details |
+| GET /api/health | Express | Static | Health check |
+| POST /api/prescription | Express | Future | OCR processing |
+
+---
+
 ## Security Considerations
 
 | Area | MVP | Production |
 |------|-----|------------|
-| API Auth | None | Supabase Auth / JWT |
+| API Auth | None | JWT tokens |
 | Rate Limiting | None | 100 req/min |
 | Secrets | .env file | Environment variables |
 | HTTPS | localhost only | Required |
-| Input Validation | Basic | Comprehensive |
+| n8n Auth | Basic | Webhook signatures |
 
 ---
 
 ## Scalability Notes
 
 For MVP (hackathon):
-- Single API instance is sufficient
-- In-memory session state
+- Single n8n instance handles chat
+- Express API for static endpoints
 - Direct Claude API calls
 
 For Production:
-- Consider request queuing for Claude API
-- Implement caching for common queries
-- Use CDN for static assets
-- Add logging and monitoring
+- n8n queue mode for high traffic
+- Redis for caching common queries
+- CDN for static assets
+- Monitoring with n8n execution logs
 
 ---
 
@@ -155,7 +237,8 @@ For Production:
 | Monorepo | npm workspaces | Native, simple |
 | Build | Turborepo | Fast, parallel builds |
 | Frontend | Next.js 14 | App Router, RSC, fast |
-| Backend | Express | Simple, well-known |
+| Chat Backend | n8n | Visual workflows, easy iteration |
+| Static API | Express | Simple, well-known |
 | Mobile | Flutter | Cross-platform, fast dev |
 | Database | PostgreSQL + pgvector | Direct control, any host |
 | AI | Claude | Best reasoning for health |
@@ -163,10 +246,27 @@ For Production:
 
 ---
 
+## Deployment Options
+
+### n8n
+- **Self-hosted**: Docker on VPS (recommended for hackathon)
+- **Cloud**: n8n.cloud (easier, paid)
+
+### Express API
+- **Vercel**: Serverless functions
+- **Railway/Render**: Container hosting
+
+### Database
+- **Railway**: Managed PostgreSQL with pgvector
+- **Supabase**: If you want auth later
+- **Local**: Development only
+
+---
+
 ## Future Enhancements
 
 1. **Voice**: Server-side Whisper for better Bikol recognition
-2. **OCR**: Prescription scanning with Vision models
+2. **OCR**: Prescription scanning with Claude Vision
 3. **SMS Bot**: For feature phones (via Twilio/Globe Labs)
 4. **Offline**: PWA with cached responses
-5. **Analytics**: Query patterns, language usage
+5. **Analytics**: Query patterns via n8n execution data
