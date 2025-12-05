@@ -19,6 +19,7 @@ interface Message {
 
 export function Chat({ language = 'fil' }: ChatProps) {
     const [sidebarOpen, setSidebarOpen] = useState(false);
+    const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
     const [messages, setMessages] = useState<Message[]>([]);
     const [input, setInput] = useState('');
     const [isLoading, setIsLoading] = useState(false);
@@ -115,7 +116,9 @@ export function Chat({ language = 'fil' }: ChatProps) {
             {/* Sidebar */}
             <ChatSidebar
                 isOpen={sidebarOpen}
+                isCollapsed={sidebarCollapsed}
                 onClose={() => setSidebarOpen(false)}
+                onToggleCollapse={() => setSidebarCollapsed(!sidebarCollapsed)}
             />
 
             {/* Main Chat Area */}
