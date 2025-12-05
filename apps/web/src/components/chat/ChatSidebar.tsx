@@ -37,7 +37,7 @@ export function ChatSidebar({ isOpen, onClose, currentChatId }: ChatSidebarProps
             )}
 
             <aside className={cn(
-                'fixed left-0 top-0 bottom-0 w-72 bg-muted/50 backdrop-blur-xl border-r z-50',
+                'fixed left-0 top-0 bottom-0 w-72 bg-card border-r border-border z-50',
                 'transform transition-transform duration-200 ease-out',
                 isOpen ? 'translate-x-0' : '-translate-x-full',
                 'md:translate-x-0 md:static md:z-0'
@@ -81,12 +81,12 @@ export function ChatSidebar({ isOpen, onClose, currentChatId }: ChatSidebarProps
                                 <button
                                     key={chat.id}
                                     className={cn(
-                                        'w-full text-left px-3 py-2 rounded-lg text-sm transition-colors',
+                                        'w-full text-left px-3 py-2 rounded-lg text-sm transition-colors text-foreground',
                                         'hover:bg-accent',
                                         currentChatId === chat.id && 'bg-accent'
                                     )}
                                 >
-                                    <div className="truncate">{chat.title}</div>
+                                    <div className="truncate font-medium">{chat.title}</div>
                                     <div className="text-xs text-muted-foreground">
                                         {chat.createdAt.toLocaleDateString()}
                                     </div>
