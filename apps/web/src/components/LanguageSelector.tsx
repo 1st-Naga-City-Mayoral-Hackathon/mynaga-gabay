@@ -1,38 +1,73 @@
 'use client';
 
-import type { SupportedLanguage } from '@mynaga/shared';
+import { useEffect, useState } from 'react';
+import { useLanguage, Language } from '@/contexts/LanguageContext';
+import { Button } from '@/components/ui/button';
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
-interface LanguageSelectorProps {
-    value: SupportedLanguage;
-    onChange: (lang: SupportedLanguage) => void;
-}
-
-const languages = [
-    { code: 'bcl' as SupportedLanguage, label: 'Bikol', flag: '🇵🇭' },
-    { code: 'fil' as SupportedLanguage, label: 'Filipino', flag: '🇵🇭' },
-    { code: 'en' as SupportedLanguage, label: 'English', flag: '🇺🇸' },
+const languages: { code: Language; name: string; flag: string }[] = [
+    { code: 'en', name: 'English', flag: '🇺🇸' },
+    { code: 'fil', name: 'Filipino', flag: '🇵🇭' },
+    { code: 'bcl', name: 'Bikol', flag: '🏝️' },
 ];
 
-export function LanguageSelector({ value, onChange }: LanguageSelectorProps) {
+export function LanguageSelector() {
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    // Return placeholder during SSR
+    if (!mounted) {
+        return (
+            <Button variant="ghost" size="sm" className="gap-1.5 text-sm">
+                <span>🇵🇭</span>
+                <span className="hidden sm:inline">Filipino</span>
+            </Button>
+        );
+    }
+
+    return <LanguageSelectorClient />;
+}
+
+function LanguageSelectorClient() {
+    const { language, setLanguage, t } = useLanguage();
+    const current = languages.find((l) => l.code === language) || languages[1];
+
     return (
-        <div className="inline-flex items-center gap-1 p-1 rounded-xl bg-slate-100/80 dark:bg-slate-800/80 backdrop-blur-sm">
-            {languages.map((lang) => (
-                <button
-                    key={lang.code}
-                    onClick={() => onChange(lang.code)}
-                    className={`
-            relative px-3 py-1.5 rounded-lg text-sm font-medium
-            transition-all duration-200
-            ${value === lang.code
-                            ? 'bg-white dark:bg-slate-700 text-gabay-teal shadow-sm'
-                            : 'text-slate-600 dark:text-slate-400 hover:text-gabay-teal hover:bg-white/50 dark:hover:bg-slate-700/50'
-                        }
-          `}
-                >
-                    <span className="mr-1">{lang.flag}</span>
-                    {lang.label}
-                </button>
-            ))}
-        </div>
+        <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="sm" className="gap-1.5 text-sm">
+                    <span>{current.flag}</span>
+                    <span className="hidden sm:inline">{t(`lang.${language}`)}</span>
+                    <svg className="w-3 h-3 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-40">
+                {languages.map((lang) => (
+                    <DropdownMenuItem
+                        key={lang.code}
+                        onClick={() => setLanguage(lang.code)}
+                        className={language === lang.code ? 'bg-accent' : ''}
+                    >
+                        <span className="mr-2">{lang.flag}</span>
+                        {lang.name}
+                        {language === lang.code && (
+                            <svg className="w-4 h-4 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                            </svg>
+                        )}
+                    </DropdownMenuItem>
+                ))}
+            </DropdownMenuContent>
+        </DropdownMenu>
     );
 }

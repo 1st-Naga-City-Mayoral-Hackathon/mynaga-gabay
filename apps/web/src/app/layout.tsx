@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { ThemeProvider } from '@/components/ThemeProvider';
+import { LanguageProvider } from '@/contexts/LanguageContext';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -29,7 +30,9 @@ export default function RootLayout({
                     enableSystem
                     disableTransitionOnChange
                 >
-                    {children}
+                    <LanguageProvider>
+                        {children}
+                    </LanguageProvider>
                 </ThemeProvider>
             </body>
         </html>

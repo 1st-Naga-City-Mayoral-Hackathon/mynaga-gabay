@@ -1,8 +1,8 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import { LanguageSelector } from '@/components/LanguageSelector';
 
 interface ChatHeaderProps {
     onMenuClick: () => void;
@@ -37,16 +37,7 @@ export function ChatHeader({ onMenuClick }: ChatHeaderProps) {
 
             <div className="flex items-center gap-1">
                 {/* Language Selector */}
-                <TooltipProvider>
-                    <Tooltip>
-                        <TooltipTrigger asChild>
-                            <Button variant="ghost" size="sm" className="text-xs">
-                                🇵🇭 Filipino
-                            </Button>
-                        </TooltipTrigger>
-                        <TooltipContent>Change language</TooltipContent>
-                    </Tooltip>
-                </TooltipProvider>
+                <LanguageSelector />
 
                 {/* Theme Toggle */}
                 <ThemeToggle />

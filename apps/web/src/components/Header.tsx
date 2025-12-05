@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { ThemeToggle } from './ThemeToggle';
+import { LanguageSelector } from './LanguageSelector';
 
 export function Header() {
     return (
@@ -31,7 +32,7 @@ export function Header() {
                         </Link>
 
                         {/* Right Side */}
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-1">
                             {/* Status Badge */}
                             <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-100 dark:bg-green-900/30 border border-green-200 dark:border-green-800">
                                 <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
@@ -39,6 +40,9 @@ export function Header() {
                                     Online
                                 </span>
                             </div>
+
+                            {/* Language Selector */}
+                            <LanguageSelector />
 
                             {/* Theme Toggle */}
                             <ThemeToggle />
