@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../widgets/chat_bubble.dart';
 import '../widgets/voice_button.dart';
 import '../services/api_service.dart';
+import '../providers/language_provider.dart';
+import '../providers/theme_provider.dart';
+import 'settings_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -14,36 +18,37 @@ class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController _messageController = TextEditingController();
   final List<Map<String, dynamic>> _messages = [];
   final ApiService _apiService = ApiService();
+  final ScrollController _scrollController = ScrollController();
   bool _isLoading = false;
-  String _selectedLanguage = 'fil';
-
-  final Map<String, String> _greetings = {
-    'en': 'Hello! I am Gabay, your health assistant.',
-    'fil': 'Kamusta! Ako si Gabay, ang iyong katulong sa kalusugan.',
-    'bcl': 'Kumusta! Ako si Gabay, an saimong katabang sa salud.',
-  };
+  bool _initialized = false;
 
   @override
-  void initState() {
-    super.initState();
-    // Add initial greeting
-    _messages.add({
-      'role': 'assistant',
-      'content': _greetings[_selectedLanguage],
-    });
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (!_initialized) {
+      final langProvider = Provider.of<LanguageProvider>(context, listen: false);
+      _messages.add({
+        'role': 'assistant',
+        'content': langProvider.t('chat.greeting'),
+      });
+      _initialized = true;
+    }
   }
 
   Future<void> _sendMessage(String text) async {
     if (text.trim().isEmpty) return;
+
+    final langProvider = Provider.of<LanguageProvider>(context, listen: false);
 
     setState(() {
       _messages.add({'role': 'user', 'content': text});
       _isLoading = true;
     });
     _messageController.clear();
+    _scrollToBottom();
 
     try {
-      final response = await _apiService.chat(text, _selectedLanguage);
+      final response = await _apiService.chat(text, langProvider.languageCode);
       setState(() {
         _messages.add({'role': 'assistant', 'content': response});
       });
@@ -51,44 +56,102 @@ class _HomeScreenState extends State<HomeScreen> {
       setState(() {
         _messages.add({
           'role': 'assistant',
-          'content': 'Pasensya, may problema sa koneksyon. Subukan muli.',
+          'content': langProvider.t('chat.error'),
         });
       });
     } finally {
       setState(() => _isLoading = false);
+      _scrollToBottom();
     }
+  }
+
+  void _scrollToBottom() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (_scrollController.hasClients) {
+        _scrollController.animateTo(
+          _scrollController.position.maxScrollExtent,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeOut,
+        );
+      }
+    });
   }
 
   @override
   Widget build(BuildContext context) {
+    final langProvider = Provider.of<LanguageProvider>(context);
+    final themeProvider = Provider.of<ThemeProvider>(context);
+    final theme = Theme.of(context);
+
     return Scaffold(
       appBar: AppBar(
-        title: const Row(
+        title: Row(
           children: [
-            Icon(Icons.local_hospital, color: Color(0xFF0D9488)),
-            SizedBox(width: 8),
-            Text('MyNaga Gabay'),
+            Container(
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                gradient: const LinearGradient(
+                  colors: [Color(0xFF0D9488), Color(0xFF2563EB)],
+                ),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: const Icon(Icons.local_hospital, color: Colors.white, size: 20),
+            ),
+            const SizedBox(width: 12),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  langProvider.t('app.title'),
+                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                ),
+                Text(
+                  langProvider.t('app.subtitle'),
+                  style: TextStyle(
+                    fontSize: 11,
+                    color: theme.colorScheme.onSurface.withOpacity(0.6),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
         actions: [
-          PopupMenuButton<String>(
-            onSelected: (lang) {
-              setState(() => _selectedLanguage = lang);
-            },
+          // Theme toggle
+          IconButton(
+            icon: Icon(
+              themeProvider.isDark ? Icons.light_mode : Icons.dark_mode,
+            ),
+            onPressed: () => themeProvider.toggleTheme(),
+            tooltip: themeProvider.isDark ? 'Light mode' : 'Dark mode',
+          ),
+          // Language selector
+          PopupMenuButton<AppLanguage>(
+            onSelected: (lang) => langProvider.setLanguage(lang),
             itemBuilder: (context) => [
-              const PopupMenuItem(value: 'en', child: Text('English')),
-              const PopupMenuItem(value: 'fil', child: Text('Filipino')),
-              const PopupMenuItem(value: 'bcl', child: Text('Bikol')),
+              _buildLanguageItem(AppLanguage.en, '🇺🇸', 'English', langProvider),
+              _buildLanguageItem(AppLanguage.fil, '🇵🇭', 'Filipino', langProvider),
+              _buildLanguageItem(AppLanguage.bcl, '🏝️', 'Bikol', langProvider),
             ],
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
+              padding: const EdgeInsets.symmetric(horizontal: 8),
               child: Row(
                 children: [
-                  Text(_selectedLanguage.toUpperCase()),
+                  Text(langProvider.languageFlag, style: const TextStyle(fontSize: 18)),
                   const Icon(Icons.arrow_drop_down),
                 ],
               ),
             ),
+          ),
+          // Settings
+          IconButton(
+            icon: const Icon(Icons.settings),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const SettingsScreen()),
+              );
+            },
           ),
         ],
       ),
@@ -96,6 +159,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           Expanded(
             child: ListView.builder(
+              controller: _scrollController,
               padding: const EdgeInsets.all(16),
               itemCount: _messages.length,
               itemBuilder: (context, index) {
@@ -108,14 +172,34 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           if (_isLoading)
-            const Padding(
-              padding: EdgeInsets.all(8),
-              child: CircularProgressIndicator(),
+            Padding(
+              padding: const EdgeInsets.all(8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: 16,
+                    height: 16,
+                    child: CircularProgressIndicator(
+                      strokeWidth: 2,
+                      color: theme.colorScheme.primary,
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Text(
+                    'Gabay is typing...',
+                    style: TextStyle(
+                      color: theme.colorScheme.onSurface.withOpacity(0.6),
+                      fontSize: 12,
+                    ),
+                  ),
+                ],
+              ),
             ),
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.surface,
+              color: theme.colorScheme.surface,
               boxShadow: [
                 BoxShadow(
                   color: Colors.black.withOpacity(0.1),
@@ -124,39 +208,70 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
-            child: Row(
-              children: [
-                VoiceButton(
-                  onTranscript: _sendMessage,
-                  language: _selectedLanguage,
-                ),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: TextField(
-                    controller: _messageController,
-                    decoration: InputDecoration(
-                      hintText: _selectedLanguage == 'bcl'
-                          ? 'Mag-type digdi...'
-                          : 'Mag-type dito...',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(24),
-                      ),
-                      contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 12,
-                      ),
-                    ),
-                    onSubmitted: _sendMessage,
+            child: SafeArea(
+              top: false,
+              child: Row(
+                children: [
+                  VoiceButton(
+                    onTranscript: _sendMessage,
+                    language: langProvider.languageCode,
                   ),
-                ),
-                const SizedBox(width: 8),
-                IconButton.filled(
-                  onPressed: () => _sendMessage(_messageController.text),
-                  icon: const Icon(Icons.send),
-                ),
-              ],
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: TextField(
+                      controller: _messageController,
+                      decoration: InputDecoration(
+                        hintText: langProvider.t('chat.placeholder'),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(24),
+                        ),
+                        contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 12,
+                        ),
+                        filled: true,
+                        fillColor: theme.colorScheme.surfaceVariant.withOpacity(0.5),
+                      ),
+                      onSubmitted: _sendMessage,
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  FloatingActionButton.small(
+                    onPressed: () => _sendMessage(_messageController.text),
+                    child: const Icon(Icons.send),
+                  ),
+                ],
+              ),
             ),
           ),
+        ],
+      ),
+    );
+  }
+
+  PopupMenuItem<AppLanguage> _buildLanguageItem(
+    AppLanguage lang,
+    String flag,
+    String name,
+    LanguageProvider provider,
+  ) {
+    final isSelected = provider.language == lang;
+    return PopupMenuItem(
+      value: lang,
+      child: Row(
+        children: [
+          Text(flag, style: const TextStyle(fontSize: 18)),
+          const SizedBox(width: 8),
+          Text(
+            name,
+            style: TextStyle(
+              fontWeight: isSelected ? FontWeight.bold : null,
+            ),
+          ),
+          if (isSelected) ...[
+            const Spacer(),
+            Icon(Icons.check, size: 18, color: Theme.of(context).colorScheme.primary),
+          ],
         ],
       ),
     );
@@ -165,6 +280,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void dispose() {
     _messageController.dispose();
+    _scrollController.dispose();
     super.dispose();
   }
 }
