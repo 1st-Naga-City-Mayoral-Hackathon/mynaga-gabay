@@ -33,7 +33,6 @@ class MyNagaGabayApp extends StatelessWidget {
           brightness: Brightness.light,
         ),
         useMaterial3: true,
-        fontFamily: 'Inter',
         appBarTheme: const AppBarTheme(
           centerTitle: false,
           elevation: 0,
@@ -45,7 +44,6 @@ class MyNagaGabayApp extends StatelessWidget {
           brightness: Brightness.dark,
         ),
         useMaterial3: true,
-        fontFamily: 'Inter',
         appBarTheme: const AppBarTheme(
           centerTitle: false,
           elevation: 0,
