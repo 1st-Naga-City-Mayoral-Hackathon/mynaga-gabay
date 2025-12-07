@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
+import { Session } from 'next-auth';
 import { Header } from '@/components/Header';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -25,7 +26,7 @@ export default function HomePage() {
     return <LandingPage />;
 }
 
-function Dashboard({ session }: { session: any }) {
+function Dashboard({ session }: { session: Session }) {
     const { t } = useLanguage();
     const user = session.user;
 

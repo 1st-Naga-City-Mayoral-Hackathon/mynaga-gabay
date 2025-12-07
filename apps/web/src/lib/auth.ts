@@ -72,4 +72,4 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             return session;
         },
     },
-});
+}) as any; // eslint-disable-line @typescript-eslint/no-explicit-any
