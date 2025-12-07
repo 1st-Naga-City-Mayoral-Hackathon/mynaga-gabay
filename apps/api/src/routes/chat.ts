@@ -1,78 +1,113 @@
 import { Router } from 'express';
-import { createClaudeClient, RAGService, GABAY_SYSTEM_PROMPT } from '@mynaga/ai-core';
+import {
+    createN8nChatService,
+    createBikolEnhancer,
+    validateInput,
+    validateSessionId,
+    generateSessionId,
+    addHealthDisclaimer,
+} from '@mynaga/ai-core';
 import type { ChatRequest, ChatResponse, ApiResponse } from '@mynaga/shared';
 
 const router = Router();
 
-// Initialize Claude client
-const claudeClient = process.env.CLAUDE_API_KEY
-    ? createClaudeClient(process.env.CLAUDE_API_KEY)
-    : null;
-
-// Initialize RAG service with PostgreSQL
-const ragService = process.env.DATABASE_URL
-    ? new RAGService({
-        connectionString: process.env.DATABASE_URL,
-    })
-    : null;
+// Initialize services
+const n8nChatService = createN8nChatService();
+const bikolEnhancer = createBikolEnhancer();
 
 /**
  * POST /api/chat
  * Main chat endpoint for Gabay health assistant
+ * Uses n8n RAG pipeline for intelligent responses
  */
 router.post('/', async (req, res) => {
-    const { message, language = 'fil' }: ChatRequest = req.body;
+    const { message, language: langHint, sessionId: providedSessionId }: ChatRequest = req.body;
 
-    if (!message) {
+    // Validate input
+    const validation = validateInput(message);
+    if (!validation.valid) {
         return res.status(400).json({
             success: false,
-            error: { code: 'MISSING_MESSAGE', message: 'Message is required' },
+            error: { code: 'INVALID_INPUT', message: validation.error },
         } as ApiResponse<never>);
     }
 
+    // Validate or generate session ID
+    const sessionId = providedSessionId && validateSessionId(providedSessionId)
+        ? providedSessionId
+        : generateSessionId();
+
     try {
-        // Get RAG context if available
-        let ragContext = '';
-        if (ragService) {
-            const results = await ragService.search(message);
-            ragContext = ragService.buildContext(results);
-        }
-
-        // Generate response with Claude
-        if (!claudeClient) {
-            // Fallback when Claude is not configured
-            return res.json({
-                success: true,
-                data: {
-                    reply: language === 'bcl'
-                        ? 'Pasensya na, dai pa konektado an AI. Mag-configure nin CLAUDE_API_KEY.'
-                        : 'Pasensya, hindi pa konektado ang AI. I-configure ang CLAUDE_API_KEY.',
-                    language,
+        // Check if n8n service is available
+        if (!n8nChatService) {
+            return res.status(503).json({
+                success: false,
+                error: {
+                    code: 'SERVICE_UNAVAILABLE',
+                    message: 'Chat service not configured. Please set N8N_WEBHOOK_URL.',
                 },
-            } as ApiResponse<ChatResponse>);
+            } as ApiResponse<never>);
         }
 
-        const reply = await claudeClient.chat(message, undefined, ragContext);
+        // Detect language if not provided
+        const detectedLanguage = langHint || bikolEnhancer.detectLanguage(validation.sanitizedMessage || message);
+
+        // Call n8n RAG pipeline
+        const result = await n8nChatService.chat(
+            validation.sanitizedMessage || message,
+            sessionId,
+            detectedLanguage
+        );
+
+        // Optionally enhance English responses with Bikol terms
+        let enhancedResponse = result.response;
+        if (result.language === 'english') {
+            enhancedResponse = bikolEnhancer.enhanceWithBikolTerms(result.response);
+        }
+
+        // Add health disclaimer if needed
+        enhancedResponse = addHealthDisclaimer(enhancedResponse);
 
         return res.json({
             success: true,
             data: {
-                reply,
-                language,
-                sources: ragService ? ragService.toSources(await ragService.search(message)) : [],
+                reply: enhancedResponse,
+                language: result.language,
+                sessionId: result.sessionId,
+                model: result.model,
             },
         } as ApiResponse<ChatResponse>);
 
     } catch (error) {
         console.error('Chat error:', error);
+
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+
         return res.status(500).json({
             success: false,
             error: {
                 code: 'CHAT_ERROR',
-                message: 'Failed to process chat request'
+                message: `Failed to process chat request: ${errorMessage}`,
             },
         } as ApiResponse<never>);
     }
+});
+
+/**
+ * GET /api/chat/health
+ * Health check endpoint for chat service
+ */
+router.get('/health', async (_req, res) => {
+    const n8nHealthy = n8nChatService ? await n8nChatService.healthCheck() : false;
+
+    return res.json({
+        success: true,
+        data: {
+            n8n: n8nHealthy ? 'connected' : 'disconnected',
+            bikolEnhancer: 'ready',
+            timestamp: new Date().toISOString(),
+        },
+    });
 });
 
 export { router as chatRouter };

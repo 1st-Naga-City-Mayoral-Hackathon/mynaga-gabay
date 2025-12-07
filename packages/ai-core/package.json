@@ -25,6 +25,7 @@
     },
     "devDependencies": {
         "@mynaga/shared": "*",
+        "@types/pg": "^8.15.6",
         "@typescript-eslint/eslint-plugin": "^7.0.0",
         "@typescript-eslint/parser": "^7.0.0",
         "tsup": "^8.0.0",
