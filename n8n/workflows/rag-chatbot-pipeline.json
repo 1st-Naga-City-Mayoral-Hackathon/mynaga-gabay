@@ -1,4 +1,5 @@
 {
+    "name": "MyNaga Gabay - AI Health Assistant",
     "nodes": [
         {
             "parameters": {
@@ -10,10 +11,10 @@
             "type": "n8n-nodes-base.webhook",
             "typeVersion": 2.1,
             "position": [
-                224,
-                -96
+                400,
+                -256
             ],
-            "id": "927374f5-472d-4a53-a953-fc5aae99b8bd",
+            "id": "webhook-mynaga-gabay",
             "name": "Webhook: Chat",
             "webhookId": "mynaga-gabay-chat"
         },
@@ -24,10 +25,10 @@
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
             "position": [
-                448,
-                -96
+                624,
+                -256
             ],
-            "id": "f38d45ee-bba1-46bc-badb-b0e5183a7c43",
+            "id": "extract-request",
             "name": "Extract & Detect Language"
         },
         {
@@ -38,10 +39,10 @@
             "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
             "typeVersion": 1,
             "position": [
-                672,
-                224
+                848,
+                -32
             ],
-            "id": "c5f63356-8f20-4f5c-b7f2-96da6a686e35",
+            "id": "groq-chat-model",
             "name": "Groq Chat Model",
             "credentials": {
                 "groqApi": {
@@ -55,10 +56,10 @@
             "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
             "typeVersion": 1.3,
             "position": [
-                800,
-                224
+                976,
+                -32
             ],
-            "id": "cf80e67d-cf88-4d18-8023-071683f36836",
+            "id": "postgres-memory",
             "name": "Postgres Chat Memory",
             "credentials": {
                 "postgres": {
@@ -73,16 +74,16 @@
                 "promptType": "define",
                 "text": "=[DETECTED LANGUAGE: {{ $json.language }}]\n\nUser message: {{ $json.message }}\n\nIMPORTANT: You MUST respond in {{ $json.language }}. Match the user's language exactly.",
                 "options": {
-                    "systemMessage": "/no_think\n\nYou are MyNaga Gabay, an AI health assistant for Naga City, Camarines Sur, Philippines.\n\n## CRITICAL OUTPUT RULES\n- DO NOT output any <think>, <reasoning>, or similar XML tags\n- DO NOT include internal reasoning in your response\n- Respond DIRECTLY with the answer only\n\n## CRITICAL LANGUAGE RULES\n- You MUST respond in the SAME language as the user's input\n- If user speaks English, respond in English\n- If user speaks Bikol, respond in Bikol\n- If user speaks Tagalog/Filipino, respond in Filipino\n- NEVER mix languages unless providing translations\n\n## Your Role\nHelp people in Naga City find information about:\n- Health facilities (hospitals, clinics, pharmacies, health centers)\n- Emergency hotlines and contact numbers\n- Government services and offices\n- Medicines and healthcare information\n- PhilHealth coverage and benefits\n\n## Response Format\n- Be concise but helpful (2-4 sentences ideal)\n- For specific facilities, provide address and contact number\n- For emergencies, always provide hotline numbers immediately\n- If you don't know, say: 'I don't have that information. Please contact City Hall at (054) 472-3000.'\n\n## Key Information\n- Emergency: 911 or (054) 472-3000 (Central Command Center)\n- Bicol Regional Hospital: (054) 472-6125\n- City Health Office: City Hall Complex\n- PhilHealth Naga: 2nd Floor, City Hall Annex, (054) 472-8888\n\nAlways be friendly, helpful, and prioritize user health and safety."
+                    "systemMessage": "You are MyNaga Gabay, an AI health assistant for Naga City, Camarines Sur, Philippines.\n\n## CRITICAL LANGUAGE RULES\n- You MUST respond in the SAME language as the user's input\n- If user speaks English, respond in English\n- If user speaks Bikol, respond in Bikol\n- If user speaks Tagalog/Filipino, respond in Filipino\n- NEVER mix languages unless providing translations\n\n## Your Role\nHelp people in Naga City find information about:\n- Health facilities (hospitals, clinics, pharmacies, health centers)\n- Emergency hotlines and contact numbers\n- Government services and offices\n- Medicines and healthcare information\n- PhilHealth coverage and benefits\n\n## Response Format\n- Be concise but helpful (2-4 sentences ideal)\n- For specific facilities, provide address and contact number\n- For emergencies, always provide hotline numbers immediately\n- If you don't know, say: 'I don't have that information. Please contact City Hall at (054) 472-3000.'\n\n## Key Information\n- Emergency: 911 or (054) 472-3000 (Central Command Center)\n- Bicol Regional Hospital: (054) 472-6125\n- City Health Office: City Hall Complex\n- PhilHealth Naga: 2nd Floor, City Hall Annex, (054) 472-8888\n\nAlways be friendly, helpful, and prioritize user health and safety."
                 }
             },
             "type": "@n8n/n8n-nodes-langchain.agent",
             "typeVersion": 1.7,
             "position": [
-                728,
-                0
+                912,
+                -256
             ],
-            "id": "ca08643d-bcbe-4490-8d89-c687cace89e0",
+            "id": "ai-agent",
             "name": "AI Health Agent"
         },
         {
@@ -90,32 +91,37 @@
                 "mode": "retrieve-as-tool",
                 "toolName": "naga_knowledge_base",
                 "toolDescription": "Search the MyNaga Gabay knowledge base for information about Naga City health facilities, government services, medicines, PhilHealth coverage, and emergency hotlines. Use this tool when the user asks about any local health or government service in Naga City.",
-                "options": {}
+                "tableName": "n8n_vectors",
+                "options": {
+                    "topK": 5
+                }
             },
             "type": "@n8n/n8n-nodes-langchain.vectorStorePGVector",
             "typeVersion": 1.1,
             "position": [
-                928,
-                224
+                1104,
+                -32
             ],
-            "id": "89c268a4-162b-4228-a169-992dc4f701c8",
+            "id": "pgvector-store",
             "name": "PGVector Knowledge Base",
             "credentials": {
                 "postgres": {
                     "id": "nV9TVKfIINwf5GIv",
-                    "name": "mynaga-gabay"
+                    "name": "Yamabiko"
                 }
             }
         },
         {
-            "parameters": {},
+            "parameters": {
+                "model": "models/text-embedding-004"
+            },
             "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
             "typeVersion": 1,
             "position": [
-                1008,
-                432
+                1184,
+                176
             ],
-            "id": "1fa703ab-f11a-42c8-b888-f992f1aec19f",
+            "id": "gemini-embeddings",
             "name": "Google Gemini Embeddings",
             "credentials": {
                 "googlePalmApi": {
@@ -126,15 +132,15 @@
         },
         {
             "parameters": {
-                "jsCode": "// Format the AI agent's response\nconst input = $input.first().json;\nconst agentOutput = input.output || input.text || 'Pasensya na, may problema. Paki-try giraray. (Sorry, there was a problem. Please try again.)';\n\n// Try to get request data from either extraction node\nlet requestData;\nlet isChatTrigger = false;\ntry {\n  requestData = $('Extract & Detect Language').first().json;\n} catch (e1) {\n  try {\n    requestData = $('Extract Chat Language').first().json;\n    isChatTrigger = true;\n  } catch (e2) {\n    requestData = { language: 'english', sessionId: 'unknown' };\n  }\n}\n\n// Return formatted response\nreturn [{\n  json: {\n    response: agentOutput,\n    output: agentOutput,\n    language: requestData.language,\n    sessionId: requestData.sessionId,\n    model: 'qwen/qwen3-32b',\n    timestamp: new Date().toISOString(),\n    isChatTrigger: isChatTrigger\n  }\n}];"
+                "jsCode": "// Format the AI agent's response\nconst input = $input.first().json;\nconst agentOutput = input.output || input.text || 'Pasensya na, may problema. Paki-try giraray. (Sorry, there was a problem. Please try again.)';\nconst requestData = $('Extract & Detect Language').first().json;\n\nreturn [{\n  json: {\n    response: agentOutput,\n    language: requestData.language,\n    sessionId: requestData.sessionId,\n    model: 'qwen/qwen3-32b',\n    timestamp: new Date().toISOString()\n  }\n}];"
             },
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
             "position": [
-                1296,
-                0
+                1472,
+                -256
             ],
-            "id": "af2f16d2-4aa6-4bb2-b77f-0e6879f58c5f",
+            "id": "format-response",
             "name": "Format Response"
         },
         {
@@ -146,56 +152,11 @@
             "type": "n8n-nodes-base.respondToWebhook",
             "typeVersion": 1.1,
             "position": [
-                1520,
-                0
+                1696,
+                -256
             ],
-            "id": "6926192a-7a82-4a67-af96-3f77896da035",
+            "id": "respond-webhook",
             "name": "Respond to Webhook"
-        },
-        {
-            "parameters": {
-                "public": true,
-                "initialMessages": "Maray na aldaw! \ud83d\udc4b\n\nI'm **MyNaga Gabay**, your AI health assistant for Naga City.\n\nYou can ask me about:\n\ud83c\udfe5 Hospitals & clinics\n\ud83d\udc8a Pharmacies & medicines\n\ud83c\udfdb\ufe0f Government offices\n\ud83c\udd98 Emergency hotlines\n\ud83d\udc9a PhilHealth benefits\n\nTataram ka sa Bikol, Tagalog, o English - maintindihan taka!\n\n---\n\n\u00bfAno an sakong maitatabang saimo?\n(How can I help you?)",
-                "options": {
-                    "responseMode": "responseNodes"
-                }
-            },
-            "type": "@n8n/n8n-nodes-langchain.chatTrigger",
-            "typeVersion": 1.4,
-            "position": [
-                224,
-                96
-            ],
-            "id": "0cc99eae-7f95-4791-9d91-047ab357f841",
-            "name": "When chat message received",
-            "webhookId": "mynaga-gabay-chat-ui"
-        },
-        {
-            "parameters": {
-                "jsCode": "// Extract message from chat trigger\nconst chatInput = $input.first().json;\nconst message = chatInput.chatInput || chatInput.message || '';\nconst sessionId = chatInput.sessionId || 'chat-' + Date.now();\n\n// Language detection\nconst bikolIndicators = ['daw', 'baga', 'ta', 'digdi', 'saimo', 'sakuya', 'harong', 'kaini', 'maray', 'tabi', 'siring', 'haen', 'pano', 'dai', 'iyo', 'bako', 'saro'];\nconst tagalogIndicators = ['ang', 'ng', 'mga', 'sa', 'na', 'ko', 'mo', 'siya', 'niya', 'kami', 'kayo', 'sila', 'ano', 'paano', 'saan', 'bakit', 'sino'];\nconst englishIndicators = ['the', 'is', 'are', 'what', 'where', 'how', 'can', 'do', 'does', 'have', 'has', 'will', 'would', 'could', 'should', 'please', 'help', 'need', 'want'];\n\nconst lowerMsg = message.toLowerCase();\nconst words = lowerMsg.split(/\\s+/);\n\nconst bikolScore = bikolIndicators.filter(w => words.includes(w)).length;\nconst tagalogScore = tagalogIndicators.filter(w => words.includes(w)).length;\nconst englishScore = englishIndicators.filter(w => words.includes(w)).length;\n\nlet detectedLanguage = 'english';\nif (bikolScore > 0 && bikolScore >= tagalogScore) {\n  detectedLanguage = 'bikol';\n} else if (tagalogScore > englishScore) {\n  detectedLanguage = 'tagalog';\n}\n\nreturn [{\n  json: {\n    message: message,\n    sessionId: sessionId,\n    language: detectedLanguage,\n    timestamp: new Date().toISOString()\n  }\n}];"
-            },
-            "type": "n8n-nodes-base.code",
-            "typeVersion": 2,
-            "position": [
-                448,
-                96
-            ],
-            "id": "0615b9d1-1854-4c6f-aa88-6a9ac2aaaad3",
-            "name": "Extract Chat Language"
-        },
-        {
-            "parameters": {
-                "message": "={{ $json.response }}",
-                "options": {}
-            },
-            "type": "@n8n/n8n-nodes-langchain.chat",
-            "typeVersion": 1,
-            "position": [
-                1520,
-                96
-            ],
-            "id": "respond-to-chat",
-            "name": "Respond to Chat"
         }
     ],
     "connections": {
@@ -243,17 +204,6 @@
                 ]
             ]
         },
-        "AI Health Agent": {
-            "main": [
-                [
-                    {
-                        "node": "Format Response",
-                        "type": "main",
-                        "index": 0
-                    }
-                ]
-            ]
-        },
         "PGVector Knowledge Base": {
             "ai_tool": [
                 [
@@ -276,38 +226,22 @@
                 ]
             ]
         },
+        "AI Health Agent": {
+            "main": [
+                [
+                    {
+                        "node": "Format Response",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
         "Format Response": {
             "main": [
                 [
                     {
                         "node": "Respond to Webhook",
-                        "type": "main",
-                        "index": 0
-                    },
-                    {
-                        "node": "Respond to Chat",
-                        "type": "main",
-                        "index": 0
-                    }
-                ]
-            ]
-        },
-        "When chat message received": {
-            "main": [
-                [
-                    {
-                        "node": "Extract Chat Language",
-                        "type": "main",
-                        "index": 0
-                    }
-                ]
-            ]
-        },
-        "Extract Chat Language": {
-            "main": [
-                [
-                    {
-                        "node": "AI Health Agent",
                         "type": "main",
                         "index": 0
                     }
@@ -317,6 +251,7 @@
     },
     "pinData": {},
     "meta": {
+        "templateCredsSetupCompleted": true,
         "instanceId": "07735f1b4ca74ae0b887f047d3f2b5d2649651b894580d19d87f5f3e7573b6dd"
     }
 }
