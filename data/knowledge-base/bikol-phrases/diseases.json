@@ -1,0 +1,127 @@
+{
+  "category": "diseases",
+  "count": 20,
+  "phrases": [
+    {
+      "bikol": "sakit sa puso",
+      "filipino": "sakit sa puso",
+      "english": "heart disease",
+      "category": "diseases"
+    },
+    {
+      "bikol": "alta presyon",
+      "filipino": "mataas na presyon",
+      "english": "high blood pressure",
+      "category": "diseases"
+    },
+    {
+      "bikol": "baba presyon",
+      "filipino": "mababang presyon",
+      "english": "low blood pressure",
+      "category": "diseases"
+    },
+    {
+      "bikol": "diabetis",
+      "filipino": "diabetes",
+      "english": "diabetes",
+      "category": "diseases"
+    },
+    {
+      "bikol": "rayuma",
+      "filipino": "rayuma",
+      "english": "rheumatism/arthritis",
+      "category": "diseases"
+    },
+    {
+      "bikol": "almoranas",
+      "filipino": "almoranas",
+      "english": "hemorrhoids",
+      "category": "diseases"
+    },
+    {
+      "bikol": "alerya",
+      "filipino": "allergy",
+      "english": "allergy",
+      "category": "diseases"
+    },
+    {
+      "bikol": "dengue",
+      "filipino": "dengue",
+      "english": "dengue fever",
+      "category": "diseases"
+    },
+    {
+      "bikol": "TB",
+      "filipino": "TB/tuberculosis",
+      "english": "tuberculosis",
+      "category": "diseases"
+    },
+    {
+      "bikol": "pulmonya",
+      "filipino": "pulmonya",
+      "english": "pneumonia",
+      "category": "diseases"
+    },
+    {
+      "bikol": "UTI",
+      "filipino": "UTI",
+      "english": "urinary tract infection",
+      "category": "diseases"
+    },
+    {
+      "bikol": "sakit sa bato",
+      "filipino": "sakit sa bato",
+      "english": "kidney disease",
+      "category": "diseases"
+    },
+    {
+      "bikol": "kanser",
+      "filipino": "kanser",
+      "english": "cancer",
+      "category": "diseases"
+    },
+    {
+      "bikol": "stroke",
+      "filipino": "stroke",
+      "english": "stroke",
+      "category": "diseases"
+    },
+    {
+      "bikol": "atake sa puso",
+      "filipino": "atake sa puso",
+      "english": "heart attack",
+      "category": "diseases"
+    },
+    {
+      "bikol": "sakit sa atay",
+      "filipino": "sakit sa atay",
+      "english": "liver disease",
+      "category": "diseases"
+    },
+    {
+      "bikol": "hepatitis",
+      "filipino": "hepatitis",
+      "english": "hepatitis",
+      "category": "diseases"
+    },
+    {
+      "bikol": "COVID",
+      "filipino": "COVID",
+      "english": "COVID-19",
+      "category": "diseases"
+    },
+    {
+      "bikol": "galis-aso",
+      "filipino": "galis-aso",
+      "english": "ringworm",
+      "category": "diseases"
+    },
+    {
+      "bikol": "buni",
+      "filipino": "buni",
+      "english": "tinea versicolor",
+      "category": "diseases"
+    }
+  ],
+  "note": "Central Bikol (Naga City) dialect"
+}

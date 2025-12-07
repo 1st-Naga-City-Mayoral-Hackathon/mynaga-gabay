@@ -1,97 +1,253 @@
 {
   "category": "symptoms",
+  "count": 41,
   "phrases": [
     {
-      "bikol": "Kulog nin payo",
-      "english": "Headache",
+      "bikol": "kulog",
+      "filipino": "sakit",
+      "english": "pain",
       "category": "symptoms"
     },
     {
-      "bikol": "Kalintura",
-      "english": "Fever",
+      "bikol": "makulog",
+      "filipino": "masakit",
+      "english": "painful",
       "category": "symptoms"
     },
     {
-      "bikol": "Sipon",
-      "english": "Cold / Runny nose",
+      "bikol": "hapdos",
+      "filipino": "hapdi",
+      "english": "stinging pain",
       "category": "symptoms"
     },
     {
-      "bikol": "Ubo",
-      "english": "Cough",
+      "bikol": "sugat",
+      "filipino": "sugat",
+      "english": "wound",
       "category": "symptoms"
     },
     {
-      "bikol": "Kulog nin tulak",
-      "english": "Stomach ache",
+      "bikol": "paga",
+      "filipino": "pamamaga",
+      "english": "swelling",
       "category": "symptoms"
     },
     {
-      "bikol": "Pagduwal",
-      "english": "Vomiting",
+      "bikol": "pula",
+      "filipino": "pamumula",
+      "english": "redness",
       "category": "symptoms"
     },
     {
-      "bikol": "Kurso",
-      "english": "Diarrhea",
+      "bikol": "maultok",
+      "filipino": "matigas",
+      "english": "stiff/hard",
       "category": "symptoms"
     },
     {
-      "bikol": "Kulog nin likod",
-      "english": "Back pain",
+      "bikol": "kalintura",
+      "filipino": "lagnat",
+      "english": "fever",
       "category": "symptoms"
     },
     {
-      "bikol": "Kulog nin daghan",
-      "english": "Chest pain",
+      "bikol": "ginaw",
+      "filipino": "panginginig",
+      "english": "chills",
       "category": "symptoms"
     },
     {
-      "bikol": "Pagkapuod",
-      "english": "Fatigue / Tiredness",
+      "bikol": "hilab",
+      "filipino": "pagpapawis",
+      "english": "sweating",
       "category": "symptoms"
     },
     {
-      "bikol": "Lipong",
-      "english": "Dizziness",
+      "bikol": "sipon",
+      "filipino": "sipon",
+      "english": "runny nose/cold",
       "category": "symptoms"
     },
     {
-      "bikol": "Hapdos",
-      "english": "Pain / Hurt",
+      "bikol": "ubo",
+      "filipino": "ubo",
+      "english": "cough",
       "category": "symptoms"
     },
     {
-      "bikol": "Hubog / Bangkag",
-      "english": "Wound",
+      "bikol": "hika",
+      "filipino": "hika",
+      "english": "asthma",
       "category": "symptoms"
     },
     {
-      "bikol": "Paga",
-      "english": "Swelling",
+      "bikol": "hingal",
+      "filipino": "hirap sa paghinga",
+      "english": "difficulty breathing",
       "category": "symptoms"
     },
     {
-      "bikol": "Hapulas",
-      "english": "Rash",
+      "bikol": "lipong",
+      "filipino": "pagkahilo",
+      "english": "dizziness",
       "category": "symptoms"
     },
     {
-      "bikol": "Hingal",
-      "english": "Difficulty breathing",
+      "bikol": "himlay",
+      "filipino": "pagkahina",
+      "english": "weakness",
       "category": "symptoms"
     },
     {
-      "bikol": "Suka",
-      "english": "Vomit",
+      "bikol": "pagal",
+      "filipino": "pagkapagod",
+      "english": "fatigue",
       "category": "symptoms"
     },
     {
-      "bikol": "Mata ng pula",
-      "english": "Red eyes / Sore eyes",
+      "bikol": "kurso",
+      "filipino": "pagtatae",
+      "english": "diarrhea",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "suka",
+      "filipino": "pagsusuka",
+      "english": "vomiting",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "pagduwal",
+      "filipino": "pagkasuka",
+      "english": "nausea",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "tibi",
+      "filipino": "tibi",
+      "english": "constipation",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "kabag",
+      "filipino": "kabag",
+      "english": "bloating/gas",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "pait",
+      "filipino": "mapait na lasa",
+      "english": "bitter taste",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "kulba",
+      "filipino": "kabalisahan sa tiyan",
+      "english": "stomach upset",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "galis",
+      "filipino": "kati",
+      "english": "itchiness",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "hapulas",
+      "filipino": "pantal",
+      "english": "rash",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "hubag",
+      "filipino": "bukol",
+      "english": "lump/bump",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "nana",
+      "filipino": "nana",
+      "english": "pus",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "pigsa",
+      "filipino": "pigsa",
+      "english": "boil/abscess",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "hararom na pagturog",
+      "filipino": "labis na pagtulog",
+      "english": "excessive sleepiness",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "dai makatulog",
+      "filipino": "hindi makatulog",
+      "english": "insomnia",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "hadit",
+      "filipino": "pagkabahala",
+      "english": "anxiety",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "mamundo",
+      "filipino": "kalungkutan",
+      "english": "sadness",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "ngirit",
+      "filipino": "pagkairita",
+      "english": "irritability",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "nalingaw",
+      "filipino": "nalilito",
+      "english": "confusion",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "kulap",
+      "filipino": "malabo ang paningin",
+      "english": "blurred vision",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "mata na pula",
+      "filipino": "namumula ang mata",
+      "english": "red eyes",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "mata na maga",
+      "filipino": "namamagang mata",
+      "english": "swollen eyes",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "luha",
+      "filipino": "luha",
+      "english": "tears/watery eyes",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "bungog",
+      "filipino": "bingi",
+      "english": "deafness/hearing loss",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "hunghong",
+      "filipino": "tunog sa tenga",
+      "english": "ringing in ears",
       "category": "symptoms"
     }
   ],
-  "count": 18,
-  "note": "Central Bikol (Naga City dialect). Other Bikol dialects may vary."
+  "note": "Central Bikol (Naga City) dialect"
 }

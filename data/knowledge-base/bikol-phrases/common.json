@@ -1,0 +1,121 @@
+{
+  "category": "common",
+  "count": 19,
+  "phrases": [
+    {
+      "bikol": "Dios mabalos",
+      "filipino": "Salamat sa Diyos / Maraming salamat",
+      "english": "Thank God / Thank you very much",
+      "category": "common"
+    },
+    {
+      "bikol": "Tabi po",
+      "filipino": "Paumanhin po",
+      "english": "Excuse me",
+      "category": "common"
+    },
+    {
+      "bikol": "Pasensya na",
+      "filipino": "Pasensya na",
+      "english": "Sorry / Please be patient",
+      "category": "common"
+    },
+    {
+      "bikol": "Iyo",
+      "filipino": "Oo",
+      "english": "Yes",
+      "category": "common"
+    },
+    {
+      "bikol": "Dai",
+      "filipino": "Hindi",
+      "english": "No",
+      "category": "common"
+    },
+    {
+      "bikol": "Siguro",
+      "filipino": "Siguro",
+      "english": "Maybe",
+      "category": "common"
+    },
+    {
+      "bikol": "Baka",
+      "filipino": "Baka",
+      "english": "Perhaps/might",
+      "category": "common"
+    },
+    {
+      "bikol": "Haloy na",
+      "filipino": "Matagal na",
+      "english": "For a long time",
+      "category": "common"
+    },
+    {
+      "bikol": "Kasubanggi",
+      "filipino": "Kagabi",
+      "english": "Last night",
+      "category": "common"
+    },
+    {
+      "bikol": "Ngonyan",
+      "filipino": "Ngayon",
+      "english": "Now",
+      "category": "common"
+    },
+    {
+      "bikol": "Pagkatapos",
+      "filipino": "Pagkatapos",
+      "english": "After",
+      "category": "common"
+    },
+    {
+      "bikol": "Bago",
+      "filipino": "Bago",
+      "english": "Before",
+      "category": "common"
+    },
+    {
+      "bikol": "Kada aldaw",
+      "filipino": "Araw-araw",
+      "english": "Every day",
+      "category": "common"
+    },
+    {
+      "bikol": "Pirmi",
+      "filipino": "Palagi",
+      "english": "Always",
+      "category": "common"
+    },
+    {
+      "bikol": "Kun minsan",
+      "filipino": "Minsan",
+      "english": "Sometimes",
+      "category": "common"
+    },
+    {
+      "bikol": "Harani",
+      "filipino": "Malapit",
+      "english": "Near/close",
+      "category": "common"
+    },
+    {
+      "bikol": "Harayo",
+      "filipino": "Malayo",
+      "english": "Far",
+      "category": "common"
+    },
+    {
+      "bikol": "Dakul",
+      "filipino": "Marami",
+      "english": "Many/much",
+      "category": "common"
+    },
+    {
+      "bikol": "Dikit",
+      "filipino": "Kaunti",
+      "english": "Few/little",
+      "category": "common"
+    }
+  ],
+  "note": "Central Bikol (Naga City) dialect"
+}

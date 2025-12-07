@@ -1,0 +1,194 @@
+{
+  "qwen/qwen3-32b": {
+    "tests": [
+      {
+        "test": "Bikol Understanding - Health Question",
+        "success": true,
+        "response": "<think>\nOkay, the user is asking \"Saen an pinakahararaning ospital?\" which is in Bikol language from Naga City, Philippines. First, I need to translate this question into English to understand it better. \n\nBreaking down the words: \"Saen\" means \"Where is the\", \"pinakahararaning\" is a bit tricky. \"Pinaka\" usually means \"most\" or \"very\", and \"hararaning\" might come from \"harari\" which means to run or move quickly. So putting it together, \"pinakahararaning\" could be \"fastest\" or \"quickest\". \"Ospital\" is straightforward, meaning \"hospital\". So the question translates to \"Where is the fastest hospital?\" or \"Which is the closest hospital?\"\n\nNow, I need to consider the context. If the user is in Naga City, they might be looking for the nearest or most accessible hospital. But they might actually be asking for the best or most well-known hospital. Alternatively, \"hararaning\" could be a dialect variation or a specific term I'm not familiar with. Maybe \"hararaning\" refers to something else, like the largest or most equipped.\n\nNext, I should verify if there are any hospitals in Naga City that are commonly referred to as the \"fastest\". However, hospitals aren't typically categorized by speed. More likely, the user is asking for the nearest or most prominent hospital. \n\nPossible hospitals in Naga City include Naga Doctors' Hospital, St. Luke's Medical Center Naga, and others. I should list the major hospitals and provide directions or contact info. But since I don't have current data, I should advise them to check a map or local listings. Also, considering emergency situations, suggesting the nearest one would be helpful. \n\nWait, maybe the user confused \"hararaning\" with \"harani\", which means \"near\" in Bikol. So \"pinakaharani\" would be \"nearest\". That makes more sense. So the question might actually be \"Where is the nearest hospital?\" \n\nIn that case, the answer should be to check the nearest hospitals in Naga City. But since I can't access real-time location data, I can mention that the nearest hospital could be the one where they are located, like if they are in the city center, Naga Doctors' Hospital is a major one. Also, advising them to",
+        "score": 60,
+        "notes": [
+          "\u2713 Understood the meaning",
+          "\u2713 Detailed response"
+        ]
+      },
+      {
+        "test": "Bikol Understanding - Symptoms",
+        "success": true,
+        "response": "<think>\nOkay, the user is using Bikol language and they wrote \"May kalintura ako asin kulog nin payo. Ano dapat kong gibuhon?\" which translates to \"I have a fever and a headache. What should I do?\" \n\nFirst, I need to confirm the translation to make sure I understand correctly. \"Kalintura\" is indeed fever, and \"kulog nin payo\" is headache. The user is asking for advice on what to do when they have these symptoms.\n\nNext, I should consider the appropriate response. Since they're asking for medical advice, I need to be careful. I can't provide a diagnosis, so it's important to recommend consulting a healthcare professional. But I can also offer general suggestions for symptom relief.\n\nCommon advice for fever and headache includes rest, hydration, and over-the-counter medications like acetaminophen or ibuprofen. However, I should mention that if symptoms persist or worsen, they should see a doctor. Also, if there are other symptoms like vomiting, severe pain, or high fever, that's a red flag.\n\nSince the user is using Bikol, I should respond in the same language to be respectful and helpful. I need to make sure the translation is accurate. Maybe check some Bikol phrases to confirm the terms for rest, drink water, take medicine, etc.\n\nAlso, consider cultural context. In the Philippines, common home remedies might include things like drinking hot water with lemon or taking herbal medicines. But it's safer to stick to general advice unless I'm certain about local practices.\n\nI should structure the response: first, recommend consulting a doctor, then list some self-care steps. Make sure to mention when to seek immediate help. Avoid giving medical advice beyond basic first aid to stay within safe boundaries.\n\nDouble-check the translation of medical terms in Bikol. For example, \"acetaminophen\" might be known by a local name. If unsure, it's better to use the generic term. Also, make sure \"ibuprofen\" is correctly translated.\n\nFinally, keep the tone empathetic and supportive, encouraging them to take care and seek professional help if needed.\n</think>\n\nNasayod tan kaukulan ya i-consult ka so doktor. Kon di pa man, iray magawa so kaukulan ya:\n\n1. **Pahilom** - Pahilomi so lawas mo para kaukulan ya",
+        "score": 60,
+        "notes": [
+          "\u2713 Understood the meaning",
+          "\u2713 Detailed response"
+        ]
+      },
+      {
+        "test": "Bikol Generation - Greeting",
+        "success": true,
+        "response": "<think>\nOkay, the user is asking how to say \"Good morning, how are you?\" in Bikol, specifically the Central Bikol/Naga dialect. First, I need to recall the correct phrases. Let me start with \"Good morning.\" In Bikol, \"good morning\" is usually \"Mabug-at ya umaga.\" Then for \"how are you?\" I think it's \"Mareg-o kaba?\" or maybe \"Mareg-o kau?\" depending on the region. But since they specified Central Bikol/Naga dialect, I should confirm the most common form there. \n\nWait, maybe \"Kay pareho?\" is another way to ask \"how are you?\" in some Bikol variants. Hmm. Let me check if \"Mabug-at ya umaga, mareg-o kaba?\" is the correct combination. Also, sometimes people use \"kau\" for plural or formal, but if it's singular, \"ka\" is used. The user is asking for the phrase directed at someone, so probably singular. \n\nAnother thing to consider is if the user wants a formal or informal version. Since they didn't specify, it's safer to go with the standard form. Let me verify with some references. Yes, \"Mabug-at ya umaga\" is definitely \"Good morning.\" For \"how are you?\" in Central Bikol, \"mareg-o ka?\" is the correct form. So putting it together: \"Mabug-at ya umaga, mareg-o ka?\" \n\nI should also note any variations if they exist. Maybe mention that sometimes \"kau\" is used instead of \"ka\" for plural or when addressing multiple people. But since the user is asking for the basic phrase, sticking with the singular form is better. Also, confirm that \"mareg-o\" is indeed the right word. Some might use \"reg-o\" but with the \"ma-\" prefix to make it a question. Yeah, \"mareg-o ka?\" is correct. \n\nSo the response should be the phrase in Bikol followed by its English translation, and maybe a note about variations. Make sure to use the Naga dialect, which is Central Bikol. Double-checking online sources or Bikol dictionaries to confirm. Alright, confident that \"Mabug-at ya umaga, mareg-o ka?\" is the right translation.\n</think>\n\n\"Good morning, how are you?\" in Bikol (Central",
+        "score": 10,
+        "notes": [
+          "\u2717 No Bikol words in response",
+          "\u2713 Detailed response"
+        ]
+      },
+      {
+        "test": "Bikol Translation - English to Bikol",
+        "success": true,
+        "response": "<think>\nOkay, the user wants to translate the question \"Where is the pharmacy? I need medicine for fever.\" into Bikol Naga City dialect. Let me start by recalling the basics of Bikol. I know that Bikol has several dialects, and Naga City dialect is one of them. First, I need to translate \"Where is the pharmacy?\" In Bikol, \"where\" is usually \"Saan\". \"Pharmacy\" can be \"sirada\" or \"sirada\", but I need to confirm the correct term in Naga City. Maybe \"sirada\" is more common there.\n\nNext, \"I need medicine for fever.\" The verb \"need\" in Bikol is \"kakaukolan\" or \"kaukolan\". \"Medicine\" is \"medisina\". \"For fever\" would be \"para sa lagnat\". So putting it together: \"Kaukolan ako nin medisina para sa lagnat.\" Wait, but in Bikol, the structure might be \"Kakaukolan ako ya medisina para sa lagnat.\" Hmm, maybe \"Kakaukolan ako ya medisina para sa lagnat.\" Let me check the correct structure. In some Bikol dialects, the verb \"kaukolan\" is used, and the preposition \"para sa\" is used for purpose. \n\nI should also consider the correct way to phrase the sentence. Maybe \"Saan an sirada? Kakaukolan ako ya medisina para sa lagnat.\" That seems right. Let me verify each word. \"Saan\" for where, \"an\" for the definite article. \"Sirada\" for pharmacy. \"Kakaukolan ako\" for \"I need\". \"Ya medisina\" for \"medicine\", and \"para sa lagnat\" for \"for fever\". \n\nWait, in some Bikol resources, \"pharmacy\" might be \"sirada\" or \"botika\". Let me check. \"Botika\" is another term for pharmacy. So maybe \"Saan an botika?\" is also correct. But since the user specified Naga City dialect, I should confirm which term is more commonly used there. From what I recall, in Naga City, they might use \"botika\" more often. Hmm, this is a bit conflicting. Let me think. If",
+        "score": 10,
+        "notes": [
+          "\u2713 Detailed response"
+        ]
+      },
+      {
+        "test": "Bikol Translation - Bikol to English",
+        "success": true,
+        "response": "<think>\nOkay, let's tackle this translation. The user wants to translate the Bikol sentence \"Magkano an konsulta sa doktor?\" into English.\n\nFirst, I need to break down the sentence. \"Magkano\" is a common word in Bikol that means \"how much\" or \"how expensive.\" So that's the starting point.\n\nNext, \"an konsulta\" \u2013 \"an\" is a preposition here, probably meaning \"the\" or \"at the.\" \"Konsulta\" directly translates to \"consultation.\" So together, \"an konsulta\" would be \"the consultation\" or \"at the consultation.\"\n\nThen \"sa doktor.\" \"Sa\" is a preposition meaning \"to\" or \"at,\" and \"doktor\" is straightforwardly \"doctor.\" So \"sa doktor\" would be \"at the doctor\" or \"to the doctor.\"\n\nPutting it all together: \"Magkano an konsulta sa doktor?\" translates to \"How much is the consultation at the doctor?\" or more naturally in English, \"How much does the doctor's consultation cost?\" \n\nI should check if \"konsulta\" is commonly used in Bikol. Since it's a loanword from Spanish/Filipino, it's likely used in Bikol as well. Also, the structure \"Magkano an [noun phrase]\" is a typical way to ask about the price of something in Bikol, so the translation makes sense.\n\nAnother way to phrase it in English could be \"What is the cost of the doctor's consultation?\" but the most direct translation that's natural in English would be \"How much is the doctor's consultation?\" \n\nI need to make sure that \"an\" in this context is correctly translated as \"the.\" Sometimes \"an\" can also mean \"at the,\" depending on the context. But since \"konsulta\" is a noun, using \"the\" makes it clearer. \n\nSo the final translation would be: \"How much is the doctor's consultation?\" That's concise and idiomatic in English.\n</think>\n\nHow much is the doctor's consultation?",
+        "score": 60,
+        "notes": [
+          "\u2713 Correct translation",
+          "\u2713 Detailed response"
+        ]
+      },
+      {
+        "test": "Health Advice in Bikol",
+        "success": true,
+        "response": "<think>\nOkay, the user is asking in Bikol about what they should do for diarrhea. I need to respond in Bikol with simple health advice. Let me start by translating the question to make sure I understand it correctly. \"Ano an dapat kong gibuhon para sa kurso?\" translates to \"What should I do for the course?\" but \"kurso\" here probably refers to the medical term for diarrhea.\n\nFirst, the main points to cover in my response: staying hydrated is crucial. They should drink plenty of water, maybe with a pinch of salt and sugar to replenish electrolytes. Oral Rehydration Solution (ORS) would be good to mention. Also, eating bland foods like rice, bananas, and toast. Avoid dairy, fatty foods, and sugary drinks. Resting is important too. If symptoms persist for more than a couple of days or there's blood in the stool, they should see a doctor. \n\nI need to make sure the advice is clear and in simple Bikol. Let me check the correct terms in Bikol. \"Luto hin bogo\" for boiled water, \"pinagluto nga bigas\" for cooked rice, \"banana\" is the same, \"torotot\" for toast. \"Ibuhawi an gatas\" for avoid dairy. Also, mention ORS but maybe use the local term if there's one. \n\nWait, \"Oral Rehydration Solution\" might not be a common term. Maybe I can say \"solution nga anti-dehydration\" or just mention mixing salt, sugar, and water. But the user might not have ORS at home, so the homemade solution is better. Let me structure it step by step. \n\n1. Drink lots of water with salt and sugar.\n2. Eat bland foods.\n3. Avoid certain foods.\n4. Rest.\n5. See a doctor if severe or prolonged.\n\nCheck for clarity and make sure the instructions are easy to follow. Also, use the correct Bikol terms. Let me put it all together in a friendly tone.\n</think>\n\n**Sugad para sa kurso (diarrhea):**  \n1. **Ihulat an tubig** \u2013 Inum 5-6 baso hin tubig arum, sugad hin 1 sukli asin 1 sukli asukar para magpabilin han electrolytes.  \n2. **Kumaon hin dali nga",
+        "score": 0,
+        "notes": [
+          "\u2713 Used Bikol words: dai",
+          "\u2713 Detailed response"
+        ]
+      }
+    ],
+    "average_score": 33.3,
+    "passed": 6
+  },
+  "openai/gpt-oss-120b": {
+    "tests": [
+      {
+        "test": "Bikol Understanding - Health Question",
+        "success": true,
+        "response": "**Saen an pinakahararan na ospital?**  \n(Where is the nearest hospital?)\n\n---\n\n### 1.  Alagad nin Pagsusurong (General Guidance)\n\n1. **Gamiton an Google Maps o Apple Maps** \u2013 i\u2011type an \u201chospital\u201d o an ngaran kan ospital sa search bar, tapos piliin an \u201cDirections\u201d asin i\u2011set an imo address o GPS location.  \n2. **Tanongon an mga tawo sa palibot** \u2013 kadaklan sa mga tindahan, kanto, o \u201ckanto\u2011kanto\u201d (barangay hall) mayda laog na impormasyon kung sain an pinakamadali na pag-abot.  \n3. **Telepono** \u2013 kung mayda ka internet pero diri ka pa sigurado, puwedeng tawagan an mga ospital sa Naga City (listahan sa ibaba) asin mag\u2011ask kung anda ba nira an \u201cemergency department\u201d (ED) o \u201curgent care\u201d na puwedeng bisitahon.  \n\n---\n\n### 2.  Mga Dako asin Kilala na Ospital sa Naga City (Bicol Region)\n\n| # | Ngaran kan Ospital | Address | Telepono | Tipo |\n|---|--------------------|---------|----------|------|\n| 1 | **Bicol Medical Center (BMC)** | Maharlika Highway, Barangay San Rafael, Naga City, Camarines Sur | (053) 560\u20110236 | Government, 500\u2011bed tertiary |\n| 2 | **St. Luke\u2019s Medical Center \u2013 Naga** | 1st Floor, St. Luke\u2019s Building, Maharlika Highway, Barangay San Rafael, Naga City | (053)",
+        "score": 60,
+        "notes": [
+          "\u2713 Understood the meaning",
+          "\u2713 Detailed response"
+        ]
+      },
+      {
+        "test": "Bikol Understanding - Symptoms",
+        "success": true,
+        "response": "**Maugma ka!**  \nKun may kalintura asin kulog nin payo (sipon, hilan, asin ubo) ka, ini an pira nga mga simple pero epektibo na hakbang na pwede mong buhaton para maibsan an mga simtoma asin makapag\u2011recover ka:\n\n| Hakbang | Ano iton | Kay-ano ini epektibo |\n|---------|----------|----------------------|\n| **Magpahulay** | I\u2011stop an marhay mong mga aktibidad, mag\u2011sleep nin 7\u20119 na oras kada gab-i. | An lawas mo kailangan nin enerhiya para labanan an virus. |\n| **Inom nin madamu na tubig** | Tubig, tsa (wal\u00e2 dami na kapeina), sabaw, o fruit juice (hindi sobra ang asukal). | Nakatabang ini para hindi ma\u2011dehydrate an lawas asin para matulod an mucus palabas. |\n| **Mainit na inumin** | Tsa na may honey asin lemon, ginger tea, o sabaw na may bawang. | Nakaka\u2011soothe sa sore throat asin nakaka\u2011relax sa ilong. |\n| **Gargle** | I\u2011gargle an maligam\u2011gam na tubig na may asin (\u00bd kutsara asin sa 1 cup tubig) 2\u20113 beses kada adlaw. | Nakaka\u2011pabawas nin pamamaga asin nakakatanggal nin bakterya/virus sa lalamunan. |\n| **Steam",
+        "score": 10,
+        "notes": [
+          "\u2717 Did not demonstrate understanding",
+          "\u2713 Detailed response"
+        ]
+      },
+      {
+        "test": "Bikol Generation - Greeting",
+        "success": true,
+        "response": "Maugma, kaipag\u2011an\u00f3 ka?  (Maugma\u202f=\u202fgood\u202fmorning, kaipag\u2011an\u00f3\u202f=\u202fhow\u202fare\u202fyou)",
+        "score": 10,
+        "notes": [
+          "\u2717 No Bikol words in response",
+          "\u2713 Detailed response"
+        ]
+      },
+      {
+        "test": "Bikol Translation - English to Bikol",
+        "success": true,
+        "response": "**Bikol (Naga City dialect):**  \n\u201cHain an botika? Kinahanglan ko nin medisina para sa hilanat.\u201d",
+        "score": 10,
+        "notes": [
+          "\u2713 Detailed response"
+        ]
+      },
+      {
+        "test": "Bikol Translation - Bikol to English",
+        "success": true,
+        "response": "**Translation:** \u201cHow much is a doctor\u2019s consultation?\u201d",
+        "score": 10,
+        "notes": [
+          "\u2713 Detailed response"
+        ]
+      },
+      {
+        "test": "Health Advice in Bikol",
+        "success": true,
+        "response": "**Ano an dapat mong gibuhon para sa kurso (diarrhea):**\n\n1. **Inom nin tama na tubig** \u2013 Puyde ka mag\u2011himo nin oral rehydration solution (ORS). Ihalo an 1 litro na purong tubig, 6 na kutsara na asukal, asin \u00bd kutsarita na asin. Inumon ini pirme\u2011pirme (bawat 15\u201130 minutos) tanganing mapugos an dehydration.\n\n2. **Kaon nin magaan na pagkaon** \u2013 Sa una, iwasan an matabang, maaslum, asin marurukong pagkaon. Puyde ka mag\u2011kaon nin:\n   - Saging (banana)  \n   - Luto na kanin o lugaw (plain rice porridge)  \n   - Tinapay na walang mantikilya (toast)  \n   - Patatas na niluto (boiled potatoes)  \n\n3. **Iwasan an mga pagkaon na makapagrabe** \u2013 kape, tsaa, soft drinks, maanghang, gatas, at mga hilaw na prutas/gulay hanggang ma\u2011stable an tiyan.\n\n4. **Pahuway** \u2013 Pahingaan an lawas nin tama na oras. Iwasan an bug-at na pisikal na trabaho habang may kurso pa.\n\n5. **Pangadi nin probiotic** \u2013 Kun may probiotic supplement o yogurt na walang asukal, puwede mo ini inomon para matabangan an balanse kan intestinal flora.\n\n6. **Kun diri nag-areglo an kurso sa 2\u20113 adlaw o may kasabay na sintomas** (tubig\u2011tubig na pag\u2011dumi, lagnat 38\u202f\u00b0C pataas, dugo o nana sa dumi, matinding sakit sa tiyan, o dehydration\u2014tuyong bibig, walang luha, pagkahilo), **mag\u2011patingin sa health center**:\n   - **Health Center Naga City** \u2013 8:00",
+        "score": 10,
+        "notes": [
+          "\u2717 No Bikol words in response",
+          "\u2713 Detailed response"
+        ]
+      }
+    ],
+    "average_score": 18.3,
+    "passed": 6
+  },
+  "llama-3.3-70b-versatile": {
+    "tests": [
+      {
+        "test": "Bikol Understanding - Health Question",
+        "success": true,
+        "response": "Sa Naga City, an Bicol Medical Center (BMC) iyo an pinakahararaning ospital. Ini sarong pang-rehiyonal na ospital na namomogtak sa syudad nin Naga asin iyo an sentro para sa mga pangangailangan sa panggagamot sa rehiyon nin Bicol.",
+        "score": 10,
+        "notes": [
+          "\u2717 Did not demonstrate understanding",
+          "\u2713 Detailed response"
+        ]
+      },
+      {
+        "test": "Bikol Understanding - Symptoms",
+        "success": true,
+        "response": "Paano kaya 'yan? May kalintura ka asin kulog nin payo? \n\nSiguro, dapat kang magpahinga muna asin uminom ng mainit na tubig o kape. Magpamassage ka man ng payo asin likod mo. Kung masakit pa rin, pwede kang magdoktor para magpa-check up. Baka may mga gamot na pwede kang inomin para sa kalintura asin kulog nin payo. \n\nPero kung anino man, magpahinga ka asin uminom ng mainit na tubig. Siguro, magiging maayos ka sa sunod na aldaw.",
+        "score": 10,
+        "notes": [
+          "\u2717 Did not demonstrate understanding",
+          "\u2713 Detailed response"
+        ]
+      },
+      {
+        "test": "Bikol Generation - Greeting",
+        "success": true,
+        "response": "Marhay na aga, kumusta ka?",
+        "score": -10,
+        "notes": [
+          "\u2713 Used Bikol words: kumusta"
+        ]
+      },
+      {
+        "test": "Bikol Translation - English to Bikol",
+        "success": true,
+        "response": "Saen an botika? Kaipuhan ko nin gamot para sa lina'.\n\nOr in a more conversational tone:\n\"Nasaen an botika? May lina' ako, kaipuhan ko nin gamot.\"\n\nNote: \n- 'Saen' is used to ask 'where' in Bikol Naga dialect.\n- 'an' is a grammatical marker used to indicate the subject of the sentence.\n- 'botika' means pharmacy.\n- 'Kaipuhan' means 'need'.\n- 'ko' is a pronoun meaning 'I' or 'me'.\n- 'nin' is a grammatical marker used to indicate the object of the sentence.\n- 'gamot' means medicine.\n- 'para sa lina'' means 'for fever'.\n- 'Nasaen' is an alternative way of asking 'where', often used in casual conversations.\n- 'May lina' ako' is an expression meaning 'I have a fever'.",
+        "score": 10,
+        "notes": [
+          "\u2713 Detailed response"
+        ]
+      },
+      {
+        "test": "Bikol Translation - Bikol to English",
+        "success": true,
+        "response": "The translation of the Bikol sentence \"Magkano an konsulta sa doktor?\" to English is:\n\n\"How much is the doctor's consultation fee?\"",
+        "score": 10,
+        "notes": [
+          "\u2713 Detailed response"
+        ]
+      },
+      {
+        "test": "Health Advice in Bikol",
+        "success": true,
+        "response": "\"Mag-inom ka nin dagdag na tubig para sa dehydration, asin kakanon ka nin mga pagkakan na madali lang masudan, arog baga nin kanin, tinapay, o prutas. \nKung an diarrhea mo may kasabay na iba pang sintomas arog baga nin lagnat, sakit sa tiyan, o pagdumi nin dugo, magbisita ka sa doktor para sa maayos na pag-ataman. \nMagpahingalo ka sagkod na magayon an iyong lawas, asin mag-inom ka nin mga gamot na inaapod kan doktor o an mga gamot na ibinibenta sa mga botika para sa diarrhea.\"",
+        "score": 0,
+        "notes": [
+          "\u2713 Used Bikol words: iyo, doktor",
+          "\u2713 Detailed response"
+        ]
+      }
+    ],
+    "average_score": 5.0,
+    "passed": 6
+  }
+}

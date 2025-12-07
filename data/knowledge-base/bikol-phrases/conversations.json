@@ -1,0 +1,205 @@
+{
+  "category": "conversations",
+  "count": 33,
+  "phrases": [
+    {
+      "bikol": "May kulog ako sa...",
+      "filipino": "Masakit ang aking...",
+      "english": "I have pain in my...",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Duwang aldaw na...",
+      "filipino": "Dalawang araw na...",
+      "english": "It's been two days...",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Nawara na an gana ko magkakan",
+      "filipino": "Nawala ang gana kong kumain",
+      "english": "I lost my appetite",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Dai ako makatulog nin maray",
+      "filipino": "Hindi ako makatulog ng maayos",
+      "english": "I can't sleep well",
+      "category": "conversations"
+    },
+    {
+      "bikol": "May alerya ako sa...",
+      "filipino": "May allergy ako sa...",
+      "english": "I'm allergic to...",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Nagpainom na ako nin bulong pero...",
+      "filipino": "Uminom na ako ng gamot pero...",
+      "english": "I already took medicine but...",
+      "category": "conversations"
+    },
+    {
+      "bikol": "May maintenance ako para sa...",
+      "filipino": "May maintenance ako para sa...",
+      "english": "I take maintenance for...",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Bados ako",
+      "filipino": "Buntis ako",
+      "english": "I'm pregnant",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Nagpapasuso ako",
+      "filipino": "Nagpapasuso ako",
+      "english": "I'm breastfeeding",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Ano an namamatian mo?",
+      "filipino": "Ano ang nararamdaman mo?",
+      "english": "What are you feeling?",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Nuarin nagpoon an sakit?",
+      "filipino": "Kailan nagsimula ang sakit?",
+      "english": "When did the pain start?",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Igwa ka nin ibang sakit?",
+      "filipino": "May iba ka pa bang sakit?",
+      "english": "Do you have other illnesses?",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Nag-inom ka na nin bulong?",
+      "filipino": "Uminom ka na ba ng gamot?",
+      "english": "Have you taken any medicine?",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Kaipuhan ta kang i-confine",
+      "filipino": "Kailangan ka naming i-confine",
+      "english": "We need to admit you",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Dapat ka mag-test",
+      "filipino": "Kailangan mo mag-test",
+      "english": "You need to get tested",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Magpahuway ka nin maray",
+      "filipino": "Magpahinga ka ng mabuti",
+      "english": "Rest well",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Mag-inom ka nin dakul na tubig",
+      "filipino": "Uminom ka ng maraming tubig",
+      "english": "Drink plenty of water",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Balik ka kun dai pa maray",
+      "filipino": "Bumalik ka kung hindi pa gagaling",
+      "english": "Come back if it doesn't improve",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Igwa ba kamo kaini na bulong?",
+      "filipino": "Mayroon ba kayong ganitong gamot?",
+      "english": "Do you have this medicine?",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Magkano ini?",
+      "filipino": "Magkano ito?",
+      "english": "How much is this?",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Pira beses sa sarong aldaw?",
+      "filipino": "Ilang beses sa isang araw?",
+      "english": "How many times a day?",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Bago o pagkakakan?",
+      "filipino": "Bago o pagkatapos kumain?",
+      "english": "Before or after meals?",
+      "category": "conversations"
+    },
+    {
+      "bikol": "May generic ba kaini?",
+      "filipino": "May generic ba nito?",
+      "english": "Is there a generic version?",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Haen an registration?",
+      "filipino": "Nasaan ang registration?",
+      "english": "Where is registration?",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Pira an bayad sa konsulta?",
+      "filipino": "Magkano ang bayad sa konsulta?",
+      "english": "How much is the consultation fee?",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Accept kamo nin PhilHealth?",
+      "filipino": "Tinatanggap niyo ang PhilHealth?",
+      "english": "Do you accept PhilHealth?",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Ano an schedule kan doktor?",
+      "filipino": "Ano ang schedule ng doktor?",
+      "english": "What is the doctor's schedule?",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Pwede ba mag-walk-in?",
+      "filipino": "Pwede bang mag-walk-in?",
+      "english": "Can I walk in?",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Tabang! Emergency!",
+      "filipino": "Tulong! Emergency!",
+      "english": "Help! Emergency!",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Tawagan mo an ambulansya!",
+      "filipino": "Tawagan mo ang ambulansya!",
+      "english": "Call the ambulance!",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Dali! May aksidente!",
+      "filipino": "Dali! May aksidente!",
+      "english": "Quick! There's an accident!",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Nalalaglag an dugo",
+      "filipino": "Dumudugo",
+      "english": "It's bleeding",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Dai siya nakaka-hiro",
+      "filipino": "Hindi siya makagalaw",
+      "english": "He/she can't move",
+      "category": "conversations"
+    }
+  ],
+  "note": "Central Bikol (Naga City) dialect"
+}

@@ -1,0 +1,1527 @@
+{
+  "health_phrases": [
+    {
+      "bikol": "payo",
+      "filipino": "ulo",
+      "english": "head",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "buhok",
+      "filipino": "buhok",
+      "english": "hair",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "noo",
+      "filipino": "noo",
+      "english": "forehead",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "kiray",
+      "filipino": "kilay",
+      "english": "eyebrow",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "pirok",
+      "filipino": "pilik-mata",
+      "english": "eyelash",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "mata",
+      "filipino": "mata",
+      "english": "eye",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "talinga",
+      "filipino": "tenga",
+      "english": "ear",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "ilong",
+      "filipino": "ilong",
+      "english": "nose",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "pisngi",
+      "filipino": "pisngi",
+      "english": "cheek",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "ngabil",
+      "filipino": "labi",
+      "english": "lips",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "nguso",
+      "filipino": "nguso",
+      "english": "mouth",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "dila",
+      "filipino": "dila",
+      "english": "tongue",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "ngipon",
+      "filipino": "ngipin",
+      "english": "teeth/tooth",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "suwang",
+      "filipino": "panga",
+      "english": "jaw",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "liog",
+      "filipino": "leeg",
+      "english": "neck",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "daghan",
+      "filipino": "dibdib",
+      "english": "chest",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "abaga",
+      "filipino": "balikat",
+      "english": "shoulder",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "likod",
+      "filipino": "likod",
+      "english": "back",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "tulak",
+      "filipino": "tiyan",
+      "english": "stomach/abdomen",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "pusod",
+      "filipino": "pusod",
+      "english": "navel/belly button",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "hawak",
+      "filipino": "baywang",
+      "english": "waist",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "bayawak",
+      "filipino": "balakang",
+      "english": "hip",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "takyag",
+      "filipino": "braso",
+      "english": "arm",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "siko",
+      "filipino": "siko",
+      "english": "elbow",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "pulso",
+      "filipino": "pulso",
+      "english": "wrist",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "kamot",
+      "filipino": "kamay",
+      "english": "hand",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "muro",
+      "filipino": "daliri",
+      "english": "finger",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "kuko",
+      "filipino": "kuko",
+      "english": "nail",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "palad",
+      "filipino": "palad",
+      "english": "palm",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "bitis",
+      "filipino": "binti",
+      "english": "leg",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "tuhod",
+      "filipino": "tuhod",
+      "english": "knee",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "bitis",
+      "filipino": "hita",
+      "english": "thigh",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "sako",
+      "filipino": "sakong",
+      "english": "ankle",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "siki",
+      "filipino": "paa",
+      "english": "foot",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "taludtod",
+      "filipino": "talampakan",
+      "english": "sole",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "murong siki",
+      "filipino": "daliri sa paa",
+      "english": "toe",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "puso",
+      "filipino": "puso",
+      "english": "heart",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "baga",
+      "filipino": "baga",
+      "english": "lungs",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "atay",
+      "filipino": "atay",
+      "english": "liver",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "bituka",
+      "filipino": "bituka",
+      "english": "intestines",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "bato",
+      "filipino": "bato",
+      "english": "kidney",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "apdo",
+      "filipino": "apdo",
+      "english": "gallbladder",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "hutok",
+      "filipino": "utak",
+      "english": "brain",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "dugo",
+      "filipino": "dugo",
+      "english": "blood",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "tulang",
+      "filipino": "buto",
+      "english": "bone",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "ugat",
+      "filipino": "ugat",
+      "english": "vein/artery",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "laman",
+      "filipino": "laman",
+      "english": "flesh/muscle",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "kublit",
+      "filipino": "balat",
+      "english": "skin",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "kulog",
+      "filipino": "sakit",
+      "english": "pain",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "makulog",
+      "filipino": "masakit",
+      "english": "painful",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "hapdos",
+      "filipino": "hapdi",
+      "english": "stinging pain",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "sugat",
+      "filipino": "sugat",
+      "english": "wound",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "paga",
+      "filipino": "pamamaga",
+      "english": "swelling",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "pula",
+      "filipino": "pamumula",
+      "english": "redness",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "maultok",
+      "filipino": "matigas",
+      "english": "stiff/hard",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "kalintura",
+      "filipino": "lagnat",
+      "english": "fever",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "ginaw",
+      "filipino": "panginginig",
+      "english": "chills",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "hilab",
+      "filipino": "pagpapawis",
+      "english": "sweating",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "sipon",
+      "filipino": "sipon",
+      "english": "runny nose/cold",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "ubo",
+      "filipino": "ubo",
+      "english": "cough",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "hika",
+      "filipino": "hika",
+      "english": "asthma",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "hingal",
+      "filipino": "hirap sa paghinga",
+      "english": "difficulty breathing",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "lipong",
+      "filipino": "pagkahilo",
+      "english": "dizziness",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "himlay",
+      "filipino": "pagkahina",
+      "english": "weakness",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "pagal",
+      "filipino": "pagkapagod",
+      "english": "fatigue",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "kurso",
+      "filipino": "pagtatae",
+      "english": "diarrhea",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "suka",
+      "filipino": "pagsusuka",
+      "english": "vomiting",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "pagduwal",
+      "filipino": "pagkasuka",
+      "english": "nausea",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "tibi",
+      "filipino": "tibi",
+      "english": "constipation",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "kabag",
+      "filipino": "kabag",
+      "english": "bloating/gas",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "pait",
+      "filipino": "mapait na lasa",
+      "english": "bitter taste",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "kulba",
+      "filipino": "kabalisahan sa tiyan",
+      "english": "stomach upset",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "galis",
+      "filipino": "kati",
+      "english": "itchiness",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "hapulas",
+      "filipino": "pantal",
+      "english": "rash",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "hubag",
+      "filipino": "bukol",
+      "english": "lump/bump",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "nana",
+      "filipino": "nana",
+      "english": "pus",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "pigsa",
+      "filipino": "pigsa",
+      "english": "boil/abscess",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "hararom na pagturog",
+      "filipino": "labis na pagtulog",
+      "english": "excessive sleepiness",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "dai makatulog",
+      "filipino": "hindi makatulog",
+      "english": "insomnia",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "hadit",
+      "filipino": "pagkabahala",
+      "english": "anxiety",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "mamundo",
+      "filipino": "kalungkutan",
+      "english": "sadness",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "ngirit",
+      "filipino": "pagkairita",
+      "english": "irritability",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "nalingaw",
+      "filipino": "nalilito",
+      "english": "confusion",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "kulap",
+      "filipino": "malabo ang paningin",
+      "english": "blurred vision",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "mata na pula",
+      "filipino": "namumula ang mata",
+      "english": "red eyes",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "mata na maga",
+      "filipino": "namamagang mata",
+      "english": "swollen eyes",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "luha",
+      "filipino": "luha",
+      "english": "tears/watery eyes",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "bungog",
+      "filipino": "bingi",
+      "english": "deafness/hearing loss",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "hunghong",
+      "filipino": "tunog sa tenga",
+      "english": "ringing in ears",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "sakit sa puso",
+      "filipino": "sakit sa puso",
+      "english": "heart disease",
+      "category": "diseases"
+    },
+    {
+      "bikol": "alta presyon",
+      "filipino": "mataas na presyon",
+      "english": "high blood pressure",
+      "category": "diseases"
+    },
+    {
+      "bikol": "baba presyon",
+      "filipino": "mababang presyon",
+      "english": "low blood pressure",
+      "category": "diseases"
+    },
+    {
+      "bikol": "diabetis",
+      "filipino": "diabetes",
+      "english": "diabetes",
+      "category": "diseases"
+    },
+    {
+      "bikol": "rayuma",
+      "filipino": "rayuma",
+      "english": "rheumatism/arthritis",
+      "category": "diseases"
+    },
+    {
+      "bikol": "almoranas",
+      "filipino": "almoranas",
+      "english": "hemorrhoids",
+      "category": "diseases"
+    },
+    {
+      "bikol": "alerya",
+      "filipino": "allergy",
+      "english": "allergy",
+      "category": "diseases"
+    },
+    {
+      "bikol": "dengue",
+      "filipino": "dengue",
+      "english": "dengue fever",
+      "category": "diseases"
+    },
+    {
+      "bikol": "TB",
+      "filipino": "TB/tuberculosis",
+      "english": "tuberculosis",
+      "category": "diseases"
+    },
+    {
+      "bikol": "pulmonya",
+      "filipino": "pulmonya",
+      "english": "pneumonia",
+      "category": "diseases"
+    },
+    {
+      "bikol": "UTI",
+      "filipino": "UTI",
+      "english": "urinary tract infection",
+      "category": "diseases"
+    },
+    {
+      "bikol": "sakit sa bato",
+      "filipino": "sakit sa bato",
+      "english": "kidney disease",
+      "category": "diseases"
+    },
+    {
+      "bikol": "kanser",
+      "filipino": "kanser",
+      "english": "cancer",
+      "category": "diseases"
+    },
+    {
+      "bikol": "stroke",
+      "filipino": "stroke",
+      "english": "stroke",
+      "category": "diseases"
+    },
+    {
+      "bikol": "atake sa puso",
+      "filipino": "atake sa puso",
+      "english": "heart attack",
+      "category": "diseases"
+    },
+    {
+      "bikol": "sakit sa atay",
+      "filipino": "sakit sa atay",
+      "english": "liver disease",
+      "category": "diseases"
+    },
+    {
+      "bikol": "hepatitis",
+      "filipino": "hepatitis",
+      "english": "hepatitis",
+      "category": "diseases"
+    },
+    {
+      "bikol": "COVID",
+      "filipino": "COVID",
+      "english": "COVID-19",
+      "category": "diseases"
+    },
+    {
+      "bikol": "galis-aso",
+      "filipino": "galis-aso",
+      "english": "ringworm",
+      "category": "diseases"
+    },
+    {
+      "bikol": "buni",
+      "filipino": "buni",
+      "english": "tinea versicolor",
+      "category": "diseases"
+    },
+    {
+      "bikol": "bulong",
+      "filipino": "gamot",
+      "english": "medicine",
+      "category": "medicines"
+    },
+    {
+      "bikol": "tableta",
+      "filipino": "tableta",
+      "english": "tablet",
+      "category": "medicines"
+    },
+    {
+      "bikol": "kapsul",
+      "filipino": "capsule",
+      "english": "capsule",
+      "category": "medicines"
+    },
+    {
+      "bikol": "syrup",
+      "filipino": "syrup",
+      "english": "syrup",
+      "category": "medicines"
+    },
+    {
+      "bikol": "ointment",
+      "filipino": "pamahid",
+      "english": "ointment/cream",
+      "category": "medicines"
+    },
+    {
+      "bikol": "drops",
+      "filipino": "patak",
+      "english": "drops",
+      "category": "medicines"
+    },
+    {
+      "bikol": "iniksyon",
+      "filipino": "iniksyon",
+      "english": "injection",
+      "category": "medicines"
+    },
+    {
+      "bikol": "bakuna",
+      "filipino": "bakuna",
+      "english": "vaccine",
+      "category": "medicines"
+    },
+    {
+      "bikol": "vitaminas",
+      "filipino": "bitamina",
+      "english": "vitamins",
+      "category": "medicines"
+    },
+    {
+      "bikol": "antibiotics",
+      "filipino": "antibiotics",
+      "english": "antibiotics",
+      "category": "medicines"
+    },
+    {
+      "bikol": "pampahina nin kulog",
+      "filipino": "painkiller",
+      "english": "painkiller",
+      "category": "medicines"
+    },
+    {
+      "bikol": "pampakalintura",
+      "filipino": "pampalagnat",
+      "english": "fever medicine",
+      "category": "medicines"
+    },
+    {
+      "bikol": "pampa-ubo",
+      "filipino": "pangontra-ubo",
+      "english": "cough medicine",
+      "category": "medicines"
+    },
+    {
+      "bikol": "antacid",
+      "filipino": "antacid",
+      "english": "antacid",
+      "category": "medicines"
+    },
+    {
+      "bikol": "pampakurso",
+      "filipino": "antipurga",
+      "english": "anti-diarrheal",
+      "category": "medicines"
+    },
+    {
+      "bikol": "pampatulog",
+      "filipino": "pampatulog",
+      "english": "sleeping pills",
+      "category": "medicines"
+    },
+    {
+      "bikol": "reseta",
+      "filipino": "reseta",
+      "english": "prescription",
+      "category": "medicines"
+    },
+    {
+      "bikol": "ORS",
+      "filipino": "oresol",
+      "english": "oral rehydration salts",
+      "category": "medicines"
+    },
+    {
+      "bikol": "May kulog ako sa...",
+      "filipino": "Masakit ang aking...",
+      "english": "I have pain in my...",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Duwang aldaw na...",
+      "filipino": "Dalawang araw na...",
+      "english": "It's been two days...",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Nawara na an gana ko magkakan",
+      "filipino": "Nawala ang gana kong kumain",
+      "english": "I lost my appetite",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Dai ako makatulog nin maray",
+      "filipino": "Hindi ako makatulog ng maayos",
+      "english": "I can't sleep well",
+      "category": "conversations"
+    },
+    {
+      "bikol": "May alerya ako sa...",
+      "filipino": "May allergy ako sa...",
+      "english": "I'm allergic to...",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Nagpainom na ako nin bulong pero...",
+      "filipino": "Uminom na ako ng gamot pero...",
+      "english": "I already took medicine but...",
+      "category": "conversations"
+    },
+    {
+      "bikol": "May maintenance ako para sa...",
+      "filipino": "May maintenance ako para sa...",
+      "english": "I take maintenance for...",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Bados ako",
+      "filipino": "Buntis ako",
+      "english": "I'm pregnant",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Nagpapasuso ako",
+      "filipino": "Nagpapasuso ako",
+      "english": "I'm breastfeeding",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Ano an namamatian mo?",
+      "filipino": "Ano ang nararamdaman mo?",
+      "english": "What are you feeling?",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Nuarin nagpoon an sakit?",
+      "filipino": "Kailan nagsimula ang sakit?",
+      "english": "When did the pain start?",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Igwa ka nin ibang sakit?",
+      "filipino": "May iba ka pa bang sakit?",
+      "english": "Do you have other illnesses?",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Nag-inom ka na nin bulong?",
+      "filipino": "Uminom ka na ba ng gamot?",
+      "english": "Have you taken any medicine?",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Kaipuhan ta kang i-confine",
+      "filipino": "Kailangan ka naming i-confine",
+      "english": "We need to admit you",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Dapat ka mag-test",
+      "filipino": "Kailangan mo mag-test",
+      "english": "You need to get tested",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Magpahuway ka nin maray",
+      "filipino": "Magpahinga ka ng mabuti",
+      "english": "Rest well",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Mag-inom ka nin dakul na tubig",
+      "filipino": "Uminom ka ng maraming tubig",
+      "english": "Drink plenty of water",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Balik ka kun dai pa maray",
+      "filipino": "Bumalik ka kung hindi pa gagaling",
+      "english": "Come back if it doesn't improve",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Igwa ba kamo kaini na bulong?",
+      "filipino": "Mayroon ba kayong ganitong gamot?",
+      "english": "Do you have this medicine?",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Magkano ini?",
+      "filipino": "Magkano ito?",
+      "english": "How much is this?",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Pira beses sa sarong aldaw?",
+      "filipino": "Ilang beses sa isang araw?",
+      "english": "How many times a day?",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Bago o pagkakakan?",
+      "filipino": "Bago o pagkatapos kumain?",
+      "english": "Before or after meals?",
+      "category": "conversations"
+    },
+    {
+      "bikol": "May generic ba kaini?",
+      "filipino": "May generic ba nito?",
+      "english": "Is there a generic version?",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Haen an registration?",
+      "filipino": "Nasaan ang registration?",
+      "english": "Where is registration?",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Pira an bayad sa konsulta?",
+      "filipino": "Magkano ang bayad sa konsulta?",
+      "english": "How much is the consultation fee?",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Accept kamo nin PhilHealth?",
+      "filipino": "Tinatanggap niyo ang PhilHealth?",
+      "english": "Do you accept PhilHealth?",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Ano an schedule kan doktor?",
+      "filipino": "Ano ang schedule ng doktor?",
+      "english": "What is the doctor's schedule?",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Pwede ba mag-walk-in?",
+      "filipino": "Pwede bang mag-walk-in?",
+      "english": "Can I walk in?",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Tabang! Emergency!",
+      "filipino": "Tulong! Emergency!",
+      "english": "Help! Emergency!",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Tawagan mo an ambulansya!",
+      "filipino": "Tawagan mo ang ambulansya!",
+      "english": "Call the ambulance!",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Dali! May aksidente!",
+      "filipino": "Dali! May aksidente!",
+      "english": "Quick! There's an accident!",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Nalalaglag an dugo",
+      "filipino": "Dumudugo",
+      "english": "It's bleeding",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Dai siya nakaka-hiro",
+      "filipino": "Hindi siya makagalaw",
+      "english": "He/she can't move",
+      "category": "conversations"
+    },
+    {
+      "bikol": "Dios mabalos",
+      "filipino": "Salamat sa Diyos / Maraming salamat",
+      "english": "Thank God / Thank you very much",
+      "category": "common"
+    },
+    {
+      "bikol": "Tabi po",
+      "filipino": "Paumanhin po",
+      "english": "Excuse me",
+      "category": "common"
+    },
+    {
+      "bikol": "Pasensya na",
+      "filipino": "Pasensya na",
+      "english": "Sorry / Please be patient",
+      "category": "common"
+    },
+    {
+      "bikol": "Iyo",
+      "filipino": "Oo",
+      "english": "Yes",
+      "category": "common"
+    },
+    {
+      "bikol": "Dai",
+      "filipino": "Hindi",
+      "english": "No",
+      "category": "common"
+    },
+    {
+      "bikol": "Siguro",
+      "filipino": "Siguro",
+      "english": "Maybe",
+      "category": "common"
+    },
+    {
+      "bikol": "Baka",
+      "filipino": "Baka",
+      "english": "Perhaps/might",
+      "category": "common"
+    },
+    {
+      "bikol": "Haloy na",
+      "filipino": "Matagal na",
+      "english": "For a long time",
+      "category": "common"
+    },
+    {
+      "bikol": "Kasubanggi",
+      "filipino": "Kagabi",
+      "english": "Last night",
+      "category": "common"
+    },
+    {
+      "bikol": "Ngonyan",
+      "filipino": "Ngayon",
+      "english": "Now",
+      "category": "common"
+    },
+    {
+      "bikol": "Pagkatapos",
+      "filipino": "Pagkatapos",
+      "english": "After",
+      "category": "common"
+    },
+    {
+      "bikol": "Bago",
+      "filipino": "Bago",
+      "english": "Before",
+      "category": "common"
+    },
+    {
+      "bikol": "Kada aldaw",
+      "filipino": "Araw-araw",
+      "english": "Every day",
+      "category": "common"
+    },
+    {
+      "bikol": "Pirmi",
+      "filipino": "Palagi",
+      "english": "Always",
+      "category": "common"
+    },
+    {
+      "bikol": "Kun minsan",
+      "filipino": "Minsan",
+      "english": "Sometimes",
+      "category": "common"
+    },
+    {
+      "bikol": "Harani",
+      "filipino": "Malapit",
+      "english": "Near/close",
+      "category": "common"
+    },
+    {
+      "bikol": "Harayo",
+      "filipino": "Malayo",
+      "english": "Far",
+      "category": "common"
+    },
+    {
+      "bikol": "Dakul",
+      "filipino": "Marami",
+      "english": "Many/much",
+      "category": "common"
+    },
+    {
+      "bikol": "Dikit",
+      "filipino": "Kaunti",
+      "english": "Few/little",
+      "category": "common"
+    },
+    {
+      "bikol": "saro",
+      "filipino": "isa",
+      "english": "one",
+      "category": "numbers"
+    },
+    {
+      "bikol": "duwa",
+      "filipino": "dalawa",
+      "english": "two",
+      "category": "numbers"
+    },
+    {
+      "bikol": "tulo",
+      "filipino": "tatlo",
+      "english": "three",
+      "category": "numbers"
+    },
+    {
+      "bikol": "apat",
+      "filipino": "apat",
+      "english": "four",
+      "category": "numbers"
+    },
+    {
+      "bikol": "lima",
+      "filipino": "lima",
+      "english": "five",
+      "category": "numbers"
+    },
+    {
+      "bikol": "anom",
+      "filipino": "anim",
+      "english": "six",
+      "category": "numbers"
+    },
+    {
+      "bikol": "pito",
+      "filipino": "pito",
+      "english": "seven",
+      "category": "numbers"
+    },
+    {
+      "bikol": "walo",
+      "filipino": "walo",
+      "english": "eight",
+      "category": "numbers"
+    },
+    {
+      "bikol": "siyam",
+      "filipino": "siyam",
+      "english": "nine",
+      "category": "numbers"
+    },
+    {
+      "bikol": "sampulo",
+      "filipino": "sampu",
+      "english": "ten",
+      "category": "numbers"
+    },
+    {
+      "bikol": "kalahati",
+      "filipino": "kalahati",
+      "english": "half",
+      "category": "numbers"
+    },
+    {
+      "bikol": "tunga",
+      "filipino": "tunga",
+      "english": "half",
+      "category": "numbers"
+    }
+  ],
+  "dictionary": [
+    {
+      "bikol": "ako",
+      "filipino": "ako",
+      "english": "I/me",
+      "pos": "pronoun"
+    },
+    {
+      "bikol": "ika",
+      "filipino": "ikaw",
+      "english": "you (singular)",
+      "pos": "pronoun"
+    },
+    {
+      "bikol": "siya",
+      "filipino": "siya",
+      "english": "he/she",
+      "pos": "pronoun"
+    },
+    {
+      "bikol": "kita",
+      "filipino": "tayo",
+      "english": "we (inclusive)",
+      "pos": "pronoun"
+    },
+    {
+      "bikol": "kami",
+      "filipino": "kami",
+      "english": "we (exclusive)",
+      "pos": "pronoun"
+    },
+    {
+      "bikol": "kamo",
+      "filipino": "kayo",
+      "english": "you (plural)",
+      "pos": "pronoun"
+    },
+    {
+      "bikol": "sinda",
+      "filipino": "sila",
+      "english": "they",
+      "pos": "pronoun"
+    },
+    {
+      "bikol": "ini",
+      "filipino": "ito",
+      "english": "this",
+      "pos": "pronoun"
+    },
+    {
+      "bikol": "iyan",
+      "filipino": "iyan",
+      "english": "that (near)",
+      "pos": "pronoun"
+    },
+    {
+      "bikol": "idto",
+      "filipino": "iyon",
+      "english": "that (far)",
+      "pos": "pronoun"
+    },
+    {
+      "bikol": "ano",
+      "filipino": "ano",
+      "english": "what",
+      "pos": "question"
+    },
+    {
+      "bikol": "siisay",
+      "filipino": "sino",
+      "english": "who",
+      "pos": "question"
+    },
+    {
+      "bikol": "saen",
+      "filipino": "saan",
+      "english": "where",
+      "pos": "question"
+    },
+    {
+      "bikol": "nuarin",
+      "filipino": "kailan",
+      "english": "when",
+      "pos": "question"
+    },
+    {
+      "bikol": "pano",
+      "filipino": "paano",
+      "english": "how",
+      "pos": "question"
+    },
+    {
+      "bikol": "tano",
+      "filipino": "bakit",
+      "english": "why",
+      "pos": "question"
+    },
+    {
+      "bikol": "pira",
+      "filipino": "ilan",
+      "english": "how many",
+      "pos": "question"
+    },
+    {
+      "bikol": "magkano",
+      "filipino": "magkano",
+      "english": "how much",
+      "pos": "question"
+    },
+    {
+      "bikol": "magduman",
+      "filipino": "pumunta",
+      "english": "to go",
+      "pos": "verb"
+    },
+    {
+      "bikol": "mag-abot",
+      "filipino": "dumating",
+      "english": "to arrive",
+      "pos": "verb"
+    },
+    {
+      "bikol": "mag-inom",
+      "filipino": "uminom",
+      "english": "to drink",
+      "pos": "verb"
+    },
+    {
+      "bikol": "magkakan",
+      "filipino": "kumain",
+      "english": "to eat",
+      "pos": "verb"
+    },
+    {
+      "bikol": "magturog",
+      "filipino": "matulog",
+      "english": "to sleep",
+      "pos": "verb"
+    },
+    {
+      "bikol": "magbangon",
+      "filipino": "bumangon",
+      "english": "to wake up",
+      "pos": "verb"
+    },
+    {
+      "bikol": "maghiling",
+      "filipino": "tumingin",
+      "english": "to look",
+      "pos": "verb"
+    },
+    {
+      "bikol": "magdangog",
+      "filipino": "makinig",
+      "english": "to listen",
+      "pos": "verb"
+    },
+    {
+      "bikol": "magtaram",
+      "filipino": "magsalita",
+      "english": "to speak",
+      "pos": "verb"
+    },
+    {
+      "bikol": "magsurat",
+      "filipino": "sumulat",
+      "english": "to write",
+      "pos": "verb"
+    },
+    {
+      "bikol": "magbasa",
+      "filipino": "magbasa",
+      "english": "to read",
+      "pos": "verb"
+    },
+    {
+      "bikol": "maghugas",
+      "filipino": "maghugas",
+      "english": "to wash",
+      "pos": "verb"
+    },
+    {
+      "bikol": "maglaba",
+      "filipino": "maglaba",
+      "english": "to do laundry",
+      "pos": "verb"
+    },
+    {
+      "bikol": "magluto",
+      "filipino": "magluto",
+      "english": "to cook",
+      "pos": "verb"
+    },
+    {
+      "bikol": "maghulat",
+      "filipino": "maghintay",
+      "english": "to wait",
+      "pos": "verb"
+    },
+    {
+      "bikol": "magpahuway",
+      "filipino": "magpahinga",
+      "english": "to rest",
+      "pos": "verb"
+    },
+    {
+      "bikol": "maray",
+      "filipino": "mabuti/maganda",
+      "english": "good/beautiful",
+      "pos": "adjective"
+    },
+    {
+      "bikol": "maraot",
+      "filipino": "masama",
+      "english": "bad",
+      "pos": "adjective"
+    },
+    {
+      "bikol": "dakula",
+      "filipino": "malaki",
+      "english": "big",
+      "pos": "adjective"
+    },
+    {
+      "bikol": "sadit",
+      "filipino": "maliit",
+      "english": "small",
+      "pos": "adjective"
+    },
+    {
+      "bikol": "halangkaw",
+      "filipino": "matangkad",
+      "english": "tall",
+      "pos": "adjective"
+    },
+    {
+      "bikol": "hababa",
+      "filipino": "mababa",
+      "english": "short (height)",
+      "pos": "adjective"
+    },
+    {
+      "bikol": "halaba",
+      "filipino": "mahaba",
+      "english": "long",
+      "pos": "adjective"
+    },
+    {
+      "bikol": "halobot",
+      "filipino": "maikli",
+      "english": "short (length)",
+      "pos": "adjective"
+    },
+    {
+      "bikol": "mainit",
+      "filipino": "mainit",
+      "english": "hot",
+      "pos": "adjective"
+    },
+    {
+      "bikol": "malipot",
+      "filipino": "malamig",
+      "english": "cold",
+      "pos": "adjective"
+    },
+    {
+      "bikol": "bago",
+      "filipino": "bago",
+      "english": "new",
+      "pos": "adjective"
+    },
+    {
+      "bikol": "daan",
+      "filipino": "luma",
+      "english": "old",
+      "pos": "adjective"
+    },
+    {
+      "bikol": "masiram",
+      "filipino": "masarap",
+      "english": "delicious",
+      "pos": "adjective"
+    },
+    {
+      "bikol": "mapait",
+      "filipino": "mapait",
+      "english": "bitter",
+      "pos": "adjective"
+    },
+    {
+      "bikol": "maasgad",
+      "filipino": "maalat",
+      "english": "salty",
+      "pos": "adjective"
+    },
+    {
+      "bikol": "mahamis",
+      "filipino": "matamis",
+      "english": "sweet",
+      "pos": "adjective"
+    },
+    {
+      "bikol": "maharang",
+      "filipino": "maanghang",
+      "english": "spicy",
+      "pos": "adjective"
+    },
+    {
+      "bikol": "aldaw",
+      "filipino": "araw",
+      "english": "day",
+      "pos": "noun"
+    },
+    {
+      "bikol": "banggi",
+      "filipino": "gabi",
+      "english": "night",
+      "pos": "noun"
+    },
+    {
+      "bikol": "aga",
+      "filipino": "umaga",
+      "english": "morning",
+      "pos": "noun"
+    },
+    {
+      "bikol": "hapon",
+      "filipino": "hapon",
+      "english": "afternoon",
+      "pos": "noun"
+    },
+    {
+      "bikol": "ngonyan",
+      "filipino": "ngayon",
+      "english": "now",
+      "pos": "adverb"
+    },
+    {
+      "bikol": "kagab-i",
+      "filipino": "kagabi",
+      "english": "last night",
+      "pos": "adverb"
+    },
+    {
+      "bikol": "sa aga",
+      "filipino": "bukas",
+      "english": "tomorrow",
+      "pos": "adverb"
+    },
+    {
+      "bikol": "kasuodma",
+      "filipino": "kahapon",
+      "english": "yesterday",
+      "pos": "adverb"
+    },
+    {
+      "bikol": "semana",
+      "filipino": "linggo",
+      "english": "week",
+      "pos": "noun"
+    },
+    {
+      "bikol": "bulan",
+      "filipino": "buwan",
+      "english": "month",
+      "pos": "noun"
+    },
+    {
+      "bikol": "taon",
+      "filipino": "taon",
+      "english": "year",
+      "pos": "noun"
+    }
+  ],
+  "total_entries": 253,
+  "source": "Curated for MyNaga Gabay health assistant",
+  "dialect": "Central Bikol (Naga City)"
+}

@@ -1,0 +1,295 @@
+{
+  "category": "body_parts",
+  "count": 48,
+  "phrases": [
+    {
+      "bikol": "payo",
+      "filipino": "ulo",
+      "english": "head",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "buhok",
+      "filipino": "buhok",
+      "english": "hair",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "noo",
+      "filipino": "noo",
+      "english": "forehead",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "kiray",
+      "filipino": "kilay",
+      "english": "eyebrow",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "pirok",
+      "filipino": "pilik-mata",
+      "english": "eyelash",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "mata",
+      "filipino": "mata",
+      "english": "eye",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "talinga",
+      "filipino": "tenga",
+      "english": "ear",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "ilong",
+      "filipino": "ilong",
+      "english": "nose",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "pisngi",
+      "filipino": "pisngi",
+      "english": "cheek",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "ngabil",
+      "filipino": "labi",
+      "english": "lips",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "nguso",
+      "filipino": "nguso",
+      "english": "mouth",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "dila",
+      "filipino": "dila",
+      "english": "tongue",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "ngipon",
+      "filipino": "ngipin",
+      "english": "teeth/tooth",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "suwang",
+      "filipino": "panga",
+      "english": "jaw",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "liog",
+      "filipino": "leeg",
+      "english": "neck",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "daghan",
+      "filipino": "dibdib",
+      "english": "chest",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "abaga",
+      "filipino": "balikat",
+      "english": "shoulder",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "likod",
+      "filipino": "likod",
+      "english": "back",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "tulak",
+      "filipino": "tiyan",
+      "english": "stomach/abdomen",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "pusod",
+      "filipino": "pusod",
+      "english": "navel/belly button",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "hawak",
+      "filipino": "baywang",
+      "english": "waist",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "bayawak",
+      "filipino": "balakang",
+      "english": "hip",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "takyag",
+      "filipino": "braso",
+      "english": "arm",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "siko",
+      "filipino": "siko",
+      "english": "elbow",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "pulso",
+      "filipino": "pulso",
+      "english": "wrist",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "kamot",
+      "filipino": "kamay",
+      "english": "hand",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "muro",
+      "filipino": "daliri",
+      "english": "finger",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "kuko",
+      "filipino": "kuko",
+      "english": "nail",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "palad",
+      "filipino": "palad",
+      "english": "palm",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "bitis",
+      "filipino": "binti",
+      "english": "leg",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "tuhod",
+      "filipino": "tuhod",
+      "english": "knee",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "bitis",
+      "filipino": "hita",
+      "english": "thigh",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "sako",
+      "filipino": "sakong",
+      "english": "ankle",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "siki",
+      "filipino": "paa",
+      "english": "foot",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "taludtod",
+      "filipino": "talampakan",
+      "english": "sole",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "murong siki",
+      "filipino": "daliri sa paa",
+      "english": "toe",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "puso",
+      "filipino": "puso",
+      "english": "heart",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "baga",
+      "filipino": "baga",
+      "english": "lungs",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "atay",
+      "filipino": "atay",
+      "english": "liver",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "bituka",
+      "filipino": "bituka",
+      "english": "intestines",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "bato",
+      "filipino": "bato",
+      "english": "kidney",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "apdo",
+      "filipino": "apdo",
+      "english": "gallbladder",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "hutok",
+      "filipino": "utak",
+      "english": "brain",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "dugo",
+      "filipino": "dugo",
+      "english": "blood",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "tulang",
+      "filipino": "buto",
+      "english": "bone",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "ugat",
+      "filipino": "ugat",
+      "english": "vein/artery",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "laman",
+      "filipino": "laman",
+      "english": "flesh/muscle",
+      "category": "body_parts"
+    },
+    {
+      "bikol": "kublit",
+      "filipino": "balat",
+      "english": "skin",
+      "category": "body_parts"
+    }
+  ],
+  "note": "Central Bikol (Naga City) dialect"
+}

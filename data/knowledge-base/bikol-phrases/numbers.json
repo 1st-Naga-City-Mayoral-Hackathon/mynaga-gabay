@@ -1,57 +1,79 @@
 {
   "category": "numbers",
+  "count": 12,
   "phrases": [
     {
-      "bikol": "Saro",
-      "english": "One (1)",
+      "bikol": "saro",
+      "filipino": "isa",
+      "english": "one",
       "category": "numbers"
     },
     {
-      "bikol": "Duwa",
-      "english": "Two (2)",
+      "bikol": "duwa",
+      "filipino": "dalawa",
+      "english": "two",
       "category": "numbers"
     },
     {
-      "bikol": "Tulo",
-      "english": "Three (3)",
+      "bikol": "tulo",
+      "filipino": "tatlo",
+      "english": "three",
       "category": "numbers"
     },
     {
-      "bikol": "Apat",
-      "english": "Four (4)",
+      "bikol": "apat",
+      "filipino": "apat",
+      "english": "four",
       "category": "numbers"
     },
     {
-      "bikol": "Lima",
-      "english": "Five (5)",
+      "bikol": "lima",
+      "filipino": "lima",
+      "english": "five",
       "category": "numbers"
     },
     {
-      "bikol": "Anom",
-      "english": "Six (6)",
+      "bikol": "anom",
+      "filipino": "anim",
+      "english": "six",
       "category": "numbers"
     },
     {
-      "bikol": "Pito",
-      "english": "Seven (7)",
+      "bikol": "pito",
+      "filipino": "pito",
+      "english": "seven",
       "category": "numbers"
     },
     {
-      "bikol": "Walo",
-      "english": "Eight (8)",
+      "bikol": "walo",
+      "filipino": "walo",
+      "english": "eight",
       "category": "numbers"
     },
     {
-      "bikol": "Siyam",
-      "english": "Nine (9)",
+      "bikol": "siyam",
+      "filipino": "siyam",
+      "english": "nine",
       "category": "numbers"
     },
     {
-      "bikol": "Sampulo",
-      "english": "Ten (10)",
+      "bikol": "sampulo",
+      "filipino": "sampu",
+      "english": "ten",
+      "category": "numbers"
+    },
+    {
+      "bikol": "kalahati",
+      "filipino": "kalahati",
+      "english": "half",
+      "category": "numbers"
+    },
+    {
+      "bikol": "tunga",
+      "filipino": "tunga",
+      "english": "half",
       "category": "numbers"
     }
   ],
-  "count": 10,
-  "note": "Central Bikol (Naga City dialect). Other Bikol dialects may vary."
+  "note": "Central Bikol (Naga City) dialect"
 }

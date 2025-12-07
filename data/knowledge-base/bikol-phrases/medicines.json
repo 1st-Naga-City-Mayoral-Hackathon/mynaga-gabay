@@ -1,0 +1,115 @@
+{
+  "category": "medicines",
+  "count": 18,
+  "phrases": [
+    {
+      "bikol": "bulong",
+      "filipino": "gamot",
+      "english": "medicine",
+      "category": "medicines"
+    },
+    {
+      "bikol": "tableta",
+      "filipino": "tableta",
+      "english": "tablet",
+      "category": "medicines"
+    },
+    {
+      "bikol": "kapsul",
+      "filipino": "capsule",
+      "english": "capsule",
+      "category": "medicines"
+    },
+    {
+      "bikol": "syrup",
+      "filipino": "syrup",
+      "english": "syrup",
+      "category": "medicines"
+    },
+    {
+      "bikol": "ointment",
+      "filipino": "pamahid",
+      "english": "ointment/cream",
+      "category": "medicines"
+    },
+    {
+      "bikol": "drops",
+      "filipino": "patak",
+      "english": "drops",
+      "category": "medicines"
+    },
+    {
+      "bikol": "iniksyon",
+      "filipino": "iniksyon",
+      "english": "injection",
+      "category": "medicines"
+    },
+    {
+      "bikol": "bakuna",
+      "filipino": "bakuna",
+      "english": "vaccine",
+      "category": "medicines"
+    },
+    {
+      "bikol": "vitaminas",
+      "filipino": "bitamina",
+      "english": "vitamins",
+      "category": "medicines"
+    },
+    {
+      "bikol": "antibiotics",
+      "filipino": "antibiotics",
+      "english": "antibiotics",
+      "category": "medicines"
+    },
+    {
+      "bikol": "pampahina nin kulog",
+      "filipino": "painkiller",
+      "english": "painkiller",
+      "category": "medicines"
+    },
+    {
+      "bikol": "pampakalintura",
+      "filipino": "pampalagnat",
+      "english": "fever medicine",
+      "category": "medicines"
+    },
+    {
+      "bikol": "pampa-ubo",
+      "filipino": "pangontra-ubo",
+      "english": "cough medicine",
+      "category": "medicines"
+    },
+    {
+      "bikol": "antacid",
+      "filipino": "antacid",
+      "english": "antacid",
+      "category": "medicines"
+    },
+    {
+      "bikol": "pampakurso",
+      "filipino": "antipurga",
+      "english": "anti-diarrheal",
+      "category": "medicines"
+    },
+    {
+      "bikol": "pampatulog",
+      "filipino": "pampatulog",
+      "english": "sleeping pills",
+      "category": "medicines"
+    },
+    {
+      "bikol": "reseta",
+      "filipino": "reseta",
+      "english": "prescription",
+      "category": "medicines"
+    },
+    {
+      "bikol": "ORS",
+      "filipino": "oresol",
+      "english": "oral rehydration salts",
+      "category": "medicines"
+    }
+  ],
+  "note": "Central Bikol (Naga City) dialect"
+}
