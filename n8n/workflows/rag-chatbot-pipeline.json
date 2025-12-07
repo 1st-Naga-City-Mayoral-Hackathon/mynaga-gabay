@@ -185,6 +185,7 @@
         },
         {
             "parameters": {
+                "message": "={{ $json.response }}",
                 "options": {}
             },
             "type": "@n8n/n8n-nodes-langchain.chat",
