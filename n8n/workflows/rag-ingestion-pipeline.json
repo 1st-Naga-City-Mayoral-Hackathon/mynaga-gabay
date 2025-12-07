@@ -1,0 +1,243 @@
+{
+    "name": "MyNaga Gabay - Knowledge Base RAG Ingestion",
+    "nodes": [
+        {
+            "parameters": {
+                "httpMethod": "POST",
+                "path": "ingest-knowledge-base",
+                "options": {
+                    "responseMode": "lastNode"
+                }
+            },
+            "type": "n8n-nodes-base.webhook",
+            "typeVersion": 2,
+            "position": [
+                0,
+                0
+            ],
+            "id": "webhook-trigger",
+            "name": "Webhook: Ingest Knowledge Base",
+            "webhookId": "mynaga-gabay-ingest"
+        },
+        {
+            "parameters": {
+                "mode": "runOnceForAllItems",
+                "jsCode": "// Combine all knowledge base data into embeddable documents\nconst inputData = $input.first().json;\n\n// Check if data was sent in request body or use defaults\nconst facilities = inputData.facilities || [];\nconst medicines = inputData.medicines || [];\nconst government = inputData.government || [];\nconst category = inputData.category || 'all'; // Filter by category if needed\n\nconst documents = [];\n\n// Process Facilities\nif (category === 'all' || category === 'facilities') {\n  for (const facility of facilities) {\n    const services = facility.services ? facility.services.join(', ') : '';\n    const content = `\nFacility: ${facility.name}\nType: ${facility.type || 'health_facility'}\nAddress: ${facility.address || ''}\nCity: ${facility.city || 'Naga City'}\nPhone: ${facility.phone || 'Not available'}\nHours: ${facility.hours || 'Not specified'}\nServices: ${services}\nPhilHealth: ${facility.philhealthAccredited ? 'Yes' : 'Not specified'}\nNotes: ${facility.notes || ''}\n`.trim();\n\n    documents.push({\n      content: content,\n      metadata: {\n        id: facility.id || `fac-${documents.length}`,\n        name: facility.name,\n        type: 'facility',\n        subtype: facility.type || 'health_facility',\n        city: facility.city || 'Naga City',\n        source: 'mynaga-gabay-knowledge-base'\n      }\n    });\n  }\n}\n\n// Process Medicines\nif (category === 'all' || category === 'medicines') {\n  for (const medicine of medicines) {\n    const brandNames = medicine.brandNames ? medicine.brandNames.join(', ') : '';\n    const dosageForms = medicine.dosageForms ? medicine.dosageForms.join(', ') : '';\n    const uses = medicine.commonUses ? medicine.commonUses.join(', ') : '';\n    const warnings = medicine.warnings ? medicine.warnings.join(', ') : '';\n    \n    const content = `\nMedicine: ${medicine.genericName || medicine.name}\nBrand Names: ${brandNames}\nCategory: ${medicine.category || 'General'}\nDescription: ${medicine.description || ''}\nDosage Forms: ${dosageForms}\nCommon Uses: ${uses}\nWarnings: ${warnings}\n`.trim();\n\n    documents.push({\n      content: content,\n      metadata: {\n        id: medicine.id || `med-${documents.length}`,\n        name: medicine.genericName || medicine.name,\n        type: 'medicine',\n        category: medicine.category || 'General',\n        source: 'mynaga-gabay-knowledge-base'\n      }\n    });\n  }\n}\n\n// Process Government Services\nif (category === 'all' || category === 'government') {\n  for (const office of government) {\n    const services = office.services ? office.services.join(', ') : '';\n    \n    const content = `\nGovernment Office: ${office.name}\nAddress: ${office.address || 'City Hall Complex, Naga City'}\nPhone: ${office.phone || 'Not available'}\nHours: ${office.hours || '8:00 AM - 5:00 PM (Mon-Fri)'}\nEmail: ${office.email || ''}\nServices Offered: ${services}\n`.trim();\n\n    documents.push({\n      content: content,\n      metadata: {\n        id: office.id || `gov-${documents.length}`,\n        name: office.name,\n        type: 'government_service',\n        source: 'mynaga-gabay-knowledge-base'\n      }\n    });\n  }\n}\n\nreturn documents.map(doc => ({ json: doc }));"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+                220,
+                0
+            ],
+            "id": "process-data",
+            "name": "Process Knowledge Base Data"
+        },
+        {
+            "parameters": {
+                "mode": "insert",
+                "tableName": {
+                    "__rl": true,
+                    "value": "documents",
+                    "mode": "list",
+                    "cachedResultName": "documents"
+                },
+                "options": {
+                    "queryName": "match_documents"
+                }
+            },
+            "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+            "typeVersion": 1,
+            "position": [
+                660,
+                0
+            ],
+            "id": "store-supabase",
+            "name": "Store in Supabase Vector DB",
+            "credentials": {
+                "supabaseApi": {
+                    "id": "YOUR_SUPABASE_CREDENTIAL_ID",
+                    "name": "Supabase account"
+                }
+            }
+        },
+        {
+            "parameters": {
+                "chunkSize": 1000,
+                "chunkOverlap": 200,
+                "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+            "typeVersion": 1,
+            "position": [
+                880,
+                320
+            ],
+            "id": "text-splitter",
+            "name": "Text Splitter (1000 chars)"
+        },
+        {
+            "parameters": {
+                "model": "models/text-embedding-004"
+            },
+            "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
+            "typeVersion": 1,
+            "position": [
+                660,
+                220
+            ],
+            "id": "embeddings-gemini",
+            "name": "Google Gemini Embeddings",
+            "credentials": {
+                "googlePalmApi": {
+                    "id": "YOUR_GEMINI_CREDENTIAL_ID",
+                    "name": "Google Gemini(PaLM) Api account"
+                }
+            }
+        },
+        {
+            "parameters": {
+                "jsonSchemaExample": "{\n  \"content\": \"Facility: Bicol Medical Center\\nType: hospital\\nAddress: Concepcion Grande, Naga City\\nPhone: (054) 472-3456\",\n  \"metadata\": {\n    \"id\": \"fac-001\",\n    \"name\": \"Bicol Medical Center\",\n    \"type\": \"facility\",\n    \"subtype\": \"hospital\"\n  }\n}",
+                "textSplittingMode": "custom",
+                "options": {
+                    "metadata": {
+                        "metadataValues": [
+                            {
+                                "name": "={{ $json.metadata }}"
+                            }
+                        ]
+                    }
+                }
+            },
+            "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+            "typeVersion": 1.1,
+            "position": [
+                780,
+                220
+            ],
+            "id": "data-loader",
+            "name": "Document Data Loader"
+        },
+        {
+            "parameters": {
+                "respondWith": "json",
+                "responseBody": "={\n  \"success\": true,\n  \"message\": \"Knowledge base ingested successfully\",\n  \"documents_processed\": {{ $json.documents_count || $items.length }},\n  \"timestamp\": \"{{ $now.toISO() }}\"\n}",
+                "options": {}
+            },
+            "type": "n8n-nodes-base.respondToWebhook",
+            "typeVersion": 1.1,
+            "position": [
+                880,
+                0
+            ],
+            "id": "respond-success",
+            "name": "Respond Success"
+        },
+        {
+            "parameters": {
+                "mode": "runOnceForAllItems",
+                "jsCode": "// Count documents for response\nconst count = $input.all().length;\nreturn [{ json: { documents_count: count } }];"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+                440,
+                0
+            ],
+            "id": "count-docs",
+            "name": "Count Documents"
+        }
+    ],
+    "connections": {
+        "Webhook: Ingest Knowledge Base": {
+            "main": [
+                [
+                    {
+                        "node": "Process Knowledge Base Data",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Process Knowledge Base Data": {
+            "main": [
+                [
+                    {
+                        "node": "Store in Supabase Vector DB",
+                        "type": "main",
+                        "index": 0
+                    },
+                    {
+                        "node": "Count Documents",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Count Documents": {
+            "main": [
+                [
+                    {
+                        "node": "Respond Success",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Text Splitter (1000 chars)": {
+            "ai_textSplitter": [
+                [
+                    {
+                        "node": "Document Data Loader",
+                        "type": "ai_textSplitter",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Google Gemini Embeddings": {
+            "ai_embedding": [
+                [
+                    {
+                        "node": "Store in Supabase Vector DB",
+                        "type": "ai_embedding",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Document Data Loader": {
+            "ai_document": [
+                [
+                    {
+                        "node": "Store in Supabase Vector DB",
+                        "type": "ai_document",
+                        "index": 0
+                    }
+                ]
+            ]
+        }
+    },
+    "pinData": {},
+    "settings": {
+        "executionOrder": "v1"
+    },
+    "staticData": null,
+    "tags": [
+        {
+            "id": "rag",
+            "name": "RAG"
+        },
+        {
+            "id": "mynaga-gabay",
+            "name": "MyNaga Gabay"
+        }
+    ],
+    "meta": {
+        "templateCredsSetupCompleted": false,
+        "instanceId": "mynaga-gabay-health-assistant"
+    }
+}
