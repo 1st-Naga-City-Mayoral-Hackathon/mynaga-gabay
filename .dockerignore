@@ -1,0 +1,12 @@
+node_modules
+.next
+dist
+build
+coverage
+.git
+.turbo
+apps/mobile/build
+apps/mobile/.dart_tool
+data
+.DS_Store
+*.log
