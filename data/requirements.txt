@@ -1,0 +1,12 @@
+# MyNaga Gabay - Data Scrapers Dependencies
+# Install with: pip install -r requirements.txt
+
+# HTTP & Scraping
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+fake-useragent>=1.4.0
+lxml>=5.0.0
+
+# PDF Processing
+pdfplumber>=0.10.0
+pypdf2>=3.0.0

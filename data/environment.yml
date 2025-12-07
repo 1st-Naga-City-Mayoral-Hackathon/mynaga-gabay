@@ -1,0 +1,14 @@
+name: mynaga-gabay-scrapers
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+    - requests>=2.31.0
+    - beautifulsoup4>=4.12.0
+    - fake-useragent>=1.4.0
+    - pdfplumber>=0.10.0
+    - pypdf2>=3.0.0
+    - lxml>=5.0.0

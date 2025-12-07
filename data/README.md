@@ -62,17 +62,37 @@ Consolidates all medicine data sources into unified knowledge base.
 
 ## Quick Start
 
+### Option 1: Conda (Recommended)
 ```bash
-# Install dependencies
-pip install requests beautifulsoup4 fake-useragent pdfplumber pypdf2
+cd data
+
+# Setup conda environment
+./setup.sh
+
+# Activate environment
+conda activate mynaga-gabay-scrapers
 
 # Run all scrapers
-cd data/scrapers
-python3 scrape_naga_health.py       # Local health data
-python3 scrape_tgp_medicines.py     # TGP pharmacy
-python3 fetch_rxnorm_medicines.py   # RxNorm API (takes ~2 min)
-python3 parse_pnf_pdf.py            # Parse PDFs
-python3 merge_medicine_data.py      # Consolidate all
+./run_all_scrapers.sh
+```
+
+### Option 2: Pip
+```bash
+cd data
+
+# Create virtual env (optional)
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+# or: venv\Scripts\activate  # Windows
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run scrapers individually
+cd scrapers
+python scrape_naga_health.py
+python fetch_rxnorm_medicines.py  # ~2 min
+python merge_medicine_data.py
 ```
 
 ## Data Sources Summary
