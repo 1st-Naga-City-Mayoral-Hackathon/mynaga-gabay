@@ -24,6 +24,9 @@ const translations: Record<Language, Record<string, string>> = {
         'nav.facilities': 'Facilities',
         'nav.medications': 'Medications',
         'nav.philhealth': 'PhilHealth',
+        'nav.profile': 'Profile',
+        'nav.settings': 'Settings',
+        'nav.logout': 'Log out',
 
         // Landing Page
         'landing.badge': 'Now available for Naga City residents',
@@ -66,17 +69,35 @@ const translations: Record<Language, Record<string, string>> = {
         'suggestion.philhealth': 'PhilHealth coverage',
         'suggestion.dosage': 'Paracetamol dosage',
 
+        // Dashboard
+        'dashboard.subtitle': "I'm your health assistant. What would you like to do today?",
+        'dashboard.startChat': 'Start New Chat',
+        'dashboard.quickActions': 'Quick Actions',
+        'dashboard.healthInfo': 'Health Information',
+        'dashboard.healthOffice': 'Naga City Health Office',
+        'dashboard.announcement': 'Free flu vaccination is now available at all Barangay Health Centers.',
+
         // Auth
         'auth.welcome': 'Welcome Back',
         'auth.create': 'Create Account',
         'auth.signin': 'Sign In',
         'auth.signup': 'Sign Up',
+        'auth.join': 'Join MyNaga Gabay today',
+        'auth.signInDesc': 'Sign in to continue to Gabay',
         'auth.guest': 'Continue as guest',
         'auth.email': 'Email',
         'auth.password': 'Password',
+        'auth.confirmPassword': 'Confirm Password',
         'auth.name': 'Full Name',
         'auth.forgot': 'Forgot password?',
         'auth.or': 'or continue with',
+        'auth.googleSignIn': 'Sign in with Google',
+        'auth.googleSignUp': 'Sign up with Google',
+        'auth.error.match': 'Passwords do not match',
+        'auth.error.length': 'Password must be at least 8 characters',
+        'auth.error.create': 'Failed to create account',
+        'auth.error.invalid': 'Invalid email or password',
+        'auth.success.create': 'Account created successfully! Please sign in.',
 
         // Languages
         'lang.en': 'English',
@@ -96,6 +117,9 @@ const translations: Record<Language, Record<string, string>> = {
         'nav.facilities': 'Pasilidad',
         'nav.medications': 'Gamot',
         'nav.philhealth': 'PhilHealth',
+        'nav.profile': 'Profile',
+        'nav.settings': 'Settings',
+        'nav.logout': 'Log out',
 
         // Landing Page
         'landing.badge': 'Ngayon ay available para sa mga residente ng Naga City',
@@ -138,17 +162,35 @@ const translations: Record<Language, Record<string, string>> = {
         'suggestion.philhealth': 'PhilHealth coverage',
         'suggestion.dosage': 'Dosage ng Paracetamol',
 
+        // Dashboard
+        'dashboard.subtitle': "Ako ang iyong health assistant. Ano ang maitutulong ko ngayon?",
+        'dashboard.startChat': 'Magsimula ng Chat',
+        'dashboard.quickActions': 'Mabilis na Aksyon',
+        'dashboard.healthInfo': 'Impormasyon sa Kalusugan',
+        'dashboard.healthOffice': 'Naga City Health Office',
+        'dashboard.announcement': 'May libreng bakuna kontra-trangkaso sa lahat ng Barangay Health Centers.',
+
         // Auth
         'auth.welcome': 'Maligayang Pagbabalik',
         'auth.create': 'Gumawa ng Account',
         'auth.signin': 'Mag-sign In',
         'auth.signup': 'Mag-sign Up',
+        'auth.join': 'Sumali sa MyNaga Gabay ngayon',
+        'auth.signInDesc': 'Mag-sign in upang magpatuloy sa Gabay',
         'auth.guest': 'Magpatuloy bilang bisita',
         'auth.email': 'Email',
         'auth.password': 'Password',
+        'auth.confirmPassword': 'Kumpirmahin ang Password',
         'auth.name': 'Buong Pangalan',
         'auth.forgot': 'Nakalimutan ang password?',
         'auth.or': 'o magpatuloy gamit ang',
+        'auth.googleSignIn': 'Mag-sign in gamit ang Google',
+        'auth.googleSignUp': 'Mag-sign up gamit ang Google',
+        'auth.error.match': 'Hindi magkatugma ang password',
+        'auth.error.length': 'Dapat hindi bababa sa 8 karakter ang password',
+        'auth.error.create': 'Nabigo sa paggawa ng account',
+        'auth.error.invalid': 'Maling email o password',
+        'auth.success.create': 'Matagumpay na nagawa ang account! Mangyaring mag-sign in.',
 
         // Languages
         'lang.en': 'English',
@@ -168,6 +210,9 @@ const translations: Record<Language, Record<string, string>> = {
         'nav.facilities': 'Mga Pasilidad',
         'nav.medications': 'Bulong',
         'nav.philhealth': 'PhilHealth',
+        'nav.profile': 'Profile',
+        'nav.settings': 'Settings',
+        'nav.logout': 'Mag-logout',
 
         // Landing Page
         'landing.badge': 'Available na para sa mga residente nin Naga City',
@@ -210,17 +255,35 @@ const translations: Record<Language, Record<string, string>> = {
         'suggestion.philhealth': 'PhilHealth coverage',
         'suggestion.dosage': 'Dosage nin Paracetamol',
 
+        // Dashboard
+        'dashboard.subtitle': 'Ako an saimong health assistant. Ano an maitatabang ko ngunyan?',
+        'dashboard.startChat': 'Magpuon nin Chat',
+        'dashboard.quickActions': 'Daling Aksyon',
+        'dashboard.healthInfo': 'Impormasyon sa Salud',
+        'dashboard.healthOffice': 'Naga City Health Office',
+        'dashboard.announcement': 'Igwang libreng bakuna kontra-trangkaso sa gabos na Barangay Health Centers.',
+
         // Auth
         'auth.welcome': 'Maogmang Pagbalik',
         'auth.create': 'Gumibo nin Account',
         'auth.signin': 'Mag-sign In',
         'auth.signup': 'Mag-sign Up',
+        'auth.join': 'Mag-ayon sa MyNaga Gabay ngunyan',
+        'auth.signInDesc': 'Mag-sign in tanganing magpadagos sa Gabay',
         'auth.guest': 'Magpadagos bilang bisita',
         'auth.email': 'Email',
         'auth.password': 'Password',
+        'auth.confirmPassword': 'Kumpirmahon an Password',
         'auth.name': 'Bilog na Pangaran',
         'auth.forgot': 'Nalingawan an password?',
         'auth.or': 'o magpadagos gamit an',
+        'auth.googleSignIn': 'Mag-sign in gamit an Google',
+        'auth.googleSignUp': 'Mag-sign up gamit an Google',
+        'auth.error.match': 'Dai nagtutugma an password',
+        'auth.error.length': 'Kaipuhan na dai mababa sa 8 karakter an password',
+        'auth.error.create': 'Dai nakagibo nin account',
+        'auth.error.invalid': 'Sala an email o password',
+        'auth.success.create': 'Matrayumpong nakagibo nin account! Paki-sign in.',
 
         // Languages
         'lang.en': 'English',
@@ -233,10 +296,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
     const [language, setLanguageState] = useState<Language>('fil');
-    const [mounted, setMounted] = useState(false);
-
     useEffect(() => {
-        setMounted(true);
         const saved = localStorage.getItem('gabay-language') as Language;
         if (saved && ['en', 'fil', 'bcl'].includes(saved)) {
             setLanguageState(saved);
@@ -251,10 +311,6 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     const t = (key: string): string => {
         return translations[language][key] || key;
     };
-
-    if (!mounted) {
-        return <>{children}</>;
-    }
 
     return (
         <LanguageContext.Provider value={{ language, setLanguage, t }}>

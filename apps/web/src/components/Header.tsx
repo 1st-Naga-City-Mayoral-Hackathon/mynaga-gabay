@@ -3,8 +3,11 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useSession, signOut } from 'next-auth/react';
 import { ThemeToggle } from './ThemeToggle';
 import { LanguageSelector } from './LanguageSelector';
+import { UserNav } from './UserNav';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import {
     DropdownMenu,
@@ -15,16 +18,18 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { cn } from '@/lib/utils';
 
-const navLinks = [
-    { href: '/chat', label: 'Chat', icon: '💬' },
-    { href: '/facilities', label: 'Facilities', icon: '🏥' },
-    { href: '/medications', label: 'Medications', icon: '💊' },
-    { href: '/philhealth', label: 'PhilHealth', icon: '📋' },
-    { href: '/about', label: 'About', icon: 'ℹ️' },
-];
-
 export function Header() {
     const pathname = usePathname();
+    const { data: session } = useSession();
+    const { t } = useLanguage();
+
+    const navLinks = [
+        { href: '/chat', label: t('nav.chat'), icon: '💬' },
+        { href: '/facilities', label: t('nav.facilities'), icon: '🏥' },
+        { href: '/medications', label: t('nav.medications'), icon: '💊' },
+        { href: '/philhealth', label: t('nav.philhealth'), icon: '📋' },
+        { href: '/about', label: t('nav.about'), icon: 'ℹ️' },
+    ];
 
     return (
         <header className="sticky top-0 z-50 w-full">
@@ -44,10 +49,10 @@ export function Header() {
                             </div>
                             <div className="hidden sm:block">
                                 <h1 className="text-lg font-bold text-foreground">
-                                    MyNaga <span className="text-teal-600 dark:text-teal-400">Gabay</span>
+                                    {t('app.name')} <span className="text-teal-600 dark:text-teal-400">Gabay</span>
                                 </h1>
                                 <p className="text-[10px] text-muted-foreground -mt-0.5">
-                                    Your Health Assistant
+                                    {t('app.tagline')}
                                 </p>
                             </div>
                         </Link>
@@ -76,7 +81,7 @@ export function Header() {
                             <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-100 dark:bg-green-900/30 border border-green-200 dark:border-green-800">
                                 <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                                 <span className="text-xs font-medium text-green-700 dark:text-green-400">
-                                    Online
+                                    {t('status.online')}
                                 </span>
                             </div>
 
@@ -85,6 +90,11 @@ export function Header() {
 
                             {/* Theme Toggle */}
                             <ThemeToggle />
+
+                            {/* User Nav (Desktop + Mobile) */}
+                            <div className="hidden md:block">
+                                <UserNav />
+                            </div>
 
                             {/* Mobile Menu */}
                             <DropdownMenu>
@@ -105,12 +115,30 @@ export function Header() {
                                         </DropdownMenuItem>
                                     ))}
                                     <DropdownMenuSeparator />
-                                    <DropdownMenuItem asChild>
-                                        <Link href="/login" className="flex items-center gap-2">
-                                            <span>👤</span>
-                                            Sign In
-                                        </Link>
-                                    </DropdownMenuItem>
+                                    {session ? (
+                                        <>
+                                            <DropdownMenuItem asChild>
+                                                <Link href="/profile" className="flex items-center gap-2">
+                                                    <span>👤</span>
+                                                    {t('nav.profile')}
+                                                </Link>
+                                            </DropdownMenuItem>
+                                            <DropdownMenuItem
+                                                className="text-red-600 focus:text-red-600"
+                                                onClick={() => signOut()}
+                                            >
+                                                <span>🚪</span>
+                                                {t('nav.logout')}
+                                            </DropdownMenuItem>
+                                        </>
+                                    ) : (
+                                        <DropdownMenuItem asChild>
+                                            <Link href="/login" className="flex items-center gap-2">
+                                                <span>👤</span>
+                                                {t('auth.signin')}
+                                            </Link>
+                                        </DropdownMenuItem>
+                                    )}
                                 </DropdownMenuContent>
                             </DropdownMenu>
                         </div>
