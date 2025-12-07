@@ -132,7 +132,7 @@
         },
         {
             "parameters": {
-                "jsCode": "// Format the AI agent's response\nconst input = $input.first().json;\nconst agentOutput = input.output || input.text || 'Pasensya na, may problema. Paki-try giraray. (Sorry, there was a problem. Please try again.)';\nconst requestData = $('Extract & Detect Language').first().json;\n\nreturn [{\n  json: {\n    response: agentOutput,\n    language: requestData.language,\n    sessionId: requestData.sessionId,\n    model: 'qwen/qwen3-32b',\n    timestamp: new Date().toISOString()\n  }\n}];"
+                "jsCode": "// Format the AI agent's response\nconst input = $input.first().json;\nconst agentOutput = input.output || input.text || 'Pasensya na, may problema. Paki-try giraray. (Sorry, there was a problem. Please try again.)';\n\n// Try to get request data from either extraction node (webhook or chat trigger)\nlet requestData;\ntry {\n  requestData = $('Extract & Detect Language').first().json;\n} catch (e1) {\n  try {\n    requestData = $('Extract Chat Language').first().json;\n  } catch (e2) {\n    // Fallback if neither node has executed\n    requestData = { language: 'english', sessionId: 'unknown' };\n  }\n}\n\nreturn [{\n  json: {\n    response: agentOutput,\n    language: requestData.language,\n    sessionId: requestData.sessionId,\n    model: 'qwen/qwen3-32b',\n    timestamp: new Date().toISOString()\n  }\n}];"
             },
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
