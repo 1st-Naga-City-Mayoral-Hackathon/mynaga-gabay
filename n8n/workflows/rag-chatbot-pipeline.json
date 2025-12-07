@@ -5,7 +5,6 @@
             "parameters": {
                 "httpMethod": "POST",
                 "path": "mynaga-gabay-chat",
-                "authentication": "headerAuth",
                 "responseMode": "responseNode",
                 "options": {}
             },
@@ -17,17 +16,11 @@
             ],
             "id": "webhook-mynaga-gabay",
             "name": "Webhook: Chat",
-            "webhookId": "mynaga-gabay-chat",
-            "credentials": {
-                "httpHeaderAuth": {
-                    "id": "rhqZtScXMNCC8G7K",
-                    "name": "Portfolio"
-                }
-            }
+            "webhookId": "mynaga-gabay-chat"
         },
         {
             "parameters": {
-                "jsCode": "// Extract incoming data from the webhook\nconst body = $input.first().json.body || $input.first().json;\nconst message = body.message || '';\nconst sessionId = body.sessionId || 'session-' + Date.now();\nconst language = body.language || 'auto';\n\n// Validate message\nif (!message) {\n  throw new Error('No message provided');\n}\n\n// Simple language detection for Bikol\nconst bikolIndicators = ['daw', 'baga', 'ta', 'digdi', 'saimo', 'sakuya', 'harong', 'kaini', 'maray', 'tabi', 'siring', 'ano', 'haen', 'pano'];\nconst detectedLanguage = language !== 'auto' ? language : \n  bikolIndicators.some(word => message.toLowerCase().includes(word)) ? 'bikol' : 'tagalog';\n\nreturn [{\n  json: {\n    message: message,\n    sessionId: sessionId,\n    language: detectedLanguage,\n    timestamp: new Date().toISOString()\n  }\n}];"
+                "jsCode": "// Extract incoming data from the webhook\nconst body = $input.first().json.body || $input.first().json;\nconst message = body.message || '';\nconst sessionId = body.sessionId || 'session-' + Date.now();\nconst language = body.language || 'auto';\n\n// Validate message\nif (!message) {\n  throw new Error('No message provided');\n}\n\n// Language detection\nconst bikolIndicators = ['daw', 'baga', 'ta', 'digdi', 'saimo', 'sakuya', 'harong', 'kaini', 'maray', 'tabi', 'siring', 'haen', 'pano', 'dai', 'iyo', 'bako', 'saro'];\nconst tagalogIndicators = ['ang', 'ng', 'mga', 'sa', 'na', 'ko', 'mo', 'siya', 'niya', 'kami', 'kayo', 'sila', 'ano', 'paano', 'saan', 'bakit', 'sino'];\nconst englishIndicators = ['the', 'is', 'are', 'what', 'where', 'how', 'can', 'do', 'does', 'have', 'has', 'will', 'would', 'could', 'should', 'please', 'help', 'need', 'want'];\n\nlet detectedLanguage = language;\nif (language === 'auto') {\n  const lowerMsg = message.toLowerCase();\n  const words = lowerMsg.split(/\\s+/);\n  \n  const bikolScore = bikolIndicators.filter(w => words.includes(w)).length;\n  const tagalogScore = tagalogIndicators.filter(w => words.includes(w)).length;\n  const englishScore = englishIndicators.filter(w => words.includes(w)).length;\n  \n  if (bikolScore > 0 && bikolScore >= tagalogScore) {\n    detectedLanguage = 'bikol';\n  } else if (tagalogScore > englishScore) {\n    detectedLanguage = 'tagalog';\n  } else {\n    detectedLanguage = 'english';\n  }\n}\n\nreturn [{\n  json: {\n    message: message,\n    sessionId: sessionId,\n    language: detectedLanguage,\n    timestamp: new Date().toISOString()\n  }\n}];"
             },
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
@@ -79,9 +72,9 @@
             "parameters": {
                 "agent": "conversationalAgent",
                 "promptType": "define",
-                "text": "={{ $json.message }}",
+                "text": "=[DETECTED LANGUAGE: {{ $json.language }}]\n\nUser message: {{ $json.message }}\n\nIMPORTANT: You MUST respond in {{ $json.language }}. Match the user's language exactly.",
                 "options": {
-                    "systemMessage": "Ika si MyNaga Gabay, an AI health assistant para sa Naga City, Camarines Sur, Philippines.\n\n## Imong Papel (Your Role)\nTabangan mo an mga tawo sa Naga City na makua an impormasyon manungod sa:\n- Health facilities (hospitals, clinics, pharmacies, health centers)\n- Emergency hotlines asin contact numbers\n- Government services asin offices\n- Medicines asin healthcare information\n- PhilHealth coverage asin benefits\n\n## Language Guidelines\n- Kung an user nagtaram sa Bikol, simbagon mo sa Bikol man.\n- Kung an user nagtaram sa Tagalog/Filipino, simbagon mo sa Filipino.\n- Kung an user nagtaram sa English, simbagon mo sa English.\n- Gamiton mo an simple na mga words na madaling maintindihan.\n\n## Response Format\n- Magin concise pero helpful (2-4 sentences ideal)\n- Kung may specific na facility o office, itao an address asin contact number.\n- Para sa emergencies, always itao an hotline numbers immediately.\n- Kung dai mo aram an sagot, sabihin mo na 'Pasensya na, dai ko yan aram. Paki-contact nalang an City Hall sa (054) 472-3000.'\n\n## Important Information\n- Emergency: 911 or (054) 472-3000 (Central Command Center)\n- Bicol Regional Hospital: (054) 472-6125\n- City Health Office: Located at City Hall Complex\n- PhilHealth Naga: 2nd Floor, City Hall Annex, (054) 472-8888\n\n## Bikol Phrases to Use\n- Maray na aldaw! (Good day!)\n- Ano an sakong maitatabang saimo? (How can I help you?)\n- Tabi, (Please,)\n- Salamat! (Thank you!)\n\nAlways be friendly, helpful, and prioritize the user's health and safety."
+                    "systemMessage": "You are MyNaga Gabay, an AI health assistant for Naga City, Camarines Sur, Philippines.\n\n## CRITICAL LANGUAGE RULES\n- You MUST respond in the SAME language as the user's input\n- If user speaks English, respond in English\n- If user speaks Bikol, respond in Bikol\n- If user speaks Tagalog/Filipino, respond in Filipino\n- NEVER mix languages unless providing translations\n\n## Your Role\nHelp people in Naga City find information about:\n- Health facilities (hospitals, clinics, pharmacies, health centers)\n- Emergency hotlines and contact numbers\n- Government services and offices\n- Medicines and healthcare information\n- PhilHealth coverage and benefits\n\n## Response Format\n- Be concise but helpful (2-4 sentences ideal)\n- For specific facilities, provide address and contact number\n- For emergencies, always provide hotline numbers immediately\n- If you don't know, say: 'I don't have that information. Please contact City Hall at (054) 472-3000.'\n\n## Key Information\n- Emergency: 911 or (054) 472-3000 (Central Command Center)\n- Bicol Regional Hospital: (054) 472-6125\n- City Health Office: City Hall Complex\n- PhilHealth Naga: 2nd Floor, City Hall Annex, (054) 472-8888\n\nAlways be friendly, helpful, and prioritize user health and safety."
                 }
             },
             "type": "@n8n/n8n-nodes-langchain.agent",
@@ -96,13 +89,9 @@
         {
             "parameters": {
                 "mode": "retrieve-as-tool",
+                "toolName": "naga_knowledge_base",
                 "toolDescription": "Search the MyNaga Gabay knowledge base for information about Naga City health facilities, government services, medicines, PhilHealth coverage, and emergency hotlines. Use this tool when the user asks about any local health or government service in Naga City.",
-                "tableName": {
-                    "__rl": true,
-                    "value": "n8n_vectors",
-                    "mode": "list",
-                    "cachedResultName": "n8n_vectors"
-                },
+                "tableName": "n8n_vectors",
                 "options": {
                     "topK": 5
                 }
