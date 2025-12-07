@@ -1,0 +1,1107 @@
+{
+  "medicines": [
+    {
+      "id": "rxnorm-2047428",
+      "genericName": "Acetaminophen",
+      "brandNames": [],
+      "category": "General",
+      "description": "Acetaminophen",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1190225",
+      "genericName": "Albuterol",
+      "brandNames": [],
+      "category": "General",
+      "description": "Albuterol",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-141927",
+      "genericName": "Alprazolam",
+      "brandNames": [],
+      "category": "General",
+      "description": "Alprazolam",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-856836",
+      "genericName": "Amitriptyline",
+      "brandNames": [],
+      "category": "General",
+      "description": "Amitriptyline",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1000000",
+      "genericName": "Amlodipine",
+      "brandNames": [],
+      "category": "General",
+      "description": "Amlodipine",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "med-003",
+      "genericName": "Amoxicillin",
+      "brandNames": [
+        "Amoxil",
+        "Himox",
+        "Moxillin"
+      ],
+      "category": "Antibiotic",
+      "description": "Broad-spectrum antibiotic for bacterial infections",
+      "dosageForms": [
+        "Capsule",
+        "Suspension"
+      ],
+      "commonUses": [
+        "Respiratory infections",
+        "Ear infections",
+        "UTI",
+        "Skin infections"
+      ],
+      "warnings": [
+        "Complete full course",
+        "May cause allergic reaction",
+        "Not for viral infections"
+      ]
+    },
+    {
+      "id": "rxnorm-1044196",
+      "genericName": "Ampicillin",
+      "brandNames": [],
+      "category": "General",
+      "description": "Ampicillin",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1100471",
+      "genericName": "Ascorbic Acid",
+      "brandNames": [],
+      "category": "General",
+      "description": "Ascorbic Acid",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-2047428",
+      "genericName": "Aspirin",
+      "brandNames": [],
+      "category": "General",
+      "description": "Aspirin",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-150750",
+      "genericName": "Atenolol",
+      "brandNames": [],
+      "category": "General",
+      "description": "Atenolol",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-262095",
+      "genericName": "Atorvastatin",
+      "brandNames": [],
+      "category": "General",
+      "description": "Atorvastatin",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-750149",
+      "genericName": "Azithromycin",
+      "brandNames": [],
+      "category": "General",
+      "description": "Azithromycin",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1244636",
+      "genericName": "Betamethasone",
+      "brandNames": [],
+      "category": "General",
+      "description": "Betamethasone",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1718991",
+      "genericName": "Bisacodyl",
+      "brandNames": [],
+      "category": "General",
+      "description": "Bisacodyl",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1246290",
+      "genericName": "Budesonide",
+      "brandNames": [],
+      "category": "General",
+      "description": "Budesonide",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1234533",
+      "genericName": "Calamine",
+      "brandNames": [],
+      "category": "General",
+      "description": "Calamine",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-212388",
+      "genericName": "Carvedilol",
+      "brandNames": [],
+      "category": "General",
+      "description": "Carvedilol",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-106850",
+      "genericName": "Cefuroxime",
+      "brandNames": [],
+      "category": "General",
+      "description": "Cefuroxime",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-2049593",
+      "genericName": "Celecoxib",
+      "brandNames": [],
+      "category": "General",
+      "description": "Celecoxib",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1312438",
+      "genericName": "Cephalexin",
+      "brandNames": [],
+      "category": "General",
+      "description": "Cephalexin",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1011485",
+      "genericName": "Cetirizine",
+      "brandNames": [],
+      "category": "General",
+      "description": "Cetirizine",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1101555",
+      "genericName": "Chlorphenamine",
+      "brandNames": [],
+      "category": "General",
+      "description": "Chlorphenamine",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-103943",
+      "genericName": "Ciprofloxacin",
+      "brandNames": [],
+      "category": "General",
+      "description": "Ciprofloxacin",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1291987",
+      "genericName": "Clarithromycin",
+      "brandNames": [],
+      "category": "General",
+      "description": "Clarithromycin",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1085918",
+      "genericName": "Clindamycin",
+      "brandNames": [],
+      "category": "General",
+      "description": "Clindamycin",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-213169",
+      "genericName": "Clopidogrel",
+      "brandNames": [],
+      "category": "General",
+      "description": "Clopidogrel",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1045620",
+      "genericName": "Clotrimazole",
+      "brandNames": [],
+      "category": "General",
+      "description": "Clotrimazole",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1486977",
+      "genericName": "Dapagliflozin",
+      "brandNames": [],
+      "category": "General",
+      "description": "Dapagliflozin",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1191661",
+      "genericName": "Dextromethorphan",
+      "brandNames": [],
+      "category": "General",
+      "description": "Dextromethorphan",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-2272622",
+      "genericName": "Diazepam",
+      "brandNames": [],
+      "category": "General",
+      "description": "Diazepam",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1043483",
+      "genericName": "Diclofenac",
+      "brandNames": [],
+      "category": "General",
+      "description": "Diclofenac",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-991063",
+      "genericName": "Dicyclomine",
+      "brandNames": [],
+      "category": "General",
+      "description": "Dicyclomine",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-2047428",
+      "genericName": "Diphenhydramine",
+      "brandNames": [],
+      "category": "General",
+      "description": "Diphenhydramine",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1013694",
+      "genericName": "Domperidone",
+      "brandNames": [],
+      "category": "General",
+      "description": "Domperidone",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-2099769",
+      "genericName": "Doxycycline",
+      "brandNames": [],
+      "category": "General",
+      "description": "Doxycycline",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1545664",
+      "genericName": "Empagliflozin",
+      "brandNames": [],
+      "category": "General",
+      "description": "Empagliflozin",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1435630",
+      "genericName": "Enalapril",
+      "brandNames": [],
+      "category": "General",
+      "description": "Enalapril",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1668267",
+      "genericName": "Erythromycin",
+      "brandNames": [],
+      "category": "General",
+      "description": "Erythromycin",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-352272",
+      "genericName": "Escitalopram",
+      "brandNames": [],
+      "category": "General",
+      "description": "Escitalopram",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-104094",
+      "genericName": "Famotidine",
+      "brandNames": [],
+      "category": "General",
+      "description": "Famotidine",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1116528",
+      "genericName": "Fexofenadine",
+      "brandNames": [],
+      "category": "General",
+      "description": "Fexofenadine",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-104849",
+      "genericName": "Fluoxetine",
+      "brandNames": [],
+      "category": "General",
+      "description": "Fluoxetine",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1539891",
+      "genericName": "Fluticasone",
+      "brandNames": [],
+      "category": "General",
+      "description": "Fluticasone",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1100471",
+      "genericName": "Folic Acid",
+      "brandNames": [],
+      "category": "General",
+      "description": "Folic Acid",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1112201",
+      "genericName": "Furosemide",
+      "brandNames": [],
+      "category": "General",
+      "description": "Furosemide",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-199825",
+      "genericName": "Gliclazide",
+      "brandNames": [],
+      "category": "General",
+      "description": "Gliclazide",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-153591",
+      "genericName": "Glimepiride",
+      "brandNames": [],
+      "category": "General",
+      "description": "Glimepiride",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1191661",
+      "genericName": "Guaifenesin",
+      "brandNames": [],
+      "category": "General",
+      "description": "Guaifenesin",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1000000",
+      "genericName": "Hydrochlorothiazide",
+      "brandNames": [],
+      "category": "General",
+      "description": "Hydrochlorothiazide",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-833507",
+      "genericName": "Hydrocortisone",
+      "brandNames": [],
+      "category": "General",
+      "description": "Hydrocortisone",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-995255",
+      "genericName": "Hydroxyzine",
+      "brandNames": [],
+      "category": "General",
+      "description": "Hydroxyzine",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1046924",
+      "genericName": "Hyoscine",
+      "brandNames": [],
+      "category": "General",
+      "description": "Hyoscine",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "med-002",
+      "genericName": "Ibuprofen",
+      "brandNames": [
+        "Advil",
+        "Medicol",
+        "Midol"
+      ],
+      "category": "NSAID",
+      "description": "Anti-inflammatory pain reliever",
+      "dosageForms": [
+        "Tablet",
+        "Capsule",
+        "Syrup"
+      ],
+      "commonUses": [
+        "Muscle pain",
+        "Menstrual cramps",
+        "Arthritis",
+        "Inflammation"
+      ],
+      "warnings": [
+        "Take with food",
+        "Not for kidney disease",
+        "May cause stomach upset"
+      ]
+    },
+    {
+      "id": "rxnorm-1798388",
+      "genericName": "Insulin",
+      "brandNames": [],
+      "category": "General",
+      "description": "Insulin",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1190225",
+      "genericName": "Ipratropium",
+      "brandNames": [],
+      "category": "General",
+      "description": "Ipratropium",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1297965",
+      "genericName": "Ketoconazole",
+      "brandNames": [],
+      "category": "General",
+      "description": "Ketoconazole",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1251192",
+      "genericName": "Lactulose",
+      "brandNames": [],
+      "category": "General",
+      "description": "Lactulose",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-757969",
+      "genericName": "Lansoprazole",
+      "brandNames": [],
+      "category": "General",
+      "description": "Lansoprazole",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-855170",
+      "genericName": "Levocetirizine",
+      "brandNames": [],
+      "category": "General",
+      "description": "Levocetirizine",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-104375",
+      "genericName": "Lisinopril",
+      "brandNames": [],
+      "category": "General",
+      "description": "Lisinopril",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1250693",
+      "genericName": "Loperamide",
+      "brandNames": [],
+      "category": "General",
+      "description": "Loperamide",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1020126",
+      "genericName": "Loratadine",
+      "brandNames": [],
+      "category": "General",
+      "description": "Loratadine",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-104719",
+      "genericName": "Lorazepam",
+      "brandNames": [],
+      "category": "General",
+      "description": "Lorazepam",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-2709046",
+      "genericName": "Losartan",
+      "brandNames": [],
+      "category": "General",
+      "description": "Losartan",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-829498",
+      "genericName": "Mefenamic Acid",
+      "brandNames": [],
+      "category": "General",
+      "description": "Mefenamic Acid",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "med-005",
+      "genericName": "Metformin",
+      "brandNames": [
+        "Glucophage",
+        "Diabex",
+        "Diaformin"
+      ],
+      "category": "Antidiabetic",
+      "description": "Controls blood sugar levels in Type 2 diabetes",
+      "dosageForms": [
+        "Tablet"
+      ],
+      "commonUses": [
+        "Type 2 Diabetes"
+      ],
+      "warnings": [
+        "Take with meals",
+        "Check kidney function regularly",
+        "Avoid alcohol"
+      ]
+    },
+    {
+      "id": "rxnorm-1431142",
+      "genericName": "Metoclopramide",
+      "brandNames": [],
+      "category": "General",
+      "description": "Metoclopramide",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-2047766",
+      "genericName": "Metoprolol",
+      "brandNames": [],
+      "category": "General",
+      "description": "Metoprolol",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-758020",
+      "genericName": "Metronidazole",
+      "brandNames": [],
+      "category": "General",
+      "description": "Metronidazole",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-153892",
+      "genericName": "Montelukast",
+      "brandNames": [],
+      "category": "General",
+      "description": "Montelukast",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1731999",
+      "genericName": "Morphine",
+      "brandNames": [],
+      "category": "General",
+      "description": "Morphine",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-103570",
+      "genericName": "Mupirocin",
+      "brandNames": [],
+      "category": "General",
+      "description": "Mupirocin",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-105899",
+      "genericName": "Naproxen",
+      "brandNames": [],
+      "category": "General",
+      "description": "Naproxen",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-153046",
+      "genericName": "Olanzapine",
+      "brandNames": [],
+      "category": "General",
+      "description": "Olanzapine",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1291987",
+      "genericName": "Omeprazole",
+      "brandNames": [],
+      "category": "General",
+      "description": "Omeprazole",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "tgp-0100",
+      "genericName": "Over-The-Counter",
+      "brandNames": [],
+      "category": "OTC",
+      "description": "Over-The-Counter",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-284400",
+      "genericName": "Pantoprazole",
+      "brandNames": [],
+      "category": "General",
+      "description": "Pantoprazole",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "med-001",
+      "genericName": "Paracetamol",
+      "brandNames": [
+        "Biogesic",
+        "Calpol",
+        "Tempra"
+      ],
+      "category": "Analgesic/Antipyretic",
+      "description": "Pain reliever and fever reducer",
+      "dosageForms": [
+        "Tablet",
+        "Syrup",
+        "Drops"
+      ],
+      "commonUses": [
+        "Fever",
+        "Headache",
+        "Body pain",
+        "Toothache"
+      ],
+      "warnings": [
+        "Do not exceed 4g daily",
+        "Avoid with alcohol",
+        "Check liver function if prolonged use"
+      ],
+      "bikolName": "Panlunas sa kalintura asin kulog"
+    },
+    {
+      "id": "rxnorm-207484",
+      "genericName": "Permethrin",
+      "brandNames": [],
+      "category": "General",
+      "description": "Permethrin",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1101555",
+      "genericName": "Phenylephrine",
+      "brandNames": [],
+      "category": "General",
+      "description": "Phenylephrine",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1368416",
+      "genericName": "Pioglitazone",
+      "brandNames": [],
+      "category": "General",
+      "description": "Pioglitazone",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-763179",
+      "genericName": "Prednisone",
+      "brandNames": [],
+      "category": "General",
+      "description": "Prednisone",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "tgp-0099",
+      "genericName": "Prescription",
+      "brandNames": [],
+      "category": "Prescription",
+      "description": "Prescription",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1191661",
+      "genericName": "Pseudoephedrine",
+      "brandNames": [],
+      "category": "General",
+      "description": "Pseudoephedrine",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1648647",
+      "genericName": "Quetiapine",
+      "brandNames": [],
+      "category": "General",
+      "description": "Quetiapine",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-104084",
+      "genericName": "Ranitidine",
+      "brandNames": [],
+      "category": "General",
+      "description": "Ranitidine",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-104781",
+      "genericName": "Risperidone",
+      "brandNames": [],
+      "category": "General",
+      "description": "Risperidone",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-2167563",
+      "genericName": "Rosuvastatin",
+      "brandNames": [],
+      "category": "General",
+      "description": "Rosuvastatin",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "med-004",
+      "genericName": "Salbutamol",
+      "brandNames": [
+        "Ventolin",
+        "Asmol",
+        "Salbuventol"
+      ],
+      "category": "Bronchodilator",
+      "description": "Opens airways for easier breathing",
+      "dosageForms": [
+        "Inhaler",
+        "Nebule",
+        "Tablet"
+      ],
+      "commonUses": [
+        "Asthma",
+        "Bronchitis",
+        "COPD",
+        "Breathing difficulty"
+      ],
+      "warnings": [
+        "May cause tremors",
+        "Follow prescribed dosage",
+        "Keep inhaler clean"
+      ]
+    },
+    {
+      "id": "rxnorm-208149",
+      "genericName": "Sertraline",
+      "brandNames": [],
+      "category": "General",
+      "description": "Sertraline",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-104490",
+      "genericName": "Simvastatin",
+      "brandNames": [],
+      "category": "General",
+      "description": "Simvastatin",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1243833",
+      "genericName": "Sitagliptin",
+      "brandNames": [],
+      "category": "General",
+      "description": "Sitagliptin",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-208406",
+      "genericName": "Sulfamethoxazole",
+      "brandNames": [],
+      "category": "General",
+      "description": "Sulfamethoxazole",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-756226",
+      "genericName": "Theophylline",
+      "brandNames": [],
+      "category": "General",
+      "description": "Theophylline",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1148482",
+      "genericName": "Tramadol",
+      "brandNames": [],
+      "category": "General",
+      "description": "Tramadol",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1656346",
+      "genericName": "Valsartan",
+      "brandNames": [],
+      "category": "General",
+      "description": "Valsartan",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1102207",
+      "genericName": "Vitamin B12",
+      "brandNames": [],
+      "category": "General",
+      "description": "Vitamin B12",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1100471",
+      "genericName": "Vitamin C",
+      "brandNames": [],
+      "category": "General",
+      "description": "Vitamin C",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "tgp-0101",
+      "genericName": "Vitamins",
+      "brandNames": [],
+      "category": "Vitamins & Supplements",
+      "description": "Vitamins",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "tgp-0102",
+      "genericName": "Vymada",
+      "brandNames": [
+        "VYMADA"
+      ],
+      "category": "Prescription",
+      "description": "Vymada",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": [],
+      "pricePhp": 105.0
+    },
+    {
+      "id": "rxnorm-855290",
+      "genericName": "Warfarin",
+      "brandNames": [],
+      "category": "General",
+      "description": "Warfarin",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    },
+    {
+      "id": "rxnorm-1087399",
+      "genericName": "Zinc Sulfate",
+      "brandNames": [],
+      "category": "General",
+      "description": "Zinc Sulfate",
+      "dosageForms": [],
+      "commonUses": [],
+      "warnings": []
+    }
+  ]
+}

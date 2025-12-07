@@ -17,6 +17,18 @@ const translations: Record<Language, Record<string, string>> = {
         'app.tagline': 'Your Health Assistant',
         'status.online': 'Online',
 
+        // Medications
+        'medications.title': 'Medications',
+        'medications.subtitle': 'Learn about medicines, dosage, and side effects',
+        'medications.search': 'Search by generic or brand name...',
+        'medications.filter.all': 'All Categories',
+        'medications.card.uses': 'Common Uses',
+        'medications.card.dosage': 'Dosage Forms',
+        'medications.card.warnings': 'Warnings',
+        'medications.card.generic': 'Generic Name',
+        'medications.card.brand': 'Brand Names',
+        'medications.card.bikol': 'In Bikol',
+
         // Facilities
         'facilities.title': 'Health Facilities',
         'facilities.subtitle': 'Find hospitals, clinics, and health centers in Naga City',
@@ -120,6 +132,18 @@ const translations: Record<Language, Record<string, string>> = {
         'lang.bcl': 'Bikol',
     },
     fil: {
+        // Humanized Medications Translations
+        'medications.title': 'Mga Gamot',
+        'medications.subtitle': 'Alamin ang tungkol sa mga gamot, dosis, at side effects',
+        'medications.search': 'Maghanap gamit ang generic o brand name...',
+        'medications.filter.all': 'Lahat ng Kategorya',
+        'medications.card.uses': 'Para saan ito?',
+        'medications.card.dosage': 'Mga Anyo',
+        'medications.card.warnings': 'Mga Paalala',
+        'medications.card.generic': 'Generic Name',
+        'medications.card.brand': 'Brand Names',
+        'medications.card.bikol': 'Sa Bikol',
+
         // Humanized Facilities Translations
         'facilities.title': 'Mga Pasilidad Pangkalusugan',
         'facilities.subtitle': 'Hanapin ang mga ospital, klinika, at health center sa Naga City',
@@ -228,6 +252,18 @@ const translations: Record<Language, Record<string, string>> = {
         'lang.bcl': 'Bikol',
     },
     bcl: {
+        // Humanized Medications Translations
+        'medications.title': 'Mga Bulong',
+        'medications.subtitle': 'Aramon an manungod sa mga bulong, dosis, asin side effects',
+        'medications.search': 'Maghanap gamit an generic o brand name...',
+        'medications.filter.all': 'Gabos na Klase',
+        'medications.card.uses': 'Para saen ini?',
+        'medications.card.dosage': 'Mga Porma',
+        'medications.card.warnings': 'Mga Pagirumdom',
+        'medications.card.generic': 'Generic Name',
+        'medications.card.brand': 'Brand Names',
+        'medications.card.bikol': 'Sa Bikol',
+
         // Humanized Facilities Translations
         'facilities.title': 'Mga Pasilidad nin Salud',
         'facilities.subtitle': 'Hanapon an mga ospital, klinika, asin health center sa Naga City',
