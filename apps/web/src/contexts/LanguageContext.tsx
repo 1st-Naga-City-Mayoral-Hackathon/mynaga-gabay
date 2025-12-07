@@ -126,6 +126,61 @@ const translations: Record<Language, Record<string, string>> = {
         'auth.error.invalid': 'Invalid email or password',
         'auth.success.create': 'Account created successfully! Please sign in.',
 
+        // PhilHealth Page
+        'philhealth.page.title': 'PhilHealth Coverage',
+        'philhealth.page.subtitle': 'Understand your PhilHealth benefits and how to avail',
+
+        // Coverage Types
+        'philhealth.types.title': 'Coverage Types',
+        'philhealth.inpatient.title': 'Inpatient Care',
+        'philhealth.inpatient.desc': 'Hospital confinement including room & board, medicines, labs, procedures, and professional fees. Coverage varies by case rate.',
+        'philhealth.inpatient.limit': 'Case rate based',
+        'philhealth.outpatient.title': 'Outpatient Care',
+        'philhealth.outpatient.desc': 'Consultation, laboratory tests, and minor procedures without hospital admission.',
+        'philhealth.outpatient.limit': 'Per visit limit',
+        'philhealth.maternity.title': 'Maternity Care',
+        'philhealth.maternity.desc': 'Prenatal to delivery care including normal delivery and cesarean section.',
+        'philhealth.maternity.limit': 'NSD: ₱6,500 / CS: ₱19,000+',
+        'philhealth.zbenefit.title': 'Z-Benefits',
+        'philhealth.zbenefit.desc': 'Catastrophic illnesses like cancer, kidney failure requiring dialysis, and other high-cost conditions.',
+        'philhealth.zbenefit.limit': 'Condition-specific packages',
+
+        // How to Avail
+        'philhealth.how.title': 'How to Avail',
+        'philhealth.steps.title': 'Step-by-Step Guide',
+        'philhealth.step1.label': 'Ensure your PhilHealth is active',
+        'philhealth.step1.desc': 'Check contributions online or at PhilHealth office',
+        'philhealth.step2.label': 'Choose accredited hospital',
+        'philhealth.step2.desc': 'Most major hospitals in Naga are accredited',
+        'philhealth.step3.label': 'Present PhilHealth ID at admission',
+        'philhealth.step3.desc': 'Or Member Data Record (MDR)',
+        'philhealth.step4.label': 'Sign Claim Form 1',
+        'philhealth.step4.desc': 'Hospital will provide this form',
+        'philhealth.step5.label': 'Hospital processes deduction',
+        'philhealth.step5.desc': 'Amount covered is automatically deducted from bill',
+        'philhealth.step6.label': 'Pay remaining balance',
+        'philhealth.step6.desc': 'If any, at discharge',
+
+        // Requirements
+        'philhealth.req.title': 'Requirements Checklist',
+        'philhealth.req.list.title': 'Documents Needed',
+        'philhealth.req.mdr': 'PhilHealth ID or MDR (Member Data Record)',
+        'philhealth.req.mdr.desc': 'Get from PhilHealth office or online',
+        'philhealth.req.contrib': 'At least 3 contributions in last 12 months',
+        'philhealth.req.contrib.desc': 'Check your contribution status',
+        'philhealth.req.accredited': 'Confinement in accredited facility',
+        'philhealth.req.accredited.desc': 'Ask if hospital is PhilHealth accredited',
+        'philhealth.req.claim': 'Claim Form 1 (signed)',
+        'philhealth.req.claim.desc': 'Available at hospital billing',
+        'philhealth.req.soa': 'Statement of Account from hospital',
+        'philhealth.req.soa.desc': 'Request from billing department',
+
+        // Office
+        'philhealth.office': 'PhilHealth Naga City Office',
+        'philhealth.office.addr': '2nd Floor, Naga City Hall Annex',
+        'philhealth.office.hours': 'Hours: 8:00 AM - 5:00 PM (Mon-Fri)',
+        'philhealth.call': 'Call (054) 472-8888',
+
         // Languages
         'lang.en': 'English',
         'lang.fil': 'Filipino',
@@ -158,6 +213,61 @@ const translations: Record<Language, Record<string, string>> = {
         'facilities.card.hours': 'Oras',
         'facilities.card.phone': 'Telepono',
         'facilities.card.accredited': 'PhilHealth Accredited',
+
+        // PhilHealth Page
+        'philhealth.page.title': 'Saklaw ng PhilHealth',
+        'philhealth.page.subtitle': 'Unawain ang iyong mga benepisyo sa PhilHealth at paano ito gamitin',
+
+        // Coverage Types
+        'philhealth.types.title': 'Mga Uri ng Saklaw',
+        'philhealth.inpatient.title': 'Inpatient Care',
+        'philhealth.inpatient.desc': 'Pagka-ospital kasama ang kwarto, gamot, lab, at bayad sa doktor. Depende sa case rate.',
+        'philhealth.inpatient.limit': 'Base sa case rate',
+        'philhealth.outpatient.title': 'Outpatient Care',
+        'philhealth.outpatient.desc': 'Konsultasyon at lab tests nang hindi na-a-admit sa ospital.',
+        'philhealth.outpatient.limit': 'Limitado kada bisita',
+        'philhealth.maternity.title': 'Panganganak',
+        'philhealth.maternity.desc': 'Mula prenatal hanggang panganganak (normal o caesarean).',
+        'philhealth.maternity.limit': 'NSD: ₱6,500 / CS: ₱19,000+',
+        'philhealth.zbenefit.title': 'Z-Benefits',
+        'philhealth.zbenefit.desc': 'Para sa malulubhang sakit tulad ng cancer at kidney failure.',
+        'philhealth.zbenefit.limit': 'Depende sa sakit',
+
+        // How to Avail
+        'philhealth.how.title': 'Paano Gamitin',
+        'philhealth.steps.title': 'Hakbang-hakbang na Gabay',
+        'philhealth.step1.label': 'Siguraduhing aktibo ang PhilHealth',
+        'philhealth.step1.desc': 'Tingnan ang contributions online o sa opisina ng PhilHealth',
+        'philhealth.step2.label': 'Pumili ng accredited na ospital',
+        'philhealth.step2.desc': 'Karamihan sa mga ospital sa Naga ay accredited',
+        'philhealth.step3.label': 'Ipakita ang PhilHealth ID',
+        'philhealth.step3.desc': 'O Member Data Record (MDR) sa admission',
+        'philhealth.step4.label': 'Pirmahan ang Claim Form 1',
+        'philhealth.step4.desc': 'Ibibigay ito ng ospital',
+        'philhealth.step5.label': 'Automatic na ibabawas',
+        'philhealth.step5.desc': 'Ibabawas sa bill ang covered amount',
+        'philhealth.step6.label': 'Bayaran ang balanse',
+        'philhealth.step6.desc': 'Kung may natitira pa',
+
+        // Requirements
+        'philhealth.req.title': 'Listahan ng Requirements',
+        'philhealth.req.list.title': 'Mga Kailangang Dokumento',
+        'philhealth.req.mdr': 'PhilHealth ID o MDR',
+        'philhealth.req.mdr.desc': 'Kunin sa PhilHealth office o online',
+        'philhealth.req.contrib': 'At least 3 contributions',
+        'philhealth.req.contrib.desc': 'Sa nakalipas na 12 buwan',
+        'philhealth.req.accredited': 'Accredited na pasilidad',
+        'philhealth.req.accredited.desc': 'Magtanong kung accredited ang ospital',
+        'philhealth.req.claim': 'Claim Form 1 (pinirmahan)',
+        'philhealth.req.claim.desc': 'Makukuha sa billing ng ospital',
+        'philhealth.req.soa': 'Statement of Account',
+        'philhealth.req.soa.desc': 'Hingin sa billing department',
+
+        // Office
+        'philhealth.office': 'PhilHealth Naga City Office',
+        'philhealth.office.addr': '2nd Floor, Naga City Hall Annex',
+        'philhealth.office.hours': 'Oras: 8:00 AM - 5:00 PM (Lun-Biy)',
+        'philhealth.call': 'Tumawag sa (054) 472-8888',
 
         // Header
         'app.name': 'MyNaga Gabay',
@@ -278,6 +388,61 @@ const translations: Record<Language, Record<string, string>> = {
         'facilities.card.hours': 'Oras',
         'facilities.card.phone': 'Telepono',
         'facilities.card.accredited': 'PhilHealth Accredited',
+
+        // PhilHealth Page
+        'philhealth.page.title': 'Sakop kan PhilHealth',
+        'philhealth.page.subtitle': 'Intindihon an saimong benepisyo sa PhilHealth asin paano ini magagamit',
+
+        // Coverage Types
+        'philhealth.types.title': 'Mga Klase nin Sakop',
+        'philhealth.inpatient.title': 'Inpatient Care',
+        'philhealth.inpatient.desc': 'Pagka-ospital kaibahan an kwarto, bulong, lab, asin bayad sa doktor. Depende sa case rate.',
+        'philhealth.inpatient.limit': 'Base sa case rate',
+        'philhealth.outpatient.title': 'Outpatient Care',
+        'philhealth.outpatient.desc': 'Konsultasyon asin lab tests na dai pig-aadmit sa ospital.',
+        'philhealth.outpatient.limit': 'Limitado kada bisita',
+        'philhealth.maternity.title': 'Panganganak',
+        'philhealth.maternity.desc': 'Puon prenatal hanggang panganganak (normal o caesarean).',
+        'philhealth.maternity.limit': 'NSD: ₱6,500 / CS: ₱19,000+',
+        'philhealth.zbenefit.title': 'Z-Benefits',
+        'philhealth.zbenefit.desc': 'Para sa mga grabeng helang arog kan cancer asin kidney failure.',
+        'philhealth.zbenefit.limit': 'Depende sa helang',
+
+        // How to Avail
+        'philhealth.how.title': 'Paano Magamit',
+        'philhealth.steps.title': 'Paagi',
+        'philhealth.step1.label': 'Siguraduhon na aktibo an PhilHealth',
+        'philhealth.step1.desc': 'Hilingon an contributions online o sa opisina kan PhilHealth',
+        'philhealth.step2.label': 'Magpili nin accredited na ospital',
+        'philhealth.step2.desc': 'Kadaklan sa mga ospital sa Naga accredited',
+        'philhealth.step3.label': 'Ipahiling an PhilHealth ID',
+        'philhealth.step3.desc': 'O Member Data Record (MDR) sa admission',
+        'philhealth.step4.label': 'Pirmahan an Claim Form 1',
+        'philhealth.step4.desc': 'Itatao ini kan ospital',
+        'philhealth.step5.label': 'Automatic na ibabawas',
+        'philhealth.step5.desc': 'Ibabawas sa bill an covered amount',
+        'philhealth.step6.label': 'Bayadan an balanse',
+        'philhealth.step6.desc': 'Kung igwa pang natatada',
+
+        // Requirements
+        'philhealth.req.title': 'Listahan kan Kaipuhan',
+        'philhealth.req.list.title': 'Mga Kaipuhan na Dokumento',
+        'philhealth.req.mdr': 'PhilHealth ID o MDR',
+        'philhealth.req.mdr.desc': 'Kuanon sa PhilHealth office o online',
+        'philhealth.req.contrib': 'At least 3 contributions',
+        'philhealth.req.contrib.desc': 'Sa nakaaging 12 bulan',
+        'philhealth.req.accredited': 'Accredited na pasilidad',
+        'philhealth.req.accredited.desc': 'Maghapot kung accredited an ospital',
+        'philhealth.req.claim': 'Claim Form 1 (pirmado)',
+        'philhealth.req.claim.desc': 'Makukua sa billing kan ospital',
+        'philhealth.req.soa': 'Statement of Account',
+        'philhealth.req.soa.desc': 'Hagadon sa billing department',
+
+        // Office
+        'philhealth.office': 'PhilHealth Naga City Office',
+        'philhealth.office.addr': '2nd Floor, Naga City Hall Annex',
+        'philhealth.office.hours': 'Oras: 8:00 AM - 5:00 PM (Lun-Biy)',
+        'philhealth.call': 'Mag-apod sa (054) 472-8888',
 
         // Header
         'app.name': 'MyNaga Gabay',

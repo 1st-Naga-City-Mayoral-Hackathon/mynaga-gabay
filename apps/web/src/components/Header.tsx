@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useSession, signOut } from 'next-auth/react';
 import { ThemeToggle } from './ThemeToggle';
@@ -40,22 +41,26 @@ export function Header() {
                 <div className="container mx-auto px-4">
                     <div className="flex items-center justify-between h-16">
                         {/* Logo & Brand */}
-                        <Link href="/" className="flex items-center gap-3 group">
-                            <div className="relative">
-                                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500 to-teal-600 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
-                                    <span className="text-xl">🏥</span>
-                                </div>
-                                <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-400 rounded-full border-2 border-background" />
+                        <Link href="/" className="flex items-center gap-3">
+                            <div className="relative h-10 w-10">
+                                <Image
+                                    src="/logo.png?v=2"
+                                    alt="MyNaga Gabay"
+                                    fill
+                                    className="object-contain"
+                                    priority
+                                />
                             </div>
                             <div className="hidden sm:block">
                                 <h1 className="text-lg font-bold text-foreground">
-                                    {t('app.name')} <span className="text-teal-600 dark:text-teal-400">Gabay</span>
+                                    {t('app.name')}
                                 </h1>
                                 <p className="text-[10px] text-muted-foreground -mt-0.5">
                                     {t('app.tagline')}
                                 </p>
                             </div>
                         </Link>
+
 
                         {/* Desktop Navigation */}
                         <nav className="hidden md:flex items-center gap-1">
