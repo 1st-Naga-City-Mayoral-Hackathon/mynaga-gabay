@@ -1,55 +1,51 @@
-import { anthropic } from '@ai-sdk/anthropic';
-import { streamText } from 'ai';
+import { NextRequest } from 'next/server';
 
 export const runtime = 'edge';
 
-const SYSTEM_PROMPT = `You are Gabay, a friendly and knowledgeable health assistant for Naga City residents in the Philippines.
+const N8N_WEBHOOK_URL = process.env.N8N_WEBHOOK_URL || 'https://cob-n8n-primary-production.up.railway.app/webhook/mynaga-gabay-chat';
 
-Your role is to:
-1. Provide accurate health information in the user's preferred language (Bikol, Filipino, or English)
-2. Help users find health facilities in Naga City
-3. Explain PhilHealth coverage and requirements
-4. Provide basic medication information
-5. Guide users on when to seek medical attention
-
-Language Guidelines:
-- If the user writes in Bikol (Bikolano), respond in Bikol
-- If the user writes in Filipino/Tagalog, respond in Filipino
-- If the user writes in English, respond in English
-- Use simple, clear language that elderly users can understand
-
-Important Notes:
-- Always recommend consulting a healthcare professional for serious concerns
-- Do not diagnose conditions or recommend specific treatments
-- For emergencies, advise calling 911 or going to the nearest hospital
-- Be warm, respectful, and culturally sensitive
-
-Naga City Context:
-- Bicol Medical Center is the major regional hospital
-- PhilHealth is the national health insurance program
-- Many barangays have health centers for basic care`;
-
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
     try {
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const { messages, language } = await req.json();
+        const { messages } = await req.json();
 
-        // Check for API key
-        const apiKey = process.env.ANTHROPIC_API_KEY || process.env.CLAUDE_API_KEY;
-        if (!apiKey) {
+        // Get the last user message
+        const lastMessage = messages?.[messages.length - 1];
+        if (!lastMessage || lastMessage.role !== 'user') {
             return new Response(
-                JSON.stringify({ error: 'API key not configured' }),
-                { status: 500, headers: { 'Content-Type': 'application/json' } }
+                JSON.stringify({ error: 'No user message provided' }),
+                { status: 400, headers: { 'Content-Type': 'application/json' } }
             );
         }
 
-        const result = streamText({
-            model: anthropic('claude-3-5-sonnet-20241022'),
-            system: SYSTEM_PROMPT,
-            messages,
+        // Generate a session ID from the request
+        const sessionId = `web-${Date.now()}`;
+
+        // Call n8n RAG pipeline
+        const response = await fetch(N8N_WEBHOOK_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                message: lastMessage.content,
+                sessionId,
+                language: 'auto',
+            }),
         });
 
-        return result.toTextStreamResponse();
+        if (!response.ok) {
+            throw new Error(`N8N error: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        // Return as streamed text (compatible with ai sdk useChat)
+        return new Response(data.response || 'Pasensya, may problema sa sistema.', {
+            headers: {
+                'Content-Type': 'text/plain; charset=utf-8',
+            },
+        });
+
     } catch (error) {
         console.error('Chat API error:', error);
         return new Response(
