@@ -4,12 +4,13 @@
   "private": true,
   "description": "MyNaga Gabay - Bikolano Health Assistant for Naga City",
   "workspaces": [
-    "apps/*",
+    "apps/web",
+    "apps/api",
     "packages/*"
   ],
   "scripts": {
     "dev": "turbo run dev",
-    "install": "npm install",
+    "install": "npm install --verbose",
     "build": "turbo run build",
     "lint": "turbo run lint",
     "typecheck": "turbo run typecheck",
