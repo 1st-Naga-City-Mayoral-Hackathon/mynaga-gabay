@@ -1,0 +1,655 @@
+{
+  "offices": [
+    {
+      "id": "gov-001",
+      "name": "City Mayor's Office",
+      "type": "government_office",
+      "address": "City Hall Complex, J. Miranda Ave, Naga City",
+      "phone": "(054) 205-2980 local 1010",
+      "hours": "8:00 AM - 5:00 PM (Mon-Fri)",
+      "services": [
+        "Executive functions",
+        "Public complaints",
+        "Policy making"
+      ],
+      "source": "Official"
+    },
+    {
+      "id": "gov-002",
+      "name": "City Civil Registry Office",
+      "type": "government_office",
+      "address": "City Hall Complex, J. Miranda Ave, Naga City",
+      "phone": "(054) 205-2980 local 1090",
+      "hours": "8:00 AM - 5:00 PM (Mon-Fri)",
+      "services": [
+        "Birth Certificate",
+        "Marriage Certificate",
+        "Death Certificate",
+        "CENOMAR",
+        "Late Registration"
+      ],
+      "source": "Official"
+    },
+    {
+      "id": "gov-003",
+      "name": "City Treasurer's Office",
+      "type": "government_office",
+      "address": "City Hall Complex, J. Miranda Ave, Naga City",
+      "phone": "(054) 205-2980 local 1030",
+      "hours": "8:00 AM - 5:00 PM (Mon-Fri)",
+      "services": [
+        "Business Permit Payment",
+        "Real Property Tax Payment",
+        "Community Tax Certificate (Cedula)",
+        "Tax Clearance"
+      ],
+      "source": "Official"
+    },
+    {
+      "id": "gov-004",
+      "name": "City Assessor's Office",
+      "type": "government_office",
+      "address": "City Hall Complex, J. Miranda Ave, Naga City",
+      "phone": "(054) 205-2980 local 1070",
+      "hours": "8:00 AM - 5:00 PM (Mon-Fri)",
+      "services": [
+        "Tax Declaration",
+        "Property Assessment",
+        "Ownership Transfer",
+        "Property Records Certification"
+      ],
+      "source": "Official"
+    },
+    {
+      "id": "gov-005",
+      "name": "City Health Office",
+      "type": "government_office",
+      "address": "City Hall Complex, J. Miranda Ave, Naga City",
+      "phone": "(054) 205-2980 local 3270",
+      "hours": "8:00 AM - 5:00 PM (Mon-Fri)",
+      "services": [
+        "Health Certificate",
+        "Sanitary Permit",
+        "Immunization",
+        "Prenatal Checkup",
+        "TB DOTS"
+      ],
+      "source": "Official"
+    },
+    {
+      "id": "gov-006",
+      "name": "City Social Welfare and Development Office (CSWDO)",
+      "type": "government_office",
+      "address": "Social Development Center, City Hall Complex, Naga City",
+      "phone": "(054) 205-2980 local 3040",
+      "hours": "8:00 AM - 5:00 PM (Mon-Fri)",
+      "services": [
+        "Social Case Study Report",
+        "Senior Citizen ID",
+        "PWD ID",
+        "Solo Parent ID",
+        "Financial Assistance",
+        "Burial Assistance"
+      ],
+      "source": "Official"
+    },
+    {
+      "id": "gov-007",
+      "name": "City Disaster Risk Reduction Management Office (CDRRMO)",
+      "type": "government_office",
+      "address": "Social Development Center, City Hall Complex, Naga City",
+      "phone": "(054) 205-2980 local 3060",
+      "email": "cdrrmo@naga.gov.ph",
+      "hours": "24/7",
+      "services": [
+        "Disaster Response",
+        "Emergency Hotline",
+        "Evacuation Assistance",
+        "Relief Operations"
+      ],
+      "source": "Official"
+    },
+    {
+      "id": "gov-008",
+      "name": "City Environment and Natural Resources Office (CENRO)",
+      "type": "government_office",
+      "address": "City Hall Complex, J. Miranda Ave, Naga City",
+      "phone": "(054) 205-2980 local 1140",
+      "hours": "8:00 AM - 5:00 PM (Mon-Fri)",
+      "services": [
+        "Environmental Clearance",
+        "Tree Cutting Permit",
+        "Waste Management"
+      ],
+      "source": "Official"
+    },
+    {
+      "id": "gov-009",
+      "name": "City Engineer's Office",
+      "type": "government_office",
+      "address": "City Hall Complex, J. Miranda Ave, Naga City",
+      "phone": "(054) 205-2980 local 1060",
+      "hours": "8:00 AM - 5:00 PM (Mon-Fri)",
+      "services": [
+        "Building Permit",
+        "Occupancy Permit",
+        "Fencing Permit",
+        "Demolition Permit"
+      ],
+      "source": "Official"
+    },
+    {
+      "id": "gov-010",
+      "name": "City Planning and Development Office",
+      "type": "government_office",
+      "address": "City Hall Complex, J. Miranda Ave, Naga City",
+      "phone": "(054) 205-2980 local 2080",
+      "hours": "8:00 AM - 5:00 PM (Mon-Fri)",
+      "services": [
+        "Zoning Clearance",
+        "Locational Clearance",
+        "Development Permits"
+      ],
+      "source": "Official"
+    },
+    {
+      "id": "gov-011",
+      "name": "Business Permits and Licensing Office (BPLO)",
+      "type": "government_office",
+      "address": "City Hall Complex, J. Miranda Ave, Naga City",
+      "phone": "(054) 205-2980",
+      "hours": "8:00 AM - 5:00 PM (Mon-Fri)",
+      "services": [
+        "New Business Permit",
+        "Business Permit Renewal",
+        "Business Closure",
+        "Mayor's Permit"
+      ],
+      "source": "Official"
+    },
+    {
+      "id": "gov-012",
+      "name": "PhilHealth Naga City",
+      "type": "government_office",
+      "address": "2nd Floor, City Hall Annex, Naga City",
+      "phone": "(054) 472-8888",
+      "hours": "8:00 AM - 5:00 PM (Mon-Fri)",
+      "services": [
+        "PhilHealth Registration",
+        "Contribution Payment",
+        "Claims Processing",
+        "Member Data Update"
+      ],
+      "source": "Official"
+    },
+    {
+      "id": "gov-013",
+      "name": "SSS Naga Branch",
+      "type": "government_office",
+      "address": "Panganiban Drive, Naga City",
+      "phone": "(054) 472-3000",
+      "hours": "8:00 AM - 5:00 PM (Mon-Fri)",
+      "services": [
+        "SSS Registration",
+        "Contribution Payment",
+        "Loan Application",
+        "Benefits Claims"
+      ],
+      "source": "Official"
+    },
+    {
+      "id": "gov-014",
+      "name": "Pag-IBIG Fund Naga",
+      "type": "government_office",
+      "address": "Naga City",
+      "phone": "",
+      "hours": "8:00 AM - 5:00 PM (Mon-Fri)",
+      "services": [
+        "Pag-IBIG Registration",
+        "Housing Loan",
+        "Provident Benefits",
+        "MP2 Savings"
+      ],
+      "source": "Official"
+    },
+    {
+      "id": "gov-015",
+      "name": "PSA Naga City (Philippine Statistics Authority)",
+      "type": "government_office",
+      "address": "Naga City",
+      "hours": "8:00 AM - 5:00 PM (Mon-Fri)",
+      "services": [
+        "PSA Birth Certificate",
+        "PSA Marriage Certificate",
+        "PSA Death Certificate",
+        "CENOMAR",
+        "PSA Correction of Entry"
+      ],
+      "source": "Official"
+    },
+    {
+      "id": "gov-016",
+      "name": "City Accounting Office",
+      "type": "government_office",
+      "services": [
+        "Provision of Financial Documents"
+      ],
+      "source": "Citizens Charter PDF"
+    },
+    {
+      "id": "gov-017",
+      "name": "City Agriculturist Office",
+      "type": "government_office",
+      "services": [
+        " Accessing Technical Assistance on Seed Availability",
+        " Accessing Technical Assistance on Soil Analysis",
+        " Availing of Compact Corn Mill Services",
+        " Availing of Rice Mill Services",
+        " Availing of Village Type of Corn Post Harvest Facilities (VTCPHF) Services",
+        "Preparation",
+        " Availing of Animal Dispersal Program",
+        " Availing of Free Technical Training on Agriculture Technology",
+        " Availing of SARIG Loan Program",
+        " Availing of Swine Feeds Assistance Loan Program"
+      ],
+      "source": "Citizens Charter PDF"
+    },
+    {
+      "id": "gov-018",
+      "name": "City Assessors Office",
+      "type": "government_office",
+      "services": [
+        " Certification on Real Property Records",
+        " Cancellation or Correction of Tax Declarations",
+        " Annotating or Cancel Annotation on Tax Declarations",
+        " Transfer of Ownership / Updating Tax Declaration",
+        " Property Identification / Location",
+        " Subdivision or Consolidation of Tax Declaration",
+        " Reclassification, Reassessment and Revision of Tax Declaration"
+      ],
+      "source": "Citizens Charter PDF"
+    },
+    {
+      "id": "gov-019",
+      "name": "City Budget Office",
+      "type": "government_office",
+      "services": [
+        " Availing of Budget Management Services",
+        " Reviewing Barangay Budgets and Preparing Recommendation",
+        " Availing of Procurement Inspection Services"
+      ],
+      "source": "Citizens Charter PDF"
+    },
+    {
+      "id": "gov-020",
+      "name": "City Disaster Risk Reduction Management Office",
+      "type": "government_office",
+      "services": [
+        "Disaster Management",
+        "Community Service Continuity Planning",
+        " Provision of Disinfection and Decontamination Services",
+        " Provision of Alert and Warning Messages"
+      ],
+      "source": "Citizens Charter PDF"
+    },
+    {
+      "id": "gov-021",
+      "name": "City Environment And Natural Resources Office",
+      "type": "government_office",
+      "services": [
+        " Securing Ornamentals / Trees Seedlings for Planting",
+        " Request for Cutting and / or Trimming Trees",
+        " Securing Quarry Permit",
+        " Certificate of Non-Coverage / ECC Endorsement",
+        "City Ordinance No. 2014-076- Septage Management Ordinance)",
+        "No. 2008-053",
+        " Availing of Information, Education Campaign / Training Services",
+        " Securing Data/ Information Service from ENRO",
+        " Securing Permit to Hike at Mt. Isarog Natural Park"
+      ],
+      "source": "Citizens Charter PDF"
+    },
+    {
+      "id": "gov-022",
+      "name": "City Engineers Office",
+      "type": "government_office",
+      "services": [
+        " Requesting for Building Inspection of Business Permit Application",
+        " Securing Building Inspection Clearance for Business Permit",
+        "of Operation",
+        " Securing Other Building Related Permits",
+        " Requesting Building Data",
+        " Filing Building-Related Complaints",
+        " Requesting the Preparation of Plans and Programs of Work",
+        " Maintaining Drainage Systems and other Infrastructure",
+        " Sound System Service"
+      ],
+      "source": "Citizens Charter PDF"
+    },
+    {
+      "id": "gov-023",
+      "name": "City Human Resource Management Office",
+      "type": "government_office",
+      "services": [
+        " Applying for a Job Vacancy",
+        " Filing an Application for Leave"
+      ],
+      "source": "Citizens Charter PDF"
+    },
+    {
+      "id": "gov-024",
+      "name": "City Legal Office",
+      "type": "government_office",
+      "services": [
+        " Issuance and Authentication of Clearances",
+        " Requesting Written Legal Opinion"
+      ],
+      "source": "Citizens Charter PDF"
+    },
+    {
+      "id": "gov-025",
+      "name": "City Mayors Office",
+      "type": "government_office",
+      "services": [
+        " Securing Mayor’s Clearance and Certificate of Good Moral Character",
+        " Securing Permit on all Advertising and Promotional Activities",
+        " Permit to Conduct Motorcade or Parade",
+        " Using Government Facilities",
+        " Availing of Public Assistance"
+      ],
+      "source": "Citizens Charter PDF"
+    },
+    {
+      "id": "gov-026",
+      "name": "City Mayors Office - Office Of The Senior Citizens Affairs",
+      "type": "government_office",
+      "services": [
+        " Securing Senior Citizens Identification Card",
+        " Burial Assistance for Naga City Senior Citizens Registered with OSCA"
+      ],
+      "source": "Citizens Charter PDF"
+    },
+    {
+      "id": "gov-027",
+      "name": "City Mayors Office – Resource Center For The Blinds",
+      "type": "government_office",
+      "services": [
+        " Availing of the Library Services",
+        " Awareness Program",
+        " Availing of Orientation and Mobility Training",
+        " Availing of Rehabilitation Services",
+        " Availing of Counselling Services",
+        " Availing of Educational Services",
+        " Availing of Livelihood Services",
+        " Availing of the Employment Services"
+      ],
+      "source": "Citizens Charter PDF"
+    },
+    {
+      "id": "gov-028",
+      "name": "City Mayors Office - Water Services Division",
+      "type": "government_office",
+      "services": [
+        " Plumbing and Shallow Well Service"
+      ],
+      "source": "Citizens Charter PDF"
+    },
+    {
+      "id": "gov-029",
+      "name": "City Population And Nutrition Office",
+      "type": "government_office",
+      "services": [
+        " Availing of Counselling on Nutrition and Family Planning",
+        " Requesting Information on Nutrition, Population and Family Planning",
+        " Availing of Supplemental Feeding Preparations",
+        " Availing Services of the Naga City Breastfeeding Center",
+        " Securing Family Planning Supplies for Walk-in Clients",
+        " Arranging Administration of DMPA Injections",
+        " Attending Pre-Marriage Orientation and Counseling",
+        " Availing the Service of Naga Teen Center",
+        " Availing Service for Progestin-only Subdermal Implant (PSI) Insertion,"
+      ],
+      "source": "Citizens Charter PDF"
+    },
+    {
+      "id": "gov-030",
+      "name": "City Social Welfare And Development Office",
+      "type": "government_office",
+      "services": [
+        " Securing a Certificate of Indigency",
+        " Availing of Assistance in Crisis Situations",
+        "including CICL",
+        " Securing Social Case Study Report",
+        " Promoting the Welfare of Socially Disadvantaged Women",
+        " Availing of Disaster Relief Assistance",
+        " Enrolling at EDUCARE Service Program",
+        " Availing of SANGGAWADAN Program",
+        " Issuance of Solo Parent ID and Certificate of Indigency"
+      ],
+      "source": "Citizens Charter PDF"
+    },
+    {
+      "id": "gov-031",
+      "name": "City Treasurers Office",
+      "type": "government_office",
+      "services": [
+        " Applying / Renewing a Business Permit",
+        " Retiring a Business License",
+        " Paying Real Property Taxes",
+        " Paying Transfer Taxes",
+        " Securing Certificate of Real Property Tax Payment"
+      ],
+      "source": "Citizens Charter PDF"
+    },
+    {
+      "id": "gov-032",
+      "name": "City Veterinary Office",
+      "type": "government_office",
+      "services": [
+        " Accessing Veterinary Services",
+        "Veterinary Health and Death Certificates, and Meat Inspection for Hot Meat",
+        " Applying for the Naga’s Tertiary Scholarship Program (NTSP)",
+        " Availing of Street Lights Maintenance Services",
+        " Acceptance and Inspection of Newly Procured Items",
+        " Requisition of Accountable Forms, Office, and Janitorial Supplies",
+        " Government Properties Registration and Insurance",
+        " Issuance of Acknowledgment Receipt for Equipment for Newly-Acquired",
+        " Applying for a Home Lot",
+        "Building Permit on Homelots",
+        " Requesting for Building Material Assistance",
+        "Permit Water and Electrical Connection Application",
+        "Subdivision Survey of Awarded Urban Poor Home Lot",
+        "Fully-Paid their Lots",
+        "Awarded Homelots",
+        " Securing Computer-Generated Maps at IT Office",
+        " Securing Referral for Cash Assistance Benefit",
+        " Securing Referral for Medical Assistance",
+        " Securing Referral for Desenteng Palobong Assistance",
+        " Securing Referral for Retirement Benefit",
+        " Securing Referral for Scholarship Assistance",
+        " Securing Assistance to the NGOs and other Client Requests",
+        "and other Government Agencies",
+        " Issuance of Certification as Registered Stallholder/Vendor",
+        " Renewal of Lease Contract",
+        " Issuance of Market Clearance",
+        " Payment of Market Rental",
+        " Payment of Utilities",
+        " Complaints - Illegal Vending",
+        " Cash Ticket Collection",
+        " Settling Fines on Illegal Vending",
+        " Payment of Fines / Penalties for Violation of City Ordinance",
+        " Registration / Sealing of Weighing Scale",
+        " Registration of Pushcarts and Karil",
+        " Regular Garbage Collection",
+        " Consumer Welfare Desk",
+        " Request for CCTV viewing",
+        " Applying for the Livelihood Assistance",
+        " Availing of Overseas Employment Facilitation Services (for Employers)",
+        " Availing of Overseas Employment Facilitation Services (for Applicants)",
+        " Availing of Special Program for Employment of Students (for Applicants)",
+        " Securing Local Employment Referrals (for Employers)",
+        " Securing Local Employment Referrals (for Jobseekers)",
+        " Availing of Summer Employment for Enrolment (for Employers)",
+        " Availing of Summer Employment for Enrolment (for Applicants)",
+        " Availing of the Government Internship Program",
+        " Availing of Skills Training program c/o City College of Naga",
+        " Availing of Naga GrOWNegosyo Program Services",
+        " Availing of Cooperative Development Center Services (Accreditation)",
+        " Availing of Cooperative Development Center Services – Cooperative"
+      ],
+      "source": "Citizens Charter PDF"
+    },
+    {
+      "id": "gov-033",
+      "name": "Naga City Abattoir",
+      "type": "government_office",
+      "services": [
+        " Slaughtering of Livestock"
+      ],
+      "source": "Citizens Charter PDF"
+    },
+    {
+      "id": "gov-034",
+      "name": "Naga City Hospital",
+      "type": "government_office",
+      "services": [
+        " Admission to the City Hospital",
+        "Emergencies",
+        " Availing of Laboratory and Medical Examinations",
+        " Discharging Patients from the City Hospital"
+      ],
+      "source": "Citizens Charter PDF"
+    },
+    {
+      "id": "gov-035",
+      "name": "Naga City Investment Board",
+      "type": "government_office",
+      "services": [
+        " One-Stop Shop Registration"
+      ],
+      "source": "Citizens Charter PDF"
+    },
+    {
+      "id": "gov-036",
+      "name": "Office Of The City Administrator – Arts, Culture, And",
+      "type": "government_office",
+      "services": [
+        " Partnership / Sponsorship of Tourism, Arts, and Culture Project",
+        " Training and Skills Development of Tourism Workers",
+        " DOT Accreditation Support and Coordination",
+        " Marketing and Promotional Support for Tourism Establishments"
+      ],
+      "source": "Citizens Charter PDF"
+    },
+    {
+      "id": "gov-037",
+      "name": "Office Of The City Administrator – Building Maintenance Office",
+      "type": "government_office",
+      "services": [
+        "- Air-condition Works",
+        "- Electrical Works",
+        "- Carpentry Works",
+        "- Painting Works",
+        "- Plumbing Works"
+      ],
+      "source": "Citizens Charter PDF"
+    },
+    {
+      "id": "gov-038",
+      "name": "Office Of The City Administrator - City Parks And Recreational",
+      "type": "government_office",
+      "services": [
+        "Buildings, Parks, Plaza and Islands",
+        " Management and Maintenance of Recreational Facilities"
+      ],
+      "source": "Citizens Charter PDF"
+    },
+    {
+      "id": "gov-039",
+      "name": "Office Of The City Administrator - I-Governance Office",
+      "type": "government_office",
+      "services": [
+        " Uploading of Information at Naga City Website",
+        " Conveying Complaints via eMail",
+        " Admission to Our Lady of Lourdes Infirmary",
+        "Emergencies",
+        " Discharging Patients from the Infirmary",
+        " Availing of Public Assistance",
+        " Availing of PWD ID and Discount Booklets",
+        " Post-Special Education Technical Vocational Center",
+        " Inspection and Registation of Trimobile for Hire",
+        " Registration of Pedicab for Hire",
+        " Complaints Against Erring Public Utility Driver",
+        " Settlement of Traffic Violation",
+        " Settlement of Unsettled Traffic Violation",
+        " Releasing of Confiscated Items",
+        " Using and Borrowing Books at the City Library",
+        " Securing Certified True Copies of Documents",
+        " Applying / Renewing a Trimobile Franchise",
+        " Requesting of Garbage Collection Services",
+        "Garbage Deodorizer",
+        " Availing of Transportation Assistance",
+        " Requesting Heavy Equipment Support Service",
+        " Availing of Special Concerns Office Project",
+        " Filing Complaint Assistance"
+      ],
+      "source": "Citizens Charter PDF"
+    },
+    {
+      "id": "web-040",
+      "name": "City Hall",
+      "type": "government_office",
+      "phone": "",
+      "email": "",
+      "source": "naga.gov.ph"
+    },
+    {
+      "id": "web-041",
+      "name": "Naga City Gazette",
+      "type": "government_office",
+      "phone": "",
+      "email": "",
+      "source": "naga.gov.ph"
+    },
+    {
+      "id": "web-042",
+      "name": "About Naga City",
+      "type": "government_office",
+      "phone": "",
+      "email": "",
+      "source": "naga.gov.ph"
+    },
+    {
+      "id": "web-043",
+      "name": "Discover more from CITY OF NAGA",
+      "type": "government_office",
+      "phone": "",
+      "email": "",
+      "source": "naga.gov.ph"
+    },
+    {
+      "id": "web-044",
+      "name": "OFFICIAL WEBSITE OF THE CITY GOVERNMENT OF NAGA",
+      "type": "government_office",
+      "phone": "",
+      "email": "",
+      "source": "naga.gov.ph"
+    },
+    {
+      "id": "web-045",
+      "name": "City Government of Naga",
+      "type": "government_office",
+      "phone": "",
+      "email": "",
+      "source": "naga.gov.ph"
+    },
+    {
+      "id": "web-046",
+      "name": "City Government links",
+      "type": "government_office",
+      "phone": "",
+      "email": "",
+      "source": "naga.gov.ph"
+    }
+  ]
+}
