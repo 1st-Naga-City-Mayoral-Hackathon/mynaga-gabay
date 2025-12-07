@@ -1,41 +1,57 @@
 {
-    "greetings": [
-        {
-            "bikol": "Kumusta ka?",
-            "filipino": "Kumusta ka?",
-            "english": "How are you?",
-            "context": "General greeting"
-        },
-        {
-            "bikol": "Maray na aldaw!",
-            "filipino": "Magandang araw!",
-            "english": "Good day!",
-            "context": "Daytime greeting"
-        },
-        {
-            "bikol": "Maray na aga!",
-            "filipino": "Magandang umaga!",
-            "english": "Good morning!",
-            "context": "Morning greeting"
-        },
-        {
-            "bikol": "Maray na banggi!",
-            "filipino": "Magandang gabi!",
-            "english": "Good evening!",
-            "context": "Evening greeting"
-        },
-        {
-            "bikol": "Salamat po",
-            "filipino": "Salamat po",
-            "english": "Thank you",
-            "context": "Expressing gratitude"
-        },
-        {
-            "bikol": "Tabi po",
-            "filipino": "Po / Opo",
-            "english": "Please / Respectful particle",
-            "context": "Polite expression"
-        }
-    ],
-    "notes": "These are Central Bikol (Naga) phrases. Other Bikol dialects may differ."
+  "category": "greetings",
+  "phrases": [
+    {
+      "bikol": "Kumusta ka?",
+      "english": "How are you?",
+      "category": "greetings"
+    },
+    {
+      "bikol": "Maray na aldaw!",
+      "english": "Good day!",
+      "category": "greetings"
+    },
+    {
+      "bikol": "Maray na aga!",
+      "english": "Good morning!",
+      "category": "greetings"
+    },
+    {
+      "bikol": "Maray na hapon!",
+      "english": "Good afternoon!",
+      "category": "greetings"
+    },
+    {
+      "bikol": "Maray na banggi!",
+      "english": "Good evening!",
+      "category": "greetings"
+    },
+    {
+      "bikol": "Salamat po",
+      "english": "Thank you",
+      "category": "greetings"
+    },
+    {
+      "bikol": "Tabi po",
+      "english": "Please / Excuse me",
+      "category": "greetings"
+    },
+    {
+      "bikol": "Paaram!",
+      "english": "Goodbye!",
+      "category": "greetings"
+    },
+    {
+      "bikol": "Mag iingat ka!",
+      "english": "Take care!",
+      "category": "greetings"
+    },
+    {
+      "bikol": "Dios mabalos!",
+      "english": "Thank you! (God reward you)",
+      "category": "greetings"
+    }
+  ],
+  "count": 10,
+  "note": "Central Bikol (Naga City dialect). Other Bikol dialects may vary."
 }

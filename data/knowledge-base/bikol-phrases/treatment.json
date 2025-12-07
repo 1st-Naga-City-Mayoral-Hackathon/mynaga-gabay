@@ -1,0 +1,52 @@
+{
+  "category": "treatment",
+  "phrases": [
+    {
+      "bikol": "Bulong",
+      "english": "Medicine",
+      "category": "treatment"
+    },
+    {
+      "bikol": "Reseta",
+      "english": "Prescription",
+      "category": "treatment"
+    },
+    {
+      "bikol": "Tableta",
+      "english": "Tablet",
+      "category": "treatment"
+    },
+    {
+      "bikol": "Kapsul",
+      "english": "Capsule",
+      "category": "treatment"
+    },
+    {
+      "bikol": "Syrup",
+      "english": "Syrup",
+      "category": "treatment"
+    },
+    {
+      "bikol": "Iniksyon",
+      "english": "Injection",
+      "category": "treatment"
+    },
+    {
+      "bikol": "Bakuna",
+      "english": "Vaccine",
+      "category": "treatment"
+    },
+    {
+      "bikol": "Check-up",
+      "english": "Check-up",
+      "category": "treatment"
+    },
+    {
+      "bikol": "BP reading",
+      "english": "Blood pressure reading",
+      "category": "treatment"
+    }
+  ],
+  "count": 9,
+  "note": "Central Bikol (Naga City dialect). Other Bikol dialects may vary."
+}

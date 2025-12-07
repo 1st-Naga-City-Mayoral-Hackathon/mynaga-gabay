@@ -1,0 +1,410 @@
+{
+  "category": "general",
+  "phrases": [
+    {
+      "bikol": "Iyo",
+      "english": "Yes",
+      "category": "general"
+    },
+    {
+      "bikol": "Dai",
+      "english": "No",
+      "category": "general"
+    },
+    {
+      "bikol": "Dai ko aram",
+      "english": "I don't know",
+      "category": "general"
+    },
+    {
+      "bikol": "Dai ko nasasabutan",
+      "english": "I don't understand",
+      "category": "general"
+    },
+    {
+      "bikol": "Nasasabutan ko",
+      "english": "I understand",
+      "category": "general"
+    },
+    {
+      "bikol": "Patawarun mo ako",
+      "english": "I'm sorry",
+      "category": "general"
+    },
+    {
+      "bikol": "Tabi",
+      "english": "Please / Excuse me",
+      "category": "general"
+    },
+    {
+      "bikol": "Gurano ini?",
+      "english": "How much is this?",
+      "category": "general"
+    },
+    {
+      "bikol": "Hain?",
+      "english": "Where?",
+      "category": "general"
+    },
+    {
+      "bikol": "Ano man?",
+      "english": "What?",
+      "category": "general"
+    },
+    {
+      "bikol": "Pano ako makaduman sa...?",
+      "english": "How do I get to...?",
+      "category": "general"
+    },
+    {
+      "bikol": "Bikol / Bicol",
+      "english": "Phrase",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Maugmang Pag-abot Maugmang Pagdatong Dagos tabì",
+      "english": "Welcome",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Hello",
+      "english": "Hello (General greeting)",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Nom? (inf) Nem? (inf) Kumusta ka? (frm) Tara? (frm)",
+      "english": "How are you?",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Marhay man. Salamat",
+      "english": "Reply to 'How are you?'",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Haloy na kitang dai naghilingan",
+      "english": "Long time no see",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Ano an pangaran mo?",
+      "english": "What's your name?",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Ako si ...",
+      "english": "My name is ...",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Taga saín ka?",
+      "english": "Where are you from?",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Taga ... ako",
+      "english": "I'm from ...",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Kaugmahan kong mámidbídan ka (sg) Kaugmahan kong mamidbidan kamo (pl)",
+      "english": "Pleased to meet you",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Marhay na aga Dyos marhay na aga Marhay na pagka-aga",
+      "english": "Good morning (Morning greeting)",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Marhay na hapon Dyos marhay na hapon Marhay na pagkahapon",
+      "english": "Good afternoon (Afternoon greeting)",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Marhay na banggi Dyos marhay na banggi Marhay na pagkabanggí",
+      "english": "Good evening (Evening greeting)",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Máduman na ako (inf) Mádigdi na ako (inf) Paáram (frm)",
+      "english": "Goodbye (Parting phrases)",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Swertihon ka man lugod!",
+      "english": "Good luck!",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Tagay!",
+      "english": "Cheers! Good Health! (Toasts used when drinking)",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Marhay na aldaw saimo",
+      "english": "Have a nice day",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Magpakabasog ka",
+      "english": "Bon appetit / Have a nice meal",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Iyo Iyo tabì (frm)",
+      "english": "Yes",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Dai Dai tabì (frm)",
+      "english": "No",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Tibaad",
+      "english": "Maybe",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Inda Dai ko aram",
+      "english": "I don't know",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Nasasabutan mo?",
+      "english": "Do you understand?",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Pakiluway-luwayan man tabi an pagtaram mo",
+      "english": "Please speak more slowly",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Paki-otro tabi kan tinaram mo",
+      "english": "Please say that again",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Pakisurat man tabi",
+      "english": "Please write it down",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Tatao ka magtaram nin Ingles?",
+      "english": "Do you speak English?",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Tatao ka magtaram nin Bikol?",
+      "english": "Do you speak Bikol?",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Iyo, diít lang.",
+      "english": "Yes, a little (reply to 'Do you speak ...?')",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Kaulayon mo ako nin Bikol",
+      "english": "Speak to me in Bikol",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Pàno mo itaram an ... sa Bikol?",
+      "english": "How do you say ... in Bikol?",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Maki-agi (To get past people) Maki-agi tabi (frm)",
+      "english": "Excuse me",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Mangguràno ini? Mangguràno tabi ini? (frm)",
+      "english": "How much is this?",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Pasensya na tabi",
+      "english": "Sorry",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Tabì",
+      "english": "Please",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Salamat Salamat na marhay Dyos mábalos",
+      "english": "Thank you",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Daing ano man",
+      "english": "Reply to thank you",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Hain tabì an banyo?",
+      "english": "Where's the toilet / bathroom?",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "An lalaking ini an mabayad kan gabos",
+      "english": "This gentleman will pay for everything",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "An babaying ini an mabayad kan gabos",
+      "english": "This lady will pay for everything",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Pwede kang makabayle?",
+      "english": "Would you like to dance with me?",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Pirmi kang yaon digdi?",
+      "english": "Do you come here often?",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Napupùngaw ako saímo",
+      "english": "I miss you",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Namumùtan taka Padabà taka Padangat taka",
+      "english": "I love you",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Magparahay ka na",
+      "english": "Get well soon",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Lumayas ka digdi!",
+      "english": "Go away!",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Pabayai na akong magsolo",
+      "english": "Leave me alone!",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Tabang! Tabangi ako!",
+      "english": "Help!",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Igwang sulô! Igwang kasulô! Sulô Kasulô",
+      "english": "Fire!",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Para! Para tabì! (frm)",
+      "english": "Stop!",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Umapód ka nin pulis!",
+      "english": "Call the police!",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Maugmang Pasko",
+      "english": "Christmas greetings",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Maugmang Bàgong Taon Magayagayang Bàgong Taon",
+      "english": "New Year greetings",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Maugmang Pagkabuhay Liwat ni Kristo",
+      "english": "Easter greetings",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Maugmang Compleaño Maugmang Kaaldawan",
+      "english": "Birthday greetings",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Bakô nanggad manínigô an sarô sanang tataramon",
+      "english": "One language is never enough",
+      "category": "general",
+      "source": "omniglot.com"
+    },
+    {
+      "bikol": "Panô nin kasili an sakuyang hoberkrap",
+      "english": "My hovercraft is full of eels",
+      "category": "general",
+      "source": "omniglot.com"
+    }
+  ],
+  "count": 69,
+  "note": "Central Bikol (Naga City dialect). Other Bikol dialects may vary."
+}

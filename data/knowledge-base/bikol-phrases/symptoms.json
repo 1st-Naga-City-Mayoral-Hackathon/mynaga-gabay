@@ -1,0 +1,97 @@
+{
+  "category": "symptoms",
+  "phrases": [
+    {
+      "bikol": "Kulog nin payo",
+      "english": "Headache",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "Kalintura",
+      "english": "Fever",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "Sipon",
+      "english": "Cold / Runny nose",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "Ubo",
+      "english": "Cough",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "Kulog nin tulak",
+      "english": "Stomach ache",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "Pagduwal",
+      "english": "Vomiting",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "Kurso",
+      "english": "Diarrhea",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "Kulog nin likod",
+      "english": "Back pain",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "Kulog nin daghan",
+      "english": "Chest pain",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "Pagkapuod",
+      "english": "Fatigue / Tiredness",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "Lipong",
+      "english": "Dizziness",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "Hapdos",
+      "english": "Pain / Hurt",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "Hubog / Bangkag",
+      "english": "Wound",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "Paga",
+      "english": "Swelling",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "Hapulas",
+      "english": "Rash",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "Hingal",
+      "english": "Difficulty breathing",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "Suka",
+      "english": "Vomit",
+      "category": "symptoms"
+    },
+    {
+      "bikol": "Mata ng pula",
+      "english": "Red eyes / Sore eyes",
+      "category": "symptoms"
+    }
+  ],
+  "count": 18,
+  "note": "Central Bikol (Naga City dialect). Other Bikol dialects may vary."
+}

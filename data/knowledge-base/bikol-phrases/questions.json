@@ -1,0 +1,72 @@
+{
+  "category": "questions",
+  "phrases": [
+    {
+      "bikol": "Saen an pinakahararaning ospital?",
+      "english": "Where is the nearest hospital?",
+      "category": "questions"
+    },
+    {
+      "bikol": "Ano an namamatian mo?",
+      "english": "What are you feeling?",
+      "category": "questions"
+    },
+    {
+      "bikol": "Sain an kulog?",
+      "english": "Where does it hurt?",
+      "category": "questions"
+    },
+    {
+      "bikol": "Pira na ka aldaw na may kalintura ka?",
+      "english": "How many days have you had a fever?",
+      "category": "questions"
+    },
+    {
+      "bikol": "May alerya ka sa bulong?",
+      "english": "Do you have any drug allergies?",
+      "category": "questions"
+    },
+    {
+      "bikol": "Magkano an konsulta?",
+      "english": "How much is the consultation?",
+      "category": "questions"
+    },
+    {
+      "bikol": "Kaipuhan ko nin reseta?",
+      "english": "Do I need a prescription?",
+      "category": "questions"
+    },
+    {
+      "bikol": "Covered ba ini sa PhilHealth?",
+      "english": "Is this covered by PhilHealth?",
+      "category": "questions"
+    },
+    {
+      "bikol": "Kaipuhan ko makahiling nin doktor?",
+      "english": "Do I need to see a doctor?",
+      "category": "questions"
+    },
+    {
+      "bikol": "Arog kamo mabukas?",
+      "english": "What time do you open?",
+      "category": "questions"
+    },
+    {
+      "bikol": "Ano an side effects kaini na bulong?",
+      "english": "What are the side effects of this medicine?",
+      "category": "questions"
+    },
+    {
+      "bikol": "Pwede ko ini inumon kun bados ako?",
+      "english": "Can I take this if I'm pregnant?",
+      "category": "questions"
+    },
+    {
+      "bikol": "May libre daw na bakuna?",
+      "english": "Are there free vaccines?",
+      "category": "questions"
+    }
+  ],
+  "count": 13,
+  "note": "Central Bikol (Naga City dialect). Other Bikol dialects may vary."
+}

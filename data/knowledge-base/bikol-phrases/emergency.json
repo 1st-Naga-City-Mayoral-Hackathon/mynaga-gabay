@@ -1,0 +1,22 @@
+{
+  "category": "emergency",
+  "phrases": [
+    {
+      "bikol": "Tabang!",
+      "english": "Help!",
+      "category": "emergency"
+    },
+    {
+      "bikol": "Emergency!",
+      "english": "Emergency!",
+      "category": "emergency"
+    },
+    {
+      "bikol": "Apuron!",
+      "english": "Hurry!",
+      "category": "emergency"
+    }
+  ],
+  "count": 3,
+  "note": "Central Bikol (Naga City dialect). Other Bikol dialects may vary."
+}

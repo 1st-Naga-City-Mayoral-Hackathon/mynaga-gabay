@@ -1,0 +1,32 @@
+{
+  "category": "personnel",
+  "phrases": [
+    {
+      "bikol": "Doktor",
+      "english": "Doctor",
+      "category": "personnel"
+    },
+    {
+      "bikol": "Nars",
+      "english": "Nurse",
+      "category": "personnel"
+    },
+    {
+      "bikol": "Partera",
+      "english": "Midwife",
+      "category": "personnel"
+    },
+    {
+      "bikol": "Barangay health worker",
+      "english": "Barangay health worker",
+      "category": "personnel"
+    },
+    {
+      "bikol": "Parmasyutiko",
+      "english": "Pharmacist",
+      "category": "personnel"
+    }
+  ],
+  "count": 5,
+  "note": "Central Bikol (Naga City dialect). Other Bikol dialects may vary."
+}

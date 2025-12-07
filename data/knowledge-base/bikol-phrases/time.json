@@ -1,0 +1,57 @@
+{
+  "category": "time",
+  "phrases": [
+    {
+      "bikol": "Ngonyan",
+      "english": "Now",
+      "category": "time"
+    },
+    {
+      "bikol": "Kagab-i",
+      "english": "Last night",
+      "category": "time"
+    },
+    {
+      "bikol": "Ngapit",
+      "english": "Later / Soon",
+      "category": "time"
+    },
+    {
+      "bikol": "Aga",
+      "english": "Morning",
+      "category": "time"
+    },
+    {
+      "bikol": "Hapon",
+      "english": "Afternoon",
+      "category": "time"
+    },
+    {
+      "bikol": "Banggi",
+      "english": "Evening / Night",
+      "category": "time"
+    },
+    {
+      "bikol": "Aldaw-aldaw",
+      "english": "Every day",
+      "category": "time"
+    },
+    {
+      "bikol": "Pirang aldaw",
+      "english": "How many days",
+      "category": "time"
+    },
+    {
+      "bikol": "Semana",
+      "english": "Week",
+      "category": "time"
+    },
+    {
+      "bikol": "Bulan",
+      "english": "Month",
+      "category": "time"
+    }
+  ],
+  "count": 10,
+  "note": "Central Bikol (Naga City dialect). Other Bikol dialects may vary."
+}

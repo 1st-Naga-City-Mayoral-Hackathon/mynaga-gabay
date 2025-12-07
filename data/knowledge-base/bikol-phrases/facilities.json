@@ -1,0 +1,32 @@
+{
+  "category": "facilities",
+  "phrases": [
+    {
+      "bikol": "Ospital",
+      "english": "Hospital",
+      "category": "facilities"
+    },
+    {
+      "bikol": "Botica",
+      "english": "Pharmacy",
+      "category": "facilities"
+    },
+    {
+      "bikol": "Health center",
+      "english": "Health center",
+      "category": "facilities"
+    },
+    {
+      "bikol": "Klinika",
+      "english": "Clinic",
+      "category": "facilities"
+    },
+    {
+      "bikol": "Emergency room",
+      "english": "Emergency room",
+      "category": "facilities"
+    }
+  ],
+  "count": 5,
+  "note": "Central Bikol (Naga City dialect). Other Bikol dialects may vary."
+}
