@@ -6,103 +6,97 @@ This folder contains n8n workflow definitions for the MyNaga Gabay health assist
 
 ### 1. RAG Ingestion Pipeline (`rag-ingestion-pipeline.json`)
 
-Ingests knowledge base data (facilities, medicines, government services) into Supabase vector store for RAG retrieval.
+Ingests knowledge base data into PGVector store for RAG retrieval.
 
-#### Setup
+**Webhook**: `POST /webhook/ingest-knowledge-base`
 
-1. **Import workflow**: In n8n, go to Workflows → Import → paste the JSON
-2. **Configure credentials**:
-   - Supabase API credentials
-   - Google Gemini API credentials (for embeddings)
-3. **Update credential IDs** in the workflow nodes
+**Categories**: facilities, medicines, government, philhealth, emergency
 
-#### Webhook Endpoint
+```bash
+# Ingest all data
+python trigger_rag_ingestion.py --url "https://your-n8n.com/webhook/ingest-knowledge-base"
 
-```
-POST /webhook/ingest-knowledge-base
+# Ingest specific category
+python trigger_rag_ingestion.py --url "..." --category facilities
 ```
 
-#### Request Body
+---
 
+### 2. RAG Chatbot Pipeline (`rag-chatbot-pipeline.json`)
+
+AI Health Assistant with RAG retrieval and multilingual support (Bikol, Tagalog, English).
+
+**Webhook**: `POST /webhook/mynaga-gabay-chat`
+
+**Request**:
 ```json
 {
-  "category": "all",  // "all" | "facilities" | "medicines" | "government"
-  "facilities": [...],
-  "medicines": [...],
-  "government": [...]
+  "message": "Haen an ospital?",
+  "sessionId": "user-123",
+  "language": "auto"
 }
 ```
 
-#### Trigger with Script
-
-```bash
-# Set your n8n webhook URL
-export N8N_WEBHOOK_URL=https://your-n8n-instance.com/webhook/ingest-knowledge-base
-
-# Run ingestion
-python trigger_rag_ingestion.py
-
-# Or ingest specific category
-python trigger_rag_ingestion.py --category facilities
-
-# Dry run (show what would be sent)
-python trigger_rag_ingestion.py --dry-run
+**Response**:
+```json
+{
+  "response": "An pinakahrani na ospital sa Naga City...",
+  "language": "bikol",
+  "sessionId": "user-123",
+  "model": "qwen/qwen3-32b"
+}
 ```
 
-## Supabase Setup
+**Test with Script**:
+```bash
+# Single message
+python test_rag_chatbot.py --message "Where is the nearest hospital?"
 
-Before using the workflow, create the vector store table in Supabase:
+# Interactive mode
+python test_rag_chatbot.py --interactive
+
+# With language hint
+python test_rag_chatbot.py --message "Haen an clinic?" --language bikol
+```
+
+---
+
+## Setup
+
+### 1. Import Workflows
+
+1. In n8n: Workflows → Import → paste JSON
+2. Configure credentials (Groq, Postgres, Google Gemini)
+3. Activate workflow
+
+### 2. PostgreSQL PGVector Table
 
 ```sql
--- Enable pgvector extension
-create extension if not exists vector;
+-- Enable pgvector
+CREATE EXTENSION IF NOT EXISTS vector;
 
--- Create documents table for RAG
-create table documents (
-  id bigserial primary key,
-  content text,
-  metadata jsonb,
-  embedding vector(768)  -- Google Gemini embedding dimension
+-- Create vectors table (n8n default)
+CREATE TABLE IF NOT EXISTS n8n_vectors (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  text TEXT,
+  metadata JSONB,
+  embedding VECTOR(768)
 );
 
--- Create index for similarity search
-create index on documents using ivfflat (embedding vector_cosine_ops)
-  with (lists = 100);
-
--- Create match function for n8n
-create or replace function match_documents (
-  query_embedding vector(768),
-  match_count int default 5,
-  filter jsonb default '{}'
-)
-returns table (
-  id bigint,
-  content text,
-  metadata jsonb,
-  similarity float
-)
-language plpgsql
-as $$
-begin
-  return query
-  select
-    documents.id,
-    documents.content,
-    documents.metadata,
-    1 - (documents.embedding <=> query_embedding) as similarity
-  from documents
-  where documents.metadata @> filter
-  order by documents.embedding <=> query_embedding
-  limit match_count;
-end;
-$$;
+-- Create index for fast search
+CREATE INDEX ON n8n_vectors USING ivfflat (embedding vector_cosine_ops) WITH (lists = 100);
 ```
 
-## Knowledge Base Data Summary
+---
+
+## Knowledge Base Summary
 
 | Category | Entries | Description |
 |----------|---------|-------------|
-| Facilities | 133 | Hospitals, clinics, pharmacies in Naga City |
-| Medicines | 102 | Generic drugs with uses and warnings |
+| Facilities | 133 | Hospitals, clinics, pharmacies |
+| Medicines | 102 | Generic drugs with uses |
 | Government | 46 | City offices and services |
-| **Total** | **281** | All embeddable entries |
+| PhilHealth | 1 | Coverage and benefits |
+| Emergency | 5 | Hotlines by category |
+| **Total** | **287** | ~6,000 vectors after chunking |
+

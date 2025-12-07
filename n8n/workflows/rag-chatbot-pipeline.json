@@ -1,0 +1,268 @@
+{
+    "name": "MyNaga Gabay - AI Health Assistant",
+    "nodes": [
+        {
+            "parameters": {
+                "httpMethod": "POST",
+                "path": "mynaga-gabay-chat",
+                "authentication": "headerAuth",
+                "responseMode": "responseNode",
+                "options": {}
+            },
+            "type": "n8n-nodes-base.webhook",
+            "typeVersion": 2.1,
+            "position": [
+                400,
+                -256
+            ],
+            "id": "webhook-mynaga-gabay",
+            "name": "Webhook: Chat",
+            "webhookId": "mynaga-gabay-chat",
+            "credentials": {
+                "httpHeaderAuth": {
+                    "id": "rhqZtScXMNCC8G7K",
+                    "name": "Portfolio"
+                }
+            }
+        },
+        {
+            "parameters": {
+                "jsCode": "// Extract incoming data from the webhook\nconst body = $input.first().json.body || $input.first().json;\nconst message = body.message || '';\nconst sessionId = body.sessionId || 'session-' + Date.now();\nconst language = body.language || 'auto';\n\n// Validate message\nif (!message) {\n  throw new Error('No message provided');\n}\n\n// Simple language detection for Bikol\nconst bikolIndicators = ['daw', 'baga', 'ta', 'digdi', 'saimo', 'sakuya', 'harong', 'kaini', 'maray', 'tabi', 'siring', 'ano', 'haen', 'pano'];\nconst detectedLanguage = language !== 'auto' ? language : \n  bikolIndicators.some(word => message.toLowerCase().includes(word)) ? 'bikol' : 'tagalog';\n\nreturn [{\n  json: {\n    message: message,\n    sessionId: sessionId,\n    language: detectedLanguage,\n    timestamp: new Date().toISOString()\n  }\n}];"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+                624,
+                -256
+            ],
+            "id": "extract-request",
+            "name": "Extract & Detect Language"
+        },
+        {
+            "parameters": {
+                "model": "qwen/qwen3-32b",
+                "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+            "typeVersion": 1,
+            "position": [
+                848,
+                -32
+            ],
+            "id": "groq-chat-model",
+            "name": "Groq Chat Model",
+            "credentials": {
+                "groqApi": {
+                    "id": "ZhMPWHIOwnuZ0GnW",
+                    "name": "Portfolio"
+                }
+            }
+        },
+        {
+            "parameters": {},
+            "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+            "typeVersion": 1.3,
+            "position": [
+                976,
+                -32
+            ],
+            "id": "postgres-memory",
+            "name": "Postgres Chat Memory",
+            "credentials": {
+                "postgres": {
+                    "id": "MoWRczO7tiOMmUKi",
+                    "name": "Postgres account"
+                }
+            }
+        },
+        {
+            "parameters": {
+                "agent": "conversationalAgent",
+                "promptType": "define",
+                "text": "={{ $json.message }}",
+                "options": {
+                    "systemMessage": "Ika si MyNaga Gabay, an AI health assistant para sa Naga City, Camarines Sur, Philippines.\n\n## Imong Papel (Your Role)\nTabangan mo an mga tawo sa Naga City na makua an impormasyon manungod sa:\n- Health facilities (hospitals, clinics, pharmacies, health centers)\n- Emergency hotlines asin contact numbers\n- Government services asin offices\n- Medicines asin healthcare information\n- PhilHealth coverage asin benefits\n\n## Language Guidelines\n- Kung an user nagtaram sa Bikol, simbagon mo sa Bikol man.\n- Kung an user nagtaram sa Tagalog/Filipino, simbagon mo sa Filipino.\n- Kung an user nagtaram sa English, simbagon mo sa English.\n- Gamiton mo an simple na mga words na madaling maintindihan.\n\n## Response Format\n- Magin concise pero helpful (2-4 sentences ideal)\n- Kung may specific na facility o office, itao an address asin contact number.\n- Para sa emergencies, always itao an hotline numbers immediately.\n- Kung dai mo aram an sagot, sabihin mo na 'Pasensya na, dai ko yan aram. Paki-contact nalang an City Hall sa (054) 472-3000.'\n\n## Important Information\n- Emergency: 911 or (054) 472-3000 (Central Command Center)\n- Bicol Regional Hospital: (054) 472-6125\n- City Health Office: Located at City Hall Complex\n- PhilHealth Naga: 2nd Floor, City Hall Annex, (054) 472-8888\n\n## Bikol Phrases to Use\n- Maray na aldaw! (Good day!)\n- Ano an sakong maitatabang saimo? (How can I help you?)\n- Tabi, (Please,)\n- Salamat! (Thank you!)\n\nAlways be friendly, helpful, and prioritize the user's health and safety."
+                }
+            },
+            "type": "@n8n/n8n-nodes-langchain.agent",
+            "typeVersion": 1.7,
+            "position": [
+                912,
+                -256
+            ],
+            "id": "ai-agent",
+            "name": "AI Health Agent"
+        },
+        {
+            "parameters": {
+                "mode": "retrieve-as-tool",
+                "toolDescription": "Search the MyNaga Gabay knowledge base for information about Naga City health facilities, government services, medicines, PhilHealth coverage, and emergency hotlines. Use this tool when the user asks about any local health or government service in Naga City.",
+                "tableName": {
+                    "__rl": true,
+                    "value": "n8n_vectors",
+                    "mode": "list",
+                    "cachedResultName": "n8n_vectors"
+                },
+                "options": {
+                    "topK": 5
+                }
+            },
+            "type": "@n8n/n8n-nodes-langchain.vectorStorePGVector",
+            "typeVersion": 1.1,
+            "position": [
+                1104,
+                -32
+            ],
+            "id": "pgvector-store",
+            "name": "PGVector Knowledge Base",
+            "credentials": {
+                "postgres": {
+                    "id": "nV9TVKfIINwf5GIv",
+                    "name": "Yamabiko"
+                }
+            }
+        },
+        {
+            "parameters": {
+                "model": "models/text-embedding-004"
+            },
+            "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
+            "typeVersion": 1,
+            "position": [
+                1184,
+                176
+            ],
+            "id": "gemini-embeddings",
+            "name": "Google Gemini Embeddings",
+            "credentials": {
+                "googlePalmApi": {
+                    "id": "cnZWz3uhTsq6Qj75",
+                    "name": "Google Gemini(PaLM) Api account"
+                }
+            }
+        },
+        {
+            "parameters": {
+                "jsCode": "// Format the AI agent's response\nconst input = $input.first().json;\nconst agentOutput = input.output || input.text || 'Pasensya na, may problema. Paki-try giraray. (Sorry, there was a problem. Please try again.)';\nconst requestData = $('Extract & Detect Language').first().json;\n\nreturn [{\n  json: {\n    response: agentOutput,\n    language: requestData.language,\n    sessionId: requestData.sessionId,\n    model: 'qwen/qwen3-32b',\n    timestamp: new Date().toISOString()\n  }\n}];"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+                1472,
+                -256
+            ],
+            "id": "format-response",
+            "name": "Format Response"
+        },
+        {
+            "parameters": {
+                "respondWith": "json",
+                "responseBody": "={{ $json }}",
+                "options": {}
+            },
+            "type": "n8n-nodes-base.respondToWebhook",
+            "typeVersion": 1.1,
+            "position": [
+                1696,
+                -256
+            ],
+            "id": "respond-webhook",
+            "name": "Respond to Webhook"
+        }
+    ],
+    "connections": {
+        "Webhook: Chat": {
+            "main": [
+                [
+                    {
+                        "node": "Extract & Detect Language",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Extract & Detect Language": {
+            "main": [
+                [
+                    {
+                        "node": "AI Health Agent",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Groq Chat Model": {
+            "ai_languageModel": [
+                [
+                    {
+                        "node": "AI Health Agent",
+                        "type": "ai_languageModel",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Postgres Chat Memory": {
+            "ai_memory": [
+                [
+                    {
+                        "node": "AI Health Agent",
+                        "type": "ai_memory",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "PGVector Knowledge Base": {
+            "ai_tool": [
+                [
+                    {
+                        "node": "AI Health Agent",
+                        "type": "ai_tool",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Google Gemini Embeddings": {
+            "ai_embedding": [
+                [
+                    {
+                        "node": "PGVector Knowledge Base",
+                        "type": "ai_embedding",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "AI Health Agent": {
+            "main": [
+                [
+                    {
+                        "node": "Format Response",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Format Response": {
+            "main": [
+                [
+                    {
+                        "node": "Respond to Webhook",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        }
+    },
+    "pinData": {},
+    "meta": {
+        "templateCredsSetupCompleted": true,
+        "instanceId": "07735f1b4ca74ae0b887f047d3f2b5d2649651b894580d19d87f5f3e7573b6dd"
+    }
+}
