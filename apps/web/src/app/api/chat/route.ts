@@ -37,20 +37,46 @@ export async function POST(req: NextRequest) {
             throw new Error(`N8N error: ${response.status}`);
         }
 
-        const data = await response.json();
+        const data = await response.json() as { response?: string };
+        const text = data.response || 'Pasensya, may problema sa sistema.';
 
-        // Return as streamed text (compatible with ai sdk useChat)
-        return new Response(data.response || 'Pasensya, may problema sa sistema.', {
+        // Return as SSE stream format compatible with AI SDK useChat
+        // Format: 0:"chunk text"\n
+        const encoder = new TextEncoder();
+        const stream = new ReadableStream({
+            start(controller) {
+                // Send the entire response as a single chunk in SSE format
+                const sseData = `0:${JSON.stringify(text)}\n`;
+                controller.enqueue(encoder.encode(sseData));
+                controller.close();
+            },
+        });
+
+        return new Response(stream, {
             headers: {
-                'Content-Type': 'text/plain; charset=utf-8',
+                'Content-Type': 'text/event-stream; charset=utf-8',
+                'Cache-Control': 'no-cache',
             },
         });
 
     } catch (error) {
         console.error('Chat API error:', error);
-        return new Response(
-            JSON.stringify({ error: 'Failed to process request' }),
-            { status: 500, headers: { 'Content-Type': 'application/json' } }
-        );
+
+        // Return error in SSE format
+        const encoder = new TextEncoder();
+        const errorMessage = 'Pasensya, may problema sa koneksyon. Subukan ulit.';
+        const stream = new ReadableStream({
+            start(controller) {
+                const sseData = `0:${JSON.stringify(errorMessage)}\n`;
+                controller.enqueue(encoder.encode(sseData));
+                controller.close();
+            },
+        });
+
+        return new Response(stream, {
+            headers: {
+                'Content-Type': 'text/event-stream; charset=utf-8',
+            },
+        });
     }
 }
