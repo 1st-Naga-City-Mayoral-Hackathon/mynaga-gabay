@@ -5,8 +5,10 @@ import { ChatMessages } from './ChatMessages';
 import { ChatInput } from './ChatInput';
 import { ChatSidebar } from './ChatSidebar';
 import { ChatHeader } from './ChatHeader';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface ChatProps {
+    // Language prop is optional - will use context if not provided
     language?: 'en' | 'fil' | 'bcl';
 }
 
@@ -17,7 +19,11 @@ interface Message {
     content: string;
 }
 
-export function Chat({ language = 'fil' }: ChatProps) {
+export function Chat({ language: langProp }: ChatProps) {
+    // Use language from context, fallback to prop
+    const { language: contextLang, t } = useLanguage();
+    const language = langProp || contextLang;
+
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
     const [messages, setMessages] = useState<Message[]>([]);
@@ -105,12 +111,6 @@ export function Chat({ language = 'fil' }: ChatProps) {
         }
     };
 
-    const placeholders: Record<string, string> = {
-        en: 'Ask Gabay anything...',
-        fil: 'Magtanong kay Gabay...',
-        bcl: 'Mag-hapot sa Gabay...',
-    };
-
     return (
         <div className="flex h-[calc(100vh-4rem)] bg-background">
             {/* Sidebar */}
@@ -142,7 +142,7 @@ export function Chat({ language = 'fil' }: ChatProps) {
                     onChange={setInput}
                     onSubmit={handleSubmit}
                     isLoading={isLoading}
-                    placeholder={placeholders[language]}
+                    placeholder={t('chat.placeholder')}
                 />
             </div>
         </div>
