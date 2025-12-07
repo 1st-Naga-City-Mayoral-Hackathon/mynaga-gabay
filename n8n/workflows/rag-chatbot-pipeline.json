@@ -157,6 +157,34 @@
             ],
             "id": "respond-webhook",
             "name": "Respond to Webhook"
+        },
+        {
+            "parameters": {
+                "public": true,
+                "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+            "typeVersion": 1.4,
+            "position": [
+                400,
+                100
+            ],
+            "id": "chat-trigger",
+            "name": "When chat message received",
+            "webhookId": "mynaga-gabay-chat-ui"
+        },
+        {
+            "parameters": {
+                "jsCode": "// Extract message from chat trigger\nconst chatInput = $input.first().json;\nconst message = chatInput.chatInput || chatInput.message || '';\nconst sessionId = chatInput.sessionId || 'chat-' + Date.now();\n\n// Language detection\nconst bikolIndicators = ['daw', 'baga', 'ta', 'digdi', 'saimo', 'sakuya', 'harong', 'kaini', 'maray', 'tabi', 'siring', 'haen', 'pano', 'dai', 'iyo', 'bako', 'saro'];\nconst tagalogIndicators = ['ang', 'ng', 'mga', 'sa', 'na', 'ko', 'mo', 'siya', 'niya', 'kami', 'kayo', 'sila', 'ano', 'paano', 'saan', 'bakit', 'sino'];\nconst englishIndicators = ['the', 'is', 'are', 'what', 'where', 'how', 'can', 'do', 'does', 'have', 'has', 'will', 'would', 'could', 'should', 'please', 'help', 'need', 'want'];\n\nconst lowerMsg = message.toLowerCase();\nconst words = lowerMsg.split(/\\s+/);\n\nconst bikolScore = bikolIndicators.filter(w => words.includes(w)).length;\nconst tagalogScore = tagalogIndicators.filter(w => words.includes(w)).length;\nconst englishScore = englishIndicators.filter(w => words.includes(w)).length;\n\nlet detectedLanguage = 'english';\nif (bikolScore > 0 && bikolScore >= tagalogScore) {\n  detectedLanguage = 'bikol';\n} else if (tagalogScore > englishScore) {\n  detectedLanguage = 'tagalog';\n}\n\nreturn [{\n  json: {\n    message: message,\n    sessionId: sessionId,\n    language: detectedLanguage,\n    timestamp: new Date().toISOString()\n  }\n}];"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+                624,
+                100
+            ],
+            "id": "extract-chat-language",
+            "name": "Extract Chat Language"
         }
     ],
     "connections": {
@@ -242,6 +270,28 @@
                 [
                     {
                         "node": "Respond to Webhook",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "When chat message received": {
+            "main": [
+                [
+                    {
+                        "node": "Extract Chat Language",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Extract Chat Language": {
+            "main": [
+                [
+                    {
+                        "node": "AI Health Agent",
                         "type": "main",
                         "index": 0
                     }
