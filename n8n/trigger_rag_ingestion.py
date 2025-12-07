@@ -4,7 +4,7 @@ Trigger N8N RAG Ingestion Workflow
 Sends knowledge base data to the n8n webhook for embedding and storage.
 
 Usage:
-    python trigger_rag_ingestion.py [--category facilities|medicines|government|all]
+    python trigger_rag_ingestion.py [--category facilities|medicines|government|philhealth|emergency|all]
     
     # Or with environment variable
     N8N_WEBHOOK_URL=https://your-n8n.com/webhook/mynaga-gabay-ingest python trigger_rag_ingestion.py
@@ -32,7 +32,9 @@ def load_knowledge_base() -> dict:
     data = {
         "facilities": [],
         "medicines": [],
-        "government": []
+        "government": [],
+        "philhealth": [],
+        "emergency": []
     }
     
     # Load facilities
@@ -58,6 +60,22 @@ def load_knowledge_base() -> dict:
             gov_data = json.load(f)
             data["government"] = gov_data.get("offices", [])
         print(f"[LOAD] Government: {len(data['government'])} entries")
+    
+    # Load PhilHealth coverage
+    philhealth_path = os.path.join(kb_base, 'philhealth', 'coverage.json')
+    if os.path.exists(philhealth_path):
+        with open(philhealth_path, 'r', encoding='utf-8') as f:
+            ph_data = json.load(f)
+            # Convert to list format for consistency
+            data["philhealth"] = [ph_data.get("philhealth", {})]
+        print(f"[LOAD] PhilHealth: {len(data['philhealth'])} entries")
+    
+    # Load Emergency hotlines
+    emergency_path = os.path.join(script_dir, '..', 'data', 'output', 'emergency', 'naga_hotlines.json')
+    if os.path.exists(emergency_path):
+        with open(emergency_path, 'r', encoding='utf-8') as f:
+            data["emergency"] = json.load(f)
+        print(f"[LOAD] Emergency: {len(data['emergency'])} entries")
     
     return data
 
@@ -88,7 +106,9 @@ def trigger_ingestion(data: dict, category: str = "all", webhook_url: str = None
     total_entries = (
         len(data.get("facilities", [])) +
         len(data.get("medicines", [])) +
-        len(data.get("government", []))
+        len(data.get("government", [])) +
+        len(data.get("philhealth", [])) +
+        len(data.get("emergency", []))
     )
     print(f"[SEND] Total entries: {total_entries}")
     
@@ -122,7 +142,7 @@ def main():
     parser = argparse.ArgumentParser(description="Trigger n8n RAG ingestion for MyNaga Gabay")
     parser.add_argument(
         "--category",
-        choices=["all", "facilities", "medicines", "government"],
+        choices=["all", "facilities", "medicines", "government", "philhealth", "emergency"],
         default="all",
         help="Which category to ingest (default: all)"
     )
@@ -150,6 +170,8 @@ def main():
         print(f"  - Facilities: {len(data['facilities'])} entries")
         print(f"  - Medicines: {len(data['medicines'])} entries")
         print(f"  - Government: {len(data['government'])} entries")
+        print(f"  - PhilHealth: {len(data['philhealth'])} entries")
+        print(f"  - Emergency: {len(data['emergency'])} entries")
         print(f"  - Category filter: {args.category}")
         return
     
