@@ -17,6 +17,21 @@ const translations: Record<Language, Record<string, string>> = {
         'app.tagline': 'Your Health Assistant',
         'status.online': 'Online',
 
+        // Facilities
+        'facilities.title': 'Health Facilities',
+        'facilities.subtitle': 'Find hospitals, clinics, and health centers in Naga City',
+        'facilities.search': 'Search by name, address, or service...',
+        'facilities.filter.all': 'All Types',
+        'facilities.filter.hospital': 'Hospital',
+        'facilities.filter.center': 'Health Center',
+        'facilities.filter.pharmacy': 'Pharmacy',
+        'facilities.filter.clinic': 'Clinic',
+        'facilities.filter.lab': 'Laboratory',
+        'facilities.card.services': 'Services',
+        'facilities.card.hours': 'Hours',
+        'facilities.card.phone': 'Phone',
+        'facilities.card.accredited': 'PhilHealth Accredited',
+
         // Navigation
         'nav.home': 'Home',
         'nav.chat': 'Chat',
@@ -105,6 +120,21 @@ const translations: Record<Language, Record<string, string>> = {
         'lang.bcl': 'Bikol',
     },
     fil: {
+        // Humanized Facilities Translations
+        'facilities.title': 'Mga Pasilidad Pangkalusugan',
+        'facilities.subtitle': 'Hanapin ang mga ospital, klinika, at health center sa Naga City',
+        'facilities.search': 'Maghanap gamit ang pangalan, address, o serbisyo...',
+        'facilities.filter.all': 'Lahat ng Uri',
+        'facilities.filter.hospital': 'Ospital',
+        'facilities.filter.center': 'Health Center',
+        'facilities.filter.pharmacy': 'Botika',
+        'facilities.filter.clinic': 'Klinika',
+        'facilities.filter.lab': 'Laboratoryo',
+        'facilities.card.services': 'Mga Serbisyo',
+        'facilities.card.hours': 'Oras',
+        'facilities.card.phone': 'Telepono',
+        'facilities.card.accredited': 'PhilHealth Accredited',
+
         // Header
         'app.name': 'MyNaga Gabay',
         'app.tagline': 'Ang Iyong Katulong sa Kalusugan',
@@ -185,7 +215,7 @@ const translations: Record<Language, Record<string, string>> = {
         'auth.forgot': 'Nakalimutan ang password?',
         'auth.or': 'o magpatuloy gamit ang',
         'auth.googleSignIn': 'Mag-sign in gamit ang Google',
-        'auth.googleSignUp': 'Mag-sign up gamit ang Google',
+        'auth.googleSignUp': 'Mag-sign up gamit an Google',
         'auth.error.match': 'Hindi magkatugma ang password',
         'auth.error.length': 'Dapat hindi bababa sa 8 karakter ang password',
         'auth.error.create': 'Nabigo sa paggawa ng account',
@@ -198,6 +228,21 @@ const translations: Record<Language, Record<string, string>> = {
         'lang.bcl': 'Bikol',
     },
     bcl: {
+        // Humanized Facilities Translations
+        'facilities.title': 'Mga Pasilidad nin Salud',
+        'facilities.subtitle': 'Hanapon an mga ospital, klinika, asin health center sa Naga City',
+        'facilities.search': 'Maghanap gamit an pangaran, address, o serbisyo...',
+        'facilities.filter.all': 'Gabos na Klase',
+        'facilities.filter.hospital': 'Ospital',
+        'facilities.filter.center': 'Health Center',
+        'facilities.filter.pharmacy': 'Botika',
+        'facilities.filter.clinic': 'Klinika',
+        'facilities.filter.lab': 'Laboratoryo',
+        'facilities.card.services': 'Mga Serbisyo',
+        'facilities.card.hours': 'Oras',
+        'facilities.card.phone': 'Telepono',
+        'facilities.card.accredited': 'PhilHealth Accredited',
+
         // Header
         'app.name': 'MyNaga Gabay',
         'app.tagline': 'An Saimong Katabang sa Salud',

@@ -1,0 +1,2546 @@
+{
+  "facilities": [
+    {
+      "id": "fac-001",
+      "name": "Bicol Medical Center (BMC)",
+      "type": "hospital",
+      "address": "Concepcion Grande, Naga City",
+      "barangay": "Concepcion Grande",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 472-3456",
+      "hours": "24/7",
+      "services": [
+        "Emergency Room",
+        "Surgery",
+        "OB-Gynecology",
+        "Pediatrics",
+        "Internal Medicine",
+        "Orthopedics",
+        "Ophthalmology",
+        "ENT",
+        "Laboratory",
+        "X-Ray / CT Scan"
+      ],
+      "philhealthAccredited": true,
+      "notes": "Regional government hospital. Long queues expected.",
+      "source": "Curated"
+    },
+    {
+      "id": "fac-002",
+      "name": "Naga City Hospital",
+      "type": "hospital",
+      "address": "Peñafrancia Avenue, Naga City",
+      "barangay": "Centro",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 811-1234",
+      "hours": "24/7",
+      "services": [
+        "Emergency",
+        "General Medicine",
+        "Pediatrics",
+        "OB-Gyne",
+        "Laboratory"
+      ],
+      "philhealthAccredited": true,
+      "notes": "",
+      "source": "Curated"
+    },
+    {
+      "id": "fac-003",
+      "name": "Mother Seton Hospital",
+      "type": "hospital",
+      "address": "Panganiban Drive, Naga City",
+      "barangay": "Centro",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 473-1111",
+      "hours": "24/7",
+      "services": [
+        "Emergency",
+        "Surgery",
+        "Internal Medicine",
+        "OB-Gyne",
+        "Pediatrics"
+      ],
+      "philhealthAccredited": true,
+      "notes": "Private hospital with shorter wait times",
+      "source": "Curated"
+    },
+    {
+      "id": "fac-004",
+      "name": "City Health Office - Main",
+      "type": "health_center",
+      "address": "City Hall Complex, J. Miranda Ave",
+      "barangay": "Centro",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 473-8000",
+      "hours": "8:00 AM - 5:00 PM (Mon-Fri)",
+      "services": [
+        "Immunization",
+        "Prenatal Checkup",
+        "Family Planning",
+        "TB DOTS",
+        "Health Certificates"
+      ],
+      "philhealthAccredited": true,
+      "notes": "Free services for Naga City residents",
+      "source": "Curated"
+    },
+    {
+      "id": "fac-005",
+      "name": "Barangay Health Center - Triangulo",
+      "type": "health_center",
+      "address": "Triangulo, Naga City",
+      "barangay": "Triangulo",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "",
+      "hours": "8:00 AM - 5:00 PM (Mon-Fri)",
+      "services": [
+        "Basic Consultation",
+        "BP Monitoring",
+        "First Aid",
+        "Immunization"
+      ],
+      "philhealthAccredited": false,
+      "notes": "Walk-in consultations with barangay health workers",
+      "source": "Curated"
+    },
+    {
+      "id": "fac-006",
+      "name": "PhilHealth Naga City",
+      "type": "government_office",
+      "address": "2nd Floor, Naga City Hall Annex",
+      "barangay": "Centro",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 472-8888",
+      "hours": "8:00 AM - 5:00 PM (Mon-Fri)",
+      "services": [
+        "PhilHealth Registration",
+        "Contribution Payment",
+        "Claims Processing",
+        "Member Data Update"
+      ],
+      "philhealthAccredited": false,
+      "notes": "",
+      "source": "Curated"
+    },
+    {
+      "id": "goog-007",
+      "name": "Bicol Medical Center",
+      "type": "hospital",
+      "address": "BMC Rd, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 472 6125",
+      "hours": "Monday: Open 24 hours; Tuesday: Open 24 hours; Wednesday: Open 24 hours",
+      "coordinates": {
+        "lat": 13.6230652,
+        "lng": 123.19862029999997
+      },
+      "website": "http://bmc.doh.gov.ph/",
+      "googleMapsUrl": "https://maps.google.com/?cid=9106800125871398312&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 3.2,
+      "reviewCount": 111,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-008",
+      "name": "Bicol AccessHealth Centrum",
+      "type": "hospital",
+      "address": "Central Business District II, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 871 3377",
+      "hours": "Monday: 8:00 AM – 5:00 PM; Tuesday: 8:00 AM – 5:00 PM; Wednesday: 8:00 AM – 5:00 PM",
+      "coordinates": {
+        "lat": 13.618677,
+        "lng": 123.19201029999999
+      },
+      "website": "http://accesshealth.com.ph/",
+      "googleMapsUrl": "https://maps.google.com/?cid=7264577756094975364&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 2.7,
+      "reviewCount": 49,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-009",
+      "name": "Naga City General Hospital",
+      "type": "hospital",
+      "address": "J6G5+V6M, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "",
+      "hours": "Monday: Open 24 hours; Tuesday: Open 24 hours; Wednesday: Open 24 hours",
+      "coordinates": {
+        "lat": 13.6272215,
+        "lng": 123.2080473
+      },
+      "website": "http://www.naga.gov.ph/",
+      "googleMapsUrl": "https://maps.google.com/?cid=13834561512241816839&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 2.5,
+      "reviewCount": 16,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-010",
+      "name": "NICC Doctors Hospital",
+      "type": "hospital",
+      "address": "Roxas Ave, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "",
+      "hours": "Monday: Open 24 hours; Tuesday: Open 24 hours; Wednesday: Open 24 hours",
+      "coordinates": {
+        "lat": 13.616085799999999,
+        "lng": 123.19269650000001
+      },
+      "website": "http://www.niccdoctorshospital.com/",
+      "googleMapsUrl": "https://maps.google.com/?cid=13497694669069688071&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 3.3,
+      "reviewCount": 52,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-011",
+      "name": "Plaza Medica",
+      "type": "hospital",
+      "address": "J5CV+CMR, Azucena St., Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "",
+      "hours": "Monday: 9:00 AM – 8:00 PM; Tuesday: 9:00 AM – 8:00 PM; Wednesday: 9:00 AM – 8:00 PM",
+      "coordinates": {
+        "lat": 13.6211121,
+        "lng": 123.19413929999999
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=16741952912414341886&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 2.9,
+      "reviewCount": 10,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-012",
+      "name": "Universidad de Sta. Isabel Health Services Department",
+      "type": "hospital",
+      "address": "J59W+CQC, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 881 0504",
+      "hours": "Monday: Open 24 hours; Tuesday: Open 24 hours; Wednesday: Open 24 hours",
+      "coordinates": {
+        "lat": 13.618560899999999,
+        "lng": 123.19687850000001
+      },
+      "website": "http://www.usi.edu.ph/Inside%20USI/MSH%20Contacts.html",
+      "googleMapsUrl": "https://maps.google.com/?cid=14962915036360733682&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 2.4,
+      "reviewCount": 40,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-013",
+      "name": "BMC - PILI (DSJRMMH)",
+      "type": "hospital",
+      "address": "H7X3+J77, Pili, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.599027,
+        "lng": 123.25317869999999
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=11053298100221064779&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 3.3,
+      "reviewCount": 6,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-014",
+      "name": "DR. NILO O. ROA MEMORIAL FOUNDATION HOSPITAL",
+      "type": "hospital",
+      "address": "424 Dimasalang St, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "",
+      "hours": "Monday: Open 24 hours; Tuesday: Open 24 hours; Wednesday: Open 24 hours",
+      "coordinates": {
+        "lat": 13.626090699999999,
+        "lng": 123.18712329999998
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=11941510871008008465&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 3.8,
+      "reviewCount": 12,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-015",
+      "name": "ST. JOHN HOSPITAL, INC.",
+      "type": "hospital",
+      "address": "J5FR+35X, Panganiban Dr, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 473 8919",
+      "hours": "Monday: Open 24 hours; Tuesday: Open 24 hours; Wednesday: Open 24 hours",
+      "coordinates": {
+        "lat": 13.622745799999999,
+        "lng": 123.190477
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=4351942524591370671&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 2.8,
+      "reviewCount": 18,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-016",
+      "name": "Dr. Stelson Sia Eye Clinic",
+      "type": "hospital",
+      "address": "Brgy, 20 Mayon Ave, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0918 964 8347",
+      "hours": "Monday: 9:00 AM – 4:00 PM; Tuesday: 9:00 AM – 4:00 PM; Wednesday: 9:00 AM – 4:00 PM",
+      "coordinates": {
+        "lat": 13.623640000000002,
+        "lng": 123.19520320000001
+      },
+      "website": "https://www.facebook.com/profile.php?id=61555829673287",
+      "googleMapsUrl": "https://maps.google.com/?cid=5123740878622084234&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 5,
+      "reviewCount": 1,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-017",
+      "name": "BMC Regional Cancer Center",
+      "type": "hospital",
+      "address": "Bicol Medical Center Compound, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0961 111 4757",
+      "hours": "Monday: 8:00 AM – 5:00 PM; Tuesday: 8:00 AM – 5:00 PM; Wednesday: 8:00 AM – 5:00 PM",
+      "coordinates": {
+        "lat": 13.6230143,
+        "lng": 123.1992372
+      },
+      "website": "http://bmc.doh.gov.ph/",
+      "googleMapsUrl": "https://maps.google.com/?cid=3538277746980333980&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 4.7,
+      "reviewCount": 3,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-018",
+      "name": "BMC Pili (DSJRMMH)",
+      "type": "hospital",
+      "address": "Zone 2, Maharlika Hwy, Barangay Cadlan, Pili, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 472 6125",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.599789,
+        "lng": 123.25420000000001
+      },
+      "website": "http://bmc.doh.gov.ph/",
+      "googleMapsUrl": "https://maps.google.com/?cid=6529974787593753476&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-019",
+      "name": "Naga City Dialysis Center - Nephro Synergies Inc.",
+      "type": "hospital",
+      "address": "J5GX+4GM, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 225 1851",
+      "hours": "Monday: 6:00 AM – 5:00 PM; Tuesday: 6:00 AM – 5:00 PM; Wednesday: 6:00 AM – 5:00 PM",
+      "coordinates": {
+        "lat": 13.625348299999999,
+        "lng": 123.19880919999999
+      },
+      "website": "http://www.nephrosynergies.com/",
+      "googleMapsUrl": "https://maps.google.com/?cid=10169132347596823788&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 4,
+      "reviewCount": 2,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-020",
+      "name": "RHU Minalabac",
+      "type": "hospital",
+      "address": "H5CM+4Q5, Minalabac, 4414 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "",
+      "hours": "Monday: 8:00 AM – 5:00 PM; Tuesday: 8:00 AM – 5:00 PM; Wednesday: 8:00 AM – 5:00 PM",
+      "coordinates": {
+        "lat": 13.5704609,
+        "lng": 123.1845572
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=4901181633820585883&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-021",
+      "name": "Bombon Health Center",
+      "type": "hospital",
+      "address": "M5PX+HW3, Bombon, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.6863798,
+        "lng": 123.1997914
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=5883508446066301&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-022",
+      "name": "Department of Health Bicol Medical Center",
+      "type": "hospital",
+      "address": "Bicol Medical Center, BMC Rd, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 811 1463",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.623522999999999,
+        "lng": 123.19840789999999
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=10450531358611462433&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 5,
+      "reviewCount": 1,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-023",
+      "name": "Luminare Aesthetic Center",
+      "type": "hospital",
+      "address": "RM. 6 2nd Flr, Elias Angeles St, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0927 977 4996",
+      "hours": "Monday: 11:00 AM – 8:04 PM; Tuesday: 11:00 AM – 8:04 PM; Wednesday: 11:00 AM – 8:04 PM",
+      "coordinates": {
+        "lat": 13.626628199999999,
+        "lng": 123.1866493
+      },
+      "website": "https://www.facebook.com/luminareaestheticcenter",
+      "googleMapsUrl": "https://maps.google.com/?cid=11059306902456954605&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 5,
+      "reviewCount": 1,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-024",
+      "name": "Nins Wellness Center",
+      "type": "hospital",
+      "address": "J5CV+PW8, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.621796199999999,
+        "lng": 123.1948268
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=8520553389935675536&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-025",
+      "name": "Estrogen Birthing And Family Planning Clinic (New Clinic Location)",
+      "type": "hospital",
+      "address": "M52J+7F9, Canaman, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0920 620 8798",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.650666399999999,
+        "lng": 123.1812325
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=11344138716343136287&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 5,
+      "reviewCount": 1,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-026",
+      "name": "Benedicto C. Aguirre, MD @ Bicol Medical Center",
+      "type": "hospital",
+      "address": "J5FX+2C7 Bicol Medical Center Department Psychiatry, Panganiban Dr, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 286 2329",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.6225277,
+        "lng": 123.1985522
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=15635514337270212613&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 5,
+      "reviewCount": 1,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-027",
+      "name": "Legazpi Eye Center (Naga City)",
+      "type": "clinic",
+      "address": "GF, Sundaze Dormitel, 1, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "",
+      "hours": "Monday: 9:00 AM – 12:00 PM, 1:30 – 5:00 PM; Tuesday: 9:00 AM – 12:00 PM, 1:30 – 5:00 PM; Wednesday: 9:00 AM – 12:00 PM, 1:30 – 5:00 PM",
+      "coordinates": {
+        "lat": 13.6212556,
+        "lng": 123.2081554
+      },
+      "website": "http://www.legazpieyecenter.com/",
+      "googleMapsUrl": "https://maps.google.com/?cid=4985647079381357466&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 5,
+      "reviewCount": 1,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-028",
+      "name": "ELNA Skin Clinic",
+      "type": "clinic",
+      "address": "2nd Floor, ELNA Building, Dimasalang St, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0963 127 9712",
+      "hours": "Monday: 9:00 AM – 6:00 PM; Tuesday: 9:00 AM – 6:00 PM; Wednesday: 9:00 AM – 6:00 PM",
+      "coordinates": {
+        "lat": 13.6264626,
+        "lng": 123.1862205
+      },
+      "website": "https://m.facebook.com/elnaskinclinic/",
+      "googleMapsUrl": "https://maps.google.com/?cid=2967888301762904111&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 4.2,
+      "reviewCount": 6,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-029",
+      "name": "Naga Bicol Eye Center",
+      "type": "clinic",
+      "address": "41 Panganiban Dr, Barangay Tinago, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 472 3294",
+      "hours": "Monday: 9:00 AM – 5:00 PM; Tuesday: 9:00 AM – 5:00 PM; Wednesday: 9:00 AM – 5:00 PM",
+      "coordinates": {
+        "lat": 13.6224695,
+        "lng": 123.19195900000001
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=10582985206764309194&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 1.6,
+      "reviewCount": 7,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-030",
+      "name": "Amanse Children's Clinic",
+      "type": "clinic",
+      "address": "Good Shepherd Medical and Diagnostic Clinic Panganiban Drive, Corner Mayon Ave, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0930 184 9080",
+      "hours": "Monday: 10:00 AM – 5:00 PM; Tuesday: 10:00 AM – 5:00 PM; Wednesday: 10:00 AM – 5:00 PM",
+      "coordinates": {
+        "lat": 13.622098999999999,
+        "lng": 123.19466289999998
+      },
+      "website": "https://seriousmd.com/doc/pamanse",
+      "googleMapsUrl": "https://maps.google.com/?cid=7646653516055399487&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 5,
+      "reviewCount": 6,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-031",
+      "name": "Dr. Joaquin Perez III / PEREZ NEUROCARE CLINIC",
+      "type": "clinic",
+      "address": "Seton Rd, CBD II, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0998 452 3280",
+      "hours": "Monday: 12:30 AM – 5:00 PM; Tuesday: 12:00 – 5:00 PM; Wednesday: 12:00 – 5:00 PM",
+      "coordinates": {
+        "lat": 13.6200081,
+        "lng": 123.19385659999999
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=4541535375864661809&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 5,
+      "reviewCount": 21,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-032",
+      "name": "Mark Linus P. Meneses MD DPBO - Naga Eye Clinic",
+      "type": "clinic",
+      "address": "Suite 212, J5CV+CMR Plaza Medica Building, Azucena St., Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0939 939 7742",
+      "hours": "Monday: 8:00 AM – 5:00 PM; Tuesday: 8:00 AM – 5:00 PM; Wednesday: 8:00 AM – 5:00 PM",
+      "coordinates": {
+        "lat": 13.621062499999999,
+        "lng": 123.1941875
+      },
+      "website": "https://camsureye.com/clinic-location/naga-city/?utm_source=gbp&utm_medium=profile&utm_content=profilelink",
+      "googleMapsUrl": "https://maps.google.com/?cid=7041291557040796829&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 4.9,
+      "reviewCount": 63,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-033",
+      "name": "Dr. Joseph Cortero Urology Clinic",
+      "type": "clinic",
+      "address": "Urology Clinic Naga City Unit 4 MMCN Bldg, Panganiban Dr, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0918 927 8698",
+      "hours": "Monday: 9:00 AM – 4:00 PM; Tuesday: 9:00 AM – 4:00 PM; Wednesday: 9:00 AM – 4:00 PM",
+      "coordinates": {
+        "lat": 13.62177,
+        "lng": 123.19720419999997
+      },
+      "website": "https://www.facebook.com/drjosephcortero.urology?mibextid=ZbWKwL",
+      "googleMapsUrl": "https://maps.google.com/?cid=5313489805858167681&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 5,
+      "reviewCount": 20,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-034",
+      "name": "Dr Tony Dy Medical Clinic",
+      "type": "clinic",
+      "address": "J5CX+QXR, Mayon Ave, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 811 1449",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.621989899999999,
+        "lng": 123.19987689999999
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=15190337783365845131&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 5,
+      "reviewCount": 6,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-035",
+      "name": "CBM OBGYN ULTRASOUND AND HIGH RISK PREGNANCY CLINIC",
+      "type": "clinic",
+      "address": "18 Mayon Ave, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0999 420 9213",
+      "hours": "Monday: 1:00 – 5:00 PM; Tuesday: 1:00 – 5:00 PM; Wednesday: 1:00 – 5:00 PM",
+      "coordinates": {
+        "lat": 13.6236331,
+        "lng": 123.1948967
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=16245145893681939851&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 5,
+      "reviewCount": 1,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-036",
+      "name": "Meden Perez Cortero OB Gyne Utrasound Clinic",
+      "type": "clinic",
+      "address": "Unit 4 MMCN Bldg, Panganiban Dr, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0908 293 8273",
+      "hours": "Monday: 9:00 AM – 5:00 PM; Tuesday: 9:00 AM – 5:00 PM; Wednesday: 9:00 AM – 5:00 PM",
+      "coordinates": {
+        "lat": 13.6217787,
+        "lng": 123.19719769999999
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=14366696895548205820&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 4.1,
+      "reviewCount": 18,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-037",
+      "name": "DENTAL AESTHETICS CENTER",
+      "type": "clinic",
+      "address": "fronting BUS EXIT gate, Door 8, CBD II, NEA Bldg, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0967 594 9018",
+      "hours": "Monday: 12:00 – 4:00 PM; Tuesday: 12:00 – 4:00 PM; Wednesday: 12:00 – 4:00 PM",
+      "coordinates": {
+        "lat": 13.6187106,
+        "lng": 123.1892124
+      },
+      "website": "https://cebudentalimplants.com/content/dental-aesthetics-center-naga-camarines-sur-luzon",
+      "googleMapsUrl": "https://maps.google.com/?cid=3018292532552350607&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 5,
+      "reviewCount": 86,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-038",
+      "name": "Diosdado C Uy ENT CLINIC",
+      "type": "clinic",
+      "address": "Plaza Medica, Panganiban Dr, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0907 142 8892",
+      "hours": "Monday: 9:00 AM – 5:00 PM; Tuesday: 9:00 AM – 5:00 PM; Wednesday: 9:00 AM – 5:00 PM",
+      "coordinates": {
+        "lat": 13.6211283,
+        "lng": 123.1940813
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=1710312800039559956&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 2.2,
+      "reviewCount": 11,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-039",
+      "name": "Klinik Kids + Skin (Drs Kara & Kyla Nerva)",
+      "type": "clinic",
+      "address": "Dayangdang St, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0915 340 1218",
+      "hours": "Monday: 10:00 AM – 5:00 PM; Tuesday: 10:00 AM – 5:00 PM; Wednesday: 10:00 AM – 5:00 PM",
+      "coordinates": {
+        "lat": 13.6294557,
+        "lng": 123.1930065
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=12564671733390417543&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-040",
+      "name": "Dr. Ma. Asuncion P. Quimlat",
+      "type": "clinic",
+      "address": "Mother Seton Hospital, National Highway, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 472 4025",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.619076,
+        "lng": 123.19781700000001
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=264535690197200045&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 5,
+      "reviewCount": 2,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-041",
+      "name": "Edessa M. Parde-Laguidao, MD, DSBPP, FPPA",
+      "type": "clinic",
+      "address": "Groundfloor, Room 2, BWJ Dorm, Brgy, CBD II, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0998 547 9278",
+      "hours": "Monday: 9:00 AM – 4:00 PM; Tuesday: 9:00 AM – 4:00 PM; Wednesday: 9:00 AM – 4:00 PM",
+      "coordinates": {
+        "lat": 13.620630100000001,
+        "lng": 123.19399650000001
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=17929134803894704501&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 5,
+      "reviewCount": 1,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-042",
+      "name": "Lee Obias Tan MD DPBO and Clarissa Sobrio MD DPBO - Naga Eye Doctors",
+      "type": "clinic",
+      "address": "M Plaza Lifestyle Building, Diversion Road, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0968 887 7298",
+      "hours": "Monday: 10:00 AM – 7:00 PM; Tuesday: 10:00 AM – 7:00 PM; Wednesday: 10:00 AM – 7:00 PM",
+      "coordinates": {
+        "lat": 13.615952499999999,
+        "lng": 123.19545869999999
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=697200862113091123&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 5,
+      "reviewCount": 45,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-043",
+      "name": "Bicol Surgical Health Hub",
+      "type": "clinic",
+      "address": "Stall No. 4, M Plaza Lifestyle Bldg, Diversion Rd, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0968 887 7298",
+      "hours": "Monday: 10:00 AM – 7:00 PM; Tuesday: 10:00 AM – 7:00 PM; Wednesday: 10:00 AM – 7:00 PM",
+      "coordinates": {
+        "lat": 13.615980599999999,
+        "lng": 123.1954643
+      },
+      "website": "https://www.facebook.com/Bicolsurgicalhealthhub/",
+      "googleMapsUrl": "https://maps.google.com/?cid=2379521180328878553&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 5,
+      "reviewCount": 1,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-044",
+      "name": "Dr. Guazon Clinic",
+      "type": "clinic",
+      "address": "J5CR+X7C, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 473 2369",
+      "hours": "Monday: 2:00 – 10:00 PM; Tuesday: 2:00 – 10:00 PM; Wednesday: 2:00 – 10:00 PM",
+      "coordinates": {
+        "lat": 13.6224314,
+        "lng": 123.1906555
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=7728209899007287662&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 5,
+      "reviewCount": 1,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-045",
+      "name": "OB-GYN, High Risk Pregnancy and Ultrasound Clinic",
+      "type": "clinic",
+      "address": "#210 Firande Square, J Miranda Ave, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0926 742 5697",
+      "hours": "Monday: 9:00 AM – 4:00 PM; Tuesday: 9:00 AM – 4:00 PM; Wednesday: 9:00 AM – 4:00 PM",
+      "coordinates": {
+        "lat": 13.623016499999999,
+        "lng": 123.1994588
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=8729652345602836824&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-046",
+      "name": "SM Supermarket - SM City Naga",
+      "type": "pharmacy",
+      "address": "Central Business District II, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(02) 8871 0011",
+      "hours": "Monday: 9:00 AM – 9:00 PM; Tuesday: 9:00 AM – 9:00 PM; Wednesday: 9:00 AM – 9:00 PM",
+      "coordinates": {
+        "lat": 13.620497199999999,
+        "lng": 123.19032360000001
+      },
+      "website": "https://smmarkets.ph/",
+      "googleMapsUrl": "https://maps.google.com/?cid=15201034108872854666&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 4.4,
+      "reviewCount": 481,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-047",
+      "name": "Mercury Drug (Concepcion Grande)",
+      "type": "pharmacy",
+      "address": "J6C9+GG6, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0920 956 1044",
+      "hours": "Monday: 6:00 AM – 10:00 PM; Tuesday: 6:00 AM – 10:00 PM; Wednesday: 6:00 AM – 10:00 PM",
+      "coordinates": {
+        "lat": 13.6212875,
+        "lng": 123.21876560000001
+      },
+      "website": "https://www.mercurydrug.com/store-locator.html",
+      "googleMapsUrl": "https://maps.google.com/?cid=15630184642980988116&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 3.8,
+      "reviewCount": 6,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-048",
+      "name": "Watsons Pharmacy",
+      "type": "pharmacy",
+      "address": "J5FP+98C Barangay, Peñafrancia St, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.623441399999999,
+        "lng": 123.18578090000001
+      },
+      "website": "http://www.watsons.com.ph/",
+      "googleMapsUrl": "https://maps.google.com/?cid=2342371587637588684&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 3,
+      "reviewCount": 1,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-049",
+      "name": "South Star Drug",
+      "type": "pharmacy",
+      "address": "J5CX+M3P, AH26, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 472 2161",
+      "hours": "Monday: Open 24 hours; Tuesday: Open 24 hours; Wednesday: Open 24 hours",
+      "coordinates": {
+        "lat": 13.6216809,
+        "lng": 123.1977043
+      },
+      "website": "http://www.southstardrug.com.ph/",
+      "googleMapsUrl": "https://maps.google.com/?cid=10471022175963154014&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 2.5,
+      "reviewCount": 2,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-050",
+      "name": "Mercury Drug Corporation",
+      "type": "pharmacy",
+      "address": "J5CX+HPJ, AH26, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 811 2228",
+      "hours": "Monday: 7:00 AM – 12:00 AM; Tuesday: 7:00 AM – 12:00 AM; Wednesday: 7:00 AM – 12:00 AM",
+      "coordinates": {
+        "lat": 13.621474,
+        "lng": 123.19925099999999
+      },
+      "website": "https://www.mercurydrug.com/",
+      "googleMapsUrl": "https://maps.google.com/?cid=16286899413286069107&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 4.3,
+      "reviewCount": 3,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-051",
+      "name": "mercury drug",
+      "type": "pharmacy",
+      "address": "Avenue Square, 4400 Magsaysay Ave, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 811 6457",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.6323692,
+        "lng": 123.1960522
+      },
+      "website": "http://www.mercurydrug.com/",
+      "googleMapsUrl": "https://maps.google.com/?cid=10482904886419309651&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 4,
+      "reviewCount": 4,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-052",
+      "name": "BCVR Prime Enterprise - Pharmacy & Health Supplies Store",
+      "type": "pharmacy",
+      "address": "Unit 1, Brgy, ANC Bldg, Panganiban Dr, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 881 3455",
+      "hours": "Monday: 7:00 AM – 7:00 PM; Tuesday: 7:00 AM – 7:00 PM; Wednesday: 7:00 AM – 7:00 PM",
+      "coordinates": {
+        "lat": 13.621308599999999,
+        "lng": 123.19894079999999
+      },
+      "website": "https://www.facebook.com/BCVRPrimeEnt",
+      "googleMapsUrl": "https://maps.google.com/?cid=14502481199556946167&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 5,
+      "reviewCount": 1,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-053",
+      "name": "Mercury Drug CamSur Naga Puregold",
+      "type": "pharmacy",
+      "address": "36 Roxas Ave, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "",
+      "hours": "Monday: 7:00 AM – 10:00 PM; Tuesday: 7:00 AM – 10:00 PM; Wednesday: 7:00 AM – 10:00 PM",
+      "coordinates": {
+        "lat": 13.6157186,
+        "lng": 123.1907929
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=13496092085365048346&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 5,
+      "reviewCount": 2,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-054",
+      "name": "SOUTHSTAR DRUG WESTPARK, MAGSAYSAY AVE NAGA",
+      "type": "pharmacy",
+      "address": "Magsaysay Ave, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0917 773 2273",
+      "hours": "Monday: 7:00 AM – 8:00 PM; Tuesday: 7:00 AM – 8:00 PM; Wednesday: 7:00 AM – 8:00 PM",
+      "coordinates": {
+        "lat": 13.6294467,
+        "lng": 123.19866859999998
+      },
+      "website": "http://www.southstardrug.com.ph/",
+      "googleMapsUrl": "https://maps.google.com/?cid=15436151743675994679&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 1,
+      "reviewCount": 1,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-055",
+      "name": "Generika Drugstore",
+      "type": "pharmacy",
+      "address": "622 Peñafrancia St, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 472 8080",
+      "hours": "Monday: 7:00 AM – 10:15 PM; Tuesday: 7:00 AM – 10:15 PM; Wednesday: 7:00 AM – 10:15 PM",
+      "coordinates": {
+        "lat": 13.624967,
+        "lng": 123.18674209999999
+      },
+      "website": "https://www.generika.com.ph/",
+      "googleMapsUrl": "https://maps.google.com/?cid=533635003631997206&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 4,
+      "reviewCount": 2,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-056",
+      "name": "SOUTHSTAR DRUG",
+      "type": "pharmacy",
+      "address": "CORNER Queborac Drive, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 437 1067",
+      "hours": "Monday: 7:00 AM – 9:00 PM; Tuesday: 7:00 AM – 9:00 PM; Wednesday: 7:00 AM – 9:00 PM",
+      "coordinates": {
+        "lat": 13.6340147,
+        "lng": 123.18717179999999
+      },
+      "website": "http://www.southstardrug.com.ph/",
+      "googleMapsUrl": "https://maps.google.com/?cid=5038947835662790191&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 4.5,
+      "reviewCount": 2,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-057",
+      "name": "Good Shepherd Medical and Diagnostic Clinic",
+      "type": "pharmacy",
+      "address": "Door 10 DHAT Commercial Building Panganiban Drive, Corner Mayon Ave, Brgy Tinago, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "",
+      "hours": "Monday: 9:00 AM – 5:00 PM; Tuesday: 9:00 AM – 5:00 PM; Wednesday: 9:00 AM – 5:00 PM",
+      "coordinates": {
+        "lat": 13.622098099999999,
+        "lng": 123.1946553
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=14023406701995606116&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 5,
+      "reviewCount": 1,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-058",
+      "name": "SOUTHSTAR DRUG PENAFRANCIA AVE NAGA",
+      "type": "pharmacy",
+      "address": "PENAFRANCIA AVENUE, CORNER Magsaysay Extension, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0923 741 0509",
+      "hours": "Monday: 7:00 AM – 7:00 PM; Tuesday: 7:00 AM – 7:00 PM; Wednesday: 7:00 AM – 7:00 PM",
+      "coordinates": {
+        "lat": 13.633237200000002,
+        "lng": 123.19441619999999
+      },
+      "website": "http://www.southstardrug.com.ph/",
+      "googleMapsUrl": "https://maps.google.com/?cid=5267058489664189823&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 3.7,
+      "reviewCount": 6,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-059",
+      "name": "TGP The Generics Pharmacy",
+      "type": "pharmacy",
+      "address": "ZONE 6, DR 4, PV 6 Panganiban Dr, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0977 802 1174",
+      "hours": "Monday: 7:00 AM – 7:00 PM; Tuesday: 7:00 AM – 7:00 PM; Wednesday: 7:00 AM – 7:00 PM",
+      "coordinates": {
+        "lat": 13.621487499999999,
+        "lng": 123.1973587
+      },
+      "website": "http://www.tgp.com.ph/",
+      "googleMapsUrl": "https://maps.google.com/?cid=10451199555501931549&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-060",
+      "name": "SOUTHSTAR DRUG CROWN HOTEL BLDG. NAGA",
+      "type": "pharmacy",
+      "address": "CROWN HOTEL BLDG., COR E. ANGELES ST. & P. BURGOS ST., Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 472 4746",
+      "hours": "Monday: Open 24 hours; Tuesday: Open 24 hours; Wednesday: Open 24 hours",
+      "coordinates": {
+        "lat": 13.6239884,
+        "lng": 123.18564200000002
+      },
+      "website": "http://www.southstardrug.com.ph/",
+      "googleMapsUrl": "https://maps.google.com/?cid=4566522310921906844&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 4,
+      "reviewCount": 5,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-061",
+      "name": "SOUTHSTAR DRUG ELIAS ANGELES COR. PANGANIBAN NAGA",
+      "type": "pharmacy",
+      "address": "ELIAS ANGELES, COR Panganiban Dr, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 472 6859",
+      "hours": "Monday: 6:00 AM – 9:00 PM; Tuesday: 6:00 AM – 9:00 PM; Wednesday: 6:00 AM – 9:00 PM",
+      "coordinates": {
+        "lat": 13.6230918,
+        "lng": 123.1852424
+      },
+      "website": "http://www.southstardrug.com.ph/",
+      "googleMapsUrl": "https://maps.google.com/?cid=16067203058512136318&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-062",
+      "name": "Antonio Pain Center and PT Services",
+      "type": "therapy",
+      "address": "J59W+VX7, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0968 631 2057",
+      "hours": "Monday: 9:00 AM – 5:00 PM; Tuesday: 9:00 AM – 5:00 PM; Wednesday: 9:00 AM – 5:00 PM",
+      "coordinates": {
+        "lat": 13.6196637,
+        "lng": 123.1974185
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=12709113516101214834&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-063",
+      "name": "Lance Yuri Kids SPOT Center",
+      "type": "therapy",
+      "address": "unit 8, olivan bldg, 76 Blumentritt St, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0920 914 0071",
+      "hours": "Monday: 8:00 AM – 5:00 PM; Tuesday: 8:00 AM – 5:00 PM; Wednesday: 8:00 AM – 5:00 PM",
+      "coordinates": {
+        "lat": 13.626509899999999,
+        "lng": 123.18976359999999
+      },
+      "website": "http://bicolpediatrictherapycenter-lyksc.com/",
+      "googleMapsUrl": "https://maps.google.com/?cid=12369055362866899610&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 5,
+      "reviewCount": 1,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-064",
+      "name": "Excellcure Physical Therapy And Rehab Care",
+      "type": "therapy",
+      "address": "Zone 3 Bonifacio Street, San Fernando, 4415 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0921 584 0255",
+      "hours": "Monday: 8:00 AM – 8:00 PM; Tuesday: 8:00 AM – 8:00 PM; Wednesday: 8:00 AM – 8:00 PM",
+      "coordinates": {
+        "lat": 13.5612328,
+        "lng": 123.14110769999998
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=6378369478074756887&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 5,
+      "reviewCount": 16,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-065",
+      "name": "WellNhessHub",
+      "type": "therapy",
+      "address": "J6J3+932, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.6308888,
+        "lng": 123.20257179999999
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=17002192479492837328&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-066",
+      "name": "Movewell Therapy and Wellness Clinic",
+      "type": "therapy",
+      "address": "Lot 4 block 1 Villa Salvacion Sub. San Agustin Canaman, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0991 300 8053",
+      "hours": "Monday: 9:00 AM – 5:00 PM; Tuesday: Closed; Wednesday: 9:00 AM – 5:00 PM",
+      "coordinates": {
+        "lat": 13.6451584,
+        "lng": 123.18224239999999
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=14640645426423735696&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 5,
+      "reviewCount": 1,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-067",
+      "name": "CARBONELL DENTAL CLINIC",
+      "type": "dental",
+      "address": "Suite 2nd Floor Geronimo Building, Barlin Street, Sta. Cruz, Naga City, Camarines Sur, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 472 2734",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.6252681,
+        "lng": 123.18487959999999
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=10102766351167603951&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 5,
+      "reviewCount": 2,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-068",
+      "name": "Rapi Dental Clinic & Aesthetic Center, Downtown District Hotel",
+      "type": "dental",
+      "address": "Elias Angeles St, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0918 928 1162",
+      "hours": "Monday: 9:00 AM – 6:00 PM; Tuesday: 9:00 AM – 6:00 PM; Wednesday: 9:00 AM – 6:00 PM",
+      "coordinates": {
+        "lat": 13.6259679,
+        "lng": 123.18620419999999
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=74385468786197893&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-069",
+      "name": "Daisy Dizon Imperial, DMD (General Dentistry)",
+      "type": "dental",
+      "address": "Dizon Commercial Building, Villagrande Avenue corner Ruby Road, Villagrande Homes Subdivision, Naga City, Camarines Sur, J68G+H54, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 811 2332",
+      "hours": "Monday: 8:00 AM – 12:00 PM, 2:00 – 7:00 PM; Tuesday: 8:00 AM – 12:00 PM, 2:00 – 7:00 PM; Wednesday: 8:00 AM – 12:00 PM, 2:00 – 7:00 PM",
+      "coordinates": {
+        "lat": 13.616396,
+        "lng": 123.225464
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=7090425681813327782&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 5,
+      "reviewCount": 2,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-070",
+      "name": "Dental Clinic Dr.Fatima Bulalacao - Palencia",
+      "type": "dental",
+      "address": "J5CV+HMR, Azucena St., Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.6214829,
+        "lng": 123.19415009999999
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=16678789517136801761&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-071",
+      "name": "Toothgem Dental Clinic",
+      "type": "dental",
+      "address": "Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.6176455,
+        "lng": 123.2360217
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=13984781865122882342&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-072",
+      "name": "Dr. Sharon P. Antonio Dentist",
+      "type": "dental",
+      "address": "Traders Square, P. Burgos St, Brgy. Sta. Cruz, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0918 457 0035",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.6243371,
+        "lng": 123.1852889
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=13492074332577341064&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-073",
+      "name": "Dr. Wenny Olivan Villegas",
+      "type": "dental",
+      "address": "J5HX+CMP, Magsaysay Ave, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 473 3345",
+      "hours": "Monday: 9:00 – 11:00 AM, 1:30 – 4:00 PM; Tuesday: 9:00 – 11:00 AM, 1:30 – 4:00 PM; Wednesday: 9:00 – 11:00 AM, 1:30 – 4:00 PM",
+      "coordinates": {
+        "lat": 13.628594999999999,
+        "lng": 123.19919200000001
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=7002924794148462262&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": 1,
+      "reviewCount": 1,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-074",
+      "name": "CVH TORRECAMPO Dental LABORATORY",
+      "type": "dental",
+      "address": "8th St, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.6166357,
+        "lng": 123.20254840000001
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=14512205983069364627&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-075",
+      "name": "Dentist Dra. Peñafrancia Parco",
+      "type": "dental",
+      "address": "Ramaida Centrum, Elias Angeles St., Corner Dimasalang St., Barangay Santa Cruz, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 473 2356",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.6261456,
+        "lng": 123.18641649999999
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=4581136876711105549&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-076",
+      "name": "Hearty-Smile Solutions",
+      "type": "dental",
+      "address": "J5HR+37R, Dayangdang St, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.627740999999999,
+        "lng": 123.1906502
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=10304995469876924730&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-077",
+      "name": "Denta Plus",
+      "type": "dental",
+      "address": "Bichara Mall, J. Hernandez Ave, Brgy. Abella, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 914 4495",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.622953299999999,
+        "lng": 123.184028
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=13873212456221617197&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-078",
+      "name": "Dr. Priscilla Alamo",
+      "type": "dental",
+      "address": "38 Gen. Luna, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0919 383 6065",
+      "hours": "Monday: 9:00 AM – 4:00 AM; Tuesday: 9:00 AM – 4:00 AM; Wednesday: 9:00 AM – 4:00 AM",
+      "coordinates": {
+        "lat": 13.6248585,
+        "lng": 123.1852035
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=5053532839731316970&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-079",
+      "name": "3 SMILE STORE",
+      "type": "dental",
+      "address": "Milaor, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.584459599999999,
+        "lng": 123.16479690000001
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=6381732214652448751&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-080",
+      "name": "Dr. Lally Requejo Blando Dentist",
+      "type": "dental",
+      "address": "202 A, Ramaida Centrum, Elias Angeles St., Corner Dimasalang St., Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 472 9324",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.626277499999999,
+        "lng": 123.1864408
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=5863648619207200375&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-081",
+      "name": "Imperial Dental Clinic",
+      "type": "dental",
+      "address": "J5GM+7RH, J. Hernandez Ave, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.6256895,
+        "lng": 123.18461909999999
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=12460819794662068174&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-082",
+      "name": "Dra. Elena Batiancila Geñoso Dental Clinic",
+      "type": "dental",
+      "address": "Phase 2, Block 3, Lot 1, Tierra Minerva Avenue, Villacorazon Subdivision, Corner Maligaya Street, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.619425,
+        "lng": 123.23913030000001
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=7551096370960459164&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-083",
+      "name": "Savi smile dental care - main",
+      "type": "dental",
+      "address": "Unit 1 cluster e, CBD2 health and wellness strip, C Anciano St, triangulo, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.619666899999999,
+        "lng": 123.19425330000001
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=13100722142924005946&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-084",
+      "name": "Dra. Emelita Abogado Oliva",
+      "type": "dental",
+      "address": "AMS Building, Peñafrancia St, Barangay San Francisco, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 473 2513",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.6250456,
+        "lng": 123.18679200000001
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=6371265000541795680&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-085",
+      "name": "Naga Health Care Diagnostic Center",
+      "type": "other",
+      "address": "J5FX+4R2, J Miranda Ave, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0970 402 6748",
+      "hours": "Monday: 6:30 AM – 5:00 PM; Tuesday: 6:30 AM – 5:00 PM; Wednesday: 6:30 AM – 5:00 PM",
+      "coordinates": {
+        "lat": 13.622774600000001,
+        "lng": 123.19952319999999
+      },
+      "website": "https://www.facebook.com/profile.php?id=100064304522162&mibextid=ZbWKwL",
+      "googleMapsUrl": "https://maps.google.com/?cid=4646400117694687313&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 3.3,
+      "reviewCount": 6,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-086",
+      "name": "Bicolcare Medical Clinic and Laboratory",
+      "type": "other",
+      "address": "Central Business District II, Cory and, Ninoy and Cory Ave, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0908 863 8915",
+      "hours": "Monday: 6:00 AM – 6:00 PM; Tuesday: 6:00 AM – 6:00 PM; Wednesday: 6:00 AM – 6:00 PM",
+      "coordinates": {
+        "lat": 13.619907399999999,
+        "lng": 123.18891610000001
+      },
+      "website": "http://bicolcaremedicalclinicandlaboratory.com/?utm_source=gmb&utm_medium=referral",
+      "googleMapsUrl": "https://maps.google.com/?cid=2211724061516531776&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 2.4,
+      "reviewCount": 13,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-087",
+      "name": "Health Center",
+      "type": "other",
+      "address": "Zone 5 Dayangdang St, Brgy. Dayangdang, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.629523599999999,
+        "lng": 123.19366509999998
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=2460284578987735568&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 5,
+      "reviewCount": 1,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-088",
+      "name": "SLCDC- ST. LOUISE COOPERATIVE DIAGNOSTIC CENTER",
+      "type": "other",
+      "address": "10 Mayon Ave, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 881 1370",
+      "hours": "Monday: 7:00 AM – 5:00 PM; Tuesday: 7:00 AM – 5:00 PM; Wednesday: 7:00 AM – 5:00 PM",
+      "coordinates": {
+        "lat": 13.622906599999999,
+        "lng": 123.19509889999998
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=12822414871479753208&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 3.3,
+      "reviewCount": 34,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-089",
+      "name": "Health And Nutrition Center",
+      "type": "other",
+      "address": "J5FV+VF9, San Juan Street, Isarog Avenue, Barangay Tinago, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.6246563,
+        "lng": 123.1937488
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=12767412143508714085&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 5,
+      "reviewCount": 1,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-090",
+      "name": "Barangay Health And Nutrition Center",
+      "type": "other",
+      "address": "J57M+W48 Brgy, 1, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.614798299999999,
+        "lng": 123.1828298
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=10083290606305016544&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 5,
+      "reviewCount": 1,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-091",
+      "name": "Naga City Health Office",
+      "type": "other",
+      "address": "City Hall Compound, J Miranda Ave, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.625460100000002,
+        "lng": 123.1988303
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=10265058311014234624&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-092",
+      "name": "St. Andrew Medical Clinic",
+      "type": "other",
+      "address": "127a Panganiban Dr, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0929 259 6813",
+      "hours": "Monday: 8:00 AM – 5:00 PM; Tuesday: 8:00 AM – 5:00 PM; Wednesday: 8:00 AM – 5:00 PM",
+      "coordinates": {
+        "lat": 13.6213017,
+        "lng": 123.19847289999998
+      },
+      "website": "https://www.facebook.com/share/189oEKUqQx/?mibextid=wwXIfr",
+      "googleMapsUrl": "https://maps.google.com/?cid=6438955281407715646&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 5,
+      "reviewCount": 2,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-093",
+      "name": "St. Camillus Medical Clinic",
+      "type": "other",
+      "address": "Isarog St, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0947 592 5719",
+      "hours": "Monday: 8:00 AM – 5:00 PM; Tuesday: 8:00 AM – 5:00 PM; Wednesday: 8:00 AM – 5:00 PM",
+      "coordinates": {
+        "lat": 13.6234595,
+        "lng": 123.19242290000001
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=16700301796720965622&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 5,
+      "reviewCount": 2,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-094",
+      "name": "Naga City Health Office II",
+      "type": "other",
+      "address": "J5HH+MXG, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "",
+      "hours": "Monday: 8:00 AM – 5:00 PM; Tuesday: 8:00 AM – 5:00 PM; Wednesday: 8:00 AM – 5:00 PM",
+      "coordinates": {
+        "lat": 13.6291949,
+        "lng": 123.1799476
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=41991974608717728&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 4.4,
+      "reviewCount": 5,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-095",
+      "name": "INA BIRTHING and FAMILY PLANNING CLINIC",
+      "type": "other",
+      "address": "J5CV+J2G, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0920 620 8798",
+      "hours": "Monday: Open 24 hours; Tuesday: Open 24 hours; Wednesday: Open 24 hours",
+      "coordinates": {
+        "lat": 13.621561999999999,
+        "lng": 123.1925715
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=9171580003843374421&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 5,
+      "reviewCount": 2,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-096",
+      "name": "BCDC - Bicol Cardiovascular Diagnostic Cooperative",
+      "type": "other",
+      "address": "Azucena St, corner Carnation St, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 473 2232",
+      "hours": "Monday: 6:00 AM – 5:00 PM; Tuesday: 6:00 AM – 5:00 PM; Wednesday: 6:00 AM – 5:00 PM",
+      "coordinates": {
+        "lat": 13.6213163,
+        "lng": 123.19482430000001
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=2709514799831746609&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 3.7,
+      "reviewCount": 19,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-097",
+      "name": "MR.RAB Animal Bite Center Naga City",
+      "type": "other",
+      "address": "2/F, SA TAAS NG UNCLE JOHN'S, LUZONIAN MACHINE SHOP BUILDING, Panganiban Dr, ROTONDA, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0962 626 3015",
+      "hours": "Monday: 8:00 AM – 8:00 PM; Tuesday: 8:00 AM – 8:00 PM; Wednesday: 8:00 AM – 8:00 PM",
+      "coordinates": {
+        "lat": 13.6212886,
+        "lng": 123.20024240000001
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=15360792139047066765&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 5,
+      "reviewCount": 32,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-098",
+      "name": "Rañola Medical Clinic",
+      "type": "other",
+      "address": "J5CR+W9X, Panganiban Dr, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.6223692,
+        "lng": 123.1909781
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=3812464542333387442&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 5,
+      "reviewCount": 1,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-099",
+      "name": "Zantua Multispecialty Clinic",
+      "type": "other",
+      "address": "33 Magsaysay Ave, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0917 164 9255",
+      "hours": "Monday: 9:00 AM – 6:00 PM; Tuesday: 9:00 AM – 6:00 PM; Wednesday: 9:00 AM – 6:00 PM",
+      "coordinates": {
+        "lat": 13.6253231,
+        "lng": 123.20084449999999
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=6648032053605035841&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 4.8,
+      "reviewCount": 5,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-100",
+      "name": "Bicol Endo Medical Clinic",
+      "type": "other",
+      "address": "Door 4, Naga Ville Building, Ramon H. Felipe Jr. St, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0947 314 0256",
+      "hours": "Monday: 10:00 AM – 5:00 PM; Tuesday: 9:00 AM – 5:00 PM; Wednesday: 9:00 AM – 5:00 PM",
+      "coordinates": {
+        "lat": 13.621392,
+        "lng": 123.1925673
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=10162894528521773902&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 5,
+      "reviewCount": 1,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-101",
+      "name": "ABC Animal Bite Center Naga City",
+      "type": "other",
+      "address": "Princeton St, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0962 410 2254",
+      "hours": "Monday: 7:00 AM – 9:00 PM; Tuesday: 7:00 AM – 9:00 PM; Wednesday: 7:00 AM – 9:00 PM",
+      "coordinates": {
+        "lat": 13.6219045,
+        "lng": 123.19933479999999
+      },
+      "website": "https://www.facebook.com/share/1Jk63XX8ei/?mibextid=wwXIfr",
+      "googleMapsUrl": "https://maps.google.com/?cid=8664782894480800543&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 5,
+      "reviewCount": 22,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-102",
+      "name": "Rosales' Ent-Hns Care Clinic",
+      "type": "other",
+      "address": "Door 1, EMV Bldg Corner Mayon Ave, Panganiban Dr, Brgy. Triangulo, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0922 879 6411",
+      "hours": "Monday: 1:00 – 4:00 PM; Tuesday: 8:00 AM – 4:00 PM; Wednesday: 8:00 AM – 4:00 PM",
+      "coordinates": {
+        "lat": 13.622164199999999,
+        "lng": 123.19430059999999
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=11746121681683397752&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 2.4,
+      "reviewCount": 9,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-103",
+      "name": "Rosales EENT Clinic",
+      "type": "other",
+      "address": "13 Panganiban Dr, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 473 1387",
+      "hours": "Monday: 7:00 AM – 5:00 PM; Tuesday: 7:00 AM – 5:00 PM; Wednesday: 7:00 AM – 5:00 PM",
+      "coordinates": {
+        "lat": 13.6221575,
+        "lng": 123.1942999
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=9267630781941058169&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 3.5,
+      "reviewCount": 6,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-104",
+      "name": "San Antonio Diagnostic Laboratory, Inc. - Naga City",
+      "type": "other",
+      "address": "Montana Arcade, Panganiban Dr, Naga City, 4606 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 473 8188",
+      "hours": "Monday: 6:00 AM – 5:00 PM; Tuesday: 6:00 AM – 5:00 PM; Wednesday: 6:00 AM – 5:00 PM",
+      "coordinates": {
+        "lat": 13.621411199999999,
+        "lng": 123.19411729999999
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=1226282283277159805&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 3,
+      "reviewCount": 5,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-105",
+      "name": "Mvisions Diagnostic Center and Psychological Services",
+      "type": "clinic",
+      "address": "Unit 212, 2nd Floor, Bicol Access Health Centrum Hospital (Pedro Olivan Medical Arts Building, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0938 002 7143",
+      "hours": "Monday: 8:00 AM – 5:00 PM; Tuesday: 8:00 AM – 5:00 PM; Wednesday: 8:00 AM – 5:00 PM",
+      "coordinates": {
+        "lat": 13.61893,
+        "lng": 123.19204389999999
+      },
+      "website": "https://sites.google.com/view/mvisions-diagnostic-center/home?authuser=1",
+      "googleMapsUrl": "https://maps.google.com/?cid=11301723352488362412&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 4.3,
+      "reviewCount": 9,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-106",
+      "name": "Labworx",
+      "type": "other",
+      "address": "Deca Corp. Center, Panganiban Dr, Barangay Tinago, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 473 5611",
+      "hours": "Monday: 6:00 AM – 6:00 PM; Tuesday: 6:00 AM – 6:00 PM; Wednesday: 6:00 AM – 6:00 PM",
+      "coordinates": {
+        "lat": 13.6222788,
+        "lng": 123.1940015
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=8516007607287674489&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 3.7,
+      "reviewCount": 3,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-107",
+      "name": "NAGA CT SCAN DIAGNOSTICS INC.",
+      "type": "other",
+      "address": "UNIT 16 & 17, MONTANA ARCADE, CBD II, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0981 010 7239",
+      "hours": "Monday: 8:00 AM – 5:00 PM; Tuesday: 8:00 AM – 5:00 PM; Wednesday: 8:00 AM – 5:00 PM",
+      "coordinates": {
+        "lat": 13.6213094,
+        "lng": 123.1943216
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=7581800049908868106&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-108",
+      "name": "TruLab Laboratory & Diagnostic Center",
+      "type": "other",
+      "address": "J58Q+7VC, Triangulo, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0919 073 7399",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.615679799999999,
+        "lng": 123.189647
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=10605072777614285385&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-109",
+      "name": "Humacare Medical Diagnostics",
+      "type": "other",
+      "address": "32 Peñafrancia Ave, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 472 1510",
+      "hours": "Monday: 8:00 AM – 5:00 PM; Tuesday: 8:00 AM – 5:00 PM; Wednesday: 8:00 AM – 5:00 PM",
+      "coordinates": {
+        "lat": 13.629026099999999,
+        "lng": 123.1900909
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=6428804758133792045&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 4.1,
+      "reviewCount": 14,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-110",
+      "name": "NAGA ENDOCRINE LABORATORY ENDO LOGISTICS AND IMAGING CENTER",
+      "type": "other",
+      "address": "2nd Floor, Plaza Medica, Panganiban Dr, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 472 1948",
+      "hours": "Monday: 8:00 AM – 5:00 PM; Tuesday: 8:00 AM – 5:00 PM; Wednesday: 8:00 AM – 5:00 PM",
+      "coordinates": {
+        "lat": 13.621081,
+        "lng": 123.19414769999999
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=6807635313883669184&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-111",
+      "name": "Pediatreats Laboratory and Diagnostic Clinic Inc.",
+      "type": "other",
+      "address": "51 Unit B-C Yorktown Bldg, Panganiban Dr, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0906 300 9072",
+      "hours": "Monday: 7:00 AM – 5:00 PM; Tuesday: 7:00 AM – 5:00 PM; Wednesday: 7:00 AM – 5:00 PM",
+      "coordinates": {
+        "lat": 13.6222332,
+        "lng": 123.19350770000001
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=2551430665683079958&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-112",
+      "name": "B&M Neuropsychological Testing Center",
+      "type": "other",
+      "address": "Unit 212, 2nd Floor, Bicol Access Health Centrum Hospital (Pedro Olivan Medical Arts Building, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0956 812 3523",
+      "hours": "Monday: 8:00 AM – 5:00 PM; Tuesday: 9:00 AM – 5:00 PM; Wednesday: 8:00 AM – 5:00 PM",
+      "coordinates": {
+        "lat": 13.61893,
+        "lng": 123.19204389999999
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=5045802731603325363&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 5,
+      "reviewCount": 1,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-113",
+      "name": "Naga City Puericulture Center",
+      "type": "other",
+      "address": "639 Peñafrancia St, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 473 8482",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.6256981,
+        "lng": 123.18714349999999
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=4643292647018246540&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 5,
+      "reviewCount": 2,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-114",
+      "name": "Plaza Medica Childbirth Center Foundation",
+      "type": "other",
+      "address": "51 Panganiban Dr, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 473 8831",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.622485,
+        "lng": 123.19340600000001
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=9199052734406534252&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 5,
+      "reviewCount": 1,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-115",
+      "name": "Karangahan Birthing Clinic",
+      "type": "other",
+      "address": "J5VV+G8P, Lukban St., Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0998 322 8816",
+      "hours": "Monday: Open 24 hours; Tuesday: Open 24 hours; Wednesday: Open 24 hours",
+      "coordinates": {
+        "lat": 13.643843599999999,
+        "lng": 123.19333669999999
+      },
+      "website": "https://www.facebook.com/KarangahanBirthingHome",
+      "googleMapsUrl": "https://maps.google.com/?cid=14622085576914255685&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-116",
+      "name": "Isarog Birthing Clinic",
+      "type": "other",
+      "address": "2 Carnation St, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.617923,
+        "lng": 123.1934785
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=7447317281712190078&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-117",
+      "name": "CLINICA PANDAY OB-GYN Childbirth and Women's Diseases",
+      "type": "other",
+      "address": "Duplex 4A, Panganiban Dr, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0917 772 0206",
+      "hours": "Monday: 9:00 AM – 6:00 PM; Tuesday: 9:00 AM – 6:00 PM; Wednesday: 9:00 AM – 6:00 PM",
+      "coordinates": {
+        "lat": 13.622463699999999,
+        "lng": 123.19021479999998
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=8345472109981976821&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 1,
+      "reviewCount": 1,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-118",
+      "name": "Mom's Ob-Gyne Ultrasound Clinic",
+      "type": "clinic",
+      "address": "Princeton st, Ground Floor, Corner J Miranda Ave, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0921 636 9287",
+      "hours": "Monday: 9:00 AM – 2:00 PM; Tuesday: 9:00 AM – 2:00 PM; Wednesday: 9:00 AM – 2:00 PM",
+      "coordinates": {
+        "lat": 13.6217355,
+        "lng": 123.19946170000001
+      },
+      "website": "https://www.google.com/url?sa=t&source=web&rct=j&url=https%3A%2F%2Fwww.facebook.com%2Fpages%2Fcategory%2FObstetrician-Gynecologist--OBGYN-%2FNaga-OB-GYN-Ultrasound-Center-1581800718587305%2F&ved=0CAEQ_UVqFwoTCLCAp8qgz-4CFQAAAAAdAAAAABAC",
+      "googleMapsUrl": "https://maps.google.com/?cid=13156090429829555583&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 5,
+      "reviewCount": 13,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-119",
+      "name": "Doc Olalia Ob-Gyn Clinic",
+      "type": "clinic",
+      "address": "2nd Floor, Dabu Building, Elias Angeles St, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0966 415 6190",
+      "hours": "Monday: 9:00 AM – 5:00 PM; Tuesday: 9:00 AM – 5:00 PM; Wednesday: 9:00 AM – 5:00 PM",
+      "coordinates": {
+        "lat": 13.625941399999999,
+        "lng": 123.18655640000001
+      },
+      "website": "https://www.facebook.com/profile.php?id=61550903394774&mibextid=ZbWKwL",
+      "googleMapsUrl": "https://maps.google.com/?cid=9568183144652068579&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 5,
+      "reviewCount": 1,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-120",
+      "name": "May Dita Lying-In Clinic",
+      "type": "hospital",
+      "address": "Trevor Eton Building Princeton Properties National Highway, Pili, 4418 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0919 908 6218",
+      "hours": "Monday: Open 24 hours; Tuesday: Open 24 hours; Wednesday: Open 24 hours",
+      "coordinates": {
+        "lat": 13.5724658,
+        "lng": 123.26433630000001
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=11361437474695149446&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-121",
+      "name": "Ma. Rizalina Bismonte-Adalid",
+      "type": "clinic",
+      "address": "Emily Arcade, J5FP+CGW Barangay, Peñafrancia St, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.623603099999999,
+        "lng": 123.18631970000001
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=5560175164204732271&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 5,
+      "reviewCount": 1,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-122",
+      "name": "Mader Birthing Home & Family Planning Clinic",
+      "type": "other",
+      "address": "Block 12, Lot 2, Urban Queborac, Brgy. Bagumbayan Sur, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0946 935 0190",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.631533,
+        "lng": 123.1799776
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=3605908209394255185&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-123",
+      "name": "St. Therese OB GYN Ultrasound Clinic",
+      "type": "clinic",
+      "address": "J5CM+XCM, J. Hernandez Ave, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.6224522,
+        "lng": 123.1835614
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=7703330711023406709&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 3.5,
+      "reviewCount": 2,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-124",
+      "name": "S. L BELLO MATERNITY AND LYING IN CLINIC",
+      "type": "other",
+      "address": "Zone 6, Brgy Palong Hi-way, Libmanan, 4407 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0950 053 5759",
+      "hours": "Monday: Open 24 hours; Tuesday: Open 24 hours; Wednesday: Open 24 hours",
+      "coordinates": {
+        "lat": 13.6559443,
+        "lng": 123.01744620000001
+      },
+      "website": "https://m.facebook.com/SLbellomaternityandlyinginclinic",
+      "googleMapsUrl": "https://maps.google.com/?cid=10723117001757850307&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-125",
+      "name": "Lying in",
+      "type": "clinic",
+      "address": "M6G2+WMQ, Magarao, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.6773425,
+        "lng": 123.20172360000001
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=11077411840717427842&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-126",
+      "name": "Perez‐Glovo Lying In & Family Planning Clinic",
+      "type": "other",
+      "address": "H5WH+872, Emperador Street, Milaor, 4413 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0910 270 0342",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.595768999999999,
+        "lng": 123.178129
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=1117107182011774806&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-127",
+      "name": "Carepoint-Naga",
+      "type": "other",
+      "address": "J59Q+RVW, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0918 680 8710",
+      "hours": "Monday: 9:00 AM – 6:00 PM; Tuesday: 9:00 AM – 6:00 PM; Wednesday: 9:00 AM – 6:00 PM",
+      "coordinates": {
+        "lat": 13.6196001,
+        "lng": 123.18971870000001
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=13179757854668876840&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 5,
+      "reviewCount": 2,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-128",
+      "name": "Queue Lynx Drug Testing Laboratory",
+      "type": "other",
+      "address": "57 Apo Dr, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0915 360 8132",
+      "hours": "Monday: 8:00 AM – 5:00 PM; Tuesday: 8:00 AM – 5:00 PM; Wednesday: 8:00 AM – 5:00 PM",
+      "coordinates": {
+        "lat": 13.625502899999999,
+        "lng": 123.1973702
+      },
+      "website": "https://www.facebook.com/Queue-Lynx-Drug-Testing-Center-943631199060505/",
+      "googleMapsUrl": "https://maps.google.com/?cid=3022967362122939315&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 5,
+      "reviewCount": 1,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-129",
+      "name": "San Antonio Diagnostic Laboratory",
+      "type": "clinic",
+      "address": "Ground Floor, Puericulture Center, Penafrancia Avenue, J5JR+7H8, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 811 1313",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.630657999999999,
+        "lng": 123.191459
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=17183555217566105217&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 5,
+      "reviewCount": 1,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-130",
+      "name": "Androcare Clinical Diagnostic Laboratory",
+      "type": "other",
+      "address": "J5GP+PQH, Elias Angeles St, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0905 484 1880",
+      "hours": "Monday: 7:00 AM – 5:00 PM; Tuesday: 7:00 AM – 5:00 PM; Wednesday: 7:00 AM – 5:00 PM",
+      "coordinates": {
+        "lat": 13.6268003,
+        "lng": 123.18699330000001
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=16725486901924927491&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": null,
+      "reviewCount": null,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-131",
+      "name": "JMC Laboratory",
+      "type": "other",
+      "address": "Groundfloor, Dabu Building, Elias Angeles St, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "",
+      "hours": "",
+      "coordinates": {
+        "lat": 13.6256399,
+        "lng": 123.1865624
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=12840986522409520917&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 1,
+      "reviewCount": 1,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-132",
+      "name": "Medical Center Trading Corporation - Naga City",
+      "type": "other",
+      "address": "J5CV+VFP, Panganiban Dr, Naga City, Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "(054) 473 8150",
+      "hours": "Monday: 8:00 AM – 6:00 PM; Tuesday: 8:00 AM – 6:00 PM; Wednesday: 8:00 AM – 6:00 PM",
+      "coordinates": {
+        "lat": 13.6222066,
+        "lng": 123.19370289999999
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=6803175703460292754&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 4.5,
+      "reviewCount": 2,
+      "source": "Google Places API"
+    },
+    {
+      "id": "goog-133",
+      "name": "J & T Medical And Dental Supply And Medical Laboratory",
+      "type": "other",
+      "address": "92, Maharlika Hwy, Barangay Conception Pequeña, Naga City, 4400 Camarines Sur, Philippines",
+      "city": "Naga City",
+      "province": "Camarines Sur",
+      "phone": "0999 880 7166",
+      "hours": "Monday: 8:00 AM – 5:00 PM; Tuesday: 8:00 AM – 5:00 PM; Wednesday: 8:00 AM – 5:00 PM",
+      "coordinates": {
+        "lat": 13.620863799999999,
+        "lng": 123.2017603
+      },
+      "website": "",
+      "googleMapsUrl": "https://maps.google.com/?cid=2991866459260236217&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 2,
+      "reviewCount": 1,
+      "source": "Google Places API"
+    }
+  ]
+}
