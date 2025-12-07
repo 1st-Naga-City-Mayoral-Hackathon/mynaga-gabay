@@ -161,6 +161,7 @@
         {
             "parameters": {
                 "public": true,
+                "initialMessages": "Maray na aldaw! 👋\n\nI'm **MyNaga Gabay**, your AI health assistant for Naga City.\n\nYou can ask me about:\n🏥 Hospitals & clinics\n💊 Pharmacies & medicines\n🏛️ Government offices\n🆘 Emergency hotlines\n💚 PhilHealth benefits\n\nTataram ka sa Bikol, Tagalog, o English - maintindihan taka!\n\n---\n\n¿Ano an sakong maitatabang saimo?\n(How can I help you?)",
                 "options": {}
             },
             "type": "@n8n/n8n-nodes-langchain.chatTrigger",
