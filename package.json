@@ -17,7 +17,8 @@
     "dev:api": "npm run dev -w @mynaga/api",
     "build:web": "npm run build -w @mynaga/web",
     "build:api": "npm run build -w @mynaga/api",
-    "start:web": "npm run start -w @mynaga/web"
+    "start:web": "npm run start -w @mynaga/web",
+    "start": "npm run start:web"
   },
   "devDependencies": {
     "turbo": "^2.3.3",
