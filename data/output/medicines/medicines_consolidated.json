@@ -1,0 +1,1856 @@
+[
+  {
+    "id": "rxnorm-2047428",
+    "generic_name": "Acetaminophen",
+    "normalized_name": "{100 (acetaminophen 250 MG / aspirin 250 MG / caffeine 65 MG Oral Tablet [Excedrin]) / 24 (acetaminophen 250 MG / aspirin 250 MG / diphenhydramine citrate 38 MG Oral Tablet [Excedrin PM Triple Action]) } Pack [Excedrin PM Triple Action Caplets and Excedrin Extra Strength Pain Reliever]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1190225",
+    "generic_name": "Albuterol",
+    "normalized_name": "120 ACTUAT albuterol 0.1 MG/ACTUAT / ipratropium bromide 0.02 MG/ACTUAT Inhalation Spray [Combivent]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "0.1 MG/ACTUAT / 0.02 MG/ACTUAT"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-141927",
+    "generic_name": "Alprazolam",
+    "normalized_name": "alprazolam 0.25 MG Oral Tablet [Xanax]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "0.25 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-856836",
+    "generic_name": "Amitriptyline",
+    "normalized_name": "amitriptyline hydrochloride 25 MG Oral Tablet [Elavil]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "25 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1000000",
+    "generic_name": "Amlodipine",
+    "normalized_name": "amlodipine 5 MG / hydrochlorothiazide 12.5 MG / olmesartan medoxomil 40 MG Oral Tablet [Tribenzor]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "5 MG / 12.5 MG / 40 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1291987",
+    "generic_name": "Amoxicillin",
+    "normalized_name": "{4 (amoxicillin 500 MG Oral Capsule) / 2 (clarithromycin 500 MG Oral Tablet) / 2 (omeprazole 20 MG Delayed Release Oral Capsule) } Pack [Omeclamox]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1044196",
+    "generic_name": "Ampicillin",
+    "normalized_name": "ampicillin 250 MG/ML Injectable Suspension [Polyflex]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1100471",
+    "generic_name": "Ascorbic Acid",
+    "normalized_name": "{30 (ascorbic acid 120 MG / calcium citrate 125 MG / cholecalciferol 400 UNT / folic acid 1 MG / iron carbonyl 20 MG / pyridoxine hydrochloride 25 MG Oral Tablet) / 10 (pyridoxine hydrochloride 25 MG Oral Tablet) } Pack [CitraNatal B-Calm Kit]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-2047428",
+    "generic_name": "Aspirin",
+    "normalized_name": "{100 (acetaminophen 250 MG / aspirin 250 MG / caffeine 65 MG Oral Tablet [Excedrin]) / 24 (acetaminophen 250 MG / aspirin 250 MG / diphenhydramine citrate 38 MG Oral Tablet [Excedrin PM Triple Action]) } Pack [Excedrin PM Triple Action Caplets and Excedrin Extra Strength Pain Reliever]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-150750",
+    "generic_name": "Atenolol",
+    "normalized_name": "atenolol 25 MG Oral Tablet [Tenormin]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "25 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-262095",
+    "generic_name": "Atorvastatin",
+    "normalized_name": "atorvastatin 80 MG Oral Tablet [Lipitor]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "80 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-750149",
+    "generic_name": "Azithromycin",
+    "normalized_name": "{6 (azithromycin 250 MG Oral Tablet [Zithromax]) } Pack [Z-PAK]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1244636",
+    "generic_name": "Betamethasone",
+    "normalized_name": "betamethasone valerate 1.2 MG/ML Topical Foam [Luxiq]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "1.2 MG/ML"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1718991",
+    "generic_name": "Bisacodyl",
+    "normalized_name": "{1 (bisacodyl 5 MG Delayed Release Oral Tablet) / 1 (2000 ML) (polyethylene glycol 3350 210000 MG / potassium chloride 740 MG / sodium bicarbonate 2860 MG / sodium chloride 5600 MG Powder for Oral Solution [Gavilyte-H]) } Pack [Gavilyte-H and Bisacodyl]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1246290",
+    "generic_name": "Budesonide",
+    "normalized_name": "120 ACTUAT budesonide 0.08 MG/ACTUAT / formoterol fumarate 0.0045 MG/ACTUAT Metered Dose Inhaler [Symbicort]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "0.08 MG/ACTUAT / 0.0045 MG/ACTUAT (expressed as formoterol fumarate)"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1234533",
+    "generic_name": "Calamine",
+    "normalized_name": "calamine 80 MG/ML / pramoxine hydrochloride 10 MG/ML Topical Lotion [Caladryl]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "80 MG/ML / 10 MG/ML"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-212388",
+    "generic_name": "Carvedilol",
+    "normalized_name": "carvedilol 6.25 MG Oral Tablet [Coreg]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "6.25 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-106850",
+    "generic_name": "Cefuroxime",
+    "normalized_name": "cefuroxime 50 MG/ML Ophthalmic Solution",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-2049593",
+    "generic_name": "Celecoxib",
+    "normalized_name": "amlodipine 2.5 MG / celecoxib 200 MG Oral Tablet [Consensi]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "2.5 MG / 200 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1312438",
+    "generic_name": "Cephalexin",
+    "normalized_name": "cephalexin 150 MG Chewable Tablet [Rilexine]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1011485",
+    "generic_name": "Cetirizine",
+    "normalized_name": "cetirizine hydrochloride 10 MG Disintegrating Oral Tablet [Zyrtec]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "10 MG (expressed as cetirizine hydrochloride)"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1101555",
+    "generic_name": "Chlorphenamine",
+    "normalized_name": "{1 (acetaminophen 500 MG / chlorpheniramine maleate 2 MG / phenylephrine hydrochloride 5 MG Oral Tablet) / 1 (acetaminophen 500 MG / phenylephrine hydrochloride 5 MG Oral Tablet) } Pack",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-103943",
+    "generic_name": "Ciprofloxacin",
+    "normalized_name": "ciprofloxacin 3 MG/ML Ophthalmic Solution [Ciloxan]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "3 MG/ML"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1291987",
+    "generic_name": "Clarithromycin",
+    "normalized_name": "{4 (amoxicillin 500 MG Oral Capsule) / 2 (clarithromycin 500 MG Oral Tablet) / 2 (omeprazole 20 MG Delayed Release Oral Capsule) } Pack [Omeclamox]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1085918",
+    "generic_name": "Clindamycin",
+    "normalized_name": "clindamycin 25 MG/ML Oral Solution [ClindaCure]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-213169",
+    "generic_name": "Clopidogrel",
+    "normalized_name": "clopidogrel 75 MG Oral Tablet [Plavix]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "75 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1045620",
+    "generic_name": "Clotrimazole",
+    "normalized_name": "clotrimazole 10 MG/ML Topical Solution [Fungicure Solution]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "10 MG/ML"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1486977",
+    "generic_name": "Dapagliflozin",
+    "normalized_name": "dapagliflozin 10 MG Oral Tablet [Farxiga]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "10 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1191661",
+    "generic_name": "Dextromethorphan",
+    "normalized_name": "{1 (dextromethorphan hydrobromide 4 MG/ML Oral Solution) / 1 (guaifenesin 375 MG / pseudoephedrine hydrochloride 60 MG Oral Tablet) } Pack",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-2272622",
+    "generic_name": "Diazepam",
+    "normalized_name": "{1 (0.1 ML) (diazepam 100 MG/ML Nasal Spray [Valtoco]) } Pack [Valtoco 10 MG Dose Kit]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1043483",
+    "generic_name": "Diclofenac",
+    "normalized_name": "diclofenac sodium 10 MG/ML Topical Cream [Surpass Anti-Inflammatory]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-991063",
+    "generic_name": "Dicyclomine",
+    "normalized_name": "dicyclomine hydrochloride 10 MG Oral Capsule [Bentyl]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "10 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-2047428",
+    "generic_name": "Diphenhydramine",
+    "normalized_name": "{100 (acetaminophen 250 MG / aspirin 250 MG / caffeine 65 MG Oral Tablet [Excedrin]) / 24 (acetaminophen 250 MG / aspirin 250 MG / diphenhydramine citrate 38 MG Oral Tablet [Excedrin PM Triple Action]) } Pack [Excedrin PM Triple Action Caplets and Excedrin Extra Strength Pain Reliever]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1013694",
+    "generic_name": "Domperidone",
+    "normalized_name": "domperidone 0.11 MG/MG Oral Gel [Equidone]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-2099769",
+    "generic_name": "Doxycycline",
+    "normalized_name": "{42 (doxycycline hyclate 100 MG Oral Tablet) } Pack [LymePak]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1545664",
+    "generic_name": "Empagliflozin",
+    "normalized_name": "empagliflozin 10 MG Oral Tablet [Jardiance]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "10 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1435630",
+    "generic_name": "Enalapril",
+    "normalized_name": "enalapril maleate 1 MG/ML Oral Solution [Epaned]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "1 MG/ML"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1668267",
+    "generic_name": "Erythromycin",
+    "normalized_name": "erythromycin lactobionate 500 MG Injection [Erythrocin]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "500 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-352272",
+    "generic_name": "Escitalopram",
+    "normalized_name": "escitalopram 10 MG Oral Tablet [Lexapro]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "10 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-104094",
+    "generic_name": "Famotidine",
+    "normalized_name": "famotidine 20 MG Oral Tablet [Pepcid]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "20 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1116528",
+    "generic_name": "Fexofenadine",
+    "normalized_name": "fexofenadine hydrochloride 180 MG Oral Tablet [Wal-Fex]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "180 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-104849",
+    "generic_name": "Fluoxetine",
+    "normalized_name": "fluoxetine 20 MG Oral Capsule [Prozac]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "20 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1539891",
+    "generic_name": "Fluticasone",
+    "normalized_name": "14 ACTUAT fluticasone furoate 0.1 MG/ACTUAT / vilanterol 0.025 MG/ACTUAT Dry Powder Inhaler [Breo]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "0.1 MG/ACTUAT (expressed as fluticasone furoate) / 0.025 MG/ACTUAT"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1100471",
+    "generic_name": "Folic Acid",
+    "normalized_name": "{30 (ascorbic acid 120 MG / calcium citrate 125 MG / cholecalciferol 400 UNT / folic acid 1 MG / iron carbonyl 20 MG / pyridoxine hydrochloride 25 MG Oral Tablet) / 10 (pyridoxine hydrochloride 25 MG Oral Tablet) } Pack [CitraNatal B-Calm Kit]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1112201",
+    "generic_name": "Furosemide",
+    "normalized_name": "furosemide 50 MG/ML Injectable Solution [Disal]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-199825",
+    "generic_name": "Gliclazide",
+    "normalized_name": "gliclazide 80 MG Oral Tablet",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-153591",
+    "generic_name": "Glimepiride",
+    "normalized_name": "glimepiride 2 MG Oral Tablet [Amaryl]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "2 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1191661",
+    "generic_name": "Guaifenesin",
+    "normalized_name": "{1 (dextromethorphan hydrobromide 4 MG/ML Oral Solution) / 1 (guaifenesin 375 MG / pseudoephedrine hydrochloride 60 MG Oral Tablet) } Pack",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1000000",
+    "generic_name": "Hydrochlorothiazide",
+    "normalized_name": "amlodipine 5 MG / hydrochlorothiazide 12.5 MG / olmesartan medoxomil 40 MG Oral Tablet [Tribenzor]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "5 MG / 12.5 MG / 40 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-833507",
+    "generic_name": "Hydrocortisone",
+    "normalized_name": "{1 (30 ML) (hydrocortisone 20 MG/ML Topical Lotion [Scalacort]) / 1 (118 ML) (salicylic acid 20 MG/ML / sulfur 20 MG/ML Medicated Shampoo) } Pack [Scalacort DK]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-995255",
+    "generic_name": "Hydroxyzine",
+    "normalized_name": "hydroxyzine pamoate 25 MG Oral Capsule [Vistaril]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "25 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1046924",
+    "generic_name": "Hyoscine",
+    "normalized_name": "atropine sulfate 0.00388 MG/ML / hyoscyamine sulfate 0.0207 MG/ML / phenobarbital 3.24 MG/ML / scopolamine hydrobromide 0.0013 MG/ML Oral Solution [Donnatal]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "0.00388 MG/ML / 0.0207 MG/ML / 3.24 MG/ML / 0.0013 MG/ML"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1100070",
+    "generic_name": "Ibuprofen",
+    "normalized_name": "famotidine 26.6 MG / ibuprofen 800 MG Oral Tablet [Duexis]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "26.6 MG / 800 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1798388",
+    "generic_name": "Insulin",
+    "normalized_name": "{90 (insulin, regular, human 4 UNT Inhalation Powder [Afrezza]) / 90 (insulin, regular, human 8 UNT Inhalation Powder [Afrezza]) } Pack [Afrezza Titration Pack]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1190225",
+    "generic_name": "Ipratropium",
+    "normalized_name": "120 ACTUAT albuterol 0.1 MG/ACTUAT / ipratropium bromide 0.02 MG/ACTUAT Inhalation Spray [Combivent]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "0.1 MG/ACTUAT / 0.02 MG/ACTUAT"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1297965",
+    "generic_name": "Ketoconazole",
+    "normalized_name": "ketoconazole 1 MG/ML Topical Solution [T8 Keto Flush]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1251192",
+    "generic_name": "Lactulose",
+    "normalized_name": "lactulose 10000 MG Powder for Oral Solution [Kristalose]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "10000 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-757969",
+    "generic_name": "Lansoprazole",
+    "normalized_name": "{4 (amoxicillin 500 MG Oral Capsule [Trimox]) / 2 (clarithromycin 500 MG Oral Tablet [Biaxin]) / 2 (lansoprazole 30 MG Delayed Release Oral Capsule [Prevacid]) } Pack [Prevpac]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-855170",
+    "generic_name": "Levocetirizine",
+    "normalized_name": "levocetirizine dihydrochloride 0.5 MG/ML Oral Solution [Xyzal]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "0.5 MG/ML (expressed as levocetirizine dihydrochloride)"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-104375",
+    "generic_name": "Lisinopril",
+    "normalized_name": "lisinopril 2.5 MG Oral Tablet [Zestril]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "2.5 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1250693",
+    "generic_name": "Loperamide",
+    "normalized_name": "loperamide hydrochloride 0.133 MG/ML Oral Suspension [Imodium]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "0.133 MG/ML"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1020126",
+    "generic_name": "Loratadine",
+    "normalized_name": "loratadine 10 MG Oral Tablet [Loradamed]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "10 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-104719",
+    "generic_name": "Lorazepam",
+    "normalized_name": "lorazepam 1 MG Oral Tablet [Ativan]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "1 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-2709046",
+    "generic_name": "Losartan",
+    "normalized_name": "losartan potassium 10 MG/ML Oral Suspension [Arbli]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "10 MG/ML (expressed as losartan potassium)"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-829498",
+    "generic_name": "Mefenamic Acid",
+    "normalized_name": "mefenamic acid 10 MG/ML Oral Suspension",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1043567",
+    "generic_name": "Metformin",
+    "normalized_name": "24 HR metformin hydrochloride 1000 MG / saxagliptin 2.5 MG Extended Release Oral Tablet [Kombiglyze]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "1000 MG / 2.5 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1431142",
+    "generic_name": "Metoclopramide",
+    "normalized_name": "metoclopramide hydrochloride 5 MG/ML Oral Solution [Pileran]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-2047766",
+    "generic_name": "Metoprolol",
+    "normalized_name": "24 HR metoprolol succinate 100 MG Extended Release Oral Capsule [Kapspargo]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "100 MG (expressed as metoprolol succinate)"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-758020",
+    "generic_name": "Metronidazole",
+    "normalized_name": "{112 (bismuth subsalicylate 262 MG Chewable Tablet) / 56 (metronidazole 250 MG Oral Tablet) / 56 (tetracycline hydrochloride 500 MG Oral Capsule) } Pack [Helidac Therapy]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-153892",
+    "generic_name": "Montelukast",
+    "normalized_name": "montelukast 10 MG Oral Tablet [Singulair]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "10 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1731999",
+    "generic_name": "Morphine",
+    "normalized_name": "20 ML morphine sulfate 10 MG/ML Injection [Infumorph]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "10 MG/ML"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-103570",
+    "generic_name": "Mupirocin",
+    "normalized_name": "mupirocin 0.02 MG/MG Topical Ointment [Bactroban]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "0.02 MG/MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-105899",
+    "generic_name": "Naproxen",
+    "normalized_name": "naproxen 500 MG Oral Tablet [Naprosyn]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "500 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-153046",
+    "generic_name": "Olanzapine",
+    "normalized_name": "olanzapine 5 MG Oral Tablet [Zyprexa]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "5 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1291987",
+    "generic_name": "Omeprazole",
+    "normalized_name": "{4 (amoxicillin 500 MG Oral Capsule) / 2 (clarithromycin 500 MG Oral Tablet) / 2 (omeprazole 20 MG Delayed Release Oral Capsule) } Pack [Omeclamox]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "tgp-0100",
+    "generic_name": "Over-The-Counter",
+    "normalized_name": "Over-the-Counter",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "OTC",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "TGP Philippines"
+    ]
+  },
+  {
+    "id": "rxnorm-284400",
+    "generic_name": "Pantoprazole",
+    "normalized_name": "pantoprazole 40 MG Delayed Release Oral Tablet [Protonix]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "40 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-2047428",
+    "generic_name": "Paracetamol",
+    "normalized_name": "{100 (acetaminophen 250 MG / aspirin 250 MG / caffeine 65 MG Oral Tablet [Excedrin]) / 24 (acetaminophen 250 MG / aspirin 250 MG / diphenhydramine citrate 38 MG Oral Tablet [Excedrin PM Triple Action]) } Pack [Excedrin PM Triple Action Caplets and Excedrin Extra Strength Pain Reliever]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-207484",
+    "generic_name": "Permethrin",
+    "normalized_name": "permethrin 50 MG/ML Topical Cream [Acticin]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "50 MG/ML"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1101555",
+    "generic_name": "Phenylephrine",
+    "normalized_name": "{1 (acetaminophen 500 MG / chlorpheniramine maleate 2 MG / phenylephrine hydrochloride 5 MG Oral Tablet) / 1 (acetaminophen 500 MG / phenylephrine hydrochloride 5 MG Oral Tablet) } Pack",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1368416",
+    "generic_name": "Pioglitazone",
+    "normalized_name": "alogliptin 12.5 MG / pioglitazone 30 MG Oral Tablet [Oseni]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "12.5 MG / 30 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-763179",
+    "generic_name": "Prednisone",
+    "normalized_name": "{48 (prednisone 5 MG Oral Tablet) } Pack",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "tgp-0099",
+    "generic_name": "Prescription",
+    "normalized_name": "Prescription Medicines",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "Prescription",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "TGP Philippines"
+    ]
+  },
+  {
+    "id": "rxnorm-1191661",
+    "generic_name": "Pseudoephedrine",
+    "normalized_name": "{1 (dextromethorphan hydrobromide 4 MG/ML Oral Solution) / 1 (guaifenesin 375 MG / pseudoephedrine hydrochloride 60 MG Oral Tablet) } Pack",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1648647",
+    "generic_name": "Quetiapine",
+    "normalized_name": "{1 (24 HR quetiapine 200 MG Extended Release Oral Tablet [Seroquel]) / 11 (24 HR quetiapine 300 MG Extended Release Oral Tablet [Seroquel]) / 3 (24 HR quetiapine 50 MG Extended Release Oral Tablet [Seroquel]) } Pack [Seroquel XR 14-Day Sample Kit]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-104084",
+    "generic_name": "Ranitidine",
+    "normalized_name": "ranitidine 25 MG/ML Injectable Solution [Zantac]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-104781",
+    "generic_name": "Risperidone",
+    "normalized_name": "risperidone 1 MG Oral Tablet [Risperdal]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "1 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-2167563",
+    "generic_name": "Rosuvastatin",
+    "normalized_name": "rosuvastatin 10 MG Oral Capsule [Ezallor]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "10 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1190225",
+    "generic_name": "Salbutamol",
+    "normalized_name": "120 ACTUAT albuterol 0.1 MG/ACTUAT / ipratropium bromide 0.02 MG/ACTUAT Inhalation Spray [Combivent]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "0.1 MG/ACTUAT / 0.02 MG/ACTUAT"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-208149",
+    "generic_name": "Sertraline",
+    "normalized_name": "sertraline 100 MG Oral Tablet [Zoloft]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "100 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-104490",
+    "generic_name": "Simvastatin",
+    "normalized_name": "simvastatin 10 MG Oral Tablet [Zocor]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "10 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1243833",
+    "generic_name": "Sitagliptin",
+    "normalized_name": "24 HR metformin hydrochloride 1000 MG / sitagliptin phosphate 100 MG Extended Release Oral Tablet [Janumet]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "1000 MG (expressed as metformin hydrochloride) / 100 MG (expressed as sitagliptin phosphate)"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-208406",
+    "generic_name": "Sulfamethoxazole",
+    "normalized_name": "sulfamethoxazole 40 MG/ML / trimethoprim 8 MG/ML Oral Suspension [Sulfatrim]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "40 MG/ML / 8 MG/ML"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-756226",
+    "generic_name": "Theophylline",
+    "normalized_name": "theophylline 5.33 MG/ML Oral Solution [Elixophyllin]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "5.33 MG/ML"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1148482",
+    "generic_name": "Tramadol",
+    "normalized_name": "24 HR tramadol hydrochloride 100 MG Extended Release Oral Capsule [ConZip]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "100 MG (expressed as tramadol hydrochloride)"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1656346",
+    "generic_name": "Valsartan",
+    "normalized_name": "sacubitril 24 MG / valsartan 26 MG Oral Tablet [Entresto]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "24 MG / 26 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1102207",
+    "generic_name": "Vitamin B12",
+    "normalized_name": "{6 (ascorbic acid 100 MG / biotin 0.3 MG / calcium carbonate 100 MG / calcium pantothenate 7 MG / folic acid 1 MG / niacin 25 MG / pyridoxine hydrochloride 30 MG / riboflavin 5 MG / succinic acid 150 MG / thiamine hydrochloride 5 MG / vitamin B12 0.01 MG Oral Tablet) / 24 (ascorbic acid 100 MG / biotin 0.3 MG / calcium pantothenate 0.3 MG / ferrous bisglycinate 65 MG / folic acid 1 MG / formic acid 155 MG / iron-dextran complex 65 MG / niacin 25 MG / pyridoxine hydrochloride 30 MG / riboflavin 5 MG / thiamine hydrochloride 5 MG / vitamin B12 0.01 MG Oral Tablet [Irospan Tablet]) } Pack [Irospan 24/6 Kit]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1100471",
+    "generic_name": "Vitamin C",
+    "normalized_name": "{30 (ascorbic acid 120 MG / calcium citrate 125 MG / cholecalciferol 400 UNT / folic acid 1 MG / iron carbonyl 20 MG / pyridoxine hydrochloride 25 MG Oral Tablet) / 10 (pyridoxine hydrochloride 25 MG Oral Tablet) } Pack [CitraNatal B-Calm Kit]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "tgp-0101",
+    "generic_name": "Vitamins",
+    "normalized_name": "Vitamins & Supplements",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "Vitamins & Supplements",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "TGP Philippines"
+    ]
+  },
+  {
+    "id": "tgp-0102",
+    "generic_name": "Vymada",
+    "normalized_name": "VYMADA",
+    "brand_names": [
+      "VYMADA"
+    ],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "Prescription",
+    "price_php": 105.0,
+    "philhealth_covered": false,
+    "sources": [
+      "TGP Philippines"
+    ]
+  },
+  {
+    "id": "rxnorm-855290",
+    "generic_name": "Warfarin",
+    "normalized_name": "warfarin sodium 1 MG Oral Tablet [Coumadin]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  },
+  {
+    "id": "rxnorm-1087399",
+    "generic_name": "Zinc Sulfate",
+    "normalized_name": "copper sulfate 0.8 MG / ferrous fumarate 324 MG / folic acid 1 MG / magnesium sulfate 6.9 MG / manganese sulfate 1.3 MG / niacinamide 30 MG / pantothenic acid 10 MG / pyridoxine 5 MG / riboflavin 6 MG / sodium ascorbate 200 MG / thiamine 10 MG / vitamin B12 0.015 MG / zinc sulfate 18.2 MG Oral Capsule [Hemocyte Plus]",
+    "brand_names": [],
+    "drug_classes": [],
+    "dosage_forms": [],
+    "strengths": [
+      "0.8 MG / 324 MG / 1 MG / 6.9 MG / 1.3 MG / 30 MG / 10 MG / 5 MG / 6 MG / 200 MG / 10 MG / 0.015 MG / 18.2 MG"
+    ],
+    "common_uses": [],
+    "warnings": [],
+    "category": "General",
+    "price_php": null,
+    "philhealth_covered": false,
+    "sources": [
+      "RxNorm (NIH)"
+    ]
+  }
+]

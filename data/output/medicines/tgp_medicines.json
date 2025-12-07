@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Prescription Medicines",
+    "brand_name": "",
+    "generic_name": "Prescription",
+    "strength": "",
+    "dosage_form": "",
+    "category": "Prescription",
+    "price_php": null,
+    "source_url": "https://tgp.com.ph/114-prescription-medicines"
+  },
+  {
+    "name": "Over-the-Counter",
+    "brand_name": "",
+    "generic_name": "Over-the-Counter",
+    "strength": "",
+    "dosage_form": "",
+    "category": "OTC",
+    "price_php": null,
+    "source_url": "https://tgp.com.ph/34-over-the-counter-medicine"
+  },
+  {
+    "name": "Vitamins & Supplements",
+    "brand_name": "",
+    "generic_name": "Vitamins",
+    "strength": "",
+    "dosage_form": "",
+    "category": "Vitamins & Supplements",
+    "price_php": null,
+    "source_url": "https://tgp.com.ph/35-vitamins-supplements"
+  },
+  {
+    "name": "VYMADA",
+    "brand_name": "VYMADA",
+    "generic_name": "",
+    "strength": "",
+    "dosage_form": "",
+    "category": "Prescription",
+    "price_php": 105.0,
+    "source_url": "https://tgp.com.ph/prescription-medicines/612-rx-vymada-sacubtril-valsartan-fc-tab-200mg-102596.html"
+  }
+]
