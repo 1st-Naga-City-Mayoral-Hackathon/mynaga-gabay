@@ -33,7 +33,7 @@ RUN npx turbo run build --filter=@mynaga/web...
 FROM base AS runner
 WORKDIR /app
 
-ENV NODE_ENV production
+ENV NODE_ENV=production
 
 # Don't run as root
 RUN addgroup --system --gid 1001 nodejs
