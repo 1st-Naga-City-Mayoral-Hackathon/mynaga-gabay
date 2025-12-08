@@ -15,8 +15,16 @@ RUN turbo prune --scope=@mynaga/web --docker
 # 2. Rebuild the source code only when needed
 FROM base AS builder
 WORKDIR /app
+
+# Install OpenSSL for Prisma compatibility
+RUN apk add --no-cache openssl
+
 COPY --from=deps /app/out/json/ .
 COPY --from=deps /app/out/package-lock.json ./package-lock.json
+
+# Copy Prisma schema before npm install (needed for postinstall: prisma generate)
+COPY --from=deps /app/out/full/apps/web/prisma ./apps/web/prisma
+
 RUN npm install
 
 # Build the project
