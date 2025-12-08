@@ -18,6 +18,7 @@ module.exports = {
         '.next/',
         'build/',
         '*.config.js',
+        '**/generated/**',
     ],
     rules: {
         'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
