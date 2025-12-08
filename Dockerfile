@@ -31,15 +31,14 @@ COPY --from=deps /app/out/package-lock.json ./package-lock.json
 # Copy Prisma schema before npm ci (needed for postinstall: prisma generate)
 COPY apps/web/prisma ./apps/web/prisma
 
+# Skip Prisma's slow postinstall engine download
+ENV PRISMA_GENERATE_SKIP=true
+
 # Use npm ci for faster, more reliable installs
-# Skip postinstall to avoid slow Prisma engine download
-RUN npm ci --ignore-scripts
+RUN npm ci
 
-# Install Prisma CLI globally (faster than postinstall download)
-RUN npm install -g prisma@5.22.0
-
-# Generate Prisma client
-RUN prisma generate --schema=./apps/web/prisma/schema.prisma
+# Generate Prisma client using local binary
+RUN ./node_modules/.bin/prisma generate --schema=./apps/web/prisma/schema.prisma
 
 # 3. Build the application
 FROM base AS builder
