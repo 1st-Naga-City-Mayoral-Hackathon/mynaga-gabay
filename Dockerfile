@@ -3,41 +3,52 @@ FROM node:20-alpine AS base
 # 1. Install dependencies only when needed
 FROM base AS deps
 WORKDIR /app
-# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
-RUN apk add --no-cache libc6-compat
+
+# Install system dependencies needed for npm packages
+RUN apk add --no-cache libc6-compat openssl
 
 # Install Turbo globally
 RUN npm install turbo --global
 
-COPY . .
+# Copy only what's needed for turbo prune
+COPY package.json package-lock.json turbo.json ./
+COPY apps/web/package.json ./apps/web/
+COPY packages/ ./packages/
+
 RUN turbo prune --scope=@mynaga/web --docker
 
-# 2. Rebuild the source code only when needed
-FROM base AS builder
+# 2. Install dependencies
+FROM base AS installer
 WORKDIR /app
 
-# Install OpenSSL for Prisma compatibility
-RUN apk add --no-cache openssl
+# Install system dependencies
+RUN apk add --no-cache libc6-compat openssl
 
+# Copy pruned files
 COPY --from=deps /app/out/json/ .
 COPY --from=deps /app/out/package-lock.json ./package-lock.json
 
-# Copy Prisma schema before npm install (needed for postinstall: prisma generate)
-COPY --from=deps /app/out/full/apps/web/prisma ./apps/web/prisma
+# Copy Prisma schema before npm ci (needed for postinstall: prisma generate)
+COPY apps/web/prisma ./apps/web/prisma
 
-RUN npm install
+# Use npm ci for faster, more reliable installs
+RUN npm ci
 
-# Build the project
+# 3. Build the application
+FROM base AS builder
+WORKDIR /app
+
+# Copy installed node_modules
+COPY --from=installer /app/ .
+
+# Copy source files
 COPY --from=deps /app/out/full/ .
 COPY turbo.json turbo.json
 
-# Uncomment and use build args if needed
-# ARG DATABASE_URL
-# ENV DATABASE_URL=${DATABASE_URL}
-
+# Build the project
 RUN npx turbo run build --filter=@mynaga/web...
 
-# 3. Production image, copy all the files and run next
+# 4. Production image
 FROM base AS runner
 WORKDIR /app
 
@@ -51,9 +62,7 @@ USER nextjs
 COPY --from=builder /app/apps/web/public ./apps/web/public
 
 # Automatically leverage output traces to reduce image size
-# https://nextjs.org/docs/advanced-features/output-file-tracing
 COPY --from=builder --chown=nextjs:nodejs /app/apps/web/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/apps/web/.next/static ./apps/web/.next/static
 
 CMD ["node", "apps/web/server.js"]
-
