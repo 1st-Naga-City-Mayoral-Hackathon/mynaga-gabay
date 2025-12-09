@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { ChatMessages } from './ChatMessages';
 import { ChatInput } from './ChatInput';
 import { ChatSidebar } from './ChatSidebar';
@@ -19,6 +19,14 @@ interface Message {
     content: string;
 }
 
+// Map UI language codes to TTS language codes
+type TTSLanguage = 'eng' | 'fil' | 'bcl';
+const languageToTTS: Record<string, TTSLanguage> = {
+    en: 'eng',
+    fil: 'fil',
+    bcl: 'bcl',
+};
+
 export function Chat({ language: langProp }: ChatProps) {
     // Use language from context, fallback to prop
     const { language: contextLang, t } = useLanguage();
@@ -30,6 +38,78 @@ export function Chat({ language: langProp }: ChatProps) {
     const [input, setInput] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<Error | null>(null);
+
+    // Auto-TTS state
+    const [autoTTS, setAutoTTS] = useState(false);
+    const [isSpeaking, setIsSpeaking] = useState(false);
+    const audioRef = useRef<HTMLAudioElement | null>(null);
+    const lastMessageIdRef = useRef<string | null>(null);
+
+    // Get TTS language code
+    const ttsLanguage = languageToTTS[language] || 'bcl';
+
+    // Play TTS for a message
+    const playTTS = useCallback(async (text: string) => {
+        if (!text || isSpeaking) return;
+
+        setIsSpeaking(true);
+        try {
+            const response = await fetch('/api/tts', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ text, language: ttsLanguage }),
+            });
+
+            if (!response.ok) {
+                throw new Error('TTS failed');
+            }
+
+            const audioBlob = await response.blob();
+            const audioUrl = URL.createObjectURL(audioBlob);
+
+            const audio = new Audio(audioUrl);
+            audioRef.current = audio;
+
+            audio.onended = () => {
+                setIsSpeaking(false);
+                URL.revokeObjectURL(audioUrl);
+            };
+            audio.onerror = () => {
+                setIsSpeaking(false);
+                URL.revokeObjectURL(audioUrl);
+            };
+
+            await audio.play();
+        } catch (err) {
+            console.error('Auto-TTS error:', err);
+            setIsSpeaking(false);
+        }
+    }, [ttsLanguage, isSpeaking]);
+
+    // Auto-play TTS when new assistant message arrives
+    useEffect(() => {
+        if (!autoTTS || isLoading) return;
+
+        const lastMessage = messages[messages.length - 1];
+        if (
+            lastMessage &&
+            lastMessage.role === 'assistant' &&
+            lastMessage.content &&
+            lastMessage.id !== lastMessageIdRef.current
+        ) {
+            lastMessageIdRef.current = lastMessage.id;
+            playTTS(lastMessage.content);
+        }
+    }, [messages, autoTTS, isLoading, playTTS]);
+
+    // Stop audio when autoTTS is toggled off
+    useEffect(() => {
+        if (!autoTTS && audioRef.current) {
+            audioRef.current.pause();
+            audioRef.current.currentTime = 0;
+            setIsSpeaking(false);
+        }
+    }, [autoTTS]);
 
     const handleSubmit = async () => {
         if (!input.trim() || isLoading) return;
@@ -136,13 +216,16 @@ export function Chat({ language: langProp }: ChatProps) {
                     </div>
                 )}
 
-                {/* Input */}
+                {/* Input with Auto-TTS toggle */}
                 <ChatInput
                     value={input}
                     onChange={setInput}
                     onSubmit={handleSubmit}
                     isLoading={isLoading}
                     placeholder={t('chat.placeholder')}
+                    autoTTS={autoTTS}
+                    onAutoTTSChange={setAutoTTS}
+                    isSpeaking={isSpeaking}
                 />
             </div>
         </div>

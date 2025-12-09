@@ -4,6 +4,8 @@ import ReactMarkdown from 'react-markdown';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { TTSButton } from './TTSButton';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface MessageType {
     id: string;
@@ -15,11 +17,23 @@ interface MessageProps {
     message: MessageType;
 }
 
+// Map UI language codes to TTS language codes
+type TTSLanguage = 'eng' | 'fil' | 'bcl';
+const languageToTTS: Record<string, TTSLanguage> = {
+    en: 'eng',   // UI uses 'en', TTS uses 'eng'
+    fil: 'fil',  // Same
+    bcl: 'bcl',  // Same
+};
+
 export function Message({ message }: MessageProps) {
     const isUser = message.role === 'user';
+    const { language } = useLanguage();
+
+    // Get TTS language code (map 'en' to 'eng')
+    const ttsLanguage: TTSLanguage = languageToTTS[language] || 'bcl';
 
     return (
-        <div className={cn('flex gap-3', isUser && 'flex-row-reverse')}>
+        <div className={cn('flex gap-3 group', isUser && 'flex-row-reverse')}>
             <Avatar className={cn('w-8 h-8 flex-shrink-0', isUser ? 'bg-primary' : 'bg-gradient-to-br from-teal-500 to-teal-600')}>
                 <AvatarFallback className="text-sm">
                     {isUser ? '👤' : '🏥'}
@@ -61,9 +75,20 @@ export function Message({ message }: MessageProps) {
                 )}
             </div>
 
+            {/* Action buttons for assistant messages - always visible */}
             {!isUser && (
-                <div className="flex flex-col gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <Button variant="ghost" size="icon" className="h-6 w-6">
+                <div className="flex flex-col gap-1">
+                    {/* TTS Button - Uses selected language */}
+                    <TTSButton text={message.content} language={ttsLanguage} />
+
+                    {/* Copy button */}
+                    <Button
+                        variant="ghost"
+                        size="icon"
+                        className="h-7 w-7"
+                        onClick={() => navigator.clipboard.writeText(message.content)}
+                        title="Copy message"
+                    >
                         <span className="text-xs">📋</span>
                     </Button>
                 </div>
