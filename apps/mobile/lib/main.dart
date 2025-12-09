@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mynaga_gabay/app/app_router.dart';
 import 'package:provider/provider.dart';
 import 'providers/theme_provider.dart';
 import 'providers/language_provider.dart';
@@ -23,7 +24,7 @@ class MyNagaGabayApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
 
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'MyNaga Gabay',
       debugShowCheckedModeBanner: false,
       themeMode: themeProvider.themeMode,
@@ -49,7 +50,8 @@ class MyNagaGabayApp extends StatelessWidget {
           elevation: 0,
         ),
       ),
-      home: const HomeScreen(),
+      // home: const HomeScreen(),
+      routerConfig: AppRouter.config,
     );
   }
 }
