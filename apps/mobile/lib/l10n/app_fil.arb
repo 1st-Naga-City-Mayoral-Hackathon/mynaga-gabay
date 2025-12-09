@@ -1,0 +1,11 @@
+{
+  "@@locale": "fil",
+  "title": "MyNaga Gabay",
+  "@title": {
+    "description": "The title of the app"
+  },
+  "subtitle": "Ang Iyong Katulong sa Kalusugan",
+  "@subtitle": {
+    "description": "The subtitle of the app"
+  }
+}
