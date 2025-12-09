@@ -111,13 +111,14 @@ export function Chat({ language: langProp }: ChatProps) {
         }
     }, [autoTTS]);
 
-    const handleSubmit = async () => {
-        if (!input.trim() || isLoading) return;
+    const handleSubmit = async (overrideText?: string) => {
+        const textToSubmit = overrideText ?? input;
+        if (!textToSubmit.trim() || isLoading) return;
 
         const userMessage: Message = {
             id: crypto.randomUUID(),
             role: 'user',
-            content: input,
+            content: textToSubmit,
         };
 
         setMessages((prev) => [...prev, userMessage]);

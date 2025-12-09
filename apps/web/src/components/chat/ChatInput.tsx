@@ -1,20 +1,28 @@
 'use client';
 
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState, useCallback } from 'react';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface ChatInputProps {
     value: string;
     onChange: (value: string) => void;
-    onSubmit: () => void;
+    onSubmit: (overrideText?: string) => void;
     isLoading?: boolean;
     placeholder?: string;
     autoTTS?: boolean;
     onAutoTTSChange?: (enabled: boolean) => void;
     isSpeaking?: boolean;
 }
+
+// Web Speech API language codes
+const WEB_SPEECH_LANGS: Record<string, string> = {
+    en: 'en-US',
+    fil: 'fil-PH',
+    // bcl not supported by Web Speech API - will use Python STT
+};
 
 export function ChatInput({
     value,
@@ -27,6 +35,15 @@ export function ChatInput({
     isSpeaking = false,
 }: ChatInputProps) {
     const textareaRef = useRef<HTMLTextAreaElement>(null);
+    const { language } = useLanguage();
+
+    // STT state
+    const [isListening, setIsListening] = useState(false);
+    const [isRecording, setIsRecording] = useState(false);
+    const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+    const audioChunksRef = useRef<Blob[]>([]);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const recognitionRef = useRef<any>(null);
 
     // Auto-resize textarea
     useEffect(() => {
@@ -46,6 +63,182 @@ export function ChatInput({
         }
     };
 
+    // Web Speech API STT (for English and Filipino)
+    const startWebSpeechSTT = useCallback(() => {
+        console.log('[STT] Starting Web Speech API for language:', language);
+
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (!SpeechRecognition) {
+            console.error('[STT] Speech recognition not supported');
+            alert('Speech recognition not supported in this browser. Please use Chrome or Edge.');
+            return;
+        }
+
+        const recognition = new SpeechRecognition();
+        recognition.continuous = false;
+        recognition.interimResults = false;
+        recognition.lang = WEB_SPEECH_LANGS[language] || 'en-US';
+
+        console.log('[STT] Using language code:', recognition.lang);
+
+        recognition.onstart = () => {
+            console.log('[STT] Recognition started');
+            setIsListening(true);
+        };
+
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        recognition.onresult = (event: any) => {
+            const transcript = event.results[0][0].transcript;
+            console.log('[STT] Transcript:', transcript);
+
+            // Build the full message
+            const newValue = value + (value ? ' ' : '') + transcript;
+            onChange(newValue);
+            setIsListening(false);
+
+            // Auto-submit with the text directly (bypassing state)
+            onSubmit(newValue);
+        };
+
+        recognition.onerror = (event: Event & { error?: string }) => {
+            console.error('[STT] Error:', event.error || event);
+            setIsListening(false);
+            if (event.error === 'not-allowed') {
+                alert('Microphone access denied. Please allow microphone access in your browser settings.');
+            } else if (event.error === 'no-speech') {
+                console.log('[STT] No speech detected');
+                // Don't show alert for no-speech, just end quietly
+            } else if (event.error === 'network') {
+                alert('Network error. Web Speech API requires internet connection.');
+            } else if (event.error) {
+                alert(`Speech recognition error: ${event.error}`);
+            }
+        };
+
+        recognition.onend = () => {
+            console.log('[STT] Recognition ended');
+            setIsListening(false);
+        };
+
+        recognitionRef.current = recognition;
+
+        try {
+            recognition.start();
+            console.log('[STT] Recognition.start() called');
+        } catch (err) {
+            console.error('[STT] Failed to start recognition:', err);
+            alert('Failed to start speech recognition. Please try again.');
+            setIsListening(false);
+        }
+    }, [language, value, onChange]);
+
+    // Python STT (for Bikol - record and send to server)
+    const startPythonSTT = useCallback(async () => {
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+
+            const mediaRecorder = new MediaRecorder(stream, {
+                mimeType: MediaRecorder.isTypeSupported('audio/webm') ? 'audio/webm' : 'audio/mp4'
+            });
+
+            mediaRecorderRef.current = mediaRecorder;
+            audioChunksRef.current = [];
+
+            mediaRecorder.ondataavailable = (event) => {
+                if (event.data.size > 0) {
+                    audioChunksRef.current.push(event.data);
+                }
+            };
+
+            mediaRecorder.onstop = async () => {
+                // Stop all tracks
+                stream.getTracks().forEach(track => track.stop());
+
+                // Create audio blob
+                const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/webm' });
+
+                // Send to STT API
+                setIsListening(true);
+                try {
+                    const formData = new FormData();
+                    formData.append('audio', audioBlob, 'recording.webm');
+                    formData.append('language', 'bcl');
+
+                    const response = await fetch('/api/stt', {
+                        method: 'POST',
+                        body: formData,
+                    });
+
+                    if (response.ok) {
+                        const result = await response.json();
+                        if (result.text) {
+                            const newValue = value + (value ? ' ' : '') + result.text;
+                            onChange(newValue);
+
+                            // Auto-submit with the text directly
+                            onSubmit(newValue);
+                        }
+                    } else {
+                        const error = await response.json();
+                        console.error('STT error:', error);
+                        alert(error.message || 'Speech recognition failed');
+                    }
+                } catch (err) {
+                    console.error('STT request error:', err);
+                    alert('Could not connect to speech service');
+                } finally {
+                    setIsListening(false);
+                }
+            };
+
+            mediaRecorder.start();
+            setIsRecording(true);
+        } catch (err) {
+            console.error('Microphone error:', err);
+            alert('Could not access microphone. Please allow microphone access.');
+        }
+    }, [value, onChange]);
+
+    const stopRecording = useCallback(() => {
+        if (mediaRecorderRef.current && mediaRecorderRef.current.state !== 'inactive') {
+            mediaRecorderRef.current.stop();
+        }
+        setIsRecording(false);
+    }, []);
+
+    const handleVoiceClick = useCallback(() => {
+        if (isRecording) {
+            // Stop recording (Bikol mode)
+            stopRecording();
+        } else if (isListening) {
+            // Stop Web Speech API
+            if (recognitionRef.current) {
+                recognitionRef.current.stop();
+            }
+        } else {
+            // Start STT
+            if (language === 'bcl') {
+                // Bikol uses Python STT
+                startPythonSTT();
+            } else {
+                // English/Filipino use Web Speech API
+                startWebSpeechSTT();
+            }
+        }
+    }, [language, isListening, isRecording, startWebSpeechSTT, startPythonSTT, stopRecording]);
+
+    // Cleanup on unmount
+    useEffect(() => {
+        return () => {
+            if (recognitionRef.current) {
+                recognitionRef.current.stop();
+            }
+            if (mediaRecorderRef.current && mediaRecorderRef.current.state !== 'inactive') {
+                mediaRecorderRef.current.stop();
+            }
+        };
+    }, []);
+
     return (
         <div className="border-t bg-background p-4">
             <div className="max-w-3xl mx-auto">
@@ -55,14 +248,33 @@ export function ChatInput({
                         <Tooltip>
                             <TooltipTrigger asChild>
                                 <Button
-                                    variant="ghost"
+                                    variant={isRecording || isListening ? "default" : "ghost"}
                                     size="icon"
-                                    className="h-10 w-10 rounded-xl flex-shrink-0"
+                                    onClick={handleVoiceClick}
+                                    disabled={isLoading}
+                                    className={`h-10 w-10 rounded-xl flex-shrink-0 ${isRecording ? 'bg-red-500 hover:bg-red-600 animate-pulse' :
+                                        isListening ? 'bg-teal-600 hover:bg-teal-700' : ''
+                                        }`}
                                 >
-                                    <span className="text-lg">🎤</span>
+                                    {isListening ? (
+                                        <svg className="w-5 h-5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                                        </svg>
+                                    ) : isRecording ? (
+                                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                            <rect x="6" y="6" width="12" height="12" rx="2" />
+                                        </svg>
+                                    ) : (
+                                        <span className="text-lg">🎤</span>
+                                    )}
                                 </Button>
                             </TooltipTrigger>
-                            <TooltipContent>Voice input</TooltipContent>
+                            <TooltipContent>
+                                {isRecording ? 'Stop recording' :
+                                    isListening ? 'Processing...' :
+                                        language === 'bcl' ? 'Voice input (Bikol)' : 'Voice input'}
+                            </TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
 
@@ -87,8 +299,8 @@ export function ChatInput({
                                         size="icon"
                                         onClick={() => onAutoTTSChange(!autoTTS)}
                                         className={`h-10 w-10 rounded-xl flex-shrink-0 ${autoTTS
-                                                ? 'bg-teal-600 hover:bg-teal-700 text-white'
-                                                : ''
+                                            ? 'bg-teal-600 hover:bg-teal-700 text-white'
+                                            : ''
                                             }`}
                                     >
                                         {isSpeaking ? (
@@ -103,7 +315,7 @@ export function ChatInput({
                                     </Button>
                                 </TooltipTrigger>
                                 <TooltipContent>
-                                    {autoTTS ? 'Auto-voice on (click to disable)' : 'Auto-voice off (click to enable)'}
+                                    {autoTTS ? 'Auto-voice on' : 'Auto-voice off'}
                                 </TooltipContent>
                             </Tooltip>
                         </TooltipProvider>
@@ -111,7 +323,7 @@ export function ChatInput({
 
                     {/* Send Button */}
                     <Button
-                        onClick={onSubmit}
+                        onClick={() => onSubmit()}
                         disabled={!value.trim() || isLoading}
                         size="icon"
                         className="h-10 w-10 rounded-xl bg-teal-600 hover:bg-teal-700 flex-shrink-0"

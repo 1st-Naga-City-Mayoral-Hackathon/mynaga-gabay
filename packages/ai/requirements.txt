@@ -1,13 +1,16 @@
-# MyNaga Gabay AI Package - Python Dependencies
+# MyNaga Gabay AI Service Dependencies
+# =====================================
 
-# TTS with Meta MMS (Massively Multilingual Speech)
-transformers>=4.33.0
+# Core ML
+transformers>=4.36.0
 torch>=2.0.0
-scipy
 
-# FastAPI for TTS microservice
-fastapi
-uvicorn[standard]
+# Audio processing
+scipy>=1.11.0
+librosa>=0.10.0
+soundfile>=0.12.0
 
-# Utilities
-python-multipart  # For file uploads if needed
+# API server
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+python-multipart>=0.0.6
