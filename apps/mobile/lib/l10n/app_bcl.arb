@@ -1,12 +1,12 @@
 {
-  "@@locale": "en",
+  "@@locale": "bcl",
   "title": "MyNaga Gabay",
   "@title": {
     "description": "The title of the app"
   },
-  "subtitle": "Your Health Assistant",
+  "subtitle": "An Saimong Katabang sa Salud",
   "@subtitle": {
     "description": "The subtitle of the app"
   }
- 
+  
 }

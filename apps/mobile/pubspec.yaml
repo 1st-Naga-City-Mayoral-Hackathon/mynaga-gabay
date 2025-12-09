@@ -1,5 +1,5 @@
 name: mynaga_gabay
-description: "MyNaga Gabay - Bikolano Health Assistant mobile app"
+description: 'MyNaga Gabay - Bikolano Health Assistant mobile app'
 publish_to: 'none'
 version: 0.1.0+1
 
@@ -9,7 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  generate: true
+  flutter_localizations:
+    sdk: flutter
 
   cupertino_icons: ^1.0.6
   http: ^1.2.0
@@ -26,6 +27,7 @@ dependencies:
   form_builder_validators: ^11.2.0
   flutter_form_builder: ^10.1.0
   get_it: ^9.2.0
+  intl: ^0.20.2
 
 dev_dependencies:
   flutter_test:
@@ -34,11 +36,13 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-  
+  generate: true
+
   # Uncomment and add fonts when available
   assets:
     - assets/images/
     - assets/icons/
+    - assets/flags/
   # fonts:
   #   - family: Inter
   #     fonts:
@@ -47,4 +51,3 @@ flutter:
   #         weight: 500
   #       - asset: assets/fonts/Inter-Bold.ttf
   #         weight: 700
-
