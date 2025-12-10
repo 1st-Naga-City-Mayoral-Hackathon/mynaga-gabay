@@ -20,7 +20,7 @@
         },
         {
             "parameters": {
-                "jsCode": "// Extract incoming data from the webhook\nconst body = $input.first().json.body || $input.first().json;\nconst message = body.message || '';\nconst sessionId = body.sessionId || 'session-' + Date.now();\nconst language = body.language || 'auto';\n\n// Validate message\nif (!message) {\n  throw new Error('No message provided');\n}\n\n// Language detection\nconst bikolIndicators = ['daw', 'baga', 'ta', 'digdi', 'saimo', 'sakuya', 'harong', 'kaini', 'maray', 'tabi', 'siring', 'haen', 'pano', 'dai', 'iyo', 'bako', 'saro'];\nconst tagalogIndicators = ['ang', 'ng', 'mga', 'sa', 'na', 'ko', 'mo', 'siya', 'niya', 'kami', 'kayo', 'sila', 'ano', 'paano', 'saan', 'bakit', 'sino'];\nconst englishIndicators = ['the', 'is', 'are', 'what', 'where', 'how', 'can', 'do', 'does', 'have', 'has', 'will', 'would', 'could', 'should', 'please', 'help', 'need', 'want'];\n\nlet detectedLanguage = language;\nif (language === 'auto') {\n  const lowerMsg = message.toLowerCase();\n  const words = lowerMsg.split(/\\s+/);\n  \n  const bikolScore = bikolIndicators.filter(w => words.includes(w)).length;\n  const tagalogScore = tagalogIndicators.filter(w => words.includes(w)).length;\n  const englishScore = englishIndicators.filter(w => words.includes(w)).length;\n  \n  if (bikolScore > 0 && bikolScore >= tagalogScore) {\n    detectedLanguage = 'bikol';\n  } else if (tagalogScore > englishScore) {\n    detectedLanguage = 'tagalog';\n  } else {\n    detectedLanguage = 'english';\n  }\n}\n\nreturn [{\n  json: {\n    message: message,\n    sessionId: sessionId,\n    language: detectedLanguage,\n    timestamp: new Date().toISOString()\n  }\n}];"
+                "jsCode": "// Extract incoming data from the webhook (already normalized by Next.js API)\nconst body = $input.first().json.body || $input.first().json;\nconst message = body.message || '';\nconst sessionId = body.sessionId || 'session-' + Date.now();\nconst language = body.language || 'english'; // Already normalized by API\n\n// Validate message\nif (!message) {\n  throw new Error('No message provided');\n}\n\nreturn [{\n  json: {\n    message: message,\n    sessionId: sessionId,\n    language: language,\n    timestamp: new Date().toISOString()\n  }\n}];"
             },
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
@@ -29,11 +29,11 @@
                 -256
             ],
             "id": "extract-request",
-            "name": "Extract & Detect Language"
+            "name": "Extract Request"
         },
         {
             "parameters": {
-                "model": "qwen/qwen3-32b",
+                "model": "llama-3.3-70b-versatile",
                 "options": {}
             },
             "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
@@ -72,9 +72,9 @@
             "parameters": {
                 "agent": "conversationalAgent",
                 "promptType": "define",
-                "text": "=[DETECTED LANGUAGE: {{ $json.language }}]\n\nUser message: {{ $json.message }}\n\nIMPORTANT: You MUST respond in {{ $json.language }}. Match the user's language exactly.",
+                "text": "={{ $json.message }}",
                 "options": {
-                    "systemMessage": "You are MyNaga Gabay, an AI health assistant for Naga City, Camarines Sur, Philippines.\n\n## CRITICAL LANGUAGE RULES\n- You MUST respond in the SAME language as the user's input\n- If user speaks English, respond in English\n- If user speaks Bikol, respond in Bikol\n- If user speaks Tagalog/Filipino, respond in Filipino\n- NEVER mix languages unless providing translations\n\n## Your Role\nHelp people in Naga City find information about:\n- Health facilities (hospitals, clinics, pharmacies, health centers)\n- Emergency hotlines and contact numbers\n- Government services and offices\n- Medicines and healthcare information\n- PhilHealth coverage and benefits\n\n## Response Format\n- Be concise but helpful (2-4 sentences ideal)\n- For specific facilities, provide address and contact number\n- For emergencies, always provide hotline numbers immediately\n- If you don't know, say: 'I don't have that information. Please contact City Hall at (054) 472-3000.'\n\n## Key Information\n- Emergency: 911 or (054) 472-3000 (Central Command Center)\n- Bicol Regional Hospital: (054) 472-6125\n- City Health Office: City Hall Complex\n- PhilHealth Naga: 2nd Floor, City Hall Annex, (054) 472-8888\n\nAlways be friendly, helpful, and prioritize user health and safety."
+                    "systemMessage": "You are MyNaga Gabay, an AI health assistant for Naga City, Camarines Sur, Philippines.\n\nALWAYS RESPOND IN ENGLISH. Translation to other languages is handled separately.\n\n## Your Role\nHelp people in Naga City find information about:\n- Health facilities (hospitals, clinics, pharmacies, health centers)\n- Emergency hotlines and contact numbers\n- Government services and offices\n- Medicines and healthcare information\n- PhilHealth coverage and benefits\n\n## Response Format\n- Be concise but helpful (2-4 sentences ideal)\n- For specific facilities, provide address and contact number\n- For emergencies, always provide hotline numbers immediately\n- If you don't know, say: 'I don't have that information. Please contact City Hall at (054) 472-3000.'\n\n## Key Information\n- Emergency: 911 or (054) 472-3000 (Central Command Center)\n- Bicol Regional Hospital: (054) 472-6125\n- City Health Office: City Hall Complex\n- PhilHealth Naga: 2nd Floor, City Hall Annex, (054) 472-8888\n\nAlways be friendly, helpful, and prioritize user health and safety."
                 }
             },
             "type": "@n8n/n8n-nodes-langchain.agent",
@@ -132,7 +132,7 @@
         },
         {
             "parameters": {
-                "jsCode": "// Format the AI agent's response\nconst input = $input.first().json;\nconst agentOutput = input.output || input.text || 'Pasensya na, may problema. Paki-try giraray. (Sorry, there was a problem. Please try again.)';\nconst requestData = $('Extract & Detect Language').first().json;\n\nreturn [{\n  json: {\n    response: agentOutput,\n    language: requestData.language,\n    sessionId: requestData.sessionId,\n    model: 'qwen/qwen3-32b',\n    timestamp: new Date().toISOString()\n  }\n}];"
+                "jsCode": "// Format the AI agent's response\\nconst input = $input.first().json;\\nconst agentOutput = input.output || input.text || 'Pasensya na, may problema. Paki-try giraray. (Sorry, there was a problem. Please try again.)';\\nconst requestData = $('Extract Request').first().json;\\n\\nreturn [{\\n  json: {\\n    response: agentOutput,\\n    language: requestData.language,\\n    sessionId: requestData.sessionId,\\n    model: 'llama-3.3-70b-versatile',\\n    timestamp: new Date().toISOString()\\n  }\\n}];"
             },
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
@@ -164,14 +164,14 @@
             "main": [
                 [
                     {
-                        "node": "Extract & Detect Language",
+                        "node": "Extract Request",
                         "type": "main",
                         "index": 0
                     }
                 ]
             ]
         },
-        "Extract & Detect Language": {
+        "Extract Request": {
             "main": [
                 [
                     {

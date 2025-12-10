@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import { chatRouter } from './routes/chat';
 import { healthRouter } from './routes/health';
 import { facilitiesRouter } from './routes/facilities';
+import { ttsRouter } from './routes/tts';
 import { errorHandler } from './middleware/errorHandler';
 import { requestLogger } from './middleware/requestLogger';
 
@@ -25,6 +26,7 @@ app.use(requestLogger);
 app.use('/api/chat', chatRouter);
 app.use('/api/health', healthRouter);
 app.use('/api/facilities', facilitiesRouter);
+app.use('/api/tts', ttsRouter);
 
 // Root endpoint
 app.get('/', (req, res) => {
@@ -32,7 +34,7 @@ app.get('/', (req, res) => {
         name: 'MyNaga Gabay API',
         version: '0.1.0',
         status: 'running',
-        endpoints: ['/api/chat', '/api/health', '/api/facilities'],
+        endpoints: ['/api/chat', '/api/health', '/api/facilities', '/api/tts'],
     });
 });
 
