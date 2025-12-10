@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mynaga_gabay/shared/color.dart';
 import 'package:provider/provider.dart';
 import '../widgets/chat_bubble.dart';
 import '../widgets/voice_button.dart';
@@ -8,6 +9,7 @@ import '../providers/theme_provider.dart';
 import 'settings_screen.dart';
 
 class HomeScreen extends StatefulWidget {
+  static String route = '/';
   const HomeScreen({super.key});
 
   @override
@@ -26,7 +28,8 @@ class _HomeScreenState extends State<HomeScreen> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     if (!_initialized) {
-      final langProvider = Provider.of<LanguageProvider>(context, listen: false);
+      final langProvider =
+          Provider.of<LanguageProvider>(context, listen: false);
       _messages.add({
         'role': 'assistant',
         'content': langProvider.t('chat.greeting'),
@@ -91,11 +94,12 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
                 gradient: const LinearGradient(
-                  colors: [Color(0xFF0D9488), Color(0xFF2563EB)],
+                  colors: [AppColor.primary, AppColor.secondary],
                 ),
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: const Icon(Icons.local_hospital, color: Colors.white, size: 20),
+              child: const Icon(Icons.local_hospital,
+                  color: Colors.white, size: 20),
             ),
             const SizedBox(width: 12),
             Column(
@@ -103,7 +107,8 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Text(
                   langProvider.t('app.title'),
-                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 16),
                 ),
                 Text(
                   langProvider.t('app.subtitle'),
@@ -129,15 +134,18 @@ class _HomeScreenState extends State<HomeScreen> {
           PopupMenuButton<AppLanguage>(
             onSelected: (lang) => langProvider.setLanguage(lang),
             itemBuilder: (context) => [
-              _buildLanguageItem(AppLanguage.en, '🇺🇸', 'English', langProvider),
-              _buildLanguageItem(AppLanguage.fil, '🇵🇭', 'Filipino', langProvider),
+              _buildLanguageItem(
+                  AppLanguage.en, '🇺🇸', 'English', langProvider),
+              _buildLanguageItem(
+                  AppLanguage.fil, '🇵🇭', 'Filipino', langProvider),
               _buildLanguageItem(AppLanguage.bcl, '🏝️', 'Bikol', langProvider),
             ],
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
               child: Row(
                 children: [
-                  Text(langProvider.languageFlag, style: const TextStyle(fontSize: 18)),
+                  Text(langProvider.languageFlag,
+                      style: const TextStyle(fontSize: 18)),
                   const Icon(Icons.arrow_drop_down),
                 ],
               ),
@@ -230,7 +238,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           vertical: 12,
                         ),
                         filled: true,
-                        fillColor: theme.colorScheme.surfaceVariant.withOpacity(0.5),
+                        fillColor: theme.colorScheme.surfaceContainerHighest
+                            .withOpacity(0.5),
                       ),
                       onSubmitted: _sendMessage,
                     ),
@@ -270,7 +279,8 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           if (isSelected) ...[
             const Spacer(),
-            Icon(Icons.check, size: 18, color: Theme.of(context).colorScheme.primary),
+            Icon(Icons.check,
+                size: 18, color: Theme.of(context).colorScheme.primary),
           ],
         ],
       ),
