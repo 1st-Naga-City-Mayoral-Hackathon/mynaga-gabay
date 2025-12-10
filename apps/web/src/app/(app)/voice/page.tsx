@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { MatrixRain, CircularHUD, JarvisVisualizer } from '@/components/jarvis';
 
 // States for the voice conversation
 type ConversationState = 'idle' | 'connecting' | 'listening' | 'processing' | 'speaking';
@@ -468,66 +469,49 @@ export default function VoicePage() {
     };
 
     return (
-        <div className="min-h-screen bg-black text-white flex flex-col">
+        <div className="min-h-screen jarvis-bg text-white flex flex-col relative overflow-hidden">
+            {/* Matrix Rain Background */}
+            <MatrixRain opacity={0.12} />
+
             {/* Header */}
-            <header className="flex items-center justify-between p-4 border-b border-white/10">
-                <Link href="/chat" className="flex items-center gap-2 text-white/70 hover:text-white transition-colors">
+            <header className="relative z-10 flex items-center justify-between p-4 border-b border-cyan-500/20 bg-black/30 backdrop-blur-sm">
+                <Link href="/chat" className="flex items-center gap-2 text-cyan-400/70 hover:text-cyan-300 transition-colors">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                     </svg>
-                    <span>Back to Chat</span>
+                    Bumalik
                 </Link>
 
-                <h1 className="text-lg font-medium">Gabay Voice</h1>
+                <h1 className="text-lg font-medium jarvis-cyan jarvis-glow">Gabay Voice</h1>
 
                 <div className="w-24" />
             </header>
 
             {/* Main Content */}
-            <main className="flex-1 flex flex-col items-center justify-center p-8">
-                {/* Audio Visualizer Bars */}
-                <div className="relative w-64 h-64 flex items-center justify-center mb-8">
-                    {/* Glow effect */}
-                    <div className={`absolute inset-0 rounded-full transition-all duration-500 ${state === 'speaking' ? 'bg-teal-500/20 blur-3xl scale-125' :
-                        state === 'listening' ? 'bg-blue-500/20 blur-3xl scale-110' :
-                            state === 'processing' ? 'bg-yellow-500/20 blur-3xl scale-105' :
-                                'bg-white/5 blur-2xl'
-                        }`} />
-
-                    {/* Visualizer bars */}
-                    <div className="relative flex items-center justify-center gap-2 h-32">
-                        {barLevels.map((level, i) => (
-                            <div
-                                key={i}
-                                className={`w-3 rounded-full transition-all duration-100 ${state === 'speaking' ? 'bg-gradient-to-t from-teal-500 to-emerald-400' :
-                                    state === 'listening' ? 'bg-gradient-to-t from-blue-500 to-cyan-400' :
-                                        state === 'processing' ? 'bg-gradient-to-t from-yellow-500 to-orange-400' :
-                                            'bg-white/20'
-                                    }`}
-                                style={{
-                                    height: `${Math.max(16, level * 100)}px`,
-                                    opacity: state === 'idle' ? 0.3 : 1,
-                                }}
-                            />
-                        ))}
-                    </div>
+            <main className="relative z-10 flex-1 flex flex-col items-center justify-center p-8">
+                {/* Circular HUD with JARVIS Visualizer */}
+                <div className="mb-8">
+                    <CircularHUD state={state} audioLevel={audioLevel}>
+                        {/* JARVIS Dot Visualizer */}
+                        <JarvisVisualizer state={state} audioLevel={audioLevel} />
+                    </CircularHUD>
                 </div>
 
                 {/* Agent Name */}
-                <h2 className="text-3xl font-bold mb-2 bg-gradient-to-r from-teal-400 to-emerald-400 bg-clip-text text-transparent">
+                <h2 className="text-3xl font-bold mb-2 jarvis-cyan jarvis-glow">
                     Gabay
                 </h2>
-                <p className="text-white/50 mb-6">{t('app.tagline') || 'Your Health Assistant'}</p>
+                <p className="text-cyan-400/50 mb-6">Ang Iyong Katulong sa Kalusugan</p>
 
                 {/* State Label */}
-                <div className={`flex items-center gap-2 mb-8 ${state === 'idle' ? 'text-white/50' :
-                    state === 'listening' ? 'text-blue-400' :
+                <div className={`flex items-center gap-2 mb-8 ${state === 'idle' ? 'text-cyan-500/50' :
+                    state === 'listening' ? 'text-cyan-400' :
                         state === 'processing' ? 'text-yellow-400' :
-                            state === 'speaking' ? 'text-teal-400' :
-                                'text-white/50'
+                            state === 'speaking' ? 'text-cyan-300' :
+                                'text-cyan-500/50'
                     }`}>
                     {state !== 'idle' && (
-                        <span className="w-2 h-2 rounded-full bg-current animate-pulse" />
+                        <span className="w-2 h-2 rounded-full bg-current animate-pulse" style={{ boxShadow: '0 0 8px currentColor' }} />
                     )}
                     <span className="text-lg">{getStateLabel()}</span>
                 </div>
@@ -535,16 +519,16 @@ export default function VoicePage() {
                 {/* Transcript/Response Display */}
                 <div className="max-w-lg w-full space-y-4 mb-8">
                     {transcript && state !== 'idle' && (
-                        <div className="bg-white/5 rounded-2xl p-4 backdrop-blur-sm">
-                            <p className="text-xs text-white/50 mb-1">You</p>
-                            <p className="text-white">{transcript}</p>
+                        <div className="bg-cyan-500/10 rounded-xl p-4 backdrop-blur-sm border border-cyan-500/20">
+                            <p className="text-xs text-cyan-400/60 mb-1">Ikaw</p>
+                            <p className="text-cyan-100">{transcript}</p>
                         </div>
                     )}
 
                     {response && (state === 'speaking' || messages.length > 0) && (
-                        <div className="bg-teal-500/10 rounded-2xl p-4 backdrop-blur-sm border border-teal-500/20">
-                            <p className="text-xs text-teal-400/70 mb-1">Gabay</p>
-                            <p className="text-white">{response}</p>
+                        <div className="bg-cyan-500/15 rounded-xl p-4 backdrop-blur-sm border border-cyan-400/30">
+                            <p className="text-xs text-cyan-400/70 mb-1">Gabay</p>
+                            <p className="text-white jarvis-glow">{response}</p>
                         </div>
                     )}
                 </div>
@@ -555,32 +539,32 @@ export default function VoicePage() {
                         <Button
                             onClick={handleStart}
                             size="lg"
-                            className="bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-400 hover:to-emerald-400 text-white px-8 py-6 text-lg rounded-full shadow-lg shadow-teal-500/25"
+                            className="bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-400/50 text-cyan-300 px-8 py-6 text-lg rounded-full shadow-lg animate-glow-pulse"
                         >
                             <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
                             </svg>
-                            Start Conversation
+                            Magsimula
                         </Button>
                     ) : (
                         <Button
                             onClick={handleStop}
                             size="lg"
                             variant="outline"
-                            className="border-white/20 hover:bg-white/10 text-white px-8 py-6 text-lg rounded-full"
+                            className="border-red-500/50 hover:bg-red-500/20 text-red-400 px-8 py-6 text-lg rounded-full"
                         >
                             <svg className="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
                                 <rect x="6" y="6" width="12" height="12" rx="2" />
                             </svg>
-                            End Conversation
+                            Tapusin
                         </Button>
                     )}
                 </div>
             </main>
 
             {/* Footer */}
-            <footer className="p-4 text-center text-white/30 text-sm border-t border-white/10">
-                <p>{t('voiceMode.instructions') || 'Speak naturally. You can interrupt at any time.'}</p>
+            <footer className="relative z-10 p-4 text-center text-cyan-500/40 text-sm border-t border-cyan-500/10 bg-black/30 backdrop-blur-sm">
+                <p>Magsalita ng natural. Handa akong makinig sa iyo.</p>
             </footer>
         </div>
     );
