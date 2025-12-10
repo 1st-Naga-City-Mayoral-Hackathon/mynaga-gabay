@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localization/flutter_localization.dart';
 import 'package:mynaga_gabay/app/bloc/app_bloc.dart';
-import 'package:mynaga_gabay/extensions/localization_extensions.dart';
+import 'package:mynaga_gabay/localization/locales.dart';
 import 'package:mynaga_gabay/shared/color.dart';
 import 'package:mynaga_gabay/shared/images.dart';
 
@@ -11,6 +12,19 @@ class ChatView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+
+    String selectedFlag(String? localeCode) {
+      switch (localeCode) {
+        case 'en':
+          return AppImages.americanFlag;
+        case 'fil':
+          return AppImages.philippinesFlag;
+        case 'bcl':
+          return AppImages.bicolFlag;
+        default:
+          return AppImages.philippinesFlag;
+      }
+    }
 
     return BlocBuilder<AppBloc, AppState>(
       builder: (context, state) {
@@ -35,13 +49,13 @@ class ChatView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  context.title,
+                  LocaleData.titleKey.getString(context),
                   style: theme.textTheme.bodyMedium?.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 Text(
-                  context.subtitle,
+                  LocaleData.subtitleKey.getString(context),
                   style: theme.textTheme.bodySmall,
                 ),
               ],
@@ -86,23 +100,17 @@ class ChatView extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 8),
                   child: Row(
                     children: [
-                      Text(state.localeCode ?? 'bcl',
-                          style: const TextStyle(fontSize: 18)),
+                      Image.asset(
+                        selectedFlag(state.localeCode),
+                        width: 24,
+                        height: 24,
+                      ),
                       const Icon(Icons.arrow_drop_down),
                     ],
                   ),
                 ),
               ),
               // Settings
-              IconButton(
-                icon: const Icon(Icons.settings),
-                onPressed: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (_) => const SettingsScreen()),
-                  // );
-                },
-              ),
             ],
           ),
         );

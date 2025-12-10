@@ -5,7 +5,7 @@ class AppState extends Equatable {
   final String? localeCode;
 
   const AppState({
-    this.localeCode = "bcl",
+    this.localeCode = "en",
   });
 
   AppState copyWith({
