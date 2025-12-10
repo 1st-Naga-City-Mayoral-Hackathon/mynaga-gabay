@@ -44,7 +44,7 @@ logger = logging.getLogger(__name__)
 
 TTS_MODELS = {
     "bcl": "facebook/mms-tts-bcl",  # Bikol Central
-    "fil": "facebook/mms-tts-fil",  # Filipino/Tagalog
+    "fil": "facebook/mms-tts-tgl",  # Filipino/Tagalog (uses 'tgl' ISO 639-3 code)
     "eng": "facebook/mms-tts-eng",  # English
 }
 
@@ -61,6 +61,40 @@ STT_LANGUAGE_CODES = {
 }
 
 # ============================================
+# Translation Configuration (NLLB-200)
+# ============================================
+
+NLLB_MODEL = "facebook/nllb-200-distilled-600M"  # Smaller, faster model
+
+# NLLB language codes (different from MMS codes!)
+NLLB_LANGUAGE_CODES = {
+    "english": "eng_Latn",
+    "tagalog": "tgl_Latn",
+    "bikol": "bcl_Latn",
+    "eng": "eng_Latn",
+    "fil": "tgl_Latn",
+    "bcl": "bcl_Latn",
+}
+
+# ============================================
+# Google Translate Configuration (for Tagalog)
+# ============================================
+
+# Use dedicated key or fall back to Places API key (same Google Cloud key)
+GOOGLE_TRANSLATE_API_KEY = os.environ.get("GOOGLE_TRANSLATE_API_KEY") or os.environ.get("GOOGLE_PLACES_API_KEY", "")
+
+# Google Translate language codes
+GOOGLE_LANGUAGE_CODES = {
+    "english": "en",
+    "tagalog": "tl",
+    "eng": "en",
+    "fil": "tl",
+}
+
+# Languages that use Google Translate (better quality)
+USE_GOOGLE_TRANSLATE = {"tagalog", "fil"}
+
+# ============================================
 # Global caches
 # ============================================
 
@@ -74,6 +108,10 @@ tts_tokenizers_cache: dict = {}
 stt_model = None
 stt_processor = None
 stt_current_lang = None
+
+# Translation cache (NLLB)
+translation_model = None
+translation_tokenizer = None
 
 
 # ============================================
@@ -194,6 +232,136 @@ def speech_to_text(audio_bytes: bytes, language: str = DEFAULT_LANGUAGE) -> str:
 
 
 # ============================================
+# Translation Functions (NLLB-200)
+# ============================================
+
+def load_translation_model():
+    """Load NLLB translation model and tokenizer."""
+    global translation_model, translation_tokenizer
+    
+    if translation_model is None:
+        logger.info(f"Loading translation model: {NLLB_MODEL}")
+        
+        from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
+        
+        translation_tokenizer = AutoTokenizer.from_pretrained(NLLB_MODEL)
+        translation_model = AutoModelForSeq2SeqLM.from_pretrained(NLLB_MODEL)
+        
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+        translation_model = translation_model.to(device)
+        
+        logger.info(f"Translation model loaded on {device}")
+    
+    return translation_model, translation_tokenizer
+
+
+def translate_with_google(text: str, source_lang: str, target_lang: str) -> str:
+    """Translate using Google Translate API (for Tagalog)."""
+    import requests
+    
+    if not GOOGLE_TRANSLATE_API_KEY:
+        raise ValueError("GOOGLE_TRANSLATE_API_KEY not set")
+    
+    src_code = GOOGLE_LANGUAGE_CODES.get(source_lang.lower())
+    tgt_code = GOOGLE_LANGUAGE_CODES.get(target_lang.lower())
+    
+    if not src_code or not tgt_code:
+        raise ValueError(f"Unsupported language for Google: {source_lang} or {target_lang}")
+    
+    url = "https://translation.googleapis.com/language/translate/v2"
+    params = {
+        "key": GOOGLE_TRANSLATE_API_KEY,
+        "q": text,
+        "source": src_code,
+        "target": tgt_code,
+        "format": "text",
+    }
+    
+    response = requests.post(url, data=params)
+    response.raise_for_status()
+    
+    result = response.json()
+    translated = result["data"]["translations"][0]["translatedText"]
+    
+    return translated
+
+
+def translate_with_nllb(text: str, source_lang: str, target_lang: str) -> str:
+    """Translate using NLLB-200 (for Bikol and fallback)."""
+    
+    # Get NLLB language codes
+    src_code = NLLB_LANGUAGE_CODES.get(source_lang.lower())
+    tgt_code = NLLB_LANGUAGE_CODES.get(target_lang.lower())
+    
+    if not src_code:
+        raise ValueError(f"Unsupported source language: {source_lang}")
+    if not tgt_code:
+        raise ValueError(f"Unsupported target language: {target_lang}")
+    
+    model, tokenizer = load_translation_model()
+    device = next(model.parameters()).device
+    
+    # Set source language
+    tokenizer.src_lang = src_code
+    
+    # Tokenize
+    inputs = tokenizer(text, return_tensors="pt", padding=True, truncation=True, max_length=512)
+    inputs = {k: v.to(device) for k, v in inputs.items()}
+    
+    # Generate translation
+    with torch.no_grad():
+        generated_tokens = model.generate(
+            **inputs,
+            forced_bos_token_id=tokenizer.convert_tokens_to_ids(tgt_code),
+            max_length=512,
+        )
+    
+    # Decode
+    translation = tokenizer.batch_decode(generated_tokens, skip_special_tokens=True)[0]
+    
+    return translation
+
+
+def translate_text(text: str, source_lang: str, target_lang: str) -> str:
+    """
+    Hybrid translation:
+    - Google Translate for Tagalog (better quality)
+    - NLLB for Bikol (Google doesn't support it)
+    """
+    source_lower = source_lang.lower()
+    target_lower = target_lang.lower()
+    
+    # Skip if same language
+    if source_lower == target_lower:
+        return text
+    if source_lower in ("eng", "english") and target_lower in ("eng", "english"):
+        return text
+    if source_lower in ("tagalog", "fil") and target_lower in ("tagalog", "fil"):
+        return text
+    if source_lower in ("bikol", "bcl") and target_lower in ("bikol", "bcl"):
+        return text
+    
+    # Check if we should use Google Translate (for Tagalog <-> English)
+    use_google = (
+        GOOGLE_TRANSLATE_API_KEY and
+        source_lower in GOOGLE_LANGUAGE_CODES and
+        target_lower in GOOGLE_LANGUAGE_CODES and
+        (source_lower in USE_GOOGLE_TRANSLATE or target_lower in USE_GOOGLE_TRANSLATE)
+    )
+    
+    if use_google:
+        try:
+            logger.info(f"Using Google Translate: {source_lang} → {target_lang}")
+            return translate_with_google(text, source_lang, target_lang)
+        except Exception as e:
+            logger.error(f"Google Translate failed: {e}, falling back to NLLB")
+    
+    # Use NLLB for Bikol or as fallback
+    logger.info(f"Using NLLB: {source_lang} → {target_lang}")
+    return translate_with_nllb(text, source_lang, target_lang)
+
+
+# ============================================
 # Request/Response Models
 # ============================================
 
@@ -214,6 +382,18 @@ class HealthResponse(BaseModel):
     stt_current_language: Optional[str]
     default_language: str
     supported_languages: list[str]
+
+
+class TranslateRequest(BaseModel):
+    text: str = Field(..., min_length=1, max_length=5000)
+    source_lang: str = Field(..., description="Source language: english, tagalog, bikol, eng, fil, bcl")
+    target_lang: str = Field(..., description="Target language: english, tagalog, bikol, eng, fil, bcl")
+
+
+class TranslateResponse(BaseModel):
+    text: str
+    source_lang: str
+    target_lang: str
 
 
 # ============================================
@@ -319,6 +499,33 @@ async def transcribe_speech(
 
 
 # ============================================
+# Translation Endpoint
+# ============================================
+
+@app.post("/translate", response_model=TranslateResponse)
+async def translate(request: TranslateRequest):
+    """Translate text between Bikol, Tagalog, and English."""
+    try:
+        logger.info(f"Translate request: {request.source_lang} → {request.target_lang}, text='{request.text[:50]}...'")
+        
+        translated = translate_text(request.text, request.source_lang, request.target_lang)
+        
+        logger.info(f"Translation result: '{translated[:50]}...'")
+        
+        return TranslateResponse(
+            text=translated,
+            source_lang=request.source_lang,
+            target_lang=request.target_lang,
+        )
+    
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        logger.error(f"Translation error: {e}")
+        raise HTTPException(status_code=500, detail=f"Translation failed: {str(e)}")
+
+
+# ============================================
 # Health & Info Endpoints
 # ============================================
 
@@ -344,10 +551,12 @@ async def root():
         "endpoints": {
             "POST /tts": "Text-to-Speech",
             "POST /stt": "Speech-to-Text",
+            "POST /translate": "Translation (Bikol/Tagalog/English)",
             "GET /health": "Health check",
         },
         "tts_languages": TTS_MODELS,
         "stt_languages": STT_LANGUAGE_CODES,
+        "translation_languages": list(NLLB_LANGUAGE_CODES.keys()),
     }
 
 

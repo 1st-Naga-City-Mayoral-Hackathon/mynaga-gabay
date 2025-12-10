@@ -5,6 +5,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { useLanguage } from '@/contexts/LanguageContext';
+import Link from 'next/link';
 
 interface ChatInputProps {
     value: string;
@@ -320,6 +321,23 @@ export function ChatInput({
                             </Tooltip>
                         </TooltipProvider>
                     )}
+
+                    {/* Voice Mode Link */}
+                    <TooltipProvider>
+                        <Tooltip>
+                            <TooltipTrigger asChild>
+                                <Link
+                                    href="/voice"
+                                    className="h-10 w-10 rounded-xl flex-shrink-0 flex items-center justify-center hover:bg-accent transition-colors"
+                                >
+                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.536 8.464a5 5 0 010 7.072M18.364 5.636a9 9 0 010 12.728M6 18l6-6V6a3 3 0 00-6 0v6l6 6z" />
+                                    </svg>
+                                </Link>
+                            </TooltipTrigger>
+                            <TooltipContent>Voice Mode</TooltipContent>
+                        </Tooltip>
+                    </TooltipProvider>
 
                     {/* Send Button */}
                     <Button
