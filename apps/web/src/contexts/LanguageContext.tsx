@@ -91,6 +91,14 @@ const translations: Record<Language, Record<string, string>> = {
         'chat.recentChats': 'Recent Chats',
         'chat.disclaimer': 'Gabay can make mistakes. Consider verifying important health information.',
 
+        // Voice Mode
+        'voiceMode.title': 'Voice Mode',
+        'voiceMode.tapToStart': 'Tap to start',
+        'voiceMode.listening': 'Listening...',
+        'voiceMode.thinking': 'Thinking...',
+        'voiceMode.speaking': 'Speaking...',
+        'voiceMode.instructions': 'Speak naturally. Gabay will respond and continue listening. You can interrupt at any time.',
+
         // Suggestions
         'suggestion.hospital': 'Find nearest hospital',
         'suggestion.philhealth': 'PhilHealth coverage',
@@ -321,6 +329,14 @@ const translations: Record<Language, Record<string, string>> = {
         'chat.recentChats': 'Kamakailang Chat',
         'chat.disclaimer': 'Maaaring magkamali si Gabay. Siguraduhing i-verify ang mahalagang impormasyon.',
 
+        // Voice Mode
+        'voiceMode.title': 'Voice Mode',
+        'voiceMode.tapToStart': 'I-tap para magsimula',
+        'voiceMode.listening': 'Nakikinig...',
+        'voiceMode.thinking': 'Nag-iisip...',
+        'voiceMode.speaking': 'Nagsasalita...',
+        'voiceMode.instructions': 'Magsalita ng natural. Sasagutin ka ni Gabay at patuloy na makikinig. Pwede kang mag-interrupt anumang oras.',
+
         // Suggestions
         'suggestion.hospital': 'Hanapin ang pinakamalapit na ospital',
         'suggestion.philhealth': 'PhilHealth coverage',
@@ -495,6 +511,14 @@ const translations: Record<Language, Record<string, string>> = {
         'chat.newChat': 'Bagong Chat',
         'chat.recentChats': 'Mga Nakaaging Chat',
         'chat.disclaimer': 'Pwedeng magkasala si Gabay. Siguraduhon na i-verify an importante na impormasyon.',
+
+        // Voice Mode
+        'voiceMode.title': 'Voice Mode',
+        'voiceMode.tapToStart': 'I-tap para magpuon',
+        'voiceMode.listening': 'Nagdadangog...',
+        'voiceMode.thinking': 'Nag-iisip...',
+        'voiceMode.speaking': 'Nagtaram...',
+        'voiceMode.instructions': 'Magtaram nin natural. Masimbag ka ni Gabay asin padagos na madangog. Pwede kang mag-interrupt anuman na oras.',
 
         // Suggestions
         'suggestion.hospital': 'Hanapon an pinakaharani na ospital',

@@ -55,3 +55,4 @@ apps/mobile/ios/Flutter/Flutter.podspec
 # Misc
 *.pem
 .cache/
+*.wav
