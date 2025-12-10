@@ -6,6 +6,7 @@ import 'package:mynaga_gabay/bootstrap.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  await localization.ensureInitialized();
   await AppLocator.init();
 
   bootstrap(() => const AppPage());
