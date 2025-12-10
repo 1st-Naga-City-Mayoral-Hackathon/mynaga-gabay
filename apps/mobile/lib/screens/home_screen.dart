@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mynaga_gabay/shared/color.dart';
 import 'package:provider/provider.dart';
 import '../widgets/chat_bubble.dart';
-import '../widgets/voice_button.dart';
+import '../features/chat/widget/voice_button.dart';
 import '../services/api_service.dart';
 import '../providers/language_provider.dart';
 import '../providers/theme_provider.dart';

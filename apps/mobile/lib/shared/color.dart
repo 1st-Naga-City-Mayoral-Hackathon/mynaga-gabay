@@ -11,4 +11,5 @@ class AppColor {
   static const Color octonary = Color(0xFF8B5CF6);
   static const Color nonary = Color(0xFFEC4899);
   static const Color denary = Color(0xFFF43F5E);
+  static const Color background = Color(0xFFF5F5F5);
 }

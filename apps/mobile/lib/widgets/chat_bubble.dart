@@ -26,7 +26,9 @@ class ChatBubble extends StatelessWidget {
                   colors: [Color(0xFF0D9488), Color(0xFF2563EB)],
                 )
               : null,
-          color: isUser ? null : Theme.of(context).colorScheme.surfaceVariant,
+          color: isUser
+              ? null
+              : Theme.of(context).colorScheme.surfaceContainerHighest,
           borderRadius: BorderRadius.circular(16),
         ),
         child: Text(

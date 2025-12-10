@@ -19,6 +19,12 @@ class _VoiceButtonState extends State<VoiceButton> {
   final stt.SpeechToText _speech = stt.SpeechToText();
   bool _isListening = false;
 
+  @override
+  void dispose() {
+    _speech.stop();
+    super.dispose();
+  }
+
   String get _localeId {
     switch (widget.language) {
       case 'en':
@@ -75,11 +81,5 @@ class _VoiceButtonState extends State<VoiceButton> {
         ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _speech.stop();
-    super.dispose();
   }
 }
