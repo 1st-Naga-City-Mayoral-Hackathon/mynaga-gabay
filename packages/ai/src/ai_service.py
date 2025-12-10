@@ -144,12 +144,139 @@ def load_tts_model(language: str):
     return tts_models_cache[language], tts_tokenizers_cache[language]
 
 
+# ============================================
+# Number to Words (for TTS)
+# ============================================
+
+# Number words in different languages
+NUMBER_WORDS = {
+    "eng": {
+        0: "zero", 1: "one", 2: "two", 3: "three", 4: "four",
+        5: "five", 6: "six", 7: "seven", 8: "eight", 9: "nine",
+        10: "ten", 11: "eleven", 12: "twelve", 13: "thirteen", 14: "fourteen",
+        15: "fifteen", 16: "sixteen", 17: "seventeen", 18: "eighteen", 19: "nineteen",
+        20: "twenty", 30: "thirty", 40: "forty", 50: "fifty", 60: "sixty",
+        70: "seventy", 80: "eighty", 90: "ninety",
+        100: "hundred", 1000: "thousand", 1000000: "million",
+    },
+    "fil": {
+        0: "zero", 1: "isa", 2: "dalawa", 3: "tatlo", 4: "apat",
+        5: "lima", 6: "anim", 7: "pito", 8: "walo", 9: "siyam",
+        10: "sampu", 11: "labing-isa", 12: "labindalawa", 13: "labintatlo", 14: "labing-apat",
+        15: "labinlima", 16: "labing-anim", 17: "labimpito", 18: "labing-walo", 19: "labinsiyam",
+        20: "dalawampu", 30: "tatlumpu", 40: "apatnapu", 50: "limampu", 60: "animnapu",
+        70: "pitumpu", 80: "walumpu", 90: "siyamnapu",
+        100: "daan", 1000: "libo", 1000000: "milyon",
+    },
+    "bcl": {
+        0: "zero", 1: "saro", 2: "duwa", 3: "tulo", 4: "apat",
+        5: "lima", 6: "anom", 7: "pito", 8: "walo", 9: "siyam",
+        10: "sampulo", 11: "kagsaro", 12: "kagduwa", 13: "kagtulo", 14: "kag-apat",
+        15: "kaglima", 16: "kag-anom", 17: "kagpito", 18: "kagwalo", 19: "kagsiyam",
+        20: "duwampulo", 30: "tulompulo", 40: "apatnapulo", 50: "limampulo", 60: "anompulo",
+        70: "pitompulo", 80: "walompulo", 90: "siyamnapulo",
+        100: "gatos", 1000: "ribo", 1000000: "milyon",
+    },
+}
+
+
+def number_to_words(num: int, lang: str = "eng") -> str:
+    """Convert a number to words in the specified language."""
+    words = NUMBER_WORDS.get(lang, NUMBER_WORDS["eng"])
+    
+    if num < 0:
+        return f"negative {number_to_words(-num, lang)}"
+    
+    if num in words:
+        return words[num]
+    
+    if num < 100:
+        tens = (num // 10) * 10
+        ones = num % 10
+        if ones == 0:
+            return words[tens]
+        return f"{words[tens]} {words[ones]}"
+    
+    if num < 1000:
+        hundreds = num // 100
+        remainder = num % 100
+        result = f"{words[hundreds]} {words[100]}"
+        if remainder > 0:
+            result += f" {number_to_words(remainder, lang)}"
+        return result
+    
+    if num < 1000000:
+        thousands = num // 1000
+        remainder = num % 1000
+        result = f"{number_to_words(thousands, lang)} {words[1000]}"
+        if remainder > 0:
+            result += f" {number_to_words(remainder, lang)}"
+        return result
+    
+    if num < 1000000000:
+        millions = num // 1000000
+        remainder = num % 1000000
+        result = f"{number_to_words(millions, lang)} {words[1000000]}"
+        if remainder > 0:
+            result += f" {number_to_words(remainder, lang)}"
+        return result
+    
+    # For very large numbers, just return digits
+    return str(num)
+
+
+def digits_to_words(num_str: str) -> str:
+    """Convert each digit in a string to English words (for phone numbers)."""
+    digit_words = {
+        '0': 'zero', '1': 'one', '2': 'two', '3': 'three', '4': 'four',
+        '5': 'five', '6': 'six', '7': 'seven', '8': 'eight', '9': 'nine',
+    }
+    return ' '.join(digit_words.get(d, d) for d in num_str if d.isdigit())
+
+
+def convert_numbers_to_words(text: str, lang: str = "eng") -> str:
+    """Convert all numbers in text to English words for TTS."""
+    import re
+    
+    def is_phone_number(s: str) -> bool:
+        """Check if string looks like a phone number."""
+        # Phone numbers have dashes, parentheses, or are 7+ digits
+        return bool(re.search(r'[-()]', s)) or (s.isdigit() and len(s) >= 7)
+    
+    def replace_number(match):
+        num_str = match.group(0)
+        
+        # For phone numbers, read each digit individually
+        if is_phone_number(num_str):
+            # Remove non-digits and read digit by digit
+            digits_only = ''.join(c for c in num_str if c.isdigit())
+            return digits_to_words(digits_only)
+        
+        # For regular numbers, convert to English words
+        try:
+            num = int(num_str)
+            return number_to_words(num, "eng")  # Always use English
+        except:
+            return num_str
+    
+    # Match phone number formats first: (054) 472-3000, 054-472-3000, etc.
+    result = re.sub(r'\(?\d{2,4}\)?[\s-]?\d{2,4}[\s-]?\d{2,4}', replace_number, text)
+    # Also match standalone numbers
+    result = re.sub(r'\b\d+\b', replace_number, result)
+    
+    return result
+
+
 def text_to_speech(text: str, language: str = DEFAULT_LANGUAGE) -> bytes:
     """Convert text to speech audio (WAV)."""
+    # Convert numbers to words for better TTS pronunciation (always English)
+    text_with_words = convert_numbers_to_words(text, "eng")
+    logger.info(f"TTS text (numbers converted): '{text_with_words[:80]}...'")
+    
     model, tokenizer = load_tts_model(language)
     device = next(model.parameters()).device
     
-    inputs = tokenizer(text, return_tensors="pt").to(device)
+    inputs = tokenizer(text_with_words, return_tensors="pt").to(device)
     
     with torch.no_grad():
         output = model(**inputs).waveform
