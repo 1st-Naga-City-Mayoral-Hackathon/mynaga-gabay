@@ -56,3 +56,6 @@ apps/mobile/ios/Flutter/Flutter.podspec
 *.pem
 .cache/
 *.wav
+
+*storybook.log
+storybook-static

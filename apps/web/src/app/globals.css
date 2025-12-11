@@ -13,7 +13,7 @@
     --card-foreground: 215 25% 15%;
     --popover: 0 0% 100%;
     --popover-foreground: 215 25% 15%;
-    --primary: 168 80% 30%;
+    --primary: 251, 100%, 31%;
     --primary-foreground: 0 0% 100%;
     --secondary: 160 20% 95%;
     --secondary-foreground: 215 25% 20%;
@@ -61,7 +61,11 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family:
+      'Inter',
+      -apple-system,
+      BlinkMacSystemFont,
+      sans-serif;
     min-height: 100vh;
   }
 }
@@ -125,7 +129,6 @@
 
 /* Premium Animations */
 @keyframes float {
-
   0%,
   100% {
     transform: translateY(0px);
@@ -151,7 +154,12 @@
 }
 
 .animate-shimmer {
-  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
   background-size: 200% 100%;
   animation: shimmer 2s infinite;
 }
@@ -214,7 +222,6 @@
 }
 
 @keyframes pulse-fast {
-
   0%,
   100% {
     opacity: 1;
@@ -238,7 +245,6 @@
 }
 
 @keyframes glow-pulse {
-
   0%,
   100% {
     box-shadow: 0 0 20px rgba(0, 255, 247, 0.4);
