@@ -3,9 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localization/flutter_localization.dart';
 import 'package:mynaga_gabay/app/app_locator.dart';
 import 'package:mynaga_gabay/app/bloc/app_bloc.dart';
+import 'package:mynaga_gabay/features/chat/data/model/message.dart';
 import 'package:mynaga_gabay/localization/locales.dart';
 import 'package:mynaga_gabay/shared/color.dart';
 import 'package:mynaga_gabay/shared/images.dart';
+import 'package:mynaga_gabay/widgets/chat_bubble.dart';
+import 'package:mynaga_gabay/widgets/primary_text_field.dart';
+import 'package:mynaga_gabay/widgets/voice_button.dart';
 
 class ChatView extends StatefulWidget {
   const ChatView({super.key});
@@ -123,7 +127,84 @@ class _ChatViewState extends State<ChatView> {
                   ),
                 ),
               ),
-              // Settings
+            ],
+          ),
+          body: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Flexible(
+                child: ListView.builder(
+                  itemCount: Message.messages.length,
+                  itemBuilder: (context, index) {
+                    final message = Message.messages[index];
+                    return Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: ChatBubble(
+                        text: message.message,
+                        isUser: message.role == MessageRole.user,
+                      ),
+                    );
+                  },
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: 16,
+                      height: 16,
+                      child: CircularProgressIndicator(
+                        strokeWidth: 2,
+                        color: theme.colorScheme.primary,
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Text(
+                      LocaleData.chatTypingKey.getString(context),
+                      style: theme.textTheme.bodySmall,
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: theme.colorScheme.surface,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.3),
+                      blurRadius: 8,
+                      offset: const Offset(0, -2),
+                    ),
+                  ],
+                ),
+                child: SafeArea(
+                  top: false,
+                  child: Row(
+                    children: [
+                      VoiceButton(
+                        onTranscript: (value) {},
+                        language: state.localeCode ?? 'en',
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: PrimaryTextField(
+                          name: 'message',
+                          hintText:
+                              LocaleData.chatPlaceholderKey.getString(context),
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      FloatingActionButton.small(
+                        onPressed: () {},
+                        child: const Icon(Icons.send),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         );

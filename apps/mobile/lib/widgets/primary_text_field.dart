@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:mynaga_gabay/shared/color.dart';
 
 class PrimaryTextField extends StatelessWidget {
   const PrimaryTextField({
@@ -17,6 +18,28 @@ class PrimaryTextField extends StatelessWidget {
       name: name,
       decoration: InputDecoration(
         hintText: hintText,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(
+            width: 1.0,
+            color: AppColor.border,
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(
+            width: 1.0,
+            color: AppColor.border,
+          ),
+        ),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 12,
+        ),
+        filled: true,
       ),
     );
   }
