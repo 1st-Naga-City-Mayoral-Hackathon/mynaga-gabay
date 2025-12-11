@@ -15,6 +15,7 @@ mixin LocaleData {
   static const String chatPlaceholderKey = "chat_placeholder";
   static const String chatTypingKey = "chat_typing";
   static const String chatErrorKey = "chat_error";
+  static const String chatNoMessagesKey = "chat_no_messages";
   static const String navChatKey = "nav_chat";
   static const String navFacilitiesKey = "nav_facilities";
   static const String navMedicationsKey = "nav_medications";
@@ -36,6 +37,7 @@ mixin LocaleData {
     "chat_placeholder": "Type here...",
     "chat_typing": "Gabay is typing...",
     "chat_error": "Sorry, there was a connection problem. Please try again.",
+    "chat_no_messages": "No messages yet. Start a conversation with Gabay.",
     "nav_chat": "Chat",
     "nav_facilities": "Facilities",
     "nav_medications": "Medications",
@@ -58,6 +60,8 @@ mixin LocaleData {
     "chat_placeholder": "Mag-type dito...",
     "chat_typing": "Gabay ay nag-tatype...",
     "chat_error": "Pasensya, may problema sa koneksyon. Subukan muli.",
+    "chat_no_messages":
+        "Walang mensahe yet. Mag-start ng isang konversasyon sa Gabay.",
     "nav_chat": "Chat",
     "nav_facilities": "Pasilidad",
     "nav_medications": "Gamot",
@@ -80,6 +84,8 @@ mixin LocaleData {
     "chat_placeholder": "Mag-type digdi...",
     "chat_typing": "Gabay ay nag-tatype...",
     "chat_error": "Pasensya, may problema sa koneksyon. Subukan giraray.",
+    "chat_no_messages":
+        "Iyo pa man may mensahe. Magpoon nin sarong istorya sa Gabay.",
     "nav_chat": "Chat",
     "nav_facilities": "Pasilidad",
     "nav_medications": "Bulong",

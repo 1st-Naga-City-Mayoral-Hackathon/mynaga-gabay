@@ -52,6 +52,12 @@ class _ChatViewState extends State<ChatView> {
       }
     }
 
+    const List<String> introMessages = [
+      "Hanapin ang pinakamalapit na ospital",
+      "Philhealth coverage",
+      "Dosage ng Paracetamol",
+    ];
+
     return BlocBuilder<AppBloc, AppState>(
       buildWhen: (previous, current) =>
           previous.localeCode != current.localeCode,
@@ -151,21 +157,70 @@ class _ChatViewState extends State<ChatView> {
               body: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Flexible(
-                    child: ListView.builder(
-                      itemCount: chatState.messages.length,
-                      itemBuilder: (context, index) {
-                        final message = chatState.messages[index];
-                        return Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: ChatBubble(
-                            text: message.message,
-                            isUser: message.role == MessageRole.user,
+                  chatState.messages.isEmpty
+                      ? Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                const Icon(Icons.circle, size: 48.0),
+                                Text(
+                                  LocaleData.chatGreetingKey.getString(context),
+                                  style: theme.textTheme.bodyMedium?.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                                const SizedBox(height: 8.0),
+                                Text(
+                                    LocaleData.chatNoMessagesKey
+                                        .getString(context),
+                                    textAlign: TextAlign.center),
+                                const SizedBox(height: 8.0),
+                                Wrap(
+                                  spacing: 12.0,
+                                  runSpacing: 12.0,
+                                  children: List.generate(
+                                    introMessages.length,
+                                    (index) => GestureDetector(
+                                      onTap: () => context.read<ChatBloc>().add(
+                                          ChatSendMessageRequested(
+                                              message: introMessages[index])),
+                                      child: Container(
+                                        padding: const EdgeInsets.all(8.0),
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                            color: AppColor.primary,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                        ),
+                                        child: Text(introMessages[index]),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        );
-                      },
-                    ),
-                  ),
+                        )
+                      : Flexible(
+                          child: ListView.builder(
+                            itemCount: chatState.messages.length,
+                            itemBuilder: (context, index) {
+                              final message = chatState.messages[index];
+                              return Padding(
+                                padding: const EdgeInsets.all(12.0),
+                                child: ChatBubble(
+                                  text: message.message,
+                                  isUser: message.role == MessageRole.user,
+                                ),
+                              );
+                            },
+                          ),
+                        ),
                   if (chatState.messageStatus == ChatMessageStatus.sending)
                     Padding(
                       padding: const EdgeInsets.all(16),

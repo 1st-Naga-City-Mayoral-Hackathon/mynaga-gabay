@@ -15,7 +15,7 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
   void _onInitRequested(ChatInitRequested event, Emitter<ChatState> emit) {
     emit(state.copyWith(status: ChatStatus.loading));
     try {
-      emit(state.copyWith(messages: Message.messages));
+      // emit(state.copyWith(messages: Message.messages));
     } catch (e) {
       emit(state.copyWith(status: ChatStatus.failed, error: e.toString()));
     }
