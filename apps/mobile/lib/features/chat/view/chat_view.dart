@@ -1,13 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localization/flutter_localization.dart';
+import 'package:mynaga_gabay/app/app_locator.dart';
 import 'package:mynaga_gabay/app/bloc/app_bloc.dart';
 import 'package:mynaga_gabay/localization/locales.dart';
 import 'package:mynaga_gabay/shared/color.dart';
 import 'package:mynaga_gabay/shared/images.dart';
 
-class ChatView extends StatelessWidget {
+class ChatView extends StatefulWidget {
   const ChatView({super.key});
+
+  @override
+  State<ChatView> createState() => _ChatViewState();
+}
+
+class _ChatViewState extends State<ChatView> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<AppBloc>().add(AppLocaleChanged(
+        localeCode: localization.currentLocale?.languageCode ?? 'en'));
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -10,13 +10,4 @@ void main() async {
   await AppLocator.init();
 
   bootstrap(() => const AppPage());
-  // runApp(
-  //   MultiProvider(
-  //     providers: [
-  //       ChangeNotifierProvider(create: (_) => ThemeProvider()),
-  //       ChangeNotifierProvider(create: (_) => LanguageProvider()),
-  //     ],
-  //     child: const MyNagaGabayApp(),
-  //   ),
-  // );
 }
