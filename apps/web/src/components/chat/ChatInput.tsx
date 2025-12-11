@@ -41,10 +41,20 @@ export function ChatInput({
     // STT state
     const [isListening, setIsListening] = useState(false);
     const [isRecording, setIsRecording] = useState(false);
+    const [interimTranscript, setInterimTranscript] = useState('');
     const mediaRecorderRef = useRef<MediaRecorder | null>(null);
     const audioChunksRef = useRef<Blob[]>([]);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const recognitionRef = useRef<any>(null);
+    const silenceTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const finalTranscriptRef = useRef('');
+    const originalValueRef = useRef(''); // Store input value at start of recording
+    const onSubmitRef = useRef(onSubmit); // Ref to always have latest onSubmit
+
+    // Keep onSubmit ref up to date
+    useEffect(() => {
+        onSubmitRef.current = onSubmit;
+    }, [onSubmit]);
 
     // Auto-resize textarea
     useEffect(() => {
@@ -64,6 +74,14 @@ export function ChatInput({
         }
     };
 
+    // Clear silence timeout
+    const clearSilenceTimeout = useCallback(() => {
+        if (silenceTimeoutRef.current) {
+            clearTimeout(silenceTimeoutRef.current);
+            silenceTimeoutRef.current = null;
+        }
+    }, []);
+
     // Web Speech API STT (for English and Filipino)
     const startWebSpeechSTT = useCallback(() => {
         console.log('[STT] Starting Web Speech API for language:', language);
@@ -76,11 +94,17 @@ export function ChatInput({
         }
 
         const recognition = new SpeechRecognition();
-        recognition.continuous = false;
-        recognition.interimResults = false;
+        recognition.continuous = true;  // Keep listening through pauses
+        recognition.interimResults = true;  // Show interim results as user speaks
         recognition.lang = WEB_SPEECH_LANGS[language] || 'en-US';
 
         console.log('[STT] Using language code:', recognition.lang);
+
+        // Reset state - store original value at start using ref to avoid stale closure
+        originalValueRef.current = value;
+        let accumulatedTranscript = '';
+        finalTranscriptRef.current = '';
+        setInterimTranscript('');
 
         recognition.onstart = () => {
             console.log('[STT] Recognition started');
@@ -89,21 +113,64 @@ export function ChatInput({
 
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         recognition.onresult = (event: any) => {
-            const transcript = event.results[0][0].transcript;
-            console.log('[STT] Transcript:', transcript);
+            let finalText = '';
+            let interimText = '';
 
-            // Build the full message
-            const newValue = value + (value ? ' ' : '') + transcript;
-            onChange(newValue);
-            setIsListening(false);
+            // Process all results
+            for (let i = 0; i < event.results.length; i++) {
+                const result = event.results[i];
+                const transcript = result[0].transcript;
 
-            // Auto-submit with the text directly (bypassing state)
-            onSubmit(newValue);
+                if (result.isFinal) {
+                    finalText += transcript;
+                } else {
+                    interimText += transcript;
+                }
+            }
+
+            // Accumulate final transcript
+            if (finalText) {
+                accumulatedTranscript = finalText; // Web Speech API accumulates, so use latest
+                finalTranscriptRef.current = accumulatedTranscript;
+                const origVal = originalValueRef.current;
+                const newValue = origVal + (origVal ? ' ' : '') + accumulatedTranscript;
+                onChange(newValue);
+            }
+
+            // Show interim transcript
+            setInterimTranscript(interimText);
+
+            // Reset silence timer on any speech activity
+            clearSilenceTimeout();
+
+            // Start silence timer when we have final text
+            if (finalText) {
+                silenceTimeoutRef.current = setTimeout(() => {
+                    console.log('[STT] Silence detected, auto-submitting');
+                    if (recognitionRef.current) {
+                        recognitionRef.current.stop();
+                    }
+                }, 1500); // 1.5 second silence timeout
+            }
+        };
+
+        recognition.onspeechend = () => {
+            console.log('[STT] Speech ended');
+            // Start a shorter timeout when speech ends
+            clearSilenceTimeout();
+            silenceTimeoutRef.current = setTimeout(() => {
+                console.log('[STT] Post-speech silence, stopping recognition');
+                if (recognitionRef.current) {
+                    recognitionRef.current.stop();
+                }
+            }, 1000); // 1 second after speech ends
         };
 
         recognition.onerror = (event: Event & { error?: string }) => {
             console.error('[STT] Error:', event.error || event);
+            clearSilenceTimeout();
             setIsListening(false);
+            setInterimTranscript('');
             if (event.error === 'not-allowed') {
                 alert('Microphone access denied. Please allow microphone access in your browser settings.');
             } else if (event.error === 'no-speech') {
@@ -111,14 +178,32 @@ export function ChatInput({
                 // Don't show alert for no-speech, just end quietly
             } else if (event.error === 'network') {
                 alert('Network error. Web Speech API requires internet connection.');
+            } else if (event.error === 'aborted') {
+                // User stopped, don't show error
+                console.log('[STT] Recognition aborted');
             } else if (event.error) {
                 alert(`Speech recognition error: ${event.error}`);
             }
         };
 
         recognition.onend = () => {
-            console.log('[STT] Recognition ended');
+            console.log('[STT] Recognition ended, accumulated:', accumulatedTranscript);
+            clearSilenceTimeout();
             setIsListening(false);
+            setInterimTranscript('');
+
+            // Auto-submit if we have a transcript
+            if (accumulatedTranscript) {
+                const origVal = originalValueRef.current;
+                const fullMessage = origVal + (origVal ? ' ' : '') + accumulatedTranscript;
+                console.log('[STT] Auto-submitting:', fullMessage);
+                // Use setTimeout to ensure state is updated, call via ref for latest version
+                setTimeout(() => {
+                    onSubmitRef.current(fullMessage);
+                }, 100);
+            }
+            finalTranscriptRef.current = '';
+            originalValueRef.current = ''; // Clear for next use
         };
 
         recognitionRef.current = recognition;
@@ -131,7 +216,7 @@ export function ChatInput({
             alert('Failed to start speech recognition. Please try again.');
             setIsListening(false);
         }
-    }, [language, value, onChange]);
+    }, [language, onChange, clearSilenceTimeout]); // Removed 'value' - using ref instead to avoid stale closures
 
     // Python STT (for Bikol - record and send to server)
     const startPythonSTT = useCallback(async () => {
@@ -237,6 +322,9 @@ export function ChatInput({
             if (mediaRecorderRef.current && mediaRecorderRef.current.state !== 'inactive') {
                 mediaRecorderRef.current.stop();
             }
+            if (silenceTimeoutRef.current) {
+                clearTimeout(silenceTimeoutRef.current);
+            }
         };
     }, []);
 
@@ -253,42 +341,64 @@ export function ChatInput({
                                     size="icon"
                                     onClick={handleVoiceClick}
                                     disabled={isLoading}
-                                    className={`h-10 w-10 rounded-xl flex-shrink-0 ${isRecording ? 'bg-red-500 hover:bg-red-600 animate-pulse' :
-                                        isListening ? 'bg-teal-600 hover:bg-teal-700' : ''
+                                    className={`h-10 w-10 rounded-xl flex-shrink-0 relative ${isRecording || isListening
+                                        ? 'bg-red-500 hover:bg-red-600'
+                                        : ''
                                         }`}
                                 >
+                                    {/* Pulsing ring animation when listening */}
+                                    {(isListening || isRecording) && (
+                                        <>
+                                            <span className="absolute inset-0 rounded-xl bg-red-500 animate-ping opacity-75" />
+                                            <span className="absolute inset-0 rounded-xl bg-red-500 animate-pulse" />
+                                        </>
+                                    )}
                                     {isListening ? (
-                                        <svg className="w-5 h-5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                                        <svg className="w-5 h-5 relative z-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12 14c1.66 0 2.99-1.34 2.99-3L15 5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z" />
                                         </svg>
                                     ) : isRecording ? (
-                                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <svg className="w-5 h-5 relative z-10 text-white" fill="currentColor" viewBox="0 0 24 24">
                                             <rect x="6" y="6" width="12" height="12" rx="2" />
                                         </svg>
                                     ) : (
-                                        <span className="text-lg">🎤</span>
+                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                                        </svg>
                                     )}
                                 </Button>
                             </TooltipTrigger>
                             <TooltipContent>
-                                {isRecording ? 'Stop recording' :
-                                    isListening ? 'Processing...' :
+                                {isRecording ? 'Tap to stop recording' :
+                                    isListening ? 'Listening... Tap to stop' :
                                         language === 'bcl' ? 'Voice input (Bikol)' : 'Voice input'}
                             </TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
 
-                    {/* Text Input */}
-                    <Textarea
-                        ref={textareaRef}
-                        value={value}
-                        onChange={(e) => onChange(e.target.value)}
-                        onKeyDown={handleKeyDown}
-                        placeholder={placeholder || 'Ask Gabay anything...'}
-                        className="min-h-[44px] max-h-[200px] flex-1 resize-none bg-transparent border-0 focus-visible:ring-0 focus-visible:ring-offset-0 text-sm py-3"
-                        rows={1}
-                    />
+                    {/* Text Input with Interim Transcript Overlay */}
+                    <div className="flex-1 relative">
+                        <Textarea
+                            ref={textareaRef}
+                            value={value}
+                            onChange={(e) => onChange(e.target.value)}
+                            onKeyDown={handleKeyDown}
+                            placeholder={isListening ? 'Listening...' : (placeholder || 'Ask Gabay anything...')}
+                            className="min-h-[44px] max-h-[200px] w-full resize-none bg-transparent border-0 focus-visible:ring-0 focus-visible:ring-offset-0 text-sm py-3"
+                            rows={1}
+                            disabled={isListening}
+                        />
+                        {/* Interim transcript overlay */}
+                        {isListening && interimTranscript && (
+                            <div className="absolute inset-0 flex items-center px-3 py-3 pointer-events-none">
+                                <span className="text-sm text-muted-foreground italic">
+                                    {value && <span className="text-foreground">{value} </span>}
+                                    {interimTranscript}
+                                    <span className="animate-pulse">|</span>
+                                </span>
+                            </div>
+                        )}
+                    </div>
 
                     {/* Auto-TTS Toggle */}
                     {onAutoTTSChange && (
