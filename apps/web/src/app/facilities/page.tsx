@@ -4,13 +4,21 @@ import { useState } from 'react';
 import { Header } from '@/components/Header';
 import { useLanguage } from '@/contexts/LanguageContext';
 import facilitiesData from '@/data/facilities.json';
+import { FacilityCard } from '@/components/facilities/FacilityCard'; 
+import { Search } from 'lucide-react'; 
+
+// 1. IMPORT THE TYPE FROM YOUR SHARED LIB
+import type { HealthFacility } from '@mynaga/shared';
 
 export default function FacilitiesPage() {
     const { t } = useLanguage();
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedType, setSelectedType] = useState('all');
 
-    const facilities = facilitiesData.facilities;
+    // 2. THE FIX: TYPE ASSERTION
+    // We tell TypeScript: "Trust me, this JSON data matches the HealthFacility[] shape."
+    // This fixes the 'string is not assignable to FacilityType' error.
+    const facilities = facilitiesData.facilities as unknown as HealthFacility[];
 
     // Filter Logic
     const filteredFacilities = facilities.filter((facility) => {
@@ -23,6 +31,8 @@ export default function FacilitiesPage() {
 
         return matchesSearch && matchesType;
     });
+
+    // ... (Rest of your component remains the same)
 
     const facilityTypes = [
         { id: 'all', label: t('facilities.filter.all') },
@@ -38,7 +48,6 @@ export default function FacilitiesPage() {
             <Header />
 
             <div className="flex-1 container mx-auto px-4 py-8 max-w-6xl">
-                {/* Header Section */}
                 <div className="mb-8">
                     <h1 className="text-3xl font-bold text-foreground mb-2">
                         {t('facilities.title')}
@@ -48,12 +57,10 @@ export default function FacilitiesPage() {
                     </p>
                 </div>
 
-                {/* Search & Filter */}
                 <div className="mb-8 space-y-4">
-                    {/* Search Bar */}
                     <div className="relative">
-                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <span className="text-muted-foreground">🔍</span>
+                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                            <Search className="h-5 w-5" />
                         </div>
                         <input
                             type="text"
@@ -64,7 +71,6 @@ export default function FacilitiesPage() {
                         />
                     </div>
 
-                    {/* Filter Chips */}
                     <div className="flex flex-wrap gap-2">
                         {facilityTypes.map((type) => (
                             <button
@@ -81,77 +87,17 @@ export default function FacilitiesPage() {
                     </div>
                 </div>
 
-                {/* Facilities Grid */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {filteredFacilities.map((facility) => (
-                        <div
-                            key={facility.id}
-                            className="glass-card flex flex-col h-full hover:scale-[1.02] transition-transform duration-200"
-                        >
-                            <div className="p-6 flex-1">
-                                {/* Type Badge */}
-                                <div className="flex justify-between items-start mb-4">
-                                    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border ${facility.type === 'hospital' ? 'bg-blue-100 text-blue-800 border-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:border-blue-800' :
-                                        facility.type === 'health_center' ? 'bg-green-100 text-green-800 border-green-200 dark:bg-green-900/30 dark:text-green-300 dark:border-green-800' :
-                                            'bg-slate-100 text-slate-800 border-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700'
-                                        }`}>
-                                        {facility.type === 'health_center' ? t('facilities.filter.center') :
-                                            facility.type === 'hospital' ? t('facilities.filter.hospital') :
-                                                facility.type}
-                                    </span>
-                                    {facility.philhealthAccredited && (
-                                        <span title={t('facilities.card.accredited')} className="text-lg">✅</span>
-                                    )}
-                                </div>
-
-                                <h3 className="text-xl font-bold text-foreground mb-2 line-clamp-2">
-                                    {facility.name}
-                                </h3>
-
-                                <div className="space-y-2 text-sm text-muted-foreground mb-4">
-                                    <div className="flex items-start gap-2">
-                                        <span>📍</span>
-                                        <span className="line-clamp-2">{facility.address}</span>
-                                    </div>
-                                    <div className="flex items-center gap-2">
-                                        <span>📞</span>
-                                        <span>{facility.phone}</span>
-                                    </div>
-                                    <div className="flex items-center gap-2">
-                                        <span>🕒</span>
-                                        <span>{facility.hours}</span>
-                                    </div>
-                                </div>
-
-                                <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
-                                    <h4 className="text-xs font-semibold text-foreground uppercase tracking-wider mb-2">
-                                        {t('facilities.card.services')}
-                                    </h4>
-                                    <div className="flex flex-wrap gap-1.5">
-                                        {(facility.services || []).slice(0, 4).map((service, idx) => (
-                                            <span
-                                                key={idx}
-                                                className="px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-xs text-slate-600 dark:text-slate-300"
-                                            >
-                                                {service}
-                                            </span>
-                                        ))}
-                                        {(facility.services || []).length > 4 && (
-                                            <span className="px-2 py-1 text-xs text-muted-foreground">
-                                                +{(facility.services || []).length - 4} more
-                                            </span>
-                                        )}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <FacilityCard key={facility.id} facility={facility} />
                     ))}
                 </div>
 
-                {/* Empty State */}
                 {filteredFacilities.length === 0 && (
                     <div className="text-center py-20">
-                        <div className="text-4xl mb-4">🔍</div>
+                        <div className="flex justify-center mb-4 text-slate-300">
+                            <Search className="h-12 w-12" />
+                        </div>
                         <h3 className="text-lg font-medium text-foreground">No facilities found</h3>
                         <p className="text-muted-foreground">
                             Try adjusting your search or filters
