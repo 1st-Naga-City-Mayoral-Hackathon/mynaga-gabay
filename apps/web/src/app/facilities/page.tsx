@@ -72,19 +72,21 @@ export default function FacilitiesPage() {
                     </div>
 
                     <div className="flex flex-wrap gap-2">
-                        {facilityTypes.map((type) => (
-                            <button
-                                key={type.id}
-                                onClick={() => setSelectedType(type.id)}
-                                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${selectedType === type.id
-                                    ? 'bg-teal-500 text-white shadow-md shadow-teal-500/20'
-                                    : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:border-teal-500'
-                                    }`}
-                            >
-                                {type.label}
-                            </button>
-                        ))}
-                    </div>
+  {facilityTypes.map((type) => (
+    <button
+      key={type.id}
+      onClick={() => setSelectedType(type.id)}
+      className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+        selectedType === type.id
+          ? 'bg-gabay-orange text-white shadow-md shadow-gabay-orange/20'
+          : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:border-gabay-orange'
+      }`}
+    >
+      {type.label}
+    </button>
+  ))}
+</div>
+
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
