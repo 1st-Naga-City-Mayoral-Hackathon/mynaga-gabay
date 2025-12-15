@@ -18,28 +18,30 @@ class PrimaryTextField extends StatelessWidget {
       name: name,
       decoration: InputDecoration(
         hintText: hintText,
+        hintStyle: const TextStyle(
+          color: AppColor.grey,
+          fontWeight: FontWeight.w400,
+        ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(color: AppColor.border),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(
-            width: 1.0,
-            color: AppColor.border,
-          ),
+          borderSide: const BorderSide(color: AppColor.border),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: const BorderSide(
-            width: 1.0,
-            color: AppColor.border,
+            color: AppColor.primary,
+            width: 1.5,
           ),
         ),
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 16,
-          vertical: 12,
+          vertical: 14,
         ),
-        filled: true,
+        filled: false,
       ),
     );
   }

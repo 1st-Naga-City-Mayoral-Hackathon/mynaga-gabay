@@ -4,10 +4,6 @@ import 'package:mynaga_gabay/features/layout/view/layout_view.dart';
 import 'package:mynaga_gabay/shared/images.dart';
 
 enum LayoutPageTab {
-  chat(
-      title: "Chat",
-      icon: AppImages.chatOutlined,
-      selectedIcon: AppImages.chatFilled),
   facility(
       title: "Facility",
       icon: AppImages.facilityOutlined,
@@ -16,6 +12,10 @@ enum LayoutPageTab {
       title: "Medicine",
       icon: AppImages.medicineOutlined,
       selectedIcon: AppImages.medicineFilled),
+  chat(
+      title: "Chat",
+      icon: AppImages.chatOutlined,
+      selectedIcon: AppImages.chatFilled),
   philhealth(
       title: "PhilHealth",
       icon: AppImages.philhealthOutlined,

@@ -74,17 +74,23 @@ class _ChatViewState extends State<ChatView> {
               appBar: AppBar(
                 leadingWidth: 70,
                 leading: Padding(
-                  padding: const EdgeInsets.only(left: 12.0),
+                  padding: const EdgeInsets.only(left: 16.0),
                   child: Container(
-                    padding: const EdgeInsets.all(8),
+                    width: 40,
+                    height: 40,
                     decoration: BoxDecoration(
-                      gradient: const LinearGradient(
-                        colors: [AppColor.primary, AppColor.secondary],
-                      ),
-                      borderRadius: BorderRadius.circular(10),
+                      shape: BoxShape.circle,
+                      border: Border.all(color: AppColor.border, width: 1),
                     ),
-                    child: const Icon(Icons.local_hospital,
-                        color: Colors.white, size: 20),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.asset(
+                        AppImages.likhaIcon,
+                        width: 40,
+                        height: 40,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
                 ),
                 title: Column(
@@ -92,26 +98,20 @@ class _ChatViewState extends State<ChatView> {
                   children: [
                     Text(
                       LocaleData.titleKey.getString(context),
-                      style: theme.textTheme.bodyMedium?.copyWith(
-                        fontWeight: FontWeight.bold,
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                     Text(
                       LocaleData.subtitleKey.getString(context),
-                      style: theme.textTheme.bodySmall,
+                      style: theme.textTheme.bodySmall?.copyWith(
+                        color: AppColor.grey,
+                      ),
                     ),
                   ],
                 ),
+                elevation: 0,
                 actions: [
-                  // Theme toggle
-                  // IconButton(
-                  //   icon: Icon(
-                  //     themeProvider.isDark ? Icons.light_mode : Icons.dark_mode,
-                  //   ),
-                  //   onPressed: () => themeProvider.toggleTheme(),
-                  //   tooltip: themeProvider.isDark ? 'Light mode' : 'Dark mode',
-                  // ),
-                  // Language selector
                   PopupMenuButton<String>(
                     onSelected: (lang) {
                       context
@@ -138,20 +138,28 @@ class _ChatViewState extends State<ChatView> {
                         isSelected: state.localeCode == 'bcl',
                       ),
                     ],
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                    icon: Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 4),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: AppColor.border),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
                       child: Row(
+                        mainAxisSize: MainAxisSize.min,
                         children: [
                           Image.asset(
                             selectedFlag(state.localeCode),
-                            width: 24,
-                            height: 24,
+                            width: 20,
+                            height: 20,
                           ),
-                          const Icon(Icons.arrow_drop_down),
+                          const SizedBox(width: 4),
+                          const Icon(Icons.arrow_drop_down, size: 18),
                         ],
                       ),
                     ),
                   ),
+                  const SizedBox(width: 8),
                 ],
               ),
               body: Column(
@@ -160,44 +168,72 @@ class _ChatViewState extends State<ChatView> {
                   chatState.messages.isEmpty
                       ? Expanded(
                           child: Padding(
-                            padding: const EdgeInsets.all(12.0),
+                            padding: const EdgeInsets.all(24.0),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                const Icon(Icons.circle, size: 48.0),
+                                Container(
+                                  width: 80,
+                                  height: 80,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    border: Border.all(
+                                      color: AppColor.primary,
+                                      width: 2,
+                                    ),
+                                  ),
+                                  child: const Icon(
+                                    Icons.chat_bubble_outline,
+                                    size: 40,
+                                    color: AppColor.primary,
+                                  ),
+                                ),
+                                const SizedBox(height: 24),
                                 Text(
                                   LocaleData.chatGreetingKey.getString(context),
-                                  style: theme.textTheme.bodyMedium?.copyWith(
-                                    fontWeight: FontWeight.bold,
+                                  style: theme.textTheme.titleLarge?.copyWith(
+                                    fontWeight: FontWeight.w600,
                                   ),
                                   textAlign: TextAlign.center,
                                 ),
-                                const SizedBox(height: 8.0),
+                                const SizedBox(height: 8),
                                 Text(
-                                    LocaleData.chatNoMessagesKey
-                                        .getString(context),
-                                    textAlign: TextAlign.center),
-                                const SizedBox(height: 8.0),
+                                  LocaleData.chatNoMessagesKey
+                                      .getString(context),
+                                  style: theme.textTheme.bodyMedium?.copyWith(
+                                    color: AppColor.grey,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                                const SizedBox(height: 32),
                                 Wrap(
-                                  spacing: 12.0,
-                                  runSpacing: 12.0,
+                                  spacing: 8,
+                                  runSpacing: 8,
+                                  alignment: WrapAlignment.center,
                                   children: List.generate(
                                     introMessages.length,
-                                    (index) => GestureDetector(
+                                    (index) => InkWell(
                                       onTap: () => context.read<ChatBloc>().add(
                                           ChatSendMessageRequested(
                                               message: introMessages[index])),
+                                      borderRadius: BorderRadius.circular(8),
                                       child: Container(
-                                        padding: const EdgeInsets.all(8.0),
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 16,
+                                          vertical: 10,
+                                        ),
                                         decoration: BoxDecoration(
                                           border: Border.all(
-                                            color: AppColor.primary,
+                                            color: AppColor.border,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(12.0),
+                                              BorderRadius.circular(8),
                                         ),
-                                        child: Text(introMessages[index]),
+                                        child: Text(
+                                          introMessages[index],
+                                          style: theme.textTheme.bodySmall,
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -223,71 +259,87 @@ class _ChatViewState extends State<ChatView> {
                         ),
                   if (chatState.messageStatus == ChatMessageStatus.sending)
                     Padding(
-                      padding: const EdgeInsets.all(16),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 24,
+                        vertical: 16,
+                      ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          SizedBox(
+                          const SizedBox(
                             width: 16,
                             height: 16,
                             child: CircularProgressIndicator(
                               strokeWidth: 2,
-                              color: theme.colorScheme.primary,
+                              color: AppColor.primary,
                             ),
                           ),
-                          const SizedBox(width: 8),
+                          const SizedBox(width: 12),
                           Text(
                             LocaleData.chatTypingKey.getString(context),
-                            style: theme.textTheme.bodySmall,
+                            style: theme.textTheme.bodySmall?.copyWith(
+                              color: AppColor.grey,
+                            ),
                           ),
                         ],
                       ),
                     ),
                   Container(
-                    padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
-                      color: theme.colorScheme.surface,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withValues(alpha: 0.3),
-                          blurRadius: 8,
-                          offset: const Offset(0, -2),
+                      color: theme.scaffoldBackgroundColor,
+                      border: Border(
+                        top: BorderSide(
+                          color: AppColor.border.withValues(alpha: 0.5),
+                          width: 1,
                         ),
-                      ],
+                      ),
                     ),
                     child: SafeArea(
                       top: false,
-                      child: FormBuilder(
-                        key: _formKey,
-                        onChanged: () => _formKey.currentState?.save(),
-                        child: Row(
-                          children: [
-                            VoiceButton(
-                              onTranscript: (value) {},
-                              language: state.localeCode ?? 'en',
-                            ),
-                            const SizedBox(width: 8),
-                            Expanded(
-                              child: PrimaryTextField(
-                                name: 'message',
-                                hintText: LocaleData.chatPlaceholderKey
-                                    .getString(context),
+                      child: Padding(
+                        padding: const EdgeInsets.all(16),
+                        child: FormBuilder(
+                          key: _formKey,
+                          onChanged: () => _formKey.currentState?.save(),
+                          child: Row(
+                            children: [
+                              VoiceButton(
+                                onTranscript: (value) {},
+                                language: state.localeCode ?? 'en',
                               ),
-                            ),
-                            const SizedBox(width: 8),
-                            IconButton(
-                              onPressed: () {
-                                final message = _formKey
-                                    .currentState?.fields['message']?.value;
-                                if (message != null) {
-                                  context.read<ChatBloc>().add(
-                                      ChatSendMessageRequested(
-                                          message: message));
-                                }
-                              },
-                              icon: const Icon(Icons.send),
-                            ),
-                          ],
+                              const SizedBox(width: 8),
+                              Expanded(
+                                child: PrimaryTextField(
+                                  name: 'message',
+                                  hintText: LocaleData.chatPlaceholderKey
+                                      .getString(context),
+                                ),
+                              ),
+                              const SizedBox(width: 8),
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: AppColor.primary,
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: IconButton(
+                                  onPressed: () {
+                                    final message = _formKey
+                                        .currentState?.fields['message']?.value;
+                                    if (message != null && message.isNotEmpty) {
+                                      context.read<ChatBloc>().add(
+                                          ChatSendMessageRequested(
+                                              message: message));
+                                    }
+                                  },
+                                  icon: const Icon(
+                                    Icons.send,
+                                    color: Colors.white,
+                                    size: 20,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -309,21 +361,29 @@ class _ChatViewState extends State<ChatView> {
   }) {
     return PopupMenuItem(
       value: value,
-      child: Row(
-        children: [
-          Image.asset(flag, width: 24, height: 24),
-          const SizedBox(width: 8),
-          Text(
-            name,
-            style: TextStyle(
-              fontWeight: isSelected ? FontWeight.bold : null,
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 4),
+        child: Row(
+          children: [
+            Image.asset(flag, width: 20, height: 20),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Text(
+                name,
+                style: TextStyle(
+                  fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
+                  color: isSelected ? AppColor.primary : null,
+                ),
+              ),
             ),
-          ),
-          if (isSelected) ...[
-            const Spacer(),
-            const Icon(Icons.check, size: 18),
+            if (isSelected)
+              const Icon(
+                Icons.check_circle,
+                size: 18,
+                color: AppColor.primary,
+              ),
           ],
-        ],
+        ),
       ),
     );
   }
