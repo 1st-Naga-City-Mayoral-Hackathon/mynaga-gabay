@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mynaga_gabay/features/layout/view/layout_page.dart';
+import 'package:mynaga_gabay/shared/color.dart';
 
 class LayoutView extends StatelessWidget {
   const LayoutView({
@@ -22,6 +23,7 @@ class LayoutView extends StatelessWidget {
         showSelectedLabels: false,
         showUnselectedLabels: false,
         elevation: 0,
+        backgroundColor: AppColor.primary,
         items: LayoutPageTab.values
             .map((tab) => BottomNavigationBarItem(
                   icon: Image.asset(

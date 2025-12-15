@@ -29,6 +29,13 @@ mixin LocaleData {
   static const String settingsThemeSystemKey = "settings_theme_system";
   static const String settingsAboutKey = "settings_about";
   static const String settingsVersionKey = "settings_version";
+  static const String facilitySearchPlaceholderKey =
+      "facility_search_placeholder";
+  static const String facilityNoResultsKey = "facility_no_results";
+  static const String facilityLoadingKey = "facility_loading";
+  static const String facilityServicesKey = "facility_services";
+  static const String facilityPhoneKey = "facility_phone";
+  static const String facilityAddressKey = "facility_address";
 
   static const Map<String, dynamic> EN = {
     "title": "MyNaga Gabay",
@@ -51,6 +58,12 @@ mixin LocaleData {
     "settings_theme_system": "System",
     "settings_about": "About",
     "settings_version": "Version",
+    "facility_search_placeholder": "Search by name, address, or service...",
+    "facility_no_results": "No facilities found",
+    "facility_loading": "Loading facilities...",
+    "facility_services": "Services",
+    "facility_phone": "Phone",
+    "facility_address": "Address",
   };
 
   static const Map<String, dynamic> FIL = {
@@ -75,6 +88,13 @@ mixin LocaleData {
     "settings_theme_system": "System",
     "settings_about": "Tungkol",
     "settings_version": "Bersyon",
+    "facility_search_placeholder":
+        "Maghanap gamit ang pangalan, address, o serbisyo...",
+    "facility_no_results": "Walang nahanap na pasilidad",
+    "facility_loading": "Naglo-load ng mga pasilidad...",
+    "facility_services": "Serbisyo",
+    "facility_phone": "Telepono",
+    "facility_address": "Address",
   };
 
   static const Map<String, dynamic> BCL = {
@@ -99,5 +119,12 @@ mixin LocaleData {
     "settings_theme_system": "System",
     "settings_about": "Manungod",
     "settings_version": "Bersyon",
+    "facility_search_placeholder":
+        "Maghanap gamit an ngaran, address, o serbisyo...",
+    "facility_no_results": "Mayo nang nahanap na pasilidad",
+    "facility_loading": "Naglo-load nin mga pasilidad...",
+    "facility_services": "Serbisyo",
+    "facility_phone": "Telepono",
+    "facility_address": "Address",
   };
 }
