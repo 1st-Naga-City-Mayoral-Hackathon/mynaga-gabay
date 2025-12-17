@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mynaga_gabay/shared/color.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 
 class VoiceButton extends StatefulWidget {
@@ -24,7 +25,7 @@ class _VoiceButtonState extends State<VoiceButton> {
       case 'en':
         return 'en_US';
       case 'fil':
-      case 'bcl': // Bikol uses Filipino locale as closest match
+      case 'bcl':
         return 'fil_PH';
       default:
         return 'fil_PH';
@@ -64,14 +65,17 @@ class _VoiceButtonState extends State<VoiceButton> {
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           color: _isListening
-              ? Colors.red
-              : Theme.of(context).colorScheme.primaryContainer,
+              ? Colors.red.withValues(alpha: 0.1)
+              : Colors.transparent,
+          border: Border.all(
+            color: _isListening ? Colors.red : AppColor.border,
+            width: 1,
+          ),
         ),
         child: Icon(
-          Icons.mic,
-          color: _isListening
-              ? Colors.white
-              : Theme.of(context).colorScheme.onPrimaryContainer,
+          _isListening ? Icons.mic : Icons.mic_none,
+          color: _isListening ? Colors.red : AppColor.grey,
+          size: 20,
         ),
       ),
     );

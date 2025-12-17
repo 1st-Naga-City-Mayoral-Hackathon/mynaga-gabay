@@ -35,7 +35,6 @@ class _AppViewState extends State<AppView> {
         return MaterialApp.router(
           title: 'MyNaga Gabay',
           debugShowCheckedModeBanner: false,
-          // locale: localization.currentLocale,
           localizationsDelegates: localization.localizationsDelegates,
           supportedLocales: localization.supportedLocales,
           theme: ThemeData(
@@ -60,7 +59,6 @@ class _AppViewState extends State<AppView> {
               elevation: 0,
             ),
           ),
-          // home: const HomeScreen(),
           routerConfig: AppRouter.config,
         );
       },

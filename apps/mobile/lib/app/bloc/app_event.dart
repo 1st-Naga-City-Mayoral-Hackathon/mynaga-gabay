@@ -8,3 +8,9 @@ class AppLocaleChanged extends AppEvent {
 
   AppLocaleChanged({required this.localeCode});
 }
+
+class AppThemeModeChanged extends AppEvent {
+  final ThemeMode themeMode;
+
+  AppThemeModeChanged({required this.themeMode});
+}

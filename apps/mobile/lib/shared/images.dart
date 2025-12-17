@@ -16,4 +16,7 @@ class AppImages {
   static const String americanFlag = "assets/flags/american_flag.png";
   static const String bicolFlag = "assets/flags/bicol_flag.png";
   static const String philippinesFlag = "assets/flags/philippines_flag.png";
+
+  // ICONS
+  static const String likhaIcon = "assets/icons/likha_icon.png";
 }

@@ -93,9 +93,9 @@ class _HomeScreenState extends State<HomeScreen> {
             Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                gradient: const LinearGradient(
-                  colors: [AppColor.primary, AppColor.secondary],
-                ),
+                // gradient: const LinearGradient(
+                // colors: [AppColor.primary, AppColor.secondary],
+                // ),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: const Icon(Icons.local_hospital,
