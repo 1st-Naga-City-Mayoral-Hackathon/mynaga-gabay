@@ -1,0 +1,214 @@
+{
+    "name": "MyNaga Gabay - Prescription Scanner",
+    "nodes": [
+        {
+            "parameters": {
+                "httpMethod": "POST",
+                "path": "prescription",
+                "responseMode": "responseNode",
+                "options": {
+                    "rawBody": false
+                }
+            },
+            "type": "n8n-nodes-base.webhook",
+            "typeVersion": 2.1,
+            "position": [
+                400,
+                300
+            ],
+            "id": "webhook-prescription",
+            "name": "Webhook: Prescription",
+            "webhookId": "prescription-scanner"
+        },
+        {
+            "parameters": {
+                "jsCode": "// Extract request data\nconst items = $input.all();\nconst item = items[0];\n\n// Get language preference (default to Filipino)\nconst language = item.json.body?.language || item.json.language || 'fil';\n\n// Check if we have binary data (image file)\nconst hasBinary = item.binary && Object.keys(item.binary).length > 0;\n\nif (!hasBinary) {\n  throw new Error('No image file received. Please upload a prescription image.');\n}\n\n// Get the first binary field name\nconst binaryFieldName = Object.keys(item.binary)[0];\n\nreturn [{\n  json: {\n    language: language,\n    binaryFieldName: binaryFieldName,\n    timestamp: new Date().toISOString()\n  },\n  binary: item.binary\n}];"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+                620,
+                300
+            ],
+            "id": "extract-request",
+            "name": "Extract Request"
+        },
+        {
+            "parameters": {
+                "method": "POST",
+                "url": "http://localhost:8002/preprocess",
+                "sendBody": true,
+                "contentType": "multipart-form-data",
+                "bodyParameters": {
+                    "parameters": [
+                        {
+                            "parameterType": "formBinaryData",
+                            "name": "file",
+                            "inputDataFieldName": "={{ $json.binaryFieldName }}"
+                        }
+                    ]
+                },
+                "options": {}
+            },
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 4.2,
+            "position": [
+                840,
+                300
+            ],
+            "id": "preprocess-image",
+            "name": "Preprocess Image"
+        },
+        {
+            "parameters": {
+                "jsCode": "// Build the prescription analysis prompt\nconst input = $input.first().json;\nconst language = $('Extract Request').first().json.language || 'fil';\n\nconst languageMap = {\n  'bcl': 'Bikol (Central Bikol dialect - spoken in Naga City)',\n  'fil': 'Filipino/Tagalog',\n  'eng': 'English'\n};\n\nconst languageName = languageMap[language] || 'Filipino/Tagalog';\n\nconst prompt = `You are an expert pharmacist assistant for Naga City, Camarines Sur, Philippines.\nAnalyze this prescription image carefully.\n\nEXTRACT AND STRUCTURE:\n1. Identify all medication names (generic name is priority)\n2. Extract dosage, frequency, and duration\n3. IF HANDWRITING IS UNREADABLE: Set confidence_score < 0.5 and name to \"Unreadable\". DO NOT GUESS.\n\nENRICHMENT (CRITICAL FOR FILIPINO PATIENTS):\n1. Flag if medication is typically covered by PhilHealth Konsulta (e.g., Losartan, Amlodipine, Metformin, Amoxicillin, Ciprofloxacin, Paracetamol)\n2. Provide estimated price range in Philippine Pesos if known\n3. Explain each medication in ${languageName}\n\nOUTPUT AS VALID JSON ONLY (no markdown, no explanations outside JSON):\n{\n  \"medications\": [\n    {\n      \"name\": \"Generic Name\",\n      \"brand_detected\": \"Brand name if visible, or null\",\n      \"dosage\": \"500mg\",\n      \"frequency\": \"3 times daily\",\n      \"duration\": \"7 days or as needed\",\n      \"explanation\": \"Simple explanation in ${languageName}\",\n      \"is_philhealth_covered\": true,\n      \"estimated_price_range\": \"₱5-₱10 per tablet\",\n      \"confidence_score\": 0.95\n    }\n  ],\n  \"interactions\": [\n    {\n      \"drugs\": [\"Drug A\", \"Drug B\"],\n      \"severity\": \"moderate\",\n      \"description\": \"Brief description\"\n    }\n  ],\n  \"general_advice\": \"Safety reminder in ${languageName}\",\n  \"medical_disclaimer\": \"This is for informational purposes only. Always consult your doctor or pharmacist.\"\n}`;\n\nreturn [{\n  json: {\n    prompt: prompt,\n    language: language,\n    image_base64: input.image_base64,\n    image_data_url: input.image_data_url\n  }\n}];"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+                1060,
+                300
+            ],
+            "id": "build-prompt",
+            "name": "Build Prompt"
+        },
+        {
+            "parameters": {
+                "method": "POST",
+                "url": "https://api.groq.com/openai/v1/chat/completions",
+                "authentication": "genericCredentialType",
+                "genericAuthType": "httpHeaderAuth",
+                "sendBody": true,
+                "specifyBody": "json",
+                "jsonBody": "={\n  \"model\": \"meta-llama/llama-4-scout-17b-16e-instruct\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": {{ JSON.stringify($json.prompt) }}\n        },\n        {\n          \"type\": \"image_url\",\n          \"image_url\": {\n            \"url\": {{ JSON.stringify($json.image_data_url) }}\n          }\n        }\n      ]\n    }\n  ],\n  \"response_format\": {\"type\": \"json_object\"},\n  \"max_tokens\": 2000,\n  \"temperature\": 0.3\n}",
+                "options": {}
+            },
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 4.2,
+            "position": [
+                1280,
+                300
+            ],
+            "id": "groq-vision-api",
+            "name": "Groq Vision API",
+            "credentials": {
+                "httpHeaderAuth": {
+                    "id": "GROQ_CREDENTIAL_ID",
+                    "name": "Groq API Key"
+                }
+            }
+        },
+        {
+            "parameters": {
+                "jsCode": "// Parse Groq Vision response and format output\nconst input = $input.first().json;\nconst language = $('Build Prompt').first().json.language;\n\ntry {\n  // Extract the content from Groq response\n  const content = input.choices?.[0]?.message?.content;\n  \n  if (!content) {\n    throw new Error('No response from AI');\n  }\n  \n  // Parse JSON response\n  let prescriptionData;\n  try {\n    prescriptionData = JSON.parse(content);\n  } catch (e) {\n    // Try to extract JSON from markdown code block if present\n    const jsonMatch = content.match(/```json\\n?([\\s\\S]*?)\\n?```/) || \n                      content.match(/```\\n?([\\s\\S]*?)\\n?```/);\n    if (jsonMatch) {\n      prescriptionData = JSON.parse(jsonMatch[1]);\n    } else {\n      throw new Error('Could not parse AI response as JSON');\n    }\n  }\n  \n  // Add metadata\n  const response = {\n    success: true,\n    language: language,\n    medications: prescriptionData.medications || [],\n    interactions: prescriptionData.interactions || [],\n    general_advice: prescriptionData.general_advice || '',\n    medical_disclaimer: prescriptionData.medical_disclaimer || 'Consult your doctor for medical advice.',\n    model: 'llama-4-scout',\n    timestamp: new Date().toISOString()\n  };\n  \n  // Add warnings for low confidence medications\n  response.medications = response.medications.map(med => ({\n    ...med,\n    needs_verification: (med.confidence_score || 1) < 0.7\n  }));\n  \n  return [{ json: response }];\n  \n} catch (error) {\n  return [{\n    json: {\n      success: false,\n      error: error.message,\n      language: language,\n      medications: [],\n      timestamp: new Date().toISOString()\n    }\n  }];\n}"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+                1500,
+                300
+            ],
+            "id": "format-response",
+            "name": "Format Response"
+        },
+        {
+            "parameters": {
+                "respondWith": "json",
+                "responseBody": "={{ $json }}",
+                "options": {
+                    "responseHeaders": {
+                        "entries": [
+                            {
+                                "name": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ]
+                    }
+                }
+            },
+            "type": "n8n-nodes-base.respondToWebhook",
+            "typeVersion": 1.1,
+            "position": [
+                1720,
+                300
+            ],
+            "id": "respond-webhook",
+            "name": "Respond to Webhook"
+        }
+    ],
+    "connections": {
+        "Webhook: Prescription": {
+            "main": [
+                [
+                    {
+                        "node": "Extract Request",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Extract Request": {
+            "main": [
+                [
+                    {
+                        "node": "Preprocess Image",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Preprocess Image": {
+            "main": [
+                [
+                    {
+                        "node": "Build Prompt",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Build Prompt": {
+            "main": [
+                [
+                    {
+                        "node": "Groq Vision API",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Groq Vision API": {
+            "main": [
+                [
+                    {
+                        "node": "Format Response",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Format Response": {
+            "main": [
+                [
+                    {
+                        "node": "Respond to Webhook",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        }
+    },
+    "pinData": {},
+    "meta": {
+        "templateCredsSetupCompleted": true
+    },
+    "settings": {
+        "executionOrder": "v1"
+    }
+}

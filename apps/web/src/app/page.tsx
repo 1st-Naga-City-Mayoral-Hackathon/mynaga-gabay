@@ -59,6 +59,13 @@ function Dashboard({ session }: { session: Session }) {
             icon: '📋',
             color: 'bg-yellow-500',
         },
+        {
+            href: '/prescription',
+            title: t('feature.scanner.title'),
+            desc: t('feature.scanner.desc'),
+            icon: '📷',
+            color: 'bg-purple-500',
+        },
     ];
 
     return (
@@ -90,7 +97,7 @@ function Dashboard({ session }: { session: Session }) {
 
                 {/* Quick Actions Grid */}
                 <h2 className="text-xl font-bold text-foreground mb-6">{t('dashboard.quickActions')}</h2>
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-12">
                     {quickActions.map((action) => (
                         <Link
                             key={action.href}

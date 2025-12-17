@@ -51,8 +51,8 @@ interface SpeechRecognitionConstructor {
 
 declare global {
     interface Window {
-        SpeechRecognition: SpeechRecognitionConstructor;
-        webkitSpeechRecognition: SpeechRecognitionConstructor;
+        SpeechRecognition?: typeof SpeechRecognition;
+        webkitSpeechRecognition?: typeof SpeechRecognition;
     }
 }
 

@@ -191,6 +191,18 @@ export function ChatSidebar({ isOpen, isCollapsed, onClose, onToggleCollapse, cu
                                 <TooltipProvider>
                                     <Tooltip>
                                         <TooltipTrigger asChild>
+                                            <Link href="/prescription">
+                                                <Button variant="ghost" size="icon" className="h-10 w-10">
+                                                    <span>📷</span>
+                                                </Button>
+                                            </Link>
+                                        </TooltipTrigger>
+                                        <TooltipContent side="right">Prescription Scanner</TooltipContent>
+                                    </Tooltip>
+                                </TooltipProvider>
+                                <TooltipProvider>
+                                    <Tooltip>
+                                        <TooltipTrigger asChild>
                                             <Link href="/philhealth">
                                                 <Button variant="ghost" size="icon" className="h-10 w-10">
                                                     <span>📋</span>
@@ -211,6 +223,11 @@ export function ChatSidebar({ isOpen, isCollapsed, onClose, onToggleCollapse, cu
                                 <Link href="/medications">
                                     <Button variant="ghost" className="w-full justify-start gap-2 text-sm">
                                         <span>💊</span> Medications
+                                    </Button>
+                                </Link>
+                                <Link href="/prescription">
+                                    <Button variant="ghost" className="w-full justify-start gap-2 text-sm">
+                                        <span>📷</span> Prescription Scanner
                                     </Button>
                                 </Link>
                                 <Link href="/philhealth">
