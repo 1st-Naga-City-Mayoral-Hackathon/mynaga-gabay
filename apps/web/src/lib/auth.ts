@@ -7,12 +7,31 @@ import { prisma } from '@/lib/prisma';
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
     trustHost: true,
+    secret: process.env.NEXTAUTH_SECRET || process.env.AUTH_SECRET,
     adapter: PrismaAdapter(prisma),
+    cookies: {
+        pkceCodeVerifier: {
+            name: 'next-auth.pkce.code_verifier',
+            options: {
+                httpOnly: true,
+                sameSite: 'lax',
+                path: '/',
+                secure: process.env.NODE_ENV === 'production',
+            },
+        },
+    },
     providers: [
         // Google OAuth
         Google({
             clientId: process.env.GCP_CLIENT_ID!,
             clientSecret: process.env.GCP_CLIENT_SECRET!,
+            authorization: {
+                params: {
+                    prompt: 'consent',
+                    access_type: 'offline',
+                    response_type: 'code',
+                },
+            },
         }),
 
         // Email/Password
