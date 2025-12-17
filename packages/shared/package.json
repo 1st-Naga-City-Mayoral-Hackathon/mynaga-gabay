@@ -13,7 +13,7 @@
         }
     },
     "scripts": {
-        "build": "npx tsup src/index.ts --format cjs,esm --dts",
+        "build": "[ -d dist ] && echo 'Using pre-built dist' || npx tsup src/index.ts --format cjs,esm --dts",
         "dev": "npx tsup src/index.ts --format cjs,esm --dts --watch",
         "clean": "rm -rf dist",
         "typecheck": "tsc --noEmit",

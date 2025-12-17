@@ -1,0 +1,2 @@
+# Override root .gitignore - include dist for pre-built package
+!dist/
