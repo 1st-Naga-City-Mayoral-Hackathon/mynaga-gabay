@@ -24,7 +24,7 @@ export function UserNav() {
   if (!session?.user) {
     return (
       <div className="flex items-center gap-2">
-        <Button size="sm" className="bg-teal-600 hover:bg-teal-700" asChild>
+        <Button size="sm" className="bg-gabay-orange hover:bg-gabay-orange-700" asChild>
           <Link href="/login">{t('auth.signin')}</Link>
         </Button>
       </div>

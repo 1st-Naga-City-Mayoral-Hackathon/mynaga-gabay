@@ -29,14 +29,14 @@ export function PhilHealthChecklist({ title, items }: PhilHealthChecklistProps) 
                 <h3 className="font-semibold text-slate-800 dark:text-white">
                     {title}
                 </h3>
-                <span className="text-sm text-gabay-teal">
+                <span className="text-sm text-gabay-orange">
                     {checkedCount}/{items.length}
                 </span>
             </div>
 
             <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2 mb-4">
                 <div
-                    className="bg-gabay-teal h-2 rounded-full transition-all duration-300"
+                    className="bg-gabay-orange h-2 rounded-full transition-all duration-300"
                     style={{ width: `${progress}%` }}
                 />
             </div>
@@ -51,7 +51,7 @@ export function PhilHealthChecklist({ title, items }: PhilHealthChecklistProps) 
                             type="checkbox"
                             checked={checked[item.id] || false}
                             onChange={() => toggleItem(item.id)}
-                            className="mt-1 w-5 h-5 rounded border-slate-300 text-gabay-teal focus:ring-gabay-teal"
+                            className="mt-1 w-5 h-5 rounded border-slate-300 text-gabay-orange focus:ring-gabay-orange"
                         />
                         <div>
                             <p className={`text-sm font-medium ${checked[item.id] ? 'text-slate-400 line-through' : 'text-slate-700 dark:text-slate-200'}`}>

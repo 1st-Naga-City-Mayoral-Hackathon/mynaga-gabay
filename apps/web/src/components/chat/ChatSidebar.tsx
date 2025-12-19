@@ -51,7 +51,7 @@ export function ChatSidebar({ isOpen, isCollapsed, onClose, onToggleCollapse, cu
                     <div className={cn("p-4 flex items-center", isCollapsed ? "justify-center" : "justify-between")}>
                         {!isCollapsed && (
                             <Link href="/" className="flex items-center gap-2">
-                                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-teal-500 to-teal-600 flex items-center justify-center">
+                                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-gabay-orange-500 to-gabay-orange-600 flex items-center justify-center">
                                     <span className="text-sm">🏥</span>
                                 </div>
                                 <span className="font-semibold text-foreground">Gabay</span>
@@ -96,7 +96,7 @@ export function ChatSidebar({ isOpen, isCollapsed, onClose, onToggleCollapse, cu
                             <TooltipProvider>
                                 <Tooltip>
                                     <TooltipTrigger asChild>
-                                        <Button size="icon" className="w-10 h-10 bg-teal-600 hover:bg-teal-700 mx-auto">
+                                        <Button size="icon" className="w-10 h-10 bg-gabay-orange-600 hover:bg-gabay-orange-700 mx-auto">
                                             <span>✏️</span>
                                         </Button>
                                     </TooltipTrigger>
@@ -104,7 +104,7 @@ export function ChatSidebar({ isOpen, isCollapsed, onClose, onToggleCollapse, cu
                                 </Tooltip>
                             </TooltipProvider>
                         ) : (
-                            <Button className="w-full justify-start gap-2 bg-teal-600 hover:bg-teal-700">
+                            <Button className="w-full justify-start gap-2 bg-gabay-orange-600 hover:bg-gabay-orange-700">
                                 <span>✏️</span>
                                 New Chat
                             </Button>
@@ -129,7 +129,7 @@ export function ChatSidebar({ isOpen, isCollapsed, onClose, onToggleCollapse, cu
                                                 <button
                                                     className={cn(
                                                         'w-10 h-10 mx-auto flex items-center justify-center rounded-lg transition-colors',
-                                                        'hover:bg-accent',
+                                                        'hover:bg-gabay-orange-100',
                                                         currentChatId === chat.id && 'bg-accent'
                                                     )}
                                                 >

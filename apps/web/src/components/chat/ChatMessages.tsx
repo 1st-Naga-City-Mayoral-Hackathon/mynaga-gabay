@@ -4,6 +4,7 @@ import { useRef, useEffect } from 'react';
 import { Message } from './Message';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Hospital } from 'lucide-react';
 
 interface MessageType {
   id: string;
@@ -51,8 +52,8 @@ function ChatMessagesInner({ messages, isLoading, onSuggestionClick }: ChatMessa
       <div className="max-w-3xl mx-auto py-4 space-y-6">
         {messages.length === 0 && (
           <div className="flex flex-col items-center justify-center h-[50vh] text-center">
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-500 to-teal-600 flex items-center justify-center mb-4 shadow-lg">
-              <span className="text-3xl">🏥</span>
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-gabay-orange-500 to-gabay-orange-600 flex items-center justify-center mb-4 shadow-lg">
+              <Hospital className="w-8 h-8 text-white" />
             </div>
             <h2 className="text-xl font-semibold text-foreground mb-2">{t('chat.greeting')}</h2>
             <p className="text-muted-foreground max-w-md">{t('chat.description')}</p>
@@ -77,7 +78,7 @@ function ChatMessagesInner({ messages, isLoading, onSuggestionClick }: ChatMessa
         {isLoading && (
           <div className="flex gap-3">
             <div className="w-8 h-8 rounded-full bg-gradient-to-br from-teal-500 to-teal-600 flex items-center justify-center flex-shrink-0">
-              <span className="text-sm">🏥</span>
+              <Hospital className="w-4 h-4 text-white" />
             </div>
             <div className="flex-1 px-4 py-3 bg-transparent">
               <div className="flex gap-1">

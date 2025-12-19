@@ -19,7 +19,7 @@
     --secondary-foreground: 215 25% 20%;
     --muted: 160 15% 93%;
     --muted-foreground: 215 15% 45%;
-    --accent: 160 20% 92%;
+    --accent: 50 4% 92%;
     --accent-foreground: 215 25% 15%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
@@ -100,7 +100,7 @@
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-teal-600 via-teal-500 to-cyan-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-gabay-orange-600 via-gabay-orange-500 to-gabay-orange-300 bg-clip-text text-transparent;
   }
 
   .section-title {

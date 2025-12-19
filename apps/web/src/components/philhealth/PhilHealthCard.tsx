@@ -25,7 +25,7 @@ export function PhilHealthCard({ coverage }: PhilHealthCardProps) {
                     <h3 className="font-semibold text-slate-800 dark:text-white">
                         {coverage.title}
                     </h3>
-                    <p className="text-sm text-gabay-teal font-medium">
+                    <p className="text-sm text-gabay-orange font-medium">
                         {coverage.limit}
                     </p>
                 </div>

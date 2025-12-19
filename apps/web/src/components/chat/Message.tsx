@@ -37,7 +37,7 @@ export function Message({ message }: MessageProps) {
       <Avatar
         className={cn(
           'w-8 h-8 flex-shrink-0',
-          isUser ? 'bg-primary' : 'bg-gradient-to-br from-teal-500 to-teal-600'
+          isUser ? 'bg-primary' : 'bg-gradient-to-br from-gabay-orange-500 to-gabay-orange-600'
         )}
       >
         <AvatarFallback className="text-sm">{isUser ? '👤' : '🏥'}</AvatarFallback>
@@ -65,7 +65,7 @@ export function Message({ message }: MessageProps) {
                 a: ({ href, children }) => (
                   <a
                     href={href}
-                    className="text-teal-600 hover:underline"
+                    className="text-gabay-orange-600 hover:underline"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

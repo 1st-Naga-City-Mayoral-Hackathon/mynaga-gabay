@@ -25,7 +25,7 @@ export function ChatHeader({ onMenuClick }: ChatHeaderProps) {
         </Button>
 
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-teal-500 to-teal-600 flex items-center justify-center">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-gabay-orange-500 to-gabay-orange-600 flex items-center justify-center">
             <span className="text-sm">🏥</span>
           </div>
           <div>

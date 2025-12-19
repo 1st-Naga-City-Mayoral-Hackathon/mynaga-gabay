@@ -28,9 +28,9 @@ const meta = {
                 <p className="text-gray-600">This area represents the rest of the application to demonstrate how the sidebar sits alongside content.</p>
             </div>
             <div className="grid grid-cols-3 gap-4">
-                <div className="h-24 bg-teal-50 rounded" />
-                <div className="h-24 bg-teal-50 rounded" />
-                <div className="h-24 bg-teal-50 rounded" />
+                <div className="h-24 bg-gabay-orange-100 rounded" />
+                <div className="h-24 bg-gabay-orange-100 rounded" />
+                <div className="h-24 bg-gabay-orange-100 rounded" />
             </div>
         </main>
       </div>

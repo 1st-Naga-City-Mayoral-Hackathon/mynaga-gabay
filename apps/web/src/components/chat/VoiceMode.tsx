@@ -252,7 +252,7 @@ export function VoiceMode({ onClose, onSendMessage }: VoiceModeProps) {
 
         switch (state) {
             case 'idle':
-                return `${base} bg-gradient-to-br from-teal-500 to-teal-600 scale-100`;
+                return `${base} bg-gradient-to-br from-gabay-orange-500 to-teal-600 scale-100`;
             case 'listening':
                 return `${base} bg-gradient-to-br from-blue-500 to-blue-600 scale-110 animate-pulse`;
             case 'processing':

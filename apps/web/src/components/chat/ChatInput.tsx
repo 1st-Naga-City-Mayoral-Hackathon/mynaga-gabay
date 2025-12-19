@@ -257,7 +257,7 @@ export function ChatInput({
                     isRecording
                       ? 'bg-red-500 hover:bg-red-600 animate-pulse'
                       : isListening
-                        ? 'bg-teal-600 hover:bg-teal-700'
+                        ? 'bg-gabay-orange-500 hover:bg-gabay-orange-700'
                         : ''
                   }`}
                 >
@@ -324,7 +324,7 @@ export function ChatInput({
                     size="icon"
                     onClick={() => onAutoTTSChange(!autoTTS)}
                     className={`h-10 w-10 rounded-xl flex-shrink-0 ${
-                      autoTTS ? 'bg-teal-600 hover:bg-teal-700 text-white' : ''
+                      autoTTS ? 'bg-gabay-orange-600 hover:bg-gabay-orange-700 text-white' : ''
                     }`}
                   >
                     {isSpeaking ? (
@@ -389,7 +389,7 @@ export function ChatInput({
             onClick={() => onSubmit()}
             disabled={!value.trim() || isLoading}
             size="icon"
-            className="h-10 w-10 rounded-xl bg-teal-600 hover:bg-teal-700 flex-shrink-0"
+            className="h-10 w-10 rounded-xl bg-gabay-orange-600 hover:bg-gabay-orange-700 flex-shrink-0"
           >
             {isLoading ? (
               <span className="animate-spin">⏳</span>
