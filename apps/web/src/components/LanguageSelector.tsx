@@ -44,7 +44,6 @@ function LanguageSelectorClient() {
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="sm" className="gap-1.5 text-sm">
-                    <span>{current.flag}</span>
                     <span className="hidden sm:inline">{t(`lang.${language}`)}</span>
                     <svg className="w-3 h-3 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -58,7 +57,6 @@ function LanguageSelectorClient() {
                         onClick={() => setLanguage(lang.code)}
                         className={language === lang.code ? 'bg-accent' : ''}
                     >
-                        <span className="mr-2">{lang.flag}</span>
                         {lang.name}
                         {language === lang.code && (
                             <svg className="w-4 h-4 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">

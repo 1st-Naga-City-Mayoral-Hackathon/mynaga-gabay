@@ -16,7 +16,7 @@ export function Navigation() {
     return (
         <nav className="fixed bottom-0 left-0 right-0 z-50">
             {/* Gradient border top */}
-            <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-gabay-teal/30 to-transparent" />
+            <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-gabay-orange-100/30 to-transparent" />
 
             <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-[0_-4px_24px_rgba(0,0,0,0.08)]">
                 <div className="container mx-auto px-4">
@@ -31,7 +31,7 @@ export function Navigation() {
                                 >
                                     {/* Active indicator */}
                                     {isActive && (
-                                        <div className="absolute -top-0.5 left-1/2 -translate-x-1/2 w-8 h-1 rounded-full bg-gradient-to-r from-gabay-teal to-teal-500" />
+                                        <div className="absolute -top-0.5 left-1/2 -translate-x-1/2 w-8 h-1 rounded-full bg-gradient-to-r from-gabay-orange-50 to-gabay-orange-500" />
                                     )}
 
                                     <div className={`
@@ -43,8 +43,8 @@ export function Navigation() {
                                     <span className={`
                     text-[10px] font-medium transition-colors
                     ${isActive
-                                            ? 'text-gabay-teal'
-                                            : 'text-slate-500 group-hover:text-gabay-teal'
+                                            ? 'text-gabay-orange-500'
+                                            : 'text-slate-500 group-hover:text-gabay-orange-500'
                                         }
                   `}>
                                         {item.label}
