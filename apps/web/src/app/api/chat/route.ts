@@ -141,7 +141,22 @@ export async function POST(req: NextRequest) {
         // ============================================
         const sessionId = `web-${Date.now()}`;
 
-        console.log(`[Chat API] Calling LLM (${llmLanguage}): "${messageForLLM.substring(0, 50)}..."`);
+        // Strongly enforce response language even if the user's input text is in a different language.
+        // This matters in production when translation is unavailable (no Python service).
+        const languageInstruction =
+          llmLanguage === 'english'
+            ? 'Please reply in English.'
+            : llmLanguage === 'tagalog'
+              ? 'Paki-sagot sa Filipino/Tagalog.'
+              : llmLanguage === 'bikol'
+                ? 'Paki-sagot sa Bikol.'
+                : '';
+
+        const llmMessage = languageInstruction
+          ? `${languageInstruction}\n\n${messageForLLM}`
+          : messageForLLM;
+
+        console.log(`[Chat API] Calling LLM (${llmLanguage}): "${llmMessage.substring(0, 50)}..."`);
 
         let llmResponse: string;
         try {
@@ -151,7 +166,7 @@ export async function POST(req: NextRequest) {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        message: messageForLLM,
+                        message: llmMessage,
                         sessionId,
                         language: llmLanguage,
                     }),
