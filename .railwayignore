@@ -1,0 +1,18 @@
+# This repo is a monorepo. When deploying the Python AI service on Railway,
+# we want the build context to include only `packages/ai` and ignore the
+# root Dockerfile / Node workspaces (which can trigger Railway security scans).
+
+# Ignore the root Dockerfile (it's for deploying the Next.js web image)
+Dockerfile
+
+# Ignore Node workspace artifacts (not needed for Python AI service)
+package-lock.json
+package.json
+node_modules/
+
+# Ignore other workspaces (only deploy `packages/ai`)
+apps/
+packages/shared/
+packages/ai-core/
+
+
