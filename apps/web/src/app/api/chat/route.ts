@@ -43,10 +43,14 @@ async function fetchWithTimeout(url: string, options: RequestInit, timeoutMs: nu
 /**
  * Translate text using AI service with timeout
  */
-async function translateText(text: string, sourceLang: string, targetLang: string): Promise<string> {
+async function translateText(
+  text: string,
+  sourceLang: string,
+  targetLang: string
+): Promise<{ text: string; ok: boolean }> {
     // Skip if same language
     if (sourceLang === targetLang) {
-        return text;
+        return { text, ok: true };
     }
 
     try {
@@ -68,19 +72,19 @@ async function translateText(text: string, sourceLang: string, targetLang: strin
 
         if (!response.ok) {
             console.error(`[Translate] Error: ${response.status}`);
-            return text; // Return original on error
+            return { text, ok: false }; // Return original on error
         }
 
         const data = await response.json() as { text: string };
         console.log(`[Translate] Result: "${data.text.substring(0, 30)}..."`);
-        return data.text;
+        return { text: data.text, ok: true };
     } catch (err) {
         if (err instanceof Error && err.name === 'AbortError') {
             console.error('[Translate] Timeout - returning original text');
         } else {
             console.error('[Translate] Failed:', err);
         }
-        return text; // Return original on error
+        return { text, ok: false }; // Return original on error
     }
 }
 
@@ -114,9 +118,22 @@ export async function POST(req: NextRequest) {
         // ============================================
         // Step 1: Translate user message to English (with fallback)
         // ============================================
-        let englishInput = userMessage;
+        let messageForLLM = userMessage;
+        let llmLanguage = userLanguage;
+        let usedTranslationToEnglish = false;
+
         if (userLanguage !== 'english') {
-            englishInput = await translateText(userMessage, userLanguage, 'english');
+          const translated = await translateText(userMessage, userLanguage, 'english');
+          if (translated.ok) {
+            messageForLLM = translated.text;
+            llmLanguage = 'english';
+            usedTranslationToEnglish = true;
+          } else {
+            // Translation service unavailable (common on Vercel if AI service isn't deployed).
+            // Fall back to sending the original message and ask the LLM to respond in the user's language.
+            messageForLLM = userMessage;
+            llmLanguage = userLanguage;
+          }
         }
 
         // ============================================
@@ -124,7 +141,7 @@ export async function POST(req: NextRequest) {
         // ============================================
         const sessionId = `web-${Date.now()}`;
 
-        console.log(`[Chat API] Calling LLM: "${englishInput.substring(0, 50)}..."`);
+        console.log(`[Chat API] Calling LLM (${llmLanguage}): "${messageForLLM.substring(0, 50)}..."`);
 
         let llmResponse: string;
         try {
@@ -134,9 +151,9 @@ export async function POST(req: NextRequest) {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        message: englishInput,
+                        message: messageForLLM,
                         sessionId,
-                        language: 'english', // Always send English to LLM
+                        language: llmLanguage,
                     }),
                 },
                 LLM_TIMEOUT_MS
@@ -178,8 +195,11 @@ export async function POST(req: NextRequest) {
         // Step 3: Translate response to user's language (with fallback)
         // ============================================
         let finalResponse = llmResponse;
-        if (userLanguage !== 'english') {
-            finalResponse = await translateText(llmResponse, 'english', userLanguage);
+        // Only translate back if we actually translated the user message to English.
+        // If translation was unavailable, we already asked the LLM to answer in the user's language.
+        if (userLanguage !== 'english' && usedTranslationToEnglish) {
+          const translatedBack = await translateText(llmResponse, 'english', userLanguage);
+          finalResponse = translatedBack.text;
         }
 
         // Return as SSE stream format compatible with AI SDK useChat

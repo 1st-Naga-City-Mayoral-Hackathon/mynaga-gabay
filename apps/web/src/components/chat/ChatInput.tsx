@@ -160,6 +160,27 @@ export function ChatInput({
         });
       } catch (err) {
         console.error('[VoiceMode] TTS error:', err);
+
+        // Production on Vercel often won't have the Python TTS service running.
+        // Fall back to the browser's built-in Speech Synthesis for English/Filipino.
+        if (language === 'en' || language === 'fil') {
+          try {
+            if (!('speechSynthesis' in window) || typeof SpeechSynthesisUtterance === 'undefined') return;
+
+            // Stop any ongoing speech
+            window.speechSynthesis.cancel();
+
+            await new Promise<void>((resolve) => {
+              const utterance = new SpeechSynthesisUtterance(text);
+              utterance.lang = language === 'fil' ? 'fil-PH' : 'en-US';
+              utterance.onend = () => resolve();
+              utterance.onerror = () => resolve();
+              window.speechSynthesis.speak(utterance);
+            });
+          } catch (fallbackErr) {
+            console.error('[VoiceMode] Browser TTS fallback error:', fallbackErr);
+          }
+        }
       }
     },
     [language]
