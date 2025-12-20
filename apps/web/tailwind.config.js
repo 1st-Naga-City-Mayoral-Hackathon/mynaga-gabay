@@ -24,6 +24,7 @@ module.exports = {
     				foreground: 'hsl(var(--primary-foreground))'
     			},
     			gabay: {
+    				orange: '#f97316',
     				teal: '#0d9488',
     				blue: '#2563eb',
     				purple: '#7c3aed'
