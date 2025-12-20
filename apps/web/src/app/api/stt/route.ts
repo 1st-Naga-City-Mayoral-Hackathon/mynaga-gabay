@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 export const runtime = 'nodejs'; // Need nodejs for form data handling
 
 const AI_SERVICE_URL = process.env.AI_SERVICE_URL || 'http://localhost:8001';
+const AI_SERVICE_API_KEY = process.env.AI_SERVICE_API_KEY || '';
 
 export async function POST(req: NextRequest) {
     try {
@@ -27,6 +28,9 @@ export async function POST(req: NextRequest) {
 
         const response = await fetch(`${AI_SERVICE_URL}/stt`, {
             method: 'POST',
+            headers: {
+                ...(AI_SERVICE_API_KEY ? { 'X-AI-KEY': AI_SERVICE_API_KEY } : {}),
+            },
             body: aiFormData,
         });
 

@@ -4,6 +4,7 @@ export const runtime = 'edge';
 
 const N8N_WEBHOOK_URL = process.env.N8N_WEBHOOK_URL || 'https://cob-n8n-primary-production.up.railway.app/webhook/mynaga-gabay-chat';
 const AI_SERVICE_URL = process.env.AI_SERVICE_URL || 'http://localhost:8001';
+const AI_SERVICE_API_KEY = process.env.AI_SERVICE_API_KEY || '';
 
 // Timeouts
 const TRANSLATE_TIMEOUT_MS = 30000; // 30 seconds for translation
@@ -60,7 +61,10 @@ async function translateText(
             `${AI_SERVICE_URL}/translate`,
             {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                  'Content-Type': 'application/json',
+                  ...(AI_SERVICE_API_KEY ? { 'X-AI-KEY': AI_SERVICE_API_KEY } : {}),
+                },
                 body: JSON.stringify({
                     text,
                     source_lang: sourceLang,

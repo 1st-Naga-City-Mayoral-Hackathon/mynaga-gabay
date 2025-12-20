@@ -29,7 +29,7 @@ from contextlib import asynccontextmanager
 import torch
 import scipy.io.wavfile
 import numpy as np
-from fastapi import FastAPI, HTTPException, UploadFile, File, Form
+from fastapi import FastAPI, HTTPException, UploadFile, File, Form, Header, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import Response
 from pydantic import BaseModel, Field
@@ -37,6 +37,21 @@ from pydantic import BaseModel, Field
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+# ============================================
+# Simple shared-secret auth (optional)
+# ============================================
+
+# If set, requests must send header: X-AI-KEY: <AI_SERVICE_API_KEY>
+AI_SERVICE_API_KEY = os.environ.get("AI_SERVICE_API_KEY", "")
+
+
+def require_ai_key(x_ai_key: Optional[str] = Header(default=None, alias="X-AI-KEY")):
+    """Optional API key guard. If AI_SERVICE_API_KEY is empty, auth is disabled."""
+    if not AI_SERVICE_API_KEY:
+        return
+    if not x_ai_key or x_ai_key != AI_SERVICE_API_KEY:
+        raise HTTPException(status_code=401, detail="Unauthorized")
 
 # ============================================
 # TTS Configuration
@@ -569,7 +584,7 @@ app.add_middleware(
 # ============================================
 
 @app.post("/tts", response_class=Response)
-async def synthesize_speech(request: TTSRequest):
+async def synthesize_speech(request: TTSRequest, _: None = Depends(require_ai_key)):
     """Convert text to speech audio (WAV)."""
     try:
         logger.info(f"TTS request: lang={request.language}, text='{request.text[:50]}...'")
@@ -597,6 +612,7 @@ async def synthesize_speech(request: TTSRequest):
 async def transcribe_speech(
     audio: UploadFile = File(..., description="Audio file (WAV, WebM, MP3)"),
     language: Literal["bcl", "fil", "eng"] = Form(default=DEFAULT_LANGUAGE),
+    _: None = Depends(require_ai_key),
 ):
     """Convert speech audio to text."""
     try:
@@ -630,7 +646,7 @@ async def transcribe_speech(
 # ============================================
 
 @app.post("/translate", response_model=TranslateResponse)
-async def translate(request: TranslateRequest):
+async def translate(request: TranslateRequest, _: None = Depends(require_ai_key)):
     """Translate text between Bikol, Tagalog, and English."""
     try:
         logger.info(f"Translate request: {request.source_lang} → {request.target_lang}, text='{request.text[:50]}...'")
