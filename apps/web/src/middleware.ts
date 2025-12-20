@@ -13,7 +13,8 @@ export default async function middleware(req: NextRequest) {
 
   const token = await getToken({
     req,
-    secret: process.env.NEXTAUTH_SECRET,
+    // Match the secret resolution used by NextAuth in `src/lib/auth.ts`
+    secret: process.env.NEXTAUTH_SECRET || process.env.AUTH_SECRET,
   });
   const isLoggedIn = !!token;
 
