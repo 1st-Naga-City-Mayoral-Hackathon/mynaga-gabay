@@ -11,11 +11,26 @@ export default async function middleware(req: NextRequest) {
   const isOnChat = req.nextUrl.pathname.startsWith('/chat');
   const isLoginPage = req.nextUrl.pathname === '/login';
 
-  const token = await getToken({
-    req,
-    // Match the secret resolution used by NextAuth in `src/lib/auth.ts`
-    secret: process.env.NEXTAUTH_SECRET || process.env.AUTH_SECRET,
-  });
+  // Match the secret resolution used by NextAuth in `src/lib/auth.ts`
+  const secret = process.env.NEXTAUTH_SECRET || process.env.AUTH_SECRET;
+
+  // NextAuth v5 uses `authjs.session-token` (secure version is `__Secure-authjs.session-token`).
+  // If NEXTAUTH_URL / secureCookie inference is off, getToken() may look for the wrong cookie.
+  // Be explicit and try the common variants to avoid redirecting logged-in users to /login.
+  const cookieNamesToTry = [
+    '__Secure-authjs.session-token',
+    'authjs.session-token',
+    '__Secure-next-auth.session-token',
+    'next-auth.session-token',
+  ];
+
+  let token = await getToken({ req, secret });
+  if (!token) {
+    for (const cookieName of cookieNamesToTry) {
+      token = await getToken({ req, secret, cookieName });
+      if (token) break;
+    }
+  }
   const isLoggedIn = !!token;
 
   if (isOnChat) {
