@@ -1,23 +1,22 @@
 'use client';
 
-import { useState } from 'react';
+import { ReactNode } from 'react';
 
 interface PhilHealthCardProps {
     coverage: {
         title: string;
         description: string;
         limit: string;
-        icon: string;
+        icon: ReactNode;
     };
+    isExpanded?: boolean;
+    renderIcon?: ReactNode;
 }
 
-export function PhilHealthCard({ coverage }: PhilHealthCardProps) {
-    const [isExpanded, setIsExpanded] = useState(false);
-
+export function PhilHealthCard({ coverage, isExpanded = false, renderIcon }: PhilHealthCardProps) {
     return (
         <div
             className="glass-card p-4 cursor-pointer hover:shadow-lg transition-all"
-            onClick={() => setIsExpanded(!isExpanded)}
         >
             <div className="flex items-start gap-3">
                 <span className="text-2xl">{coverage.icon}</span>
@@ -25,12 +24,12 @@ export function PhilHealthCard({ coverage }: PhilHealthCardProps) {
                     <h3 className="font-semibold text-slate-800 dark:text-white">
                         {coverage.title}
                     </h3>
-                    <p className="text-sm text-gabay-teal font-medium">
+                    <p className="text-sm text-gabay-orange font-medium">
                         {coverage.limit}
                     </p>
                 </div>
                 <span className={`transition-transform ${isExpanded ? 'rotate-180' : ''}`}>
-                    ▼
+                    {renderIcon ?? '▼'}
                 </span>
             </div>
 

@@ -84,7 +84,7 @@ export function TTSButton({ text, language = 'bcl', className }: TTSButtonProps)
             disabled={isLoading || !text}
             className={cn(
                 'h-7 w-7 transition-colors',
-                isPlaying && 'text-teal-500 bg-teal-500/10',
+                isPlaying && 'text-gabay-orange-500 bg-gabay-orange-500/10',
                 error && 'text-red-500',
                 className
             )}
