@@ -1,6 +1,8 @@
 import { NextRequest } from 'next/server';
 
-export const runtime = 'edge';
+// Node runtime to avoid Edge 25s timeout (n8n/LLM calls can exceed this)
+export const runtime = 'nodejs';
+export const maxDuration = 60;
 
 const N8N_WEBHOOK_URL = process.env.N8N_WEBHOOK_URL || 'https://cob-n8n-primary-production.up.railway.app/webhook/mynaga-gabay-chat';
 const AI_SERVICE_URL = process.env.AI_SERVICE_URL || 'http://localhost:8001';
