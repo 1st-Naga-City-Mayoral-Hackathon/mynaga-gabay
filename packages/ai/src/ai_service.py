@@ -546,12 +546,20 @@ class TranslateResponse(BaseModel):
 async def lifespan(app: FastAPI):
     logger.info("Starting MyNaga AI Service...")
     
-    # Preload TTS model for Bikol
-    try:
-        load_tts_model(DEFAULT_LANGUAGE)
-        logger.info("Bikol TTS model preloaded!")
-    except Exception as e:
-        logger.warning(f"Could not preload TTS model: {e}")
+    # Preload TTS models (optional)
+    # Railway/Vercel requests can time out if the first request triggers a large model download/load.
+    # Set PRELOAD_TTS_LANGUAGES="bcl,fil,eng" (or e.g. "bcl,fil") to warm models at startup.
+    preload_env = os.environ.get("PRELOAD_TTS_LANGUAGES", "").strip()
+    preload_langs = [DEFAULT_LANGUAGE]
+    if preload_env:
+        preload_langs = [x.strip() for x in preload_env.split(",") if x.strip()]
+
+    for lang in preload_langs:
+        try:
+            load_tts_model(lang)
+            logger.info(f"TTS model preloaded: {lang}")
+        except Exception as e:
+            logger.warning(f"Could not preload TTS model ({lang}): {e}")
     
     # STT model is loaded on-demand (it's 4GB)
     logger.info("STT model will be loaded on first request")
