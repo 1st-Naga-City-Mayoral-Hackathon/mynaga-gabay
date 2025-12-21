@@ -12,6 +12,11 @@ const AI_SERVICE_API_KEY = process.env.AI_SERVICE_API_KEY || '';
 const TRANSLATE_TIMEOUT_MS = 30000; // 30 seconds for translation
 const LLM_TIMEOUT_MS = 60000; // 60 seconds for LLM
 
+// Small in-memory cache to reduce repeated translation latency (best-effort per instance).
+// Note: Serverless instances are ephemeral; this cache is not guaranteed.
+const TRANSLATION_CACHE_MAX = 200;
+const translationCache = new Map<string, string>();
+
 // Map UI language codes to translation service codes
 const LANGUAGE_MAP: Record<string, string> = {
     'en': 'english',
@@ -56,6 +61,12 @@ async function translateText(
         return { text, ok: true };
     }
 
+    const cacheKey = `${sourceLang}→${targetLang}:${text}`;
+    const cached = translationCache.get(cacheKey);
+    if (cached) {
+      return { text: cached, ok: true };
+    }
+
     try {
         console.log(`[Translate] ${sourceLang} → ${targetLang}: "${text.substring(0, 30)}..."`);
 
@@ -83,6 +94,14 @@ async function translateText(
 
         const data = await response.json() as { text: string };
         console.log(`[Translate] Result: "${data.text.substring(0, 30)}..."`);
+
+        translationCache.set(cacheKey, data.text);
+        // Basic eviction (FIFO-ish)
+        if (translationCache.size > TRANSLATION_CACHE_MAX) {
+          const firstKey = translationCache.keys().next().value as string | undefined;
+          if (firstKey) translationCache.delete(firstKey);
+        }
+
         return { text: data.text, ok: true };
     } catch (err) {
         if (err instanceof Error && err.name === 'AbortError') {
@@ -123,12 +142,20 @@ export async function POST(req: NextRequest) {
 
         // ============================================
         // Step 1: Translate user message to English (with fallback)
+        //
+        // Strategy:
+        // - Bikol: ALWAYS translate to English for better LLM quality, then translate back.
+        // - Tagalog: Default to NO translation (LLM responds directly in Tagalog) for lower latency.
+        // - English: no translation.
         // ============================================
         let messageForLLM = userMessage;
         let llmLanguage = userLanguage;
         let usedTranslationToEnglish = false;
 
-        if (userLanguage !== 'english') {
+        const shouldTranslateToEnglish =
+          userLanguage === 'bikol' ? true : userLanguage === 'tagalog' ? false : userLanguage !== 'english';
+
+        if (shouldTranslateToEnglish) {
           const translated = await translateText(userMessage, userLanguage, 'english');
           if (translated.ok) {
             messageForLLM = translated.text;
