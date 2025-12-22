@@ -1,4 +1,7 @@
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
+import type { UserLocation, AssistantEnvelope } from '@mynaga/shared';
+import { orchestrateResponse, shouldOrchestrate } from '@/lib/chat-orchestrator';
+import { checkRateLimit, rateLimitHeaders, CHAT_RATE_LIMIT } from '@/lib/rate-limit';
 
 // Node runtime to avoid Edge 25s timeout (n8n/LLM calls can exceed this)
 export const runtime = 'nodejs';
@@ -122,9 +125,35 @@ function normalizeLanguage(language: string | undefined): string {
     return normalized || 'english';
 }
 
+/**
+ * Request body type
+ */
+interface ChatRequestBody {
+    messages: Array<{ role: string; content: string }>;
+    language?: string;
+    location?: UserLocation;
+    wantsBooking?: boolean;
+}
+
 export async function POST(req: NextRequest) {
+    // Check rate limit first
+    const rateLimitResult = await checkRateLimit(req, CHAT_RATE_LIMIT);
+    if (!rateLimitResult.success) {
+        return NextResponse.json(
+            {
+                success: false,
+                error: rateLimitResult.error,
+            },
+            {
+                status: 429,
+                headers: rateLimitHeaders(rateLimitResult),
+            }
+        );
+    }
+
     try {
-        const { messages, language } = await req.json();
+        const body: ChatRequestBody = await req.json();
+        const { messages, language, location, wantsBooking } = body;
 
         // Get the last user message
         const lastMessage = messages?.[messages.length - 1];
@@ -139,6 +168,7 @@ export async function POST(req: NextRequest) {
         const userLanguage = normalizeLanguage(language);
 
         console.log(`[Chat API] User language: ${language} → ${userLanguage}`);
+        console.log(`[Chat API] Location:`, location);
 
         // ============================================
         // Step 1: Translate user message to English (with fallback)
@@ -250,11 +280,41 @@ export async function POST(req: NextRequest) {
           finalResponse = translatedBack.text;
         }
 
-        // Return as SSE stream format compatible with AI SDK useChat
+        // ============================================
+        // Step 4: Orchestrate structured response (cards, facilities, routes)
+        // ============================================
+        let envelope: AssistantEnvelope | null = null;
+
+        if (shouldOrchestrate(userMessage)) {
+            console.log('[Chat API] Orchestrating structured response...');
+            try {
+                envelope = await orchestrateResponse({
+                    userMessage,
+                    llmResponse: finalResponse,
+                    language: userLanguage,
+                    location,
+                    wantsBooking,
+                });
+                console.log(`[Chat API] Orchestration complete: ${envelope.cards.length} cards`);
+            } catch (err) {
+                console.error('[Chat API] Orchestration failed:', err);
+                // Continue with text-only response
+            }
+        }
+
+        // ============================================
+        // Step 5: Return SSE response
+        // ============================================
         const encoder = new TextEncoder();
+
+        // If we have an envelope, return it even if there are 0 cards.
+        // This preserves safety banners/disclaimers in the UI for cases like ER triage
+        // where we intentionally avoid medication cards and may have no location-based cards.
+        const responsePayload = envelope ? envelope : finalResponse;
+
         const stream = new ReadableStream({
             start(controller) {
-                const sseData = `0:${JSON.stringify(finalResponse)}\n`;
+                const sseData = `0:${JSON.stringify(responsePayload)}\n`;
                 controller.enqueue(encoder.encode(sseData));
                 controller.close();
             },
