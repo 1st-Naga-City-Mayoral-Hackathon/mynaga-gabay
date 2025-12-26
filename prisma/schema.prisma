@@ -78,6 +78,19 @@ model VerificationToken {
 }
 
 // =============================================================================
+// External / legacy tables (public) - kept to avoid unintended drops
+// =============================================================================
+
+model N8nChatHistory {
+  id        Int    @id @default(autoincrement())
+  sessionId String @map("session_id") @db.VarChar(255)
+  message   Json
+
+  @@map("n8n_chat_histories")
+  @@schema("public")
+}
+
+// =============================================================================
 // API models (mynaga_api)
 // =============================================================================
 
@@ -248,6 +261,90 @@ enum AuditAction {
   appointment_viewed
   route_requested
   auth_failed
+
+  @@schema("mynaga_api")
+}
+
+// =============================================================================
+// Medication management (mynaga_api)
+// =============================================================================
+
+model MedicationCourse {
+  id             String   @id @default(uuid())
+  userId         String
+  medicationName String
+  strength       String?
+  form           String?
+  instructions   String   // free-text / sig
+  scheduleTimes  String[] // ["08:00","13:00","18:00"] local time (best-effort)
+  timezone       String   @default("Asia/Manila")
+  prn            Boolean  @default(false)
+  startDate      DateTime? // optional, if known
+  endDate        DateTime? // optional, if known
+  isActive       Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  reminders   MedicationReminder[]
+  intakeEvents IntakeEvent[]
+
+  @@index([userId])
+  @@index([isActive])
+  @@schema("mynaga_api")
+}
+
+model MedicationReminder {
+  id         String   @id @default(uuid())
+  courseId   String
+  enabled    Boolean  @default(true)
+  // Times of day for notifications, if different from course scheduleTimes
+  timesOfDay String[] // ["08:00","13:00","18:00"]
+  timezone   String   @default("Asia/Manila")
+  channel    ReminderChannel @default(local_notification)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  course MedicationCourse @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  @@index([courseId])
+  @@schema("mynaga_api")
+}
+
+enum ReminderChannel {
+  local_notification
+
+  @@schema("mynaga_api")
+}
+
+model IntakeEvent {
+  id          String      @id @default(uuid())
+  courseId    String
+  scheduledAt DateTime
+  takenAt     DateTime?
+  status      IntakeStatus
+  source      IntakeSource @default(web)
+  createdAt   DateTime     @default(now())
+
+  course MedicationCourse @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  @@unique([courseId, scheduledAt])
+  @@index([courseId])
+  @@index([scheduledAt])
+  @@index([status])
+  @@schema("mynaga_api")
+}
+
+enum IntakeStatus {
+  taken
+  missed
+  skipped
+
+  @@schema("mynaga_api")
+}
+
+enum IntakeSource {
+  web
+  mobile
 
   @@schema("mynaga_api")
 }

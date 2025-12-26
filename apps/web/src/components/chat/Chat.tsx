@@ -21,6 +21,8 @@ interface Message {
   id: string;
   role: 'user' | 'assistant';
   content: string;
+  imagePreviewUrl?: string;
+  imageName?: string;
 }
 
 export function Chat({ language: langProp }: ChatProps) {
@@ -40,6 +42,10 @@ export function Chat({ language: langProp }: ChatProps) {
   const [showLocationCapture, setShowLocationCapture] = useState(false);
   const [dismissedLocationPrompt, setDismissedLocationPrompt] = useState(false);
   const [dismissedSignInPrompt, setDismissedSignInPrompt] = useState(false);
+  const [attachedImage, setAttachedImage] = useState<{
+    file: File;
+    previewUrl: string;
+  } | null>(null);
 
   // Get the last assistant message for voice mode TTS
   const lastAssistantMessage =
@@ -170,16 +176,19 @@ export function Chat({ language: langProp }: ChatProps) {
   const handleSubmit = useCallback(
     async (overrideText?: string) => {
       const textToSubmit = overrideText ?? input;
-      if (!textToSubmit.trim() || isLoading) return;
+      if ((!textToSubmit.trim() && !attachedImage) || isLoading) return;
 
       const userMessage: Message = {
         id: crypto.randomUUID(),
         role: 'user',
-        content: textToSubmit,
+        content: textToSubmit.trim() ? textToSubmit : '[Image attached]',
+        imagePreviewUrl: attachedImage?.previewUrl,
+        imageName: attachedImage?.file?.name,
       };
 
       setMessages((prev) => [...prev, userMessage]);
       setInput('');
+      if (attachedImage) setAttachedImage(null);
       setIsLoading(true);
       setError(null);
 
@@ -195,6 +204,7 @@ export function Chat({ language: langProp }: ChatProps) {
             language,
             location: userLocation || undefined,
             wantsBooking: true, // Enable booking by default
+            hasImageAttachment: Boolean(attachedImage),
           }),
         });
 
@@ -261,7 +271,7 @@ export function Chat({ language: langProp }: ChatProps) {
         setIsLoading(false);
       }
     },
-    [input, isLoading, messages, language, userLocation]
+    [input, isLoading, messages, language, userLocation, attachedImage]
   );
 
   return (
@@ -375,6 +385,21 @@ export function Chat({ language: langProp }: ChatProps) {
           isLoading={isLoading}
           placeholder={t('chat.placeholder')}
           lastAssistantMessage={lastAssistantText}
+          attachmentPreviewUrl={attachedImage?.previewUrl || null}
+          attachmentName={attachedImage?.file?.name || null}
+          onAttachImage={(file) => {
+            const previewUrl = URL.createObjectURL(file);
+            setAttachedImage((prev) => {
+              if (prev?.previewUrl) URL.revokeObjectURL(prev.previewUrl);
+              return { file, previewUrl };
+            });
+          }}
+          onClearAttachment={() => {
+            setAttachedImage((prev) => {
+              if (prev?.previewUrl) URL.revokeObjectURL(prev.previewUrl);
+              return null;
+            });
+          }}
         />
       </div>
     </div>

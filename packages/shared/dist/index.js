@@ -38,6 +38,8 @@ __export(index_exports, {
   isFacilityCard: () => isFacilityCard,
   isHealthRelated: () => isHealthRelated,
   isMedicationCard: () => isMedicationCard,
+  isMedicationPlanCard: () => isMedicationPlanCard,
+  isPrescriptionCard: () => isPrescriptionCard,
   isRouteCard: () => isRouteCard,
   isScheduleCard: () => isScheduleCard,
   triageMessage: () => triageMessage
@@ -64,6 +66,12 @@ function isScheduleCard(card) {
 }
 function isBookingCard(card) {
   return card.cardType === "booking";
+}
+function isPrescriptionCard(card) {
+  return card.cardType === "prescription";
+}
+function isMedicationPlanCard(card) {
+  return card.cardType === "medication_plan";
 }
 
 // src/constants/languages.ts
@@ -461,6 +469,8 @@ function isHealthRelated(message) {
   isFacilityCard,
   isHealthRelated,
   isMedicationCard,
+  isMedicationPlanCard,
+  isPrescriptionCard,
   isRouteCard,
   isScheduleCard,
   triageMessage

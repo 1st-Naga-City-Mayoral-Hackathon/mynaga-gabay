@@ -35,7 +35,68 @@ export type AssistantCard =
   | FacilityCard
   | RouteCard
   | ScheduleCard
-  | BookingCard;
+  | BookingCard
+  | PrescriptionCard
+  | MedicationPlanCard;
+
+// ============================================================================
+// Prescription Scanning (OCR/LLM) Types
+// ============================================================================
+
+export type PrescriptionConfidence = 'low' | 'medium' | 'high' | 'demo';
+
+export interface PrescriptionMedicationItem {
+  medicationName: string;
+  strength?: string; // e.g. "30mg"
+  form?: string; // e.g. "Syrup", "Tablet"
+  sig: string; // Directions (as written / normalized)
+  prn?: boolean; // as needed
+  durationDays?: number;
+  notes?: string;
+  confidence?: PrescriptionConfidence;
+}
+
+export interface PrescriptionCard {
+  cardType: 'prescription';
+  title: string; // e.g. "Prescription scan"
+  demo?: boolean;
+  confidence: PrescriptionConfidence;
+
+  patientName?: string;
+  age?: number;
+  date?: string; // ISO date or human string from scan
+
+  prescriberName?: string;
+  prescriberLicense?: string;
+
+  items: PrescriptionMedicationItem[];
+
+  warnings?: string[];
+  needsVerification?: boolean;
+}
+
+// Normalized medication plan suitable for reminders/tracking
+export interface MedicationPlanItem {
+  medicationName: string;
+  strength?: string;
+  form?: string;
+  scheduleSummary: string; // human summary
+  timesOfDay?: string[]; // e.g. ["08:00", "13:00", "18:00"] local time
+  prn?: boolean;
+  startDate?: string; // ISO date
+  endDate?: string; // ISO date
+  durationDays?: number;
+  notes?: string;
+  needsVerification?: boolean;
+}
+
+export interface MedicationPlanCard {
+  cardType: 'medication_plan';
+  title: string; // e.g. "Medication plan"
+  source: 'prescription_scan' | 'user_entered' | 'assistant_suggested';
+  items: MedicationPlanItem[];
+  needsVerification?: boolean;
+}
 
 // Medication Card
 export interface MedicationCardItem {
@@ -250,4 +311,12 @@ export function isScheduleCard(card: AssistantCard): card is ScheduleCard {
 
 export function isBookingCard(card: AssistantCard): card is BookingCard {
   return card.cardType === 'booking';
+}
+
+export function isPrescriptionCard(card: AssistantCard): card is PrescriptionCard {
+  return card.cardType === 'prescription';
+}
+
+export function isMedicationPlanCard(card: AssistantCard): card is MedicationPlanCard {
+  return card.cardType === 'medication_plan';
 }

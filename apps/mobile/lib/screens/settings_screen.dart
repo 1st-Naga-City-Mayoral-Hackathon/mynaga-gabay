@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/theme_provider.dart';
 import '../providers/language_provider.dart';
+import 'med_tracker_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     final langProvider = Provider.of<LanguageProvider>(context);
     final themeProvider = Provider.of<ThemeProvider>(context);
 
@@ -18,6 +18,22 @@ class SettingsScreen extends StatelessWidget {
       ),
       body: ListView(
         children: [
+          // Medication Tracker
+          _buildSectionHeader(context, 'Medication'),
+          ListTile(
+            leading: const Icon(Icons.medication),
+            title: const Text('My Medicines'),
+            subtitle: const Text('Reminders and intake tracking'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const MedTrackerScreen()),
+              );
+            },
+          ),
+
+          const Divider(height: 32),
+
           // Theme Section
           _buildSectionHeader(context, langProvider.t('settings.theme')),
           _buildThemeTile(

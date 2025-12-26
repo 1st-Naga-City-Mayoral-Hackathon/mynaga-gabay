@@ -117,7 +117,52 @@ interface SafetyInfo {
     redFlags?: string[];
     urgency?: UrgencyLevel;
 }
-type AssistantCard = MedicationCard | FacilityCard | RouteCard | ScheduleCard | BookingCard;
+type AssistantCard = MedicationCard | FacilityCard | RouteCard | ScheduleCard | BookingCard | PrescriptionCard | MedicationPlanCard;
+type PrescriptionConfidence = 'low' | 'medium' | 'high' | 'demo';
+interface PrescriptionMedicationItem {
+    medicationName: string;
+    strength?: string;
+    form?: string;
+    sig: string;
+    prn?: boolean;
+    durationDays?: number;
+    notes?: string;
+    confidence?: PrescriptionConfidence;
+}
+interface PrescriptionCard {
+    cardType: 'prescription';
+    title: string;
+    demo?: boolean;
+    confidence: PrescriptionConfidence;
+    patientName?: string;
+    age?: number;
+    date?: string;
+    prescriberName?: string;
+    prescriberLicense?: string;
+    items: PrescriptionMedicationItem[];
+    warnings?: string[];
+    needsVerification?: boolean;
+}
+interface MedicationPlanItem {
+    medicationName: string;
+    strength?: string;
+    form?: string;
+    scheduleSummary: string;
+    timesOfDay?: string[];
+    prn?: boolean;
+    startDate?: string;
+    endDate?: string;
+    durationDays?: number;
+    notes?: string;
+    needsVerification?: boolean;
+}
+interface MedicationPlanCard {
+    cardType: 'medication_plan';
+    title: string;
+    source: 'prescription_scan' | 'user_entered' | 'assistant_suggested';
+    items: MedicationPlanItem[];
+    needsVerification?: boolean;
+}
 interface MedicationCardItem {
     genericName: string;
     brandExamples?: string[];
@@ -268,6 +313,8 @@ declare function isFacilityCard(card: AssistantCard): card is FacilityCard;
 declare function isRouteCard(card: AssistantCard): card is RouteCard;
 declare function isScheduleCard(card: AssistantCard): card is ScheduleCard;
 declare function isBookingCard(card: AssistantCard): card is BookingCard;
+declare function isPrescriptionCard(card: AssistantCard): card is PrescriptionCard;
+declare function isMedicationPlanCard(card: AssistantCard): card is MedicationPlanCard;
 
 declare const SUPPORTED_LANGUAGES: readonly ["en", "fil", "bcl"];
 type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number];
@@ -362,4 +409,4 @@ declare function triageMessage(message: string, language?: TriageLanguage): Tria
  */
 declare function isHealthRelated(message: string): boolean;
 
-export { API_ENDPOINTS, APP_CONFIG, type ApiError, type ApiResponse, type Appointment, type AssistantCard, type AssistantEnvelope, type BookingCard, type BookingStatus, type ChatRequest, type ChatResponse, type ConversationContext, type CreateAppointmentRequest, DEFAULT_LANGUAGE, type Doctor, type EnhancedChatRequest, type EnvelopeLanguage, type FacilityCard, type FacilityType, type GeoJSONLineString, type HealthFacility, LANGUAGE_GREETINGS, LANGUAGE_NAMES, type Medication, type MedicationCard, type MedicationCardItem, type Message, type MessageMetadata, type MessageRole, type MessageType, type PhilHealthInfo, type PrescriptionData, type RAGSource, type RouteCard, type RouteStep, SUPPORTED_LANGUAGES, type SafetyInfo, type ScheduleCard, type ScheduleSlot, type SupportedLanguage, type SymptomContext, type SymptomMatch, type SyncEventType, type SyncOutboxEvent, type TriageLanguage, type TriageResult, type UrgencyLevel, type User, type UserLocation, type UserPreferences, VOICE_CONFIG, detectRedFlags, detectSymptoms, determineUrgency, getFollowUpQuestions, getFollowUpQuestionsLocalized, getMedicationCard, isAssistantEnvelope, isBookingCard, isFacilityCard, isHealthRelated, isMedicationCard, isRouteCard, isScheduleCard, triageMessage };
+export { API_ENDPOINTS, APP_CONFIG, type ApiError, type ApiResponse, type Appointment, type AssistantCard, type AssistantEnvelope, type BookingCard, type BookingStatus, type ChatRequest, type ChatResponse, type ConversationContext, type CreateAppointmentRequest, DEFAULT_LANGUAGE, type Doctor, type EnhancedChatRequest, type EnvelopeLanguage, type FacilityCard, type FacilityType, type GeoJSONLineString, type HealthFacility, LANGUAGE_GREETINGS, LANGUAGE_NAMES, type Medication, type MedicationCard, type MedicationCardItem, type MedicationPlanCard, type MedicationPlanItem, type Message, type MessageMetadata, type MessageRole, type MessageType, type PhilHealthInfo, type PrescriptionCard, type PrescriptionConfidence, type PrescriptionData, type PrescriptionMedicationItem, type RAGSource, type RouteCard, type RouteStep, SUPPORTED_LANGUAGES, type SafetyInfo, type ScheduleCard, type ScheduleSlot, type SupportedLanguage, type SymptomContext, type SymptomMatch, type SyncEventType, type SyncOutboxEvent, type TriageLanguage, type TriageResult, type UrgencyLevel, type User, type UserLocation, type UserPreferences, VOICE_CONFIG, detectRedFlags, detectSymptoms, determineUrgency, getFollowUpQuestions, getFollowUpQuestionsLocalized, getMedicationCard, isAssistantEnvelope, isBookingCard, isFacilityCard, isHealthRelated, isMedicationCard, isMedicationPlanCard, isPrescriptionCard, isRouteCard, isScheduleCard, triageMessage };

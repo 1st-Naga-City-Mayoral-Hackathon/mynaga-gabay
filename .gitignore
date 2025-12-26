@@ -59,7 +59,7 @@ apps/mobile/ios/Flutter/Flutter.podspec
 
 *storybook.log
 storybook-static
-data/images/NCGH.jpg
+data/images/*
 
 # Prisma generated client (avoid committing engines/binaries)
 apps/**/src/generated/prisma/

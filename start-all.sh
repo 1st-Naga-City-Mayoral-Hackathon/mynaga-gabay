@@ -1,40 +1,49 @@
-#!/usr/bin/env bash
-set -euo pipefail
+#!/bin/bash
 
-# Start all MyNaga Gabay services:
-# - AI service (packages/ai) on port 8001
-# - Web (apps/web) + API (apps/api) via Turborepo (`npm run dev`)
-#
-# Usage:
-#   ./start-all.sh
+# MyNaga Gabay - Start All Services
+# This script kills any existing services and starts fresh
 
-ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+set -e
 
-AI_PID=""
+echo "=== MyNaga Gabay Development Server ==="
+echo ""
 
-cleanup() {
-  echo ""
-  echo "[start-all] Shutting down..."
-  if [[ -n "${AI_PID}" ]]; then
-    kill "${AI_PID}" 2>/dev/null || true
-  fi
+# Define ports used by services
+WEB_PORT=3000
+API_PORT=4000
+TTS_PORT=8001
+
+# Function to kill process on a port
+kill_port() {
+    local port=$1
+    local name=$2
+    local pid=$(lsof -ti:$port 2>/dev/null)
+    if [ -n "$pid" ]; then
+        echo "Killing $name on port $port (PID: $pid)..."
+        kill -9 $pid 2>/dev/null || true
+        sleep 1
+    fi
 }
 
-trap cleanup EXIT INT TERM
+# Kill existing services
+echo "Cleaning up existing services..."
+kill_port $WEB_PORT "Web (Next.js)"
+kill_port $API_PORT "API (Express)"
+kill_port $TTS_PORT "TTS Service"
 
-echo "[start-all] Repo: ${ROOT_DIR}"
+# Also kill any turbo processes
+pkill -f "turbo run dev" 2>/dev/null || true
+pkill -f "next-server" 2>/dev/null || true
+pkill -f "tsx watch" 2>/dev/null || true
 
-echo "[start-all] Starting AI service (http://localhost:8001)..."
-(
-  cd "${ROOT_DIR}/packages/ai"
-  # Prefer an existing venv if user has one activated; otherwise use system python.
-  python src/ai_service.py
-) &
-AI_PID="$!"
-echo "[start-all] AI PID: ${AI_PID}"
+echo "All ports cleared."
+echo ""
 
-echo "[start-all] Starting web + api via Turborepo..."
-cd "${ROOT_DIR}"
+# Start all services using turbo
+echo "Starting all services..."
+echo "  - Web:  http://localhost:$WEB_PORT"
+echo "  - API:  http://localhost:$API_PORT"
+echo "  - Docs: http://localhost:$API_PORT/api/docs"
+echo ""
+
 npm run dev
-
-

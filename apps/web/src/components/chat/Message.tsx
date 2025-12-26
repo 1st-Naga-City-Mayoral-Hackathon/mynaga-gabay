@@ -13,23 +13,21 @@ import {
   RouteMapCard,
   ScheduleCardUI,
   BookingCardUI,
+  PrescriptionCardUI,
+  MedicationPlanCardUI,
   SafetyBanner,
 } from './cards';
 import type {
   AssistantEnvelope,
   AssistantCard,
-  isAssistantEnvelope,
-  isMedicationCard,
-  isFacilityCard,
-  isRouteCard,
-  isScheduleCard,
-  isBookingCard,
 } from '@mynaga/shared';
 
 interface MessageType {
   id: string;
   role: 'user' | 'assistant';
   content: string;
+  imagePreviewUrl?: string;
+  imageName?: string;
 }
 
 interface MessageProps {
@@ -69,6 +67,8 @@ function checkCardType(card: AssistantCard): {
   isRoute: boolean;
   isSchedule: boolean;
   isBooking: boolean;
+  isPrescription: boolean;
+  isMedicationPlan: boolean;
 } {
   return {
     isMedication: card.cardType === 'medication',
@@ -76,6 +76,8 @@ function checkCardType(card: AssistantCard): {
     isRoute: card.cardType === 'route',
     isSchedule: card.cardType === 'schedule',
     isBooking: card.cardType === 'booking',
+    isPrescription: card.cardType === 'prescription',
+    isMedicationPlan: card.cardType === 'medication_plan',
   };
 }
 
@@ -103,6 +105,14 @@ function AssistantCards({ cards }: { cards: AssistantCard[] }) {
 
         if (types.isBooking && card.cardType === 'booking') {
           return <BookingCardUI key={index} card={card} />;
+        }
+
+        if (types.isPrescription && card.cardType === 'prescription') {
+          return <PrescriptionCardUI key={index} card={card} />;
+        }
+
+        if (types.isMedicationPlan && card.cardType === 'medication_plan') {
+          return <MedicationPlanCardUI key={index} card={card} />;
         }
 
         return null;
@@ -147,7 +157,17 @@ export function Message({ message }: MessageProps) {
         )}
       >
         {isUser ? (
-          <p className="text-sm whitespace-pre-wrap">{message.content}</p>
+          <div className="space-y-2">
+            {message.imagePreviewUrl && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={message.imagePreviewUrl}
+                alt={message.imageName || 'Attached image'}
+                className="max-h-64 w-auto rounded-xl border"
+              />
+            )}
+            <p className="text-sm whitespace-pre-wrap">{message.content}</p>
+          </div>
         ) : (
           <div>
             {/* Safety banner for structured responses */}

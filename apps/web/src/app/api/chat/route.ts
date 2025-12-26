@@ -133,6 +133,7 @@ interface ChatRequestBody {
     language?: string;
     location?: UserLocation;
     wantsBooking?: boolean;
+    hasImageAttachment?: boolean;
 }
 
 export async function POST(req: NextRequest) {
@@ -153,7 +154,7 @@ export async function POST(req: NextRequest) {
 
     try {
         const body: ChatRequestBody = await req.json();
-        const { messages, language, location, wantsBooking } = body;
+        const { messages, language, location, wantsBooking, hasImageAttachment } = body;
 
         // Get the last user message
         const lastMessage = messages?.[messages.length - 1];
@@ -169,6 +170,107 @@ export async function POST(req: NextRequest) {
 
         console.log(`[Chat API] User language: ${language} → ${userLanguage}`);
         console.log(`[Chat API] Location:`, location);
+
+        // ============================================
+        // Demo prescription scanner short-circuit
+        // ============================================
+        // Demo scanner is enabled if explicitly true, OR by default in non-production.
+        // In non-production you can disable by setting DEMO_PRESCRIPTION_SCANNER=false.
+        const demoFlag = (process.env.DEMO_PRESCRIPTION_SCANNER || '').toLowerCase();
+        const demoPrescriptionEnabled =
+          demoFlag === 'true' || (process.env.NODE_ENV !== 'production' && demoFlag !== 'false');
+
+        if (demoPrescriptionEnabled && hasImageAttachment) {
+          const todayIso = new Date().toISOString().slice(0, 10);
+          const demoEnvelope: AssistantEnvelope = {
+            text: `Demo prescription scan result (simulated). Please verify the details with your doctor/pharmacist before following any instructions.`,
+            language: userLanguage,
+            safety: {
+              disclaimer:
+                'This is a demo scan and not a medical diagnosis. Prescriptions can be misread. Please confirm medicine name, strength, and dosage with a pharmacist/doctor. If you have severe breathing difficulty, chest pain, confusion, or worsening symptoms, seek urgent care.',
+              urgency: 'clinic',
+            },
+            cards: [
+              {
+                cardType: 'prescription',
+                title: 'Prescription scan (demo)',
+                demo: true,
+                confidence: 'demo',
+                patientName: 'Juan Dela Cruz',
+                date: 'December 22, 2024',
+                age: 35,
+                prescriberName: 'Dr. Maria Santos, MD',
+                prescriberLicense: '12345678',
+                needsVerification: true,
+                items: [
+                  {
+                    medicationName: 'Ambroxol',
+                    strength: '30mg',
+                    form: 'Syrup',
+                    sig: '1 tablespoon 3x a day after meals x 5 days',
+                    durationDays: 5,
+                    confidence: 'demo',
+                  },
+                  {
+                    medicationName: 'Salbutamol',
+                    strength: '2mg',
+                    form: 'Tablet',
+                    sig: '1 tab 3x a day as needed for cough',
+                    prn: true,
+                    confidence: 'demo',
+                  },
+                ],
+                warnings: [
+                  'Verify drug name/strength and directions before taking.',
+                  'If you have allergies, pregnancy, heart disease, or other conditions, confirm safety first.',
+                ],
+              },
+              {
+                cardType: 'medication_plan',
+                title: 'Medication plan (demo)',
+                source: 'prescription_scan',
+                needsVerification: true,
+                items: [
+                  {
+                    medicationName: 'Ambroxol',
+                    strength: '30mg',
+                    form: 'Syrup',
+                    scheduleSummary: '1 tablespoon, 3x/day after meals for 5 days',
+                    timesOfDay: ['08:00', '13:00', '18:00'],
+                    startDate: todayIso,
+                    durationDays: 5,
+                    needsVerification: true,
+                  },
+                  {
+                    medicationName: 'Salbutamol',
+                    strength: '2mg',
+                    form: 'Tablet',
+                    scheduleSummary: '1 tablet, up to 3x/day as needed for cough (PRN)',
+                    prn: true,
+                    needsVerification: true,
+                  },
+                ],
+              },
+            ],
+            timestamp: new Date().toISOString(),
+          };
+
+          const encoder = new TextEncoder();
+          const stream = new ReadableStream({
+            start(controller) {
+              const sseData = `0:${JSON.stringify(demoEnvelope)}\n`;
+              controller.enqueue(encoder.encode(sseData));
+              controller.close();
+            },
+          });
+
+          return new Response(stream, {
+            headers: {
+              'Content-Type': 'text/event-stream; charset=utf-8',
+              'Cache-Control': 'no-cache',
+            },
+          });
+        }
 
         // ============================================
         // Step 1: Translate user message to English (with fallback)

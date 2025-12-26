@@ -19,11 +19,12 @@ import { Request, Response, NextFunction } from 'express';
 // In dev, default the internal key so routing/cards work out-of-the-box for demos.
 // In production, this MUST be explicitly configured.
 const INTERNAL_API_KEY =
+  process.env.AI_SERVICE_API_KEY ||
   process.env.INTERNAL_API_KEY ||
   (process.env.NODE_ENV === 'production' ? '' : 'dev-internal-key');
 
 if (!INTERNAL_API_KEY && process.env.NODE_ENV === 'production') {
-  console.error('WARNING: INTERNAL_API_KEY is not set. Internal auth will fail.');
+  console.error('WARNING: AI_SERVICE_API_KEY is not set. Internal auth will fail.');
 }
 
 export interface AuthenticatedRequest extends Request {

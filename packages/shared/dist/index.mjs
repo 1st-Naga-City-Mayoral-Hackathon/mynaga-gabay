@@ -19,6 +19,12 @@ function isScheduleCard(card) {
 function isBookingCard(card) {
   return card.cardType === "booking";
 }
+function isPrescriptionCard(card) {
+  return card.cardType === "prescription";
+}
+function isMedicationPlanCard(card) {
+  return card.cardType === "medication_plan";
+}
 
 // src/constants/languages.ts
 var SUPPORTED_LANGUAGES = ["en", "fil", "bcl"];
@@ -414,6 +420,8 @@ export {
   isFacilityCard,
   isHealthRelated,
   isMedicationCard,
+  isMedicationPlanCard,
+  isPrescriptionCard,
   isRouteCard,
   isScheduleCard,
   triageMessage

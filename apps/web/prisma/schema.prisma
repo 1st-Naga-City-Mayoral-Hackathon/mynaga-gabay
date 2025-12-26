@@ -3,6 +3,7 @@
 
 generator client {
   provider      = "prisma-client-js"
+  output        = "../src/generated/prisma"
   // Include Windows so teammates running on Windows can use the same repo.
   // Keep the Linux target for typical production deployments (e.g. Vercel).
   binaryTargets = ["native", "rhel-openssl-3.0.x", "windows"]

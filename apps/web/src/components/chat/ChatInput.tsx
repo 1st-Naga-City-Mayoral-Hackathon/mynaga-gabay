@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useEffect, useState, useCallback } from 'react';
-import { Loader2, Mic, Send, Volume2 } from 'lucide-react';
+import { Image as ImageIcon, Loader2, Mic, Send, Volume2, X } from 'lucide-react';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
@@ -19,6 +19,10 @@ interface ChatInputProps {
   // For voice mode - callback to get response text for TTS
   lastAssistantMessage?: string;
   onVoiceModeChange?: (active: boolean) => void;
+  attachmentPreviewUrl?: string | null;
+  attachmentName?: string | null;
+  onAttachImage?: (file: File) => void;
+  onClearAttachment?: () => void;
 }
 
 // Web Speech API language codes
@@ -43,8 +47,13 @@ export function ChatInput({
   placeholder,
   lastAssistantMessage,
   onVoiceModeChange,
+  attachmentPreviewUrl,
+  attachmentName,
+  onAttachImage,
+  onClearAttachment,
 }: ChatInputProps) {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const { language, t } = useLanguage();
 
   // Voice mode state
@@ -87,10 +96,12 @@ export function ChatInput({
     }
   }, [value]);
 
+  const canSubmit = Boolean(value.trim() || attachmentPreviewUrl);
+
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
-      if (value.trim() && !isLoading) {
+      if (canSubmit && !isLoading) {
         onSubmit();
       }
     }
@@ -654,8 +665,64 @@ export function ChatInput({
             </Tooltip>
           </TooltipProvider>
 
+          {/* Image Attachment Button */}
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => fileInputRef.current?.click()}
+                  disabled={isLoading || isVoiceModeActive}
+                  className="h-10 w-10 rounded-xl flex-shrink-0"
+                  title="Attach image"
+                >
+                  <ImageIcon className="w-5 h-5" />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>Attach an image (prescription)</TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/*"
+            className="hidden"
+            onChange={(e) => {
+              const file = e.target.files?.[0];
+              if (!file) return;
+              onAttachImage?.(file);
+              // Allow re-selecting the same file
+              e.currentTarget.value = '';
+            }}
+          />
+
           {/* Text Input */}
           <div className="flex-1 relative">
+            {attachmentPreviewUrl && (
+              <div className="mb-2 flex items-center gap-2">
+                <div className="relative">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={attachmentPreviewUrl}
+                    alt={attachmentName || 'Attached image'}
+                    className="h-16 w-16 rounded-lg object-cover border"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => onClearAttachment?.()}
+                    className="absolute -top-2 -right-2 bg-background border rounded-full h-6 w-6 flex items-center justify-center"
+                    title="Remove image"
+                  >
+                    <X className="w-3 h-3" />
+                  </button>
+                </div>
+                <div className="text-xs text-muted-foreground truncate">
+                  {attachmentName || 'Image attached'}
+                </div>
+              </div>
+            )}
             <Textarea
               ref={textareaRef}
               value={value}
@@ -675,7 +742,7 @@ export function ChatInput({
           {/* Send Button */}
           <Button
             onClick={() => onSubmit()}
-            disabled={!value.trim() || isLoading || isVoiceModeActive}
+            disabled={!canSubmit || isLoading || isVoiceModeActive}
             size="icon"
             className="h-10 w-10 rounded-xl bg-gabay-teal hover:bg-gabay-teal/90 flex-shrink-0"
           >
