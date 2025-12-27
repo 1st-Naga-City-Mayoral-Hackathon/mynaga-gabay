@@ -1,0 +1,352 @@
+// Unified Prisma schema for MyNaga Gabay (web + api)
+//
+// Why unified?
+// - Prisma no longer supports generating multiple separate clients in a monorepo via `generator.client.output`.
+// - Web (NextAuth) and API (booking/facilities) both need Prisma, so we generate ONE client.
+//
+// We keep NextAuth tables in `public` and API tables in `mynaga_api` using `multiSchema`.
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["multiSchema"]
+  binaryTargets   = ["native", "rhel-openssl-3.0.x", "windows"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_DATABASE_PUBLIC_URL")
+  schemas  = ["public", "mynaga_api"]
+}
+
+// =============================================================================
+// NextAuth (public)
+// =============================================================================
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  password      String?   // For credentials login
+  phone         String?   @unique // For phone OTP
+  accounts      Account[]
+  sessions      Session[]
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@schema("public")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@schema("public")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@schema("public")
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@schema("public")
+}
+
+// =============================================================================
+// External / legacy tables (public) - kept to avoid unintended drops
+// =============================================================================
+
+model N8nChatHistory {
+  id        Int    @id @default(autoincrement())
+  sessionId String @map("session_id") @db.VarChar(255)
+  message   Json
+
+  @@map("n8n_chat_histories")
+  @@schema("public")
+}
+
+// =============================================================================
+// API models (mynaga_api)
+// =============================================================================
+
+model Facility {
+  id         String       @id @default(uuid())
+  name       String
+  type       FacilityType
+  address    String
+  barangay   String
+  city       String       @default("Naga City")
+  phone      String?
+  hours      String?
+  services   String[]
+  latitude   Float?
+  longitude  Float?
+  photoUrl   String?
+  isActive   Boolean      @default(true)
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+
+  doctors      Doctor[]
+  appointments Appointment[]
+
+  @@index([type])
+  @@index([barangay])
+  @@index([latitude, longitude])
+  @@schema("mynaga_api")
+}
+
+enum FacilityType {
+  hospital
+  health_center
+  clinic
+  pharmacy
+  birthing_home
+  diagnostic_center
+
+  @@schema("mynaga_api")
+}
+
+model Doctor {
+  id              String   @id @default(uuid())
+  name            String
+  specialization  String
+  facilityId      String
+  photoUrl        String?
+  consultationFee Float?
+  isActive        Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  facility          Facility           @relation(fields: [facilityId], references: [id], onDelete: Cascade)
+  availabilitySlots AvailabilitySlot[]
+  appointments      Appointment[]
+
+  @@index([facilityId])
+  @@index([specialization])
+  @@schema("mynaga_api")
+}
+
+model AvailabilitySlot {
+  id        String   @id @default(uuid())
+  doctorId  String
+  startTime DateTime
+  endTime   DateTime
+  isBooked  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  doctor Doctor @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+
+  @@index([doctorId])
+  @@index([startTime, endTime])
+  @@index([isBooked])
+  @@schema("mynaga_api")
+}
+
+model Appointment {
+  id           String            @id @default(uuid())
+  userId       String            // NextAuth user ID (required for ownership)
+  doctorId     String
+  facilityId   String
+  patientName  String
+  patientPhone String?           // Optional contact info, not used for lookup
+  slotStart    DateTime
+  slotEnd      DateTime
+  status       AppointmentStatus @default(scheduled)
+  notes        String?
+  createdAt    DateTime          @default(now())
+  updatedAt    DateTime          @updatedAt
+
+  doctor     Doctor           @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+  facility   Facility         @relation(fields: [facilityId], references: [id], onDelete: Cascade)
+  syncEvents SyncOutboxEvent[]
+
+  @@index([userId])
+  @@index([doctorId])
+  @@index([facilityId])
+  @@index([status])
+  @@index([slotStart])
+  @@schema("mynaga_api")
+}
+
+enum AppointmentStatus {
+  scheduled
+  confirmed
+  cancelled
+  completed
+
+  @@schema("mynaga_api")
+}
+
+model SyncOutboxEvent {
+  id            String       @id @default(uuid())
+  eventType     SyncEventType
+  appointmentId String?
+  payload       Json
+  status        SyncStatus   @default(pending)
+  retryCount    Int          @default(0)
+  errorMessage  String?
+  createdAt     DateTime     @default(now())
+  syncedAt      DateTime?
+
+  appointment Appointment? @relation(fields: [appointmentId], references: [id], onDelete: SetNull)
+
+  @@index([status])
+  @@index([eventType])
+  @@index([createdAt])
+  @@schema("mynaga_api")
+}
+
+enum SyncEventType {
+  appointment_created
+  appointment_cancelled
+  appointment_updated
+
+  @@schema("mynaga_api")
+}
+
+enum SyncStatus {
+  pending
+  synced
+  failed
+
+  @@schema("mynaga_api")
+}
+
+model AuditLog {
+  id         String      @id @default(uuid())
+  userId     String      // Who performed the action
+  action     AuditAction
+  resourceId String?
+  metadata   Json?
+  ipAddress  String?
+  userAgent  String?
+  createdAt  DateTime    @default(now())
+
+  @@index([userId])
+  @@index([action])
+  @@index([createdAt])
+  @@index([resourceId])
+  @@schema("mynaga_api")
+}
+
+enum AuditAction {
+  appointment_created
+  appointment_cancelled
+  appointment_viewed
+  route_requested
+  auth_failed
+
+  @@schema("mynaga_api")
+}
+
+// =============================================================================
+// Medication management (mynaga_api)
+// =============================================================================
+
+model MedicationCourse {
+  id             String   @id @default(uuid())
+  userId         String
+  medicationName String
+  strength       String?
+  form           String?
+  instructions   String   // free-text / sig
+  scheduleTimes  String[] // ["08:00","13:00","18:00"] local time (best-effort)
+  timezone       String   @default("Asia/Manila")
+  prn            Boolean  @default(false)
+  startDate      DateTime? // optional, if known
+  endDate        DateTime? // optional, if known
+  isActive       Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  reminders   MedicationReminder[]
+  intakeEvents IntakeEvent[]
+
+  @@index([userId])
+  @@index([isActive])
+  @@schema("mynaga_api")
+}
+
+model MedicationReminder {
+  id         String   @id @default(uuid())
+  courseId   String
+  enabled    Boolean  @default(true)
+  // Times of day for notifications, if different from course scheduleTimes
+  timesOfDay String[] // ["08:00","13:00","18:00"]
+  timezone   String   @default("Asia/Manila")
+  channel    ReminderChannel @default(local_notification)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  course MedicationCourse @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  @@index([courseId])
+  @@schema("mynaga_api")
+}
+
+enum ReminderChannel {
+  local_notification
+
+  @@schema("mynaga_api")
+}
+
+model IntakeEvent {
+  id          String      @id @default(uuid())
+  courseId    String
+  scheduledAt DateTime
+  takenAt     DateTime?
+  status      IntakeStatus
+  source      IntakeSource @default(web)
+  createdAt   DateTime     @default(now())
+
+  course MedicationCourse @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  @@unique([courseId, scheduledAt])
+  @@index([courseId])
+  @@index([scheduledAt])
+  @@index([status])
+  @@schema("mynaga_api")
+}
+
+enum IntakeStatus {
+  taken
+  missed
+  skipped
+
+  @@schema("mynaga_api")
+}
+
+enum IntakeSource {
+  web
+  mobile
+
+  @@schema("mynaga_api")
+}
+
+

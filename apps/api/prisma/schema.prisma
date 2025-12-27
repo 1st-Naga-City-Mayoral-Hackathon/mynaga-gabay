@@ -1,0 +1,197 @@
+// Prisma schema for MyNaga Gabay API - Booking & Facilities
+// This schema supports the rich chat features: facilities, doctors, appointments
+
+generator client {
+  provider      = "prisma-client-js"
+  output        = "../src/generated/prisma"
+  binaryTargets = ["native", "rhel-openssl-3.0.x", "windows"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("API_DATABASE_URL")
+}
+
+// ============================================================================
+// Facility - Health facilities in Naga City
+// ============================================================================
+
+model Facility {
+  id         String       @id @default(uuid())
+  name       String
+  type       FacilityType
+  address    String
+  barangay   String
+  city       String       @default("Naga City")
+  phone      String?
+  hours      String?
+  services   String[]
+  latitude   Float?
+  longitude  Float?
+  photoUrl   String?
+  isActive   Boolean      @default(true)
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+
+  // Relations
+  doctors      Doctor[]
+  appointments Appointment[]
+
+  @@index([type])
+  @@index([barangay])
+  @@index([latitude, longitude])
+}
+
+enum FacilityType {
+  hospital
+  health_center
+  clinic
+  pharmacy
+  birthing_home
+  diagnostic_center
+}
+
+// ============================================================================
+// Doctor - Doctors at facilities
+// ============================================================================
+
+model Doctor {
+  id              String   @id @default(uuid())
+  name            String
+  specialization  String
+  facilityId      String
+  photoUrl        String?
+  consultationFee Float?
+  isActive        Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relations
+  facility           Facility            @relation(fields: [facilityId], references: [id], onDelete: Cascade)
+  availabilitySlots  AvailabilitySlot[]
+  appointments       Appointment[]
+
+  @@index([facilityId])
+  @@index([specialization])
+}
+
+// ============================================================================
+// AvailabilitySlot - Doctor availability schedule
+// ============================================================================
+
+model AvailabilitySlot {
+  id        String   @id @default(uuid())
+  doctorId  String
+  startTime DateTime
+  endTime   DateTime
+  isBooked  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  doctor Doctor @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+
+  @@index([doctorId])
+  @@index([startTime, endTime])
+  @@index([isBooked])
+}
+
+// ============================================================================
+// Appointment - Patient appointments (requires authenticated user)
+// ============================================================================
+
+model Appointment {
+  id           String            @id @default(uuid())
+  userId       String            // NextAuth user ID (required for ownership)
+  doctorId     String
+  facilityId   String
+  patientName  String
+  patientPhone String?           // Optional contact info, not used for lookup
+  slotStart    DateTime
+  slotEnd      DateTime
+  status       AppointmentStatus @default(scheduled)
+  notes        String?
+  createdAt    DateTime          @default(now())
+  updatedAt    DateTime          @updatedAt
+
+  // Relations
+  doctor       Doctor            @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+  facility     Facility          @relation(fields: [facilityId], references: [id], onDelete: Cascade)
+  syncEvents   SyncOutboxEvent[]
+
+  @@index([userId])
+  @@index([doctorId])
+  @@index([facilityId])
+  @@index([status])
+  @@index([slotStart])
+}
+
+enum AppointmentStatus {
+  scheduled
+  confirmed
+  cancelled
+  completed
+}
+
+// ============================================================================
+// SyncOutboxEvent - For hybrid booking sync with external systems
+// ============================================================================
+
+model SyncOutboxEvent {
+  id            String          @id @default(uuid())
+  eventType     SyncEventType
+  appointmentId String?
+  payload       Json
+  status        SyncStatus      @default(pending)
+  retryCount    Int             @default(0)
+  errorMessage  String?
+  createdAt     DateTime        @default(now())
+  syncedAt      DateTime?
+
+  // Relations
+  appointment Appointment? @relation(fields: [appointmentId], references: [id], onDelete: SetNull)
+
+  @@index([status])
+  @@index([eventType])
+  @@index([createdAt])
+}
+
+enum SyncEventType {
+  appointment_created
+  appointment_cancelled
+  appointment_updated
+}
+
+enum SyncStatus {
+  pending
+  synced
+  failed
+}
+
+// ============================================================================
+// AuditLog - Security audit trail for booking actions
+// ============================================================================
+
+model AuditLog {
+  id          String      @id @default(uuid())
+  userId      String      // Who performed the action
+  action      AuditAction
+  resourceId  String?     // Appointment ID or other resource
+  metadata    Json?       // Additional context (no raw GPS)
+  ipAddress   String?     // For abuse detection (hashed or masked)
+  userAgent   String?     // Browser/client info
+  createdAt   DateTime    @default(now())
+
+  @@index([userId])
+  @@index([action])
+  @@index([createdAt])
+  @@index([resourceId])
+}
+
+enum AuditAction {
+  appointment_created
+  appointment_cancelled
+  appointment_viewed
+  route_requested
+  auth_failed
+}

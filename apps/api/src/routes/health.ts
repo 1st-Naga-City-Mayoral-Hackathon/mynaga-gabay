@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
 router.get('/readiness', async (req, res) => {
     const checks = {
         claude: !!process.env.CLAUDE_API_KEY,
-        database: !!process.env.DATABASE_URL,
+        database: !!(process.env.API_DATABASE_URL || process.env.DATABASE_URL || process.env.POSTGRES_DATABASE_PUBLIC_URL),
     };
 
     const allReady = Object.values(checks).every(Boolean);

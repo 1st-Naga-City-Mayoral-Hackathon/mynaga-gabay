@@ -319,3 +319,19 @@
   }
 }
 
+/* Leaflet Map Overrides */
+/* Note: Leaflet CSS is dynamically imported in RouteMapCard.tsx */
+.leaflet-container {
+  font-family: inherit;
+  z-index: 0;
+}
+
+.leaflet-control-zoom {
+  border: none !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.leaflet-control-zoom a {
+  border-radius: 4px !important;
+}
+

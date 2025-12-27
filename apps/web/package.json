@@ -4,11 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "prisma generate --schema ../../prisma/schema.prisma && next build",
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "postinstall": "prisma generate",
+    "postinstall": "prisma generate --schema ../../prisma/schema.prisma",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -28,6 +28,8 @@
     "bcryptjs": "^3.0.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "leaflet": "^1.9.4",
+    "@types/leaflet": "^1.9.21",
     "lucide-react": "^0.555.0",
     "next": "14.2.35",
     "next-auth": "^5.0.0-beta.30",
@@ -35,6 +37,7 @@
     "prisma": "^5.22.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-leaflet": "^4.2.1",
     "react-markdown": "^10.1.0",
     "tailwind-merge": "^3.4.0",
     "tailwindcss-animate": "^1.0.7"

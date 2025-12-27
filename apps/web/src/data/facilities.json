@@ -28,10 +28,10 @@
     },
     {
       "id": "fac-002",
-      "name": "Naga City Hospital",
+      "name": "Naga City General Hospital (NCGH)",
       "type": "hospital",
-      "address": "Peñafrancia Avenue, Naga City",
-      "barangay": "Centro",
+      "address": "Access Road, Balatas, Naga City",
+      "barangay": "Balatas",
       "city": "Naga City",
       "province": "Camarines Sur",
       "phone": "(054) 811-1234",
@@ -44,7 +44,7 @@
         "Laboratory"
       ],
       "philhealthAccredited": true,
-      "notes": "",
+      "notes": "Relocated/replaced the old Naga City Hospital; current facility is in Balatas.",
       "source": "Curated"
     },
     {

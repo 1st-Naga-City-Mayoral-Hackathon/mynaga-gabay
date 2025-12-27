@@ -191,13 +191,13 @@ export function ChatSidebar({ isOpen, isCollapsed, onClose, onToggleCollapse, cu
                                 <TooltipProvider>
                                     <Tooltip>
                                         <TooltipTrigger asChild>
-                                            <Link href="/prescription">
+                                            <Link href="/my-meds">
                                                 <Button variant="ghost" size="icon" className="h-10 w-10">
-                                                    <span>📷</span>
+                                                    <span>⏰</span>
                                                 </Button>
                                             </Link>
                                         </TooltipTrigger>
-                                        <TooltipContent side="right">Prescription Scanner</TooltipContent>
+                                        <TooltipContent side="right">My Medicines</TooltipContent>
                                     </Tooltip>
                                 </TooltipProvider>
                                 <TooltipProvider>
@@ -225,9 +225,9 @@ export function ChatSidebar({ isOpen, isCollapsed, onClose, onToggleCollapse, cu
                                         <span>💊</span> Medications
                                     </Button>
                                 </Link>
-                                <Link href="/prescription">
+                                <Link href="/my-meds">
                                     <Button variant="ghost" className="w-full justify-start gap-2 text-sm">
-                                        <span>📷</span> Prescription Scanner
+                                        <span>⏰</span> My Medicines
                                     </Button>
                                 </Link>
                                 <Link href="/philhealth">

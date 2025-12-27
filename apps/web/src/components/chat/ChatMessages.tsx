@@ -10,6 +10,8 @@ interface MessageType {
   id: string;
   role: 'user' | 'assistant';
   content: string;
+  imagePreviewUrl?: string;
+  imageName?: string;
 }
 
 interface ChatMessagesProps {

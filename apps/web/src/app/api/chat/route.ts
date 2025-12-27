@@ -1,4 +1,7 @@
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
+import type { UserLocation, AssistantEnvelope } from '@mynaga/shared';
+import { orchestrateResponse, shouldOrchestrate } from '@/lib/chat-orchestrator';
+import { checkRateLimit, rateLimitHeaders, CHAT_RATE_LIMIT } from '@/lib/rate-limit';
 
 // Node runtime to avoid Edge 25s timeout (n8n/LLM calls can exceed this)
 export const runtime = 'nodejs';
@@ -122,9 +125,36 @@ function normalizeLanguage(language: string | undefined): string {
     return normalized || 'english';
 }
 
+/**
+ * Request body type
+ */
+interface ChatRequestBody {
+    messages: Array<{ role: string; content: string }>;
+    language?: string;
+    location?: UserLocation;
+    wantsBooking?: boolean;
+    hasImageAttachment?: boolean;
+}
+
 export async function POST(req: NextRequest) {
+    // Check rate limit first
+    const rateLimitResult = await checkRateLimit(req, CHAT_RATE_LIMIT);
+    if (!rateLimitResult.success) {
+        return NextResponse.json(
+            {
+                success: false,
+                error: rateLimitResult.error,
+            },
+            {
+                status: 429,
+                headers: rateLimitHeaders(rateLimitResult),
+            }
+        );
+    }
+
     try {
-        const { messages, language } = await req.json();
+        const body: ChatRequestBody = await req.json();
+        const { messages, language, location, wantsBooking, hasImageAttachment } = body;
 
         // Get the last user message
         const lastMessage = messages?.[messages.length - 1];
@@ -139,6 +169,108 @@ export async function POST(req: NextRequest) {
         const userLanguage = normalizeLanguage(language);
 
         console.log(`[Chat API] User language: ${language} → ${userLanguage}`);
+        console.log(`[Chat API] Location:`, location);
+
+        // ============================================
+        // Demo prescription scanner short-circuit
+        // ============================================
+        // Demo scanner is enabled if explicitly true, OR by default in non-production.
+        // In non-production you can disable by setting DEMO_PRESCRIPTION_SCANNER=false.
+        const demoFlag = (process.env.DEMO_PRESCRIPTION_SCANNER || '').toLowerCase();
+        const demoPrescriptionEnabled =
+          demoFlag === 'true' || (process.env.NODE_ENV !== 'production' && demoFlag !== 'false');
+
+        if (demoPrescriptionEnabled && hasImageAttachment) {
+          const todayIso = new Date().toISOString().slice(0, 10);
+          const demoEnvelope: AssistantEnvelope = {
+            text: `Demo prescription scan result (simulated). Please verify the details with your doctor/pharmacist before following any instructions.`,
+            language: userLanguage,
+            safety: {
+              disclaimer:
+                'This is a demo scan and not a medical diagnosis. Prescriptions can be misread. Please confirm medicine name, strength, and dosage with a pharmacist/doctor. If you have severe breathing difficulty, chest pain, confusion, or worsening symptoms, seek urgent care.',
+              urgency: 'clinic',
+            },
+            cards: [
+              {
+                cardType: 'prescription',
+                title: 'Prescription scan (demo)',
+                demo: true,
+                confidence: 'demo',
+                patientName: 'Juan Dela Cruz',
+                date: 'December 22, 2024',
+                age: 35,
+                prescriberName: 'Dr. Maria Santos, MD',
+                prescriberLicense: '12345678',
+                needsVerification: true,
+                items: [
+                  {
+                    medicationName: 'Ambroxol',
+                    strength: '30mg',
+                    form: 'Syrup',
+                    sig: '1 tablespoon 3x a day after meals x 5 days',
+                    durationDays: 5,
+                    confidence: 'demo',
+                  },
+                  {
+                    medicationName: 'Salbutamol',
+                    strength: '2mg',
+                    form: 'Tablet',
+                    sig: '1 tab 3x a day as needed for cough',
+                    prn: true,
+                    confidence: 'demo',
+                  },
+                ],
+                warnings: [
+                  'Verify drug name/strength and directions before taking.',
+                  'If you have allergies, pregnancy, heart disease, or other conditions, confirm safety first.',
+                ],
+              },
+              {
+                cardType: 'medication_plan',
+                title: 'Medication plan (demo)',
+                source: 'prescription_scan',
+                needsVerification: true,
+                items: [
+                  {
+                    medicationName: 'Ambroxol',
+                    strength: '30mg',
+                    form: 'Syrup',
+                    scheduleSummary: '1 tablespoon, 3x/day after meals for 5 days',
+                    timesOfDay: ['08:00', '13:00', '18:00'],
+                    startDate: todayIso,
+                    durationDays: 5,
+                    needsVerification: true,
+                  },
+                  {
+                    medicationName: 'Salbutamol',
+                    strength: '2mg',
+                    form: 'Tablet',
+                    scheduleSummary: '1 tablet, up to 3x/day as needed for cough (PRN)',
+                    prn: true,
+                    needsVerification: true,
+                  },
+                ],
+              },
+            ],
+            timestamp: new Date().toISOString(),
+          };
+
+          const encoder = new TextEncoder();
+          const stream = new ReadableStream({
+            start(controller) {
+              const sseData = `0:${JSON.stringify(demoEnvelope)}\n`;
+              controller.enqueue(encoder.encode(sseData));
+              controller.close();
+            },
+          });
+
+          return new Response(stream, {
+            headers: {
+              'Content-Type': 'text/event-stream; charset=utf-8',
+              'Cache-Control': 'no-cache',
+            },
+          });
+        }
 
         // ============================================
         // Step 1: Translate user message to English (with fallback)
@@ -250,11 +382,41 @@ export async function POST(req: NextRequest) {
           finalResponse = translatedBack.text;
         }
 
-        // Return as SSE stream format compatible with AI SDK useChat
+        // ============================================
+        // Step 4: Orchestrate structured response (cards, facilities, routes)
+        // ============================================
+        let envelope: AssistantEnvelope | null = null;
+
+        if (shouldOrchestrate(userMessage)) {
+            console.log('[Chat API] Orchestrating structured response...');
+            try {
+                envelope = await orchestrateResponse({
+                    userMessage,
+                    llmResponse: finalResponse,
+                    language: userLanguage,
+                    location,
+                    wantsBooking,
+                });
+                console.log(`[Chat API] Orchestration complete: ${envelope.cards.length} cards`);
+            } catch (err) {
+                console.error('[Chat API] Orchestration failed:', err);
+                // Continue with text-only response
+            }
+        }
+
+        // ============================================
+        // Step 5: Return SSE response
+        // ============================================
         const encoder = new TextEncoder();
+
+        // If we have an envelope, return it even if there are 0 cards.
+        // This preserves safety banners/disclaimers in the UI for cases like ER triage
+        // where we intentionally avoid medication cards and may have no location-based cards.
+        const responsePayload = envelope ? envelope : finalResponse;
+
         const stream = new ReadableStream({
             start(controller) {
-                const sseData = `0:${JSON.stringify(finalResponse)}\n`;
+                const sseData = `0:${JSON.stringify(responsePayload)}\n`;
                 controller.enqueue(encoder.encode(sseData));
                 controller.close();
             },
