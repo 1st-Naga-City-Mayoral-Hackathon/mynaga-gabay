@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import type { Map as LeafletMap } from 'leaflet';
 import type { RouteCard } from '@mynaga/shared';
 import {
   Navigation,
@@ -54,7 +55,7 @@ function getExternalMapLinks(from: { lat: number; lng: number }, to: { lat: numb
 
 export function RouteMapCard({ card }: RouteMapCardProps) {
   const mapContainerRef = useRef<HTMLDivElement>(null);
-  const mapInstanceRef = useRef<L.Map | null>(null);
+  const mapInstanceRef = useRef<LeafletMap | null>(null);
   const [mapError, setMapError] = useState(false);
   const [showDirections, setShowDirections] = useState(false);
 
